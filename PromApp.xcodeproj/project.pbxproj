@@ -1,0 +1,455 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D2A4751E1962198D005C2502 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2A4751D1962198D005C2502 /* Foundation.framework */; };
+		D2A475201962198D005C2502 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2A4751F1962198D005C2502 /* CoreGraphics.framework */; };
+		D2A475221962198D005C2502 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2A475211962198D005C2502 /* UIKit.framework */; };
+		D2A475281962198D005C2502 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D2A475261962198D005C2502 /* InfoPlist.strings */; };
+		D2A4752A1962198D005C2502 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D2A475291962198D005C2502 /* main.m */; };
+		D2A4752E1962198D005C2502 /* SKAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D2A4752D1962198D005C2502 /* SKAppDelegate.m */; };
+		D2A475301962198D005C2502 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2A4752F1962198D005C2502 /* Images.xcassets */; };
+		D2A475371962198D005C2502 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2A475361962198D005C2502 /* XCTest.framework */; };
+		D2A475381962198D005C2502 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2A4751D1962198D005C2502 /* Foundation.framework */; };
+		D2A475391962198D005C2502 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2A475211962198D005C2502 /* UIKit.framework */; };
+		D2A475411962198D005C2502 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D2A4753F1962198D005C2502 /* InfoPlist.strings */; };
+		D2A475431962198D005C2502 /* PromAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D2A475421962198D005C2502 /* PromAppTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D2A4753A1962198D005C2502 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D2A475121962198D005C2502 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D2A475191962198D005C2502;
+			remoteInfo = PromApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D2A4751A1962198D005C2502 /* PromApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PromApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2A4751D1962198D005C2502 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D2A4751F1962198D005C2502 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		D2A475211962198D005C2502 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		D2A475251962198D005C2502 /* PromApp-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PromApp-Info.plist"; sourceTree = "<group>"; };
+		D2A475271962198D005C2502 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D2A475291962198D005C2502 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D2A4752B1962198D005C2502 /* PromApp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PromApp-Prefix.pch"; sourceTree = "<group>"; };
+		D2A4752C1962198D005C2502 /* SKAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKAppDelegate.h; sourceTree = "<group>"; };
+		D2A4752D1962198D005C2502 /* SKAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SKAppDelegate.m; sourceTree = "<group>"; };
+		D2A4752F1962198D005C2502 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		D2A475351962198D005C2502 /* PromAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PromAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2A475361962198D005C2502 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		D2A4753E1962198D005C2502 /* PromAppTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PromAppTests-Info.plist"; sourceTree = "<group>"; };
+		D2A475401962198D005C2502 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D2A475421962198D005C2502 /* PromAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PromAppTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D2A475171962198D005C2502 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D2A475201962198D005C2502 /* CoreGraphics.framework in Frameworks */,
+				D2A475221962198D005C2502 /* UIKit.framework in Frameworks */,
+				D2A4751E1962198D005C2502 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2A475321962198D005C2502 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D2A475371962198D005C2502 /* XCTest.framework in Frameworks */,
+				D2A475391962198D005C2502 /* UIKit.framework in Frameworks */,
+				D2A475381962198D005C2502 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D2A475111962198D005C2502 = {
+			isa = PBXGroup;
+			children = (
+				D2A475231962198D005C2502 /* PromApp */,
+				D2A4753C1962198D005C2502 /* PromAppTests */,
+				D2A4751C1962198D005C2502 /* Frameworks */,
+				D2A4751B1962198D005C2502 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D2A4751B1962198D005C2502 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D2A4751A1962198D005C2502 /* PromApp.app */,
+				D2A475351962198D005C2502 /* PromAppTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D2A4751C1962198D005C2502 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D2A4751D1962198D005C2502 /* Foundation.framework */,
+				D2A4751F1962198D005C2502 /* CoreGraphics.framework */,
+				D2A475211962198D005C2502 /* UIKit.framework */,
+				D2A475361962198D005C2502 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D2A475231962198D005C2502 /* PromApp */ = {
+			isa = PBXGroup;
+			children = (
+				D2A4752C1962198D005C2502 /* SKAppDelegate.h */,
+				D2A4752D1962198D005C2502 /* SKAppDelegate.m */,
+				D2A4752F1962198D005C2502 /* Images.xcassets */,
+				D2A475241962198D005C2502 /* Supporting Files */,
+			);
+			path = PromApp;
+			sourceTree = "<group>";
+		};
+		D2A475241962198D005C2502 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D2A475251962198D005C2502 /* PromApp-Info.plist */,
+				D2A475261962198D005C2502 /* InfoPlist.strings */,
+				D2A475291962198D005C2502 /* main.m */,
+				D2A4752B1962198D005C2502 /* PromApp-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D2A4753C1962198D005C2502 /* PromAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				D2A475421962198D005C2502 /* PromAppTests.m */,
+				D2A4753D1962198D005C2502 /* Supporting Files */,
+			);
+			path = PromAppTests;
+			sourceTree = "<group>";
+		};
+		D2A4753D1962198D005C2502 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D2A4753E1962198D005C2502 /* PromAppTests-Info.plist */,
+				D2A4753F1962198D005C2502 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D2A475191962198D005C2502 /* PromApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D2A475461962198D005C2502 /* Build configuration list for PBXNativeTarget "PromApp" */;
+			buildPhases = (
+				D2A475161962198D005C2502 /* Sources */,
+				D2A475171962198D005C2502 /* Frameworks */,
+				D2A475181962198D005C2502 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PromApp;
+			productName = PromApp;
+			productReference = D2A4751A1962198D005C2502 /* PromApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D2A475341962198D005C2502 /* PromAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D2A475491962198D005C2502 /* Build configuration list for PBXNativeTarget "PromAppTests" */;
+			buildPhases = (
+				D2A475311962198D005C2502 /* Sources */,
+				D2A475321962198D005C2502 /* Frameworks */,
+				D2A475331962198D005C2502 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D2A4753B1962198D005C2502 /* PBXTargetDependency */,
+			);
+			name = PromAppTests;
+			productName = PromAppTests;
+			productReference = D2A475351962198D005C2502 /* PromAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D2A475121962198D005C2502 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = SK;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "___FULLUSERNAME___";
+				TargetAttributes = {
+					D2A475341962198D005C2502 = {
+						TestTargetID = D2A475191962198D005C2502;
+					};
+				};
+			};
+			buildConfigurationList = D2A475151962198D005C2502 /* Build configuration list for PBXProject "PromApp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D2A475111962198D005C2502;
+			productRefGroup = D2A4751B1962198D005C2502 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D2A475191962198D005C2502 /* PromApp */,
+				D2A475341962198D005C2502 /* PromAppTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D2A475181962198D005C2502 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D2A475281962198D005C2502 /* InfoPlist.strings in Resources */,
+				D2A475301962198D005C2502 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2A475331962198D005C2502 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D2A475411962198D005C2502 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D2A475161962198D005C2502 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D2A4752E1962198D005C2502 /* SKAppDelegate.m in Sources */,
+				D2A4752A1962198D005C2502 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2A475311962198D005C2502 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D2A475431962198D005C2502 /* PromAppTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D2A4753B1962198D005C2502 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D2A475191962198D005C2502 /* PromApp */;
+			targetProxy = D2A4753A1962198D005C2502 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D2A475261962198D005C2502 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D2A475271962198D005C2502 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		D2A4753F1962198D005C2502 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D2A475401962198D005C2502 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D2A475441962198D005C2502 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D2A475451962198D005C2502 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D2A475471962198D005C2502 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PromApp/PromApp-Prefix.pch";
+				INFOPLIST_FILE = "PromApp/PromApp-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		D2A475481962198D005C2502 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PromApp/PromApp-Prefix.pch";
+				INFOPLIST_FILE = "PromApp/PromApp-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		D2A4754A1962198D005C2502 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/PromApp.app/PromApp";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PromApp/PromApp-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "PromAppTests/PromAppTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		D2A4754B1962198D005C2502 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/PromApp.app/PromApp";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PromApp/PromApp-Prefix.pch";
+				INFOPLIST_FILE = "PromAppTests/PromAppTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D2A475151962198D005C2502 /* Build configuration list for PBXProject "PromApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D2A475441962198D005C2502 /* Debug */,
+				D2A475451962198D005C2502 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D2A475461962198D005C2502 /* Build configuration list for PBXNativeTarget "PromApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D2A475471962198D005C2502 /* Debug */,
+				D2A475481962198D005C2502 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		D2A475491962198D005C2502 /* Build configuration list for PBXNativeTarget "PromAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D2A4754A1962198D005C2502 /* Debug */,
+				D2A4754B1962198D005C2502 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D2A475121962198D005C2502 /* Project object */;
+}
