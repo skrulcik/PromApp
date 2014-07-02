@@ -19,6 +19,28 @@
 		D2A475391962198D005C2502 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2A475211962198D005C2502 /* UIKit.framework */; };
 		D2A475411962198D005C2502 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D2A4753F1962198D005C2502 /* InfoPlist.strings */; };
 		D2A475431962198D005C2502 /* PromAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D2A475421962198D005C2502 /* PromAppTests.m */; };
+		D2A4754D196219BF005C2502 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2A4754C196219BF005C2502 /* MapKit.framework */; };
+		D2A4754F19624264005C2502 /* IpodLayout.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2A4754E19624264005C2502 /* IpodLayout.storyboard */; };
+		D2A475531962481B005C2502 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2A475521962481B005C2502 /* Parse.framework */; };
+		D2A4755F196249BA005C2502 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2A47554196249BA005C2502 /* Accounts.framework */; };
+		D2A47560196249BA005C2502 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2A47555196249BA005C2502 /* AudioToolbox.framework */; };
+		D2A47561196249BA005C2502 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2A47556196249BA005C2502 /* CFNetwork.framework */; };
+		D2A47562196249BA005C2502 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2A47557196249BA005C2502 /* CoreLocation.framework */; };
+		D2A47563196249BA005C2502 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D2A47558196249BA005C2502 /* libz.dylib */; };
+		D2A47564196249BA005C2502 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2A47559196249BA005C2502 /* MobileCoreServices.framework */; };
+		D2A47565196249BA005C2502 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2A4755A196249BA005C2502 /* QuartzCore.framework */; };
+		D2A47566196249BA005C2502 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2A4755B196249BA005C2502 /* Security.framework */; };
+		D2A47567196249BA005C2502 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2A4755C196249BA005C2502 /* Social.framework */; };
+		D2A47568196249BA005C2502 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2A4755D196249BA005C2502 /* StoreKit.framework */; };
+		D2A47569196249BA005C2502 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2A4755E196249BA005C2502 /* SystemConfiguration.framework */; };
+		D2A4756B19625CBF005C2502 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2A4756A19625CBF005C2502 /* FacebookSDK.framework */; };
+		D2A4756E196262F4005C2502 /* SKLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2A4756D196262F4005C2502 /* SKLoginViewController.m */; };
+		D2A4757119626ADF005C2502 /* SKProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2A4757019626ADF005C2502 /* SKProfileViewController.m */; };
+		D2A475741963105B005C2502 /* SKAddDressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2A475731963105B005C2502 /* SKAddDressViewController.m */; };
+		D2A4757719631D15005C2502 /* SKMainTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2A4757619631D15005C2502 /* SKMainTabViewController.m */; };
+		D2A4757A19632DB8005C2502 /* SKDress.m in Sources */ = {isa = PBXBuildFile; fileRef = D2A4757919632DB8005C2502 /* SKDress.m */; };
+		D2A4757D19633462005C2502 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = D2A4757C19633462005C2502 /* MBProgressHUD.m */; };
+		D2A475821963999E005C2502 /* SKPromFinderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2A475811963999E005C2502 /* SKPromFinderViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +70,35 @@
 		D2A4753E1962198D005C2502 /* PromAppTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PromAppTests-Info.plist"; sourceTree = "<group>"; };
 		D2A475401962198D005C2502 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D2A475421962198D005C2502 /* PromAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PromAppTests.m; sourceTree = "<group>"; };
+		D2A4754C196219BF005C2502 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		D2A4754E19624264005C2502 /* IpodLayout.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IpodLayout.storyboard; sourceTree = "<group>"; };
+		D2A475521962481B005C2502 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		D2A47554196249BA005C2502 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		D2A47555196249BA005C2502 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		D2A47556196249BA005C2502 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		D2A47557196249BA005C2502 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		D2A47558196249BA005C2502 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		D2A47559196249BA005C2502 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		D2A4755A196249BA005C2502 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		D2A4755B196249BA005C2502 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		D2A4755C196249BA005C2502 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		D2A4755D196249BA005C2502 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		D2A4755E196249BA005C2502 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		D2A4756A19625CBF005C2502 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		D2A4756C196262F4005C2502 /* SKLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKLoginViewController.h; sourceTree = "<group>"; };
+		D2A4756D196262F4005C2502 /* SKLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKLoginViewController.m; sourceTree = "<group>"; };
+		D2A4756F19626ADF005C2502 /* SKProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKProfileViewController.h; sourceTree = "<group>"; };
+		D2A4757019626ADF005C2502 /* SKProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKProfileViewController.m; sourceTree = "<group>"; };
+		D2A475721963105B005C2502 /* SKAddDressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKAddDressViewController.h; sourceTree = "<group>"; };
+		D2A475731963105B005C2502 /* SKAddDressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKAddDressViewController.m; sourceTree = "<group>"; };
+		D2A4757519631D15005C2502 /* SKMainTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKMainTabViewController.h; sourceTree = "<group>"; };
+		D2A4757619631D15005C2502 /* SKMainTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKMainTabViewController.m; sourceTree = "<group>"; };
+		D2A4757819632DB8005C2502 /* SKDress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKDress.h; sourceTree = "<group>"; };
+		D2A4757919632DB8005C2502 /* SKDress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKDress.m; sourceTree = "<group>"; };
+		D2A4757B19633462005C2502 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		D2A4757C19633462005C2502 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		D2A475801963999E005C2502 /* SKPromFinderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKPromFinderViewController.h; sourceTree = "<group>"; };
+		D2A475811963999E005C2502 /* SKPromFinderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKPromFinderViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,9 +106,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2A4755F196249BA005C2502 /* Accounts.framework in Frameworks */,
+				D2A47560196249BA005C2502 /* AudioToolbox.framework in Frameworks */,
+				D2A47561196249BA005C2502 /* CFNetwork.framework in Frameworks */,
+				D2A47562196249BA005C2502 /* CoreLocation.framework in Frameworks */,
+				D2A47563196249BA005C2502 /* libz.dylib in Frameworks */,
+				D2A47564196249BA005C2502 /* MobileCoreServices.framework in Frameworks */,
+				D2A47565196249BA005C2502 /* QuartzCore.framework in Frameworks */,
+				D2A47566196249BA005C2502 /* Security.framework in Frameworks */,
+				D2A4756B19625CBF005C2502 /* FacebookSDK.framework in Frameworks */,
+				D2A47567196249BA005C2502 /* Social.framework in Frameworks */,
+				D2A47568196249BA005C2502 /* StoreKit.framework in Frameworks */,
+				D2A47569196249BA005C2502 /* SystemConfiguration.framework in Frameworks */,
 				D2A475201962198D005C2502 /* CoreGraphics.framework in Frameworks */,
 				D2A475221962198D005C2502 /* UIKit.framework in Frameworks */,
+				D2A4754D196219BF005C2502 /* MapKit.framework in Frameworks */,
 				D2A4751E1962198D005C2502 /* Foundation.framework in Frameworks */,
+				D2A475531962481B005C2502 /* Parse.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,6 +161,20 @@
 		D2A4751C1962198D005C2502 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D2A4756A19625CBF005C2502 /* FacebookSDK.framework */,
+				D2A47554196249BA005C2502 /* Accounts.framework */,
+				D2A47555196249BA005C2502 /* AudioToolbox.framework */,
+				D2A47556196249BA005C2502 /* CFNetwork.framework */,
+				D2A47557196249BA005C2502 /* CoreLocation.framework */,
+				D2A47558196249BA005C2502 /* libz.dylib */,
+				D2A47559196249BA005C2502 /* MobileCoreServices.framework */,
+				D2A4755A196249BA005C2502 /* QuartzCore.framework */,
+				D2A4755B196249BA005C2502 /* Security.framework */,
+				D2A4755C196249BA005C2502 /* Social.framework */,
+				D2A4755D196249BA005C2502 /* StoreKit.framework */,
+				D2A4755E196249BA005C2502 /* SystemConfiguration.framework */,
+				D2A475521962481B005C2502 /* Parse.framework */,
+				D2A4754C196219BF005C2502 /* MapKit.framework */,
 				D2A4751D1962198D005C2502 /* Foundation.framework */,
 				D2A4751F1962198D005C2502 /* CoreGraphics.framework */,
 				D2A475211962198D005C2502 /* UIKit.framework */,
@@ -107,6 +186,8 @@
 		D2A475231962198D005C2502 /* PromApp */ = {
 			isa = PBXGroup;
 			children = (
+				D2A4757E19633484005C2502 /* Model */,
+				D2A4757F19633494005C2502 /* Controller */,
 				D2A4752C1962198D005C2502 /* SKAppDelegate.h */,
 				D2A4752D1962198D005C2502 /* SKAppDelegate.m */,
 				D2A4752F1962198D005C2502 /* Images.xcassets */,
@@ -118,6 +199,9 @@
 		D2A475241962198D005C2502 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D2A4757B19633462005C2502 /* MBProgressHUD.h */,
+				D2A4757C19633462005C2502 /* MBProgressHUD.m */,
+				D2A4754E19624264005C2502 /* IpodLayout.storyboard */,
 				D2A475251962198D005C2502 /* PromApp-Info.plist */,
 				D2A475261962198D005C2502 /* InfoPlist.strings */,
 				D2A475291962198D005C2502 /* main.m */,
@@ -142,6 +226,32 @@
 				D2A4753F1962198D005C2502 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D2A4757E19633484005C2502 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D2A4757819632DB8005C2502 /* SKDress.h */,
+				D2A4757919632DB8005C2502 /* SKDress.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		D2A4757F19633494005C2502 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D2A4757519631D15005C2502 /* SKMainTabViewController.h */,
+				D2A4757619631D15005C2502 /* SKMainTabViewController.m */,
+				D2A475721963105B005C2502 /* SKAddDressViewController.h */,
+				D2A475731963105B005C2502 /* SKAddDressViewController.m */,
+				D2A4756F19626ADF005C2502 /* SKProfileViewController.h */,
+				D2A4757019626ADF005C2502 /* SKProfileViewController.m */,
+				D2A4756C196262F4005C2502 /* SKLoginViewController.h */,
+				D2A4756D196262F4005C2502 /* SKLoginViewController.m */,
+				D2A475801963999E005C2502 /* SKPromFinderViewController.h */,
+				D2A475811963999E005C2502 /* SKPromFinderViewController.m */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,6 +302,13 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "___FULLUSERNAME___";
 				TargetAttributes = {
+					D2A475191962198D005C2502 = {
+						SystemCapabilities = {
+							com.apple.iOS = {
+								enabled = 1;
+							};
+						};
+					};
 					D2A475341962198D005C2502 = {
 						TestTargetID = D2A475191962198D005C2502;
 					};
@@ -220,6 +337,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2A4754F19624264005C2502 /* IpodLayout.storyboard in Resources */,
 				D2A475281962198D005C2502 /* InfoPlist.strings in Resources */,
 				D2A475301962198D005C2502 /* Images.xcassets in Resources */,
 			);
@@ -240,8 +358,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2A4756E196262F4005C2502 /* SKLoginViewController.m in Sources */,
 				D2A4752E1962198D005C2502 /* SKAppDelegate.m in Sources */,
+				D2A475741963105B005C2502 /* SKAddDressViewController.m in Sources */,
+				D2A4757119626ADF005C2502 /* SKProfileViewController.m in Sources */,
+				D2A475821963999E005C2502 /* SKPromFinderViewController.m in Sources */,
 				D2A4752A1962198D005C2502 /* main.m in Sources */,
+				D2A4757719631D15005C2502 /* SKMainTabViewController.m in Sources */,
+				D2A4757A19632DB8005C2502 /* SKDress.m in Sources */,
+				D2A4757D19633462005C2502 /* MBProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,6 +485,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PromApp/PromApp-Prefix.pch";
 				INFOPLIST_FILE = "PromApp/PromApp-Info.plist";
@@ -373,6 +502,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PromApp/PromApp-Prefix.pch";
 				INFOPLIST_FILE = "PromApp/PromApp-Info.plist";
@@ -440,6 +573,7 @@
 				D2A475481962198D005C2502 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D2A475491962198D005C2502 /* Build configuration list for PBXNativeTarget "PromAppTests" */ = {
 			isa = XCConfigurationList;
@@ -448,6 +582,7 @@
 				D2A4754B1962198D005C2502 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

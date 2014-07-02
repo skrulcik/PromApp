@@ -8,15 +8,30 @@
 
 #import "SKAppDelegate.h"
 
+#import <Parse/Parse.h>
+
 @implementation SKAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
+    // Parse initialization
+	[Parse setApplicationId:@"PJq63qVW5giu8JBkupPxHADBgSpMEEX87QlZjDlg"
+                  clientKey:@"cxqrUMU3wX4UA67IvLgqv0aT78dhVY1DT3w8LWIt"];
+    // Facebook initialization
+    [PFFacebookUtils initializeFacebook];
+	
+	
+	[PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    
     return YES;
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    //Added to handle facebook API and Parse (i.e. I don't know exactly what it does)
+    return [FBAppCall handleOpenURL:url
+                  sourceApplication:sourceApplication
+                        withSession:[PFFacebookUtils session]];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
@@ -38,7 +53,8 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    //attempt to retrieve previous facebook session (stored by Parse)
+    [FBAppCall handleDidBecomeActiveWithSession:[PFFacebookUtils session]];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
