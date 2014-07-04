@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D22299341964FE5100B747BA /* SKDressListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D22299331964FE5100B747BA /* SKDressListTableViewController.m */; };
+		D22299371965054000B747BA /* SKDressInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D22299361965054000B747BA /* SKDressInfoTableViewCell.m */; };
 		D2A4751E1962198D005C2502 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2A4751D1962198D005C2502 /* Foundation.framework */; };
 		D2A475201962198D005C2502 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2A4751F1962198D005C2502 /* CoreGraphics.framework */; };
 		D2A475221962198D005C2502 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2A475211962198D005C2502 /* UIKit.framework */; };
@@ -54,6 +56,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D22299321964FE5100B747BA /* SKDressListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKDressListTableViewController.h; sourceTree = "<group>"; };
+		D22299331964FE5100B747BA /* SKDressListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKDressListTableViewController.m; sourceTree = "<group>"; };
+		D22299351965054000B747BA /* SKDressInfoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKDressInfoTableViewCell.h; sourceTree = "<group>"; };
+		D22299361965054000B747BA /* SKDressInfoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKDressInfoTableViewCell.m; sourceTree = "<group>"; };
 		D2A4751A1962198D005C2502 /* PromApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PromApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2A4751D1962198D005C2502 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D2A4751F1962198D005C2502 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -139,6 +145,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D22299381965054400B747BA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D22299351965054000B747BA /* SKDressInfoTableViewCell.h */,
+				D22299361965054000B747BA /* SKDressInfoTableViewCell.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		D2A475111962198D005C2502 = {
 			isa = PBXGroup;
 			children = (
@@ -186,6 +201,7 @@
 		D2A475231962198D005C2502 /* PromApp */ = {
 			isa = PBXGroup;
 			children = (
+				D22299381965054400B747BA /* View */,
 				D2A4757E19633484005C2502 /* Model */,
 				D2A4757F19633494005C2502 /* Controller */,
 				D2A4752C1962198D005C2502 /* SKAppDelegate.h */,
@@ -240,6 +256,8 @@
 		D2A4757F19633494005C2502 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				D22299321964FE5100B747BA /* SKDressListTableViewController.h */,
+				D22299331964FE5100B747BA /* SKDressListTableViewController.m */,
 				D2A4757519631D15005C2502 /* SKMainTabViewController.h */,
 				D2A4757619631D15005C2502 /* SKMainTabViewController.m */,
 				D2A475721963105B005C2502 /* SKAddDressViewController.h */,
@@ -360,8 +378,10 @@
 			files = (
 				D2A4756E196262F4005C2502 /* SKLoginViewController.m in Sources */,
 				D2A4752E1962198D005C2502 /* SKAppDelegate.m in Sources */,
+				D22299341964FE5100B747BA /* SKDressListTableViewController.m in Sources */,
 				D2A475741963105B005C2502 /* SKAddDressViewController.m in Sources */,
 				D2A4757119626ADF005C2502 /* SKProfileViewController.m in Sources */,
+				D22299371965054000B747BA /* SKDressInfoTableViewCell.m in Sources */,
 				D2A475821963999E005C2502 /* SKPromFinderViewController.m in Sources */,
 				D2A4752A1962198D005C2502 /* main.m in Sources */,
 				D2A4757719631D15005C2502 /* SKMainTabViewController.m in Sources */,

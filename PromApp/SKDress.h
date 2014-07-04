@@ -8,13 +8,15 @@
 
 #import <Parse/Parse.h>
 
-@interface SKDress : PFObject
+@interface SKDress : PFObject <PFSubclassing>
 
 @property PFUser *owner;
 @property PFUser *store;
 @property NSString *designer;
 @property NSString *styleNumber;
-@property UIColor *dressColor;
-@property UIImage *image;
+@property NSString *dressColor;
+@property PFFile *image;
+
++ (NSString *)parseClassName;
 
 @end
