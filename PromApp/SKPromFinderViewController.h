@@ -9,9 +9,9 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 
-@interface UITPromFinderViewController : UIViewController <MKMapViewDelegate>
+@interface SKPromFinderViewController : UIViewController <MKMapViewDelegate>
 
-@property (nonatomic, strong) IBOutlet MKMapView *map;
+@property (weak, nonatomic) IBOutlet MKMapView *map;
 
 - (void)viewWillAppear:(BOOL)animated;
 

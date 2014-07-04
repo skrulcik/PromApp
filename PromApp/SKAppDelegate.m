@@ -15,6 +15,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Parse initialization
+    [SKDress registerSubclass];
 	[Parse setApplicationId:@"PJq63qVW5giu8JBkupPxHADBgSpMEEX87QlZjDlg"
                   clientKey:@"cxqrUMU3wX4UA67IvLgqv0aT78dhVY1DT3w8LWIt"];
     // Facebook initialization

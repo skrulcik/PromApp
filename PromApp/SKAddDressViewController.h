@@ -7,15 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MBProgressHUD.h"
+#import <Parse/Parse.h>
 
-@interface SKAddDressViewController : UIViewController <UINavigationControllerDelegate, MBProgressHUDDelegate>
-{
-    //For loading symbols
-    MBProgressHUD *HUD;
-    MBProgressHUD *refreshHUD;
-    UIImage *dressImage;
-}
+@interface SKAddDressViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *designerField;
 @property (weak, nonatomic) IBOutlet UITextField *styleNumberField;
@@ -27,4 +21,9 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
 
 - (IBAction)addImage:(id)sender;
+- (void)saveDress;
+- (void)populateImage;
+- (IBAction)showImagePickerForCamera:(id)sender;
+- (IBAction)showImagePickerForPhotoPicker:(id)sender;
+- (void)showImagePickerForSourceType:(UIImagePickerControllerSourceType)sourceType;
 @end

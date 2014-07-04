@@ -9,11 +9,11 @@
 #import "SKPromFinderViewController.h"
 
 
-@interface UITPromFinderViewController ()
+@interface SKPromFinderViewController ()
 
 @end
 
-@implementation UITPromFinderViewController
+@implementation SKPromFinderViewController
 
 @synthesize map;
 

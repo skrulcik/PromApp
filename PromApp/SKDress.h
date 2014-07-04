@@ -1,6 +1,8 @@
 //
 //  SKDress.h
 //  PromApp
+//  An extension of PFObject, the Dress object stores the information necessary to identify a particular dress (designer, style number),
+//  as well as connecting it to a user object. In the future it will also hold associations to Prom and Store objects.
 //
 //  Created by Scott Krulcik on 7/1/14.
 //  Copyright (c) 2014 Scott Krulcik. All rights reserved.
