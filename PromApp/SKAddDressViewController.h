@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 
-@interface SKAddDressViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@interface SKAddDressViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *designerField;
 @property (weak, nonatomic) IBOutlet UITextField *styleNumberField;
@@ -26,4 +26,5 @@
 - (IBAction)showImagePickerForCamera:(id)sender;
 - (IBAction)showImagePickerForPhotoPicker:(id)sender;
 - (void)showImagePickerForSourceType:(UIImagePickerControllerSourceType)sourceType;
+
 @end

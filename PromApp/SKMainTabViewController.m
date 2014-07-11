@@ -7,12 +7,16 @@
 //
 
 #import "SKMainTabViewController.h"
+#import "SKDressListViewController.h"
+#import "SKProfileViewController.h"
+#import "SKLoginViewController.h"
 
 @interface SKMainTabViewController ()
 
 @end
 
 @implementation SKMainTabViewController
+@synthesize addDressButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -26,7 +30,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    /*
+    //Set up navigation bar
+    UINavigationBar *navBar = self.navigationController.navigationBar;
+    UIColor *navBarColor = [UIColor colorWithRed:0 green:210 blue:255 alpha:0.8]; //Later replaced with call to a settings function allowing user to set color
+    UIColor *buttonColor = [UIColor colorWithRed:30 green:255 blue:150 alpha:1];
+    //UIImageView *titleImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"TextLogo"]];
+    UIImage *backgroundImage = [SKMainTabViewController navBackgroundWithColor:navBarColor];
+    [navBar setBackgroundImage:backgroundImage forBarMetrics:UIBarMetricsDefault];
+    [navBar setTintColor:buttonColor];
+     */
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -35,10 +49,34 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction) unwindToTabs:(UIStoryboardSegue *)segue
+- (IBAction) unwindFromLogin:(UIStoryboardSegue *)segue
 {
-    
+    SKProfileViewController *profile = (SKProfileViewController *)self.viewControllers[0];
+    [profile updateData];
 }
+
+- (IBAction) unwindFromAddDress:(UIStoryboardSegue *)segue
+{
+    SKDressListViewController *dressList = (SKDressListViewController *)self.viewControllers[1];
+    [dressList loadDressInfo];
+}
+
+/*
+#pragma mark Utility Methods
++ (UIImage *)navBackgroundWithColor:(UIColor *)color
+{
+    CGRect rect = CGRectMake(0.0f, 0.0f, 640.f, 88.f);
+    UIGraphicsBeginImageContext(rect.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    CGContextSetFillColorWithColor(context, [color CGColor]);
+    CGContextFillRect(context, rect);
+    
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return image;
+}*/
 
 /*
 #pragma mark - Navigation

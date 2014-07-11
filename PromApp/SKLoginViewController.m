@@ -58,6 +58,7 @@
         } else {
             NSLog(@"User logged in through Facebook!");
         }
+        [self performSegueWithIdentifier:@"finishLogin" sender:self];
     }];
 }
 @end

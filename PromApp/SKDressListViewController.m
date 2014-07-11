@@ -1,29 +1,30 @@
 //
-//  SKDressListTableViewController.m
+//  SKDressListViewController.m
 //  PromApp
 //
-//  Created by Scott Krulcik on 7/2/14.
+//  Created by Scott Krulcik on 7/10/14.
 //  Copyright (c) 2014 Scott Krulcik. All rights reserved.
 //
 
-#import "SKDressListTableViewController.h"
 #import <Parse/Parse.h>
-#import "SKDress.h"
-#import "SKDressInfoTableViewCell.h"
 
-@interface SKDressListTableViewController ()
+#import "SKDressListViewController.h"
+#import "SKDressInfoTableViewCell.h"
+#import "SKDress.h"
+
+@interface SKDressListViewController ()
 
 @end
 
-
-@implementation SKDressListTableViewController{
+@implementation SKDressListViewController{
     NSArray *dressIDs;
     enum cellTags {designLabel=101, styleLabel=102, imageView=103};//defined in storyboard, enum for readability
 }
+@synthesize dressListView;
 
-- (id)initWithStyle:(UITableViewStyle)style
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    self = [super initWithStyle:style];
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
     }
@@ -33,12 +34,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    // Register cell list
+    [self.dressListView registerNib:[UINib nibWithNibName:@"DressCell" bundle:nil]
+         forCellReuseIdentifier:@"DressCell"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -71,24 +69,33 @@
 
 -(void) viewDidAppear:(BOOL)animated{
     // Do stuff like reload the tableview data...
-    [self.tableView reloadData];
+    [self loadDressInfo];
+}
+
+-(void) loadDressInfo
+{
+    NSLog(@"Loaded info explicitly");
+    [self.dressListView reloadData];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     SKDressInfoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DressCell"];
+    /*if (cell == nil) {
+        cell = [[SKDressInfoTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"DressCell"];
+    }*/
     
     NSString *objID = dressIDs[indexPath.row];
     PFObject *dressInfo = [PFQuery getObjectOfClass:[SKDress parseClassName] objectId:objID];
     
-    UILabel *designer = (UILabel *)[cell viewWithTag:designLabel];
+    UILabel *designer = cell.designerLabel;
     designer.text = [dressInfo objectForKey:@"designer"];
     
-    UILabel *style = (UILabel *) [cell viewWithTag:styleLabel];
+    UILabel *style = cell.styleNumberLabel;
     style.text = [dressInfo objectForKey:@"styleNumber"];
     
-    UIImageView *dressImageView = (UIImageView *)[cell viewWithTag:imageView];
+    UIImageView *dressImageView = cell.dressPicView;
     //retrieve image
     PFFile *dressPicFile = [dressInfo objectForKey:@"image"];
     [dressPicFile getDataInBackgroundWithBlock:^(NSData *imageData, NSError *error) {
@@ -101,44 +108,11 @@
     return cell;
 }
 
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+    return 80;
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 /*
 #pragma mark - Navigation

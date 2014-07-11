@@ -9,7 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface SKMainTabViewController : UITabBarController
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *addDressButton;
 
-- (IBAction) unwindToTabs:(UIStoryboardSegue *) segue;
+- (IBAction) unwindFromLogin:(UIStoryboardSegue *) segue;
+- (IBAction) unwindFromAddDress:(UIStoryboardSegue *) segue;
+//+ (UIImage *)navBackgroundWithColor:(UIColor *)color;
 
 @end

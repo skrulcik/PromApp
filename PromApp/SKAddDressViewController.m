@@ -92,28 +92,32 @@
 }
 
 - (void)saveDress{
-    PFUser *current = [PFUser currentUser];
-    SKDress *dress = [[SKDress alloc] init];
-    dress.designer = self.designerField.text;
-    dress.styleNumber = self.styleNumberField.text;
-    dress.owner = current;
-    //Save Image of dress as PFFile
-    NSData *imageData = UIImagePNGRepresentation(self.dressImageView.image);
-    NSString *filename = [NSString stringWithFormat:@"%@%@Picture.png",dress.designer, dress.styleNumber];
-    PFFile *imageFile = [PFFile fileWithName:filename data:imageData];
-    dress.image = imageFile;
-    
-    [dress saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
-        if (succeeded){
-            NSLog(@"Succeeded in saving %@ dress", dress.designer);
-            NSLog(@"DressID: %@", dress.objectId);
-            [current addObject:dress.objectId forKey:@"dressIDs"];
-            [current saveInBackground];
+    NSString *designerText = self.designerField.text;
+    NSString *number = self.styleNumberField.text;
+    if(designerText != nil && number != nil){
+        PFUser *current = [PFUser currentUser];
+        SKDress *dress = [[SKDress alloc] init];
+        dress.designer = designerText;
+        dress.styleNumber = number;
+        dress.owner = current;
+        //Save Image of dress as PFFile
+        NSData *imageData = UIImagePNGRepresentation(self.dressImageView.image);
+        NSString *filename = [NSString stringWithFormat:@"%@%@Picture.png",dress.designer, dress.styleNumber];
+        PFFile *imageFile = [PFFile fileWithName:filename data:imageData];
+        dress.image = imageFile;
+        
+        [dress saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
+            if (succeeded){
+                NSLog(@"Succeeded in saving %@ dress", dress.designer);
+                NSLog(@"DressID: %@", dress.objectId);
+                [current addObject:dress.objectId forKey:@"dressIDs"];
+                [current saveInBackground];
 
-        } else {
-            NSLog(@"Failed in saving %@ dress", dress.designer);
-        }
-    }];
+            } else {
+                NSLog(@"Failed in saving %@ dress", dress.designer);
+            }
+        }];
+    }
 }
 
 - (void)populateImage
@@ -145,7 +149,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([segue.destinationViewController isKindOfClass:[SKMainTabViewController class]]) {
+    if ([segue.destinationViewController isKindOfClass:[SKMainTabViewController class]] && sender==doneButton) {
         [self saveDress];
     }
 }
@@ -169,6 +173,10 @@
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
+- (BOOL) textFieldShouldReturn:(UITextField *)textField{
+    [textField resignFirstResponder];
+    return YES;
+}
 
 
 /*

@@ -14,4 +14,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *emailLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *profilePicture;
 
+- (void) updateData;
+- (void) clearData;
+- (void) showLoginScreen;
+- (IBAction)logoutUser:(id)sender;
 @end

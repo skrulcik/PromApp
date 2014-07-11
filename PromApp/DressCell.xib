@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DressCell" rowHeight="80" id="QH5-iu-k4s" customClass="SKDressInfoTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QH5-iu-k4s" id="NLj-A9-74g">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="79"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DressIcon" translatesAutoresizingMaskIntoConstraints="NO" id="zZe-aj-T0j">
+                        <rect key="frame" x="0.0" y="0.0" width="79" height="79"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="zZe-aj-T0j" secondAttribute="height" multiplier="1:1" id="BAR-qN-5AX"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Designer" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z5x-sE-ASJ">
+                        <rect key="frame" x="92" y="8" width="208" height="41"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="41" id="BPY-vF-1bc"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Style Number" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gI5-5b-DRt">
+                        <rect key="frame" x="92" y="48" width="208" height="24"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="zZe-aj-T0j" firstAttribute="top" secondItem="NLj-A9-74g" secondAttribute="top" id="5wL-Qk-TGp"/>
+                    <constraint firstItem="gI5-5b-DRt" firstAttribute="trailing" secondItem="Z5x-sE-ASJ" secondAttribute="trailing" id="EAa-6e-Ftw"/>
+                    <constraint firstItem="Z5x-sE-ASJ" firstAttribute="leading" secondItem="zZe-aj-T0j" secondAttribute="trailing" constant="13" id="EKi-UC-4QK"/>
+                    <constraint firstItem="gI5-5b-DRt" firstAttribute="leading" secondItem="Z5x-sE-ASJ" secondAttribute="leading" id="aIH-bG-kAo"/>
+                    <constraint firstItem="gI5-5b-DRt" firstAttribute="top" secondItem="Z5x-sE-ASJ" secondAttribute="bottom" constant="-1" id="du0-IC-Juv"/>
+                    <constraint firstAttribute="bottom" secondItem="gI5-5b-DRt" secondAttribute="bottom" constant="7" id="jlf-ZB-7yL"/>
+                    <constraint firstItem="Z5x-sE-ASJ" firstAttribute="top" secondItem="NLj-A9-74g" secondAttribute="top" constant="8" id="jqC-oI-xYz"/>
+                    <constraint firstItem="zZe-aj-T0j" firstAttribute="leading" secondItem="NLj-A9-74g" secondAttribute="leading" id="tsv-bV-9TS"/>
+                    <constraint firstAttribute="trailing" secondItem="Z5x-sE-ASJ" secondAttribute="trailing" constant="20" id="wTs-az-g90"/>
+                    <constraint firstAttribute="bottom" secondItem="zZe-aj-T0j" secondAttribute="bottom" id="zux-7M-H8C"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="designerLabel" destination="Z5x-sE-ASJ" id="O22-Hg-dIw"/>
+                <outlet property="dressPicView" destination="zZe-aj-T0j" id="gi0-jI-yxD"/>
+                <outlet property="styleNumberLabel" destination="gI5-5b-DRt" id="9do-yo-tyD"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="DressIcon" width="30" height="30"/>
+    </resources>
+</document>

@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D22299341964FE5100B747BA /* SKDressListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D22299331964FE5100B747BA /* SKDressListTableViewController.m */; };
+		D2103456196F9EF70088484B /* DressCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2103455196F9EF70088484B /* DressCell.xib */; };
 		D22299371965054000B747BA /* SKDressInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D22299361965054000B747BA /* SKDressInfoTableViewCell.m */; };
+		D286BA3F196E47EE00AFC9C0 /* SKDressListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D286BA3E196E47EE00AFC9C0 /* SKDressListViewController.m */; };
 		D2A4751E1962198D005C2502 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2A4751D1962198D005C2502 /* Foundation.framework */; };
 		D2A475201962198D005C2502 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2A4751F1962198D005C2502 /* CoreGraphics.framework */; };
 		D2A475221962198D005C2502 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2A475211962198D005C2502 /* UIKit.framework */; };
@@ -43,6 +44,7 @@
 		D2A4757A19632DB8005C2502 /* SKDress.m in Sources */ = {isa = PBXBuildFile; fileRef = D2A4757919632DB8005C2502 /* SKDress.m */; };
 		D2A4757D19633462005C2502 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = D2A4757C19633462005C2502 /* MBProgressHUD.m */; };
 		D2A475821963999E005C2502 /* SKPromFinderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2A475811963999E005C2502 /* SKPromFinderViewController.m */; };
+		D2FB986A196CFAE1003BFCEE /* SKAppearanceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D2FB9869196CFAE1003BFCEE /* SKAppearanceManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,10 +58,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		D22299321964FE5100B747BA /* SKDressListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKDressListTableViewController.h; sourceTree = "<group>"; };
-		D22299331964FE5100B747BA /* SKDressListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKDressListTableViewController.m; sourceTree = "<group>"; };
+		D2103455196F9EF70088484B /* DressCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DressCell.xib; sourceTree = "<group>"; };
 		D22299351965054000B747BA /* SKDressInfoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKDressInfoTableViewCell.h; sourceTree = "<group>"; };
 		D22299361965054000B747BA /* SKDressInfoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKDressInfoTableViewCell.m; sourceTree = "<group>"; };
+		D286BA3D196E47EE00AFC9C0 /* SKDressListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKDressListViewController.h; sourceTree = "<group>"; };
+		D286BA3E196E47EE00AFC9C0 /* SKDressListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKDressListViewController.m; sourceTree = "<group>"; };
 		D2A4751A1962198D005C2502 /* PromApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PromApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2A4751D1962198D005C2502 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D2A4751F1962198D005C2502 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -105,6 +108,8 @@
 		D2A4757C19633462005C2502 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		D2A475801963999E005C2502 /* SKPromFinderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKPromFinderViewController.h; sourceTree = "<group>"; };
 		D2A475811963999E005C2502 /* SKPromFinderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKPromFinderViewController.m; sourceTree = "<group>"; };
+		D2FB9868196CFAE1003BFCEE /* SKAppearanceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKAppearanceManager.h; sourceTree = "<group>"; };
+		D2FB9869196CFAE1003BFCEE /* SKAppearanceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKAppearanceManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +153,8 @@
 		D22299381965054400B747BA /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D2103455196F9EF70088484B /* DressCell.xib */,
+				D2A4754E19624264005C2502 /* IpodLayout.storyboard */,
 				D22299351965054000B747BA /* SKDressInfoTableViewCell.h */,
 				D22299361965054000B747BA /* SKDressInfoTableViewCell.m */,
 			);
@@ -217,11 +224,12 @@
 			children = (
 				D2A4757B19633462005C2502 /* MBProgressHUD.h */,
 				D2A4757C19633462005C2502 /* MBProgressHUD.m */,
-				D2A4754E19624264005C2502 /* IpodLayout.storyboard */,
 				D2A475251962198D005C2502 /* PromApp-Info.plist */,
 				D2A475261962198D005C2502 /* InfoPlist.strings */,
 				D2A475291962198D005C2502 /* main.m */,
 				D2A4752B1962198D005C2502 /* PromApp-Prefix.pch */,
+				D2FB9868196CFAE1003BFCEE /* SKAppearanceManager.h */,
+				D2FB9869196CFAE1003BFCEE /* SKAppearanceManager.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -256,8 +264,6 @@
 		D2A4757F19633494005C2502 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				D22299321964FE5100B747BA /* SKDressListTableViewController.h */,
-				D22299331964FE5100B747BA /* SKDressListTableViewController.m */,
 				D2A4757519631D15005C2502 /* SKMainTabViewController.h */,
 				D2A4757619631D15005C2502 /* SKMainTabViewController.m */,
 				D2A475721963105B005C2502 /* SKAddDressViewController.h */,
@@ -268,6 +274,8 @@
 				D2A4756D196262F4005C2502 /* SKLoginViewController.m */,
 				D2A475801963999E005C2502 /* SKPromFinderViewController.h */,
 				D2A475811963999E005C2502 /* SKPromFinderViewController.m */,
+				D286BA3D196E47EE00AFC9C0 /* SKDressListViewController.h */,
+				D286BA3E196E47EE00AFC9C0 /* SKDressListViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -358,6 +366,7 @@
 				D2A4754F19624264005C2502 /* IpodLayout.storyboard in Resources */,
 				D2A475281962198D005C2502 /* InfoPlist.strings in Resources */,
 				D2A475301962198D005C2502 /* Images.xcassets in Resources */,
+				D2103456196F9EF70088484B /* DressCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,11 +385,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D286BA3F196E47EE00AFC9C0 /* SKDressListViewController.m in Sources */,
 				D2A4756E196262F4005C2502 /* SKLoginViewController.m in Sources */,
 				D2A4752E1962198D005C2502 /* SKAppDelegate.m in Sources */,
-				D22299341964FE5100B747BA /* SKDressListTableViewController.m in Sources */,
 				D2A475741963105B005C2502 /* SKAddDressViewController.m in Sources */,
 				D2A4757119626ADF005C2502 /* SKProfileViewController.m in Sources */,
+				D2FB986A196CFAE1003BFCEE /* SKAppearanceManager.m in Sources */,
 				D22299371965054000B747BA /* SKDressInfoTableViewCell.m in Sources */,
 				D2A475821963999E005C2502 /* SKPromFinderViewController.m in Sources */,
 				D2A4752A1962198D005C2502 /* main.m in Sources */,

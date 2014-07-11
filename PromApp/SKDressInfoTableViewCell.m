@@ -9,6 +9,9 @@
 #import "SKDressInfoTableViewCell.h"
 
 @implementation SKDressInfoTableViewCell
+@synthesize designerLabel;
+@synthesize styleNumberLabel;
+@synthesize dressPicView;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {

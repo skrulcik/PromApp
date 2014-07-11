@@ -10,4 +10,7 @@
 
 @interface SKDressInfoTableViewCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *styleNumberLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *dressPicView;
+@property (weak, nonatomic) IBOutlet UILabel *designerLabel;
 @end
