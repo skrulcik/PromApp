@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D2103456196F9EF70088484B /* DressCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2103455196F9EF70088484B /* DressCell.xib */; };
+		D21034591970AC710088484B /* SKAddPromViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D21034581970AC710088484B /* SKAddPromViewController.m */; };
 		D22299371965054000B747BA /* SKDressInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D22299361965054000B747BA /* SKDressInfoTableViewCell.m */; };
 		D286BA3F196E47EE00AFC9C0 /* SKDressListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D286BA3E196E47EE00AFC9C0 /* SKDressListViewController.m */; };
 		D2A4751E1962198D005C2502 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2A4751D1962198D005C2502 /* Foundation.framework */; };
@@ -44,6 +45,7 @@
 		D2A4757A19632DB8005C2502 /* SKDress.m in Sources */ = {isa = PBXBuildFile; fileRef = D2A4757919632DB8005C2502 /* SKDress.m */; };
 		D2A4757D19633462005C2502 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = D2A4757C19633462005C2502 /* MBProgressHUD.m */; };
 		D2A475821963999E005C2502 /* SKPromFinderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2A475811963999E005C2502 /* SKPromFinderViewController.m */; };
+		D2F1440E1970D24400046490 /* SKProm.m in Sources */ = {isa = PBXBuildFile; fileRef = D2F1440D1970D24400046490 /* SKProm.m */; };
 		D2FB986A196CFAE1003BFCEE /* SKAppearanceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D2FB9869196CFAE1003BFCEE /* SKAppearanceManager.m */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +61,8 @@
 
 /* Begin PBXFileReference section */
 		D2103455196F9EF70088484B /* DressCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DressCell.xib; sourceTree = "<group>"; };
+		D21034571970AC710088484B /* SKAddPromViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKAddPromViewController.h; sourceTree = "<group>"; };
+		D21034581970AC710088484B /* SKAddPromViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKAddPromViewController.m; sourceTree = "<group>"; };
 		D22299351965054000B747BA /* SKDressInfoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKDressInfoTableViewCell.h; sourceTree = "<group>"; };
 		D22299361965054000B747BA /* SKDressInfoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKDressInfoTableViewCell.m; sourceTree = "<group>"; };
 		D286BA3D196E47EE00AFC9C0 /* SKDressListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKDressListViewController.h; sourceTree = "<group>"; };
@@ -108,6 +112,8 @@
 		D2A4757C19633462005C2502 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		D2A475801963999E005C2502 /* SKPromFinderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKPromFinderViewController.h; sourceTree = "<group>"; };
 		D2A475811963999E005C2502 /* SKPromFinderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKPromFinderViewController.m; sourceTree = "<group>"; };
+		D2F1440C1970D24400046490 /* SKProm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKProm.h; sourceTree = "<group>"; };
+		D2F1440D1970D24400046490 /* SKProm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKProm.m; sourceTree = "<group>"; };
 		D2FB9868196CFAE1003BFCEE /* SKAppearanceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKAppearanceManager.h; sourceTree = "<group>"; };
 		D2FB9869196CFAE1003BFCEE /* SKAppearanceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKAppearanceManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -159,6 +165,15 @@
 				D22299361965054000B747BA /* SKDressInfoTableViewCell.m */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		D2A101111974AA360019A2B3 /* Externally Created Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D2A4757B19633462005C2502 /* MBProgressHUD.h */,
+				D2A4757C19633462005C2502 /* MBProgressHUD.m */,
+			);
+			name = "Externally Created Resources";
 			sourceTree = "<group>";
 		};
 		D2A475111962198D005C2502 = {
@@ -222,8 +237,7 @@
 		D2A475241962198D005C2502 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				D2A4757B19633462005C2502 /* MBProgressHUD.h */,
-				D2A4757C19633462005C2502 /* MBProgressHUD.m */,
+				D2A101111974AA360019A2B3 /* Externally Created Resources */,
 				D2A475251962198D005C2502 /* PromApp-Info.plist */,
 				D2A475261962198D005C2502 /* InfoPlist.strings */,
 				D2A475291962198D005C2502 /* main.m */,
@@ -257,6 +271,8 @@
 			children = (
 				D2A4757819632DB8005C2502 /* SKDress.h */,
 				D2A4757919632DB8005C2502 /* SKDress.m */,
+				D2F1440C1970D24400046490 /* SKProm.h */,
+				D2F1440D1970D24400046490 /* SKProm.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -276,6 +292,8 @@
 				D2A475811963999E005C2502 /* SKPromFinderViewController.m */,
 				D286BA3D196E47EE00AFC9C0 /* SKDressListViewController.h */,
 				D286BA3E196E47EE00AFC9C0 /* SKDressListViewController.m */,
+				D21034571970AC710088484B /* SKAddPromViewController.h */,
+				D21034581970AC710088484B /* SKAddPromViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -388,12 +406,14 @@
 				D286BA3F196E47EE00AFC9C0 /* SKDressListViewController.m in Sources */,
 				D2A4756E196262F4005C2502 /* SKLoginViewController.m in Sources */,
 				D2A4752E1962198D005C2502 /* SKAppDelegate.m in Sources */,
+				D2F1440E1970D24400046490 /* SKProm.m in Sources */,
 				D2A475741963105B005C2502 /* SKAddDressViewController.m in Sources */,
 				D2A4757119626ADF005C2502 /* SKProfileViewController.m in Sources */,
 				D2FB986A196CFAE1003BFCEE /* SKAppearanceManager.m in Sources */,
 				D22299371965054000B747BA /* SKDressInfoTableViewCell.m in Sources */,
 				D2A475821963999E005C2502 /* SKPromFinderViewController.m in Sources */,
 				D2A4752A1962198D005C2502 /* main.m in Sources */,
+				D21034591970AC710088484B /* SKAddPromViewController.m in Sources */,
 				D2A4757719631D15005C2502 /* SKMainTabViewController.m in Sources */,
 				D2A4757A19632DB8005C2502 /* SKDress.m in Sources */,
 				D2A4757D19633462005C2502 /* MBProgressHUD.m in Sources */,
@@ -515,6 +535,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -522,7 +543,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PromApp/PromApp-Prefix.pch";
 				INFOPLIST_FILE = "PromApp/PromApp-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "PromApp/PromApp-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -532,6 +557,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -539,7 +565,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PromApp/PromApp-Prefix.pch";
 				INFOPLIST_FILE = "PromApp/PromApp-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "PromApp/PromApp-Bridging-Header.h";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
