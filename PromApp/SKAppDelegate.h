@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "SKDress.h"
+#import "SKProm.h"
 
 @interface SKAppDelegate : UIResponder <UIApplicationDelegate>
 
