@@ -239,6 +239,9 @@
                             </searchBar>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="wPC-T0-ofg">
                                 <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                                <connections>
+                                    <outlet property="delegate" destination="lA3-QL-eB2" id="L5V-OQ-fHW"/>
+                                </connections>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RTT-DC-FvP">
                                 <rect key="frame" x="20" y="424" width="280" height="31"/>
@@ -272,6 +275,7 @@
                     <connections>
                         <outlet property="map" destination="wPC-T0-ofg" id="oQ8-Hx-sDe"/>
                         <outlet property="searchBar" destination="7kc-0S-Rcl" id="gp5-HK-8rB"/>
+                        <segue destination="2We-KQ-sIb" kind="modal" identifier="showPromDetail" id="1rf-N0-iFg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eCV-Pv-JsZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -588,6 +592,53 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bs4-hv-RfZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2747" y="1462"/>
+        </scene>
+        <!--Prom Detail View Controller - Prom Detail View-->
+        <scene sceneID="9UR-o8-zyZ">
+            <objects>
+                <tableViewController id="CRO-iZ-oKd" customClass="SKPromDetailViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="vaa-G7-JsJ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <outlet property="dataSource" destination="CRO-iZ-oKd" id="T95-pg-MUe"/>
+                            <outlet property="delegate" destination="CRO-iZ-oKd" id="OWb-4w-atk"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Prom Detail View" id="2kE-Nm-SYT">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="R1O-3J-1e1">
+                            <connections>
+                                <segue destination="qYZ-9R-ZOH" kind="unwind" unwindAction="unwindFromPromDetail:" id="YY3-MW-yIv"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="table" destination="vaa-G7-JsJ" id="Fk1-uz-6Fx"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KEb-bS-xEr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="qYZ-9R-ZOH" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="3269" y="2148"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="k9s-OL-UkG">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2We-KQ-sIb" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Nj9-CH-fDu">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="CRO-iZ-oKd" kind="relationship" relationship="rootViewController" id="O2f-We-C0C"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l7R-KS-suC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2743" y="2148"/>
         </scene>
     </scenes>
     <resources>

@@ -10,6 +10,7 @@
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import <Parse/Parse.h>
+#import "SKProm.h"
 
 static NSString * const PROM_LOCATION_KEY = @"preciseLocation";
 static int const SEARCH_RADIUS = 75; //in km
@@ -20,9 +21,11 @@ static int const QUERY_LIMIT = 30; //Don't want
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet MKMapView *map;
 @property (strong, nonatomic) CLLocationManager *locationManager;
+@property (strong, nonatomic) SKProm *currentProm;
 
 - (void)viewWillAppear:(BOOL)animated;
 - (void) searchBarSearchButtonClicked:(UISearchBar *)searchBar;
 - (void)queryForAllPostsNearLocation:(CLLocation *)currentLocation withNearbyDistance:(CLLocationAccuracy)nearbyDistance;
+- (IBAction) unwindFromPromDetail:(UIStoryboardSegue *) segue;
 
 @end

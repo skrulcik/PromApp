@@ -9,7 +9,7 @@
 #import <Parse/Parse.h>
 #import <MapKit/MapKit.h>
 
-@interface SKProm : PFObject <PFSubclassing, MKAnnotation>
+@interface SKProm : PFObject <PFSubclassing>
 @property NSString *schoolName;
 @property NSString *address;
 @property NSString *locationDescription;
@@ -18,7 +18,8 @@
 @property PFGeoPoint *preciseLocation;
 @property NSMutableArray *dresses;
 
+
 + (NSString *)parseClassName;
 - (BOOL) equalTo:(SKProm*)other;
-
+- (NSString *)readableInfo;
 @end

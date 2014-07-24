@@ -8,6 +8,8 @@
 
 #import "SKPromFinderViewController.h"
 #import "SKProm.h"
+#import "SKPromAnnotation.h"
+#import "SKPromDetailViewController.h"
 
 
 @interface SKPromFinderViewController ()
@@ -19,12 +21,13 @@
 @synthesize map;
 @synthesize searchBar;
 @synthesize promsToDisplay;
+@synthesize currentProm;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        
     }
     return self;
 }
@@ -33,12 +36,12 @@
 {
     [super viewDidLoad];
     self.locationManager = [[CLLocationManager alloc] init];
-    self.locationManager.delegate = self;
-    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     [self.locationManager startUpdatingLocation];
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     //Set up delegates
-    self.map.delegate = self;
     self.searchBar.delegate = self;
+    self.locationManager.delegate = self;
+    self.map.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning
@@ -49,23 +52,49 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    CLLocationCoordinate2D theShoppe = CLLocationCoordinate2DMake(43.080725, -73.785757);
-    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(theShoppe, 800, 800);
+    CLLocationCoordinate2D theShoppe = CLLocationCoordinate2DMake(43.080725, -73.788757);
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(theShoppe, 2500, 2500);
     [self.map setRegion:[self.map regionThatFits:region] animated:YES];
-    
-    MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
-    point.coordinate = theShoppe;
-    point.title = @"The Shoppe";
-    point.subtitle = @"I'm here!!!";
-    [self.map addAnnotation:point];
+    if([map.annotations count]==0){
+        MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
+        point.coordinate = theShoppe;
+        point.title = @"The Shoppe";
+        point.subtitle = @"I'm here!!!";
+        [self.map addAnnotation:point];
+    }
+    [self.locationManager startUpdatingLocation];
+    [self queryForAllPostsNearLocation:self.locationManager.location withNearbyDistance:kCLLocationAccuracyBest];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    NSLog(@"Before");
-    [self.locationManager startUpdatingLocation];
-    [self queryForAllPostsNearLocation:self.locationManager.location withNearbyDistance:kCLLocationAccuracyBest];
-    NSLog(@"After");
+
+}
+
+#pragma mark - MKMapViewDelegate
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation{
+    // If it's the user location, just return nil.
+    if ([annotation isKindOfClass:[MKUserLocation class]])
+        return nil;
+    
+    // Handle any custom annotations.
+    if([annotation isKindOfClass:[SKPromAnnotation class]]){
+        MKPinAnnotationView *view = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"PromAnnotation"];
+        view.enabled = YES;
+        view.canShowCallout = YES;
+        view.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+        return view;
+    } else return nil;
+}
+
+- (void) mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
+{
+    if([control isKindOfClass:[UIButton class]]){
+        SKPromAnnotation *promNote = (SKPromAnnotation *) [view annotation];
+        self.currentProm = promNote.prom;
+        //NSLog(@"%@", [promNote.prom readableInfo]);
+        [self performSegueWithIdentifier:@"showPromDetail" sender:self ];
+    }
 }
 
 #pragma mark - Search
@@ -92,8 +121,10 @@
 #pragma mark - Query for nearby proms
 
 - (void)queryForAllPostsNearLocation:(CLLocation *)currentLocation withNearbyDistance:(CLLocationAccuracy)nearbyDistance {
+    if(self.promsToDisplay == nil){
+        self.promsToDisplay = [[NSMutableArray alloc] initWithCapacity:QUERY_LIMIT];
+    }
 	PFQuery *query = [PFQuery queryWithClassName:[SKProm parseClassName]];
-    
 	// Check locally then externally
 	if ([self.promsToDisplay count] == 0) {
 		query.cachePolicy = kPFCachePolicyCacheThenNetwork;
@@ -107,13 +138,11 @@
     
 	[query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
 		if (error) {
-			NSLog(@"%sERROR: unsuccessful PFGeoPoint query.!", __PRETTY_FUNCTION__);
+			NSLog(@"%s Query failed.", __PRETTY_FUNCTION__);
 		} else {
-            NSLog(@"Found this many: %lu", (unsigned long)[objects count]);
-			// 1. Find genuinely new posts:
-			NSMutableArray *newProms = [[NSMutableArray alloc] initWithCapacity:QUERY_LIMIT];
-			// (Cache the objects we make for the search in step 2:)
-			NSMutableArray *allNewProms = [[NSMutableArray alloc] initWithCapacity:QUERY_LIMIT];
+            //NSLog(@"Query returned %lu proms.", (unsigned long)[objects count]);
+			NSMutableArray *newProms = [[NSMutableArray alloc] initWithCapacity:QUERY_LIMIT];   //Proms that are not being displayed
+			NSMutableArray *allNewProms = [[NSMutableArray alloc] initWithCapacity:QUERY_LIMIT];//All proms returned by the query
 			for (PFObject *object in objects) {
 				SKProm *newProm = [[SKProm alloc] init];
                 newProm.schoolName = [object objectForKey:@"schoolName"];
@@ -123,9 +152,10 @@
                 newProm.theme = [object objectForKey:@"theme"];
                 newProm.dresses = [object objectForKey:@"dresses"];
                 newProm.preciseLocation = [object objectForKey:@"preciseLocation"];
+                //NSLog(@"Prom Info:%@",newProm.readableInfo);
 				[allNewProms addObject:newProm];
 				BOOL found = NO;
-				for (SKProm *existingProm in promsToDisplay) {
+				for (SKProm *existingProm in self.promsToDisplay) {
 					if ([newProm equalTo:existingProm]) {
 						found = YES;
 					}
@@ -134,7 +164,6 @@
 					[newProms addObject:newProm];
 				}
 			}
-			// newPosts now contains our new objects.
             
 			// 2. Find posts in promsToDisplay that didn't make the cut.
 			NSMutableArray *promsToRemove = [[NSMutableArray alloc] initWithCapacity:QUERY_LIMIT];
@@ -153,31 +182,33 @@
 			// proms to remove are those that hwere there already, but not returned again by the query
             
 			// 3. Configure our new posts; these are about to go onto the map.
-            [promsToDisplay addObjectsFromArray:newProms];
-			[promsToDisplay removeObjectsInArray:promsToRemove];
+            [self.promsToDisplay addObjectsFromArray:newProms];
+			[self.promsToDisplay removeObjectsInArray:promsToRemove];
 			for (SKProm *newProm in newProms) {
-				MKPointAnnotation *promPoint = [[MKPointAnnotation alloc] init];
-                promPoint.coordinate = CLLocationCoordinate2DMake(newProm.preciseLocation.latitude, newProm.preciseLocation.longitude);
-                promPoint.title = newProm.schoolName;
-                promPoint.subtitle = newProm.address;
+				SKPromAnnotation *promPoint = [[SKPromAnnotation alloc] initWithLatitude:newProm.preciseLocation.latitude andLongitude:newProm.preciseLocation.longitude];
+                promPoint.prom = newProm;
                 [self.map addAnnotation:promPoint];
-                NSLog(@"Added annotation");
+                NSLog(@"Added annotation.");
 			}
-            NSLog(@"Annotations: %@",[self.map annotations]);
+            //NSLog(@"Annotations: %@",[self.map annotations]);
 		}
 	}];
 }
 
 
-/*
+
 #pragma mark - Navigation
+- (IBAction) unwindFromPromDetail:(UIStoryboardSegue *) segue
+{
+    
+}
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    SKPromDetailViewController *detail = (SKPromDetailViewController*) [[segue destinationViewController] viewControllers][0];
+    detail.prom = self.currentProm;
 }
-*/
+
 
 @end

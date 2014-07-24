@@ -9,7 +9,6 @@
 //  and to http://stackoverflow.com/users/1050170/jeremy-fox for providing solution to showing actionsheet in modal window
 
 #import "SKAddPromViewController.h"
-#import "ActionSheetDatePicker.h"
 #import "SKProm.h"
 
 @interface SKAddPromViewController ()

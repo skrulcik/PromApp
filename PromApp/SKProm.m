@@ -10,7 +10,6 @@
 #import <Parse/PFObject+Subclass.h>
 
 @implementation SKProm
-@dynamic coordinate;
 @dynamic schoolName;
 @dynamic address;
 @dynamic locationDescription;
@@ -21,9 +20,7 @@
 
 - (BOOL) equalTo:(SKProm*)other
 {
-    if ([self.schoolName isEqualToString:other.schoolName]
-        &&[self.schoolName isEqualToString:other.schoolName]
-        &&[self.schoolName isEqualToString:other.schoolName])
+    if ([self.schoolName isEqualToString:other.schoolName])
     {
         return YES;
     } else{
@@ -34,6 +31,13 @@
 + (NSString *)parseClassName
 {
     return @"Prom";
+}
+
+-(NSString *)readableInfo
+{
+    NSString *info=[NSString stringWithFormat:@"School:%@\nAddress:%@\nLocation:%@\nTime:%@\nTheme:%@\nDresses:%@\nCoordinates:\n%f\n%f",
+                    self.schoolName, self.address, self.locationDescription, self.time, self.theme, self.dresses, self.preciseLocation.latitude, self.preciseLocation.longitude];
+    return info;
 }
 
 @end
