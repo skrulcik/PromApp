@@ -61,7 +61,7 @@
 {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 1;
+    return 1+[self.prom.dresses count];
 }
 
 
@@ -88,7 +88,7 @@
          cell = [[SKDressInfoTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"DressCell"];
          }*/
         
-        NSString *objID = prom.dresses[indexPath.row];
+        NSString *objID = prom.dresses[indexPath.row-1];
         PFObject *dressInfo = [PFQuery getObjectOfClass:[SKDress parseClassName] objectId:objID];
         
         UILabel *designer = cell.designerLabel;
