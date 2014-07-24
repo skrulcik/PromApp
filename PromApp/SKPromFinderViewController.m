@@ -14,6 +14,7 @@
 
 @interface SKPromFinderViewController ()
 @property NSMutableArray *promsToDisplay;  //Nearby proms to pin onto map
+@property CLLocation *mapCenter;
 
 @end
 
@@ -22,6 +23,7 @@
 @synthesize searchBar;
 @synthesize promsToDisplay;
 @synthesize currentProm;
+@synthesize mapCenter;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -35,6 +37,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    //To ensure mapview shows in right place
+    [self setEdgesForExtendedLayout:UIRectEdgeNone];
+    
     self.locationManager = [[CLLocationManager alloc] init];
     [self.locationManager startUpdatingLocation];
     self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
@@ -42,6 +47,21 @@
     self.searchBar.delegate = self;
     self.locationManager.delegate = self;
     self.map.delegate = self;
+    [self.locationManager startUpdatingLocation];
+    
+    //Add the Shoppe pin
+    CLLocationCoordinate2D theShoppe = CLLocationCoordinate2DMake(43.080732, -73.785629);
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(theShoppe, 2500, 2500);
+    [self.map setRegion:[self.map regionThatFits:region] animated:YES];
+    self.mapCenter = [[CLLocation alloc] initWithLatitude:theShoppe.latitude longitude:theShoppe.longitude];
+    if([map.annotations count]==0){
+        MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
+        point.coordinate = theShoppe;
+        point.title = @"The Shoppe";
+        point.subtitle = @"I'm here!!!";
+        [self.map addAnnotation:point];
+    }
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -52,18 +72,11 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    CLLocationCoordinate2D theShoppe = CLLocationCoordinate2DMake(43.080725, -73.788757);
-    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(theShoppe, 2500, 2500);
-    [self.map setRegion:[self.map regionThatFits:region] animated:YES];
-    if([map.annotations count]==0){
-        MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
-        point.coordinate = theShoppe;
-        point.title = @"The Shoppe";
-        point.subtitle = @"I'm here!!!";
-        [self.map addAnnotation:point];
+    NSLog(@"%f",self.locationManager.location.coordinate.latitude);
+    if(self.locationManager.location.coordinate.latitude !=0){
+        self.mapCenter = self.locationManager.location;
     }
-    [self.locationManager startUpdatingLocation];
-    [self queryForAllPostsNearLocation:self.locationManager.location withNearbyDistance:kCLLocationAccuracyBest];
+    [self queryForAllPostsNearLocation:self.mapCenter withNearbyDistance:kCLLocationAccuracyBest];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -114,13 +127,15 @@
             CLLocationCoordinate2D searchArea = CLLocationCoordinate2DMake(placemark.location.coordinate.latitude, placemark.location.coordinate.longitude);
             MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(searchArea, 800, 800);
             [self.map setRegion:[self.map regionThatFits:region] animated:YES];
+            self.mapCenter = [[CLLocation alloc] initWithLatitude:searchArea.latitude longitude:searchArea.longitude];
+            [self queryForAllPostsNearLocation:self.mapCenter withNearbyDistance:kCLLocationAccuracyBest];
         }
     }];
 }
 
 #pragma mark - Query for nearby proms
 
-- (void)queryForAllPostsNearLocation:(CLLocation *)currentLocation withNearbyDistance:(CLLocationAccuracy)nearbyDistance {
+- (void)queryForAllPostsNearLocation:(CLLocation *)searchLocation withNearbyDistance:(CLLocationAccuracy)nearbyDistance {
     if(self.promsToDisplay == nil){
         self.promsToDisplay = [[NSMutableArray alloc] initWithCapacity:QUERY_LIMIT];
     }
@@ -131,8 +146,8 @@
 	}
     
 	// Query for posts sort of kind of near our current location.
-	PFGeoPoint *point = [PFGeoPoint geoPointWithLatitude:currentLocation.coordinate.latitude longitude:currentLocation.coordinate.longitude];
-    NSLog(@"Current Lat %f Current Long %f", currentLocation.coordinate.latitude, currentLocation.coordinate.longitude);
+	PFGeoPoint *point = [PFGeoPoint geoPointWithLatitude:searchLocation.coordinate.latitude longitude:searchLocation.coordinate.longitude];
+    NSLog(@"Search Lat %f Current Long %f", searchLocation.coordinate.latitude, searchLocation.coordinate.longitude);
 	[query whereKey:PROM_LOCATION_KEY nearGeoPoint:point withinKilometers:SEARCH_RADIUS];
 	query.limit = QUERY_LIMIT;
     
@@ -167,16 +182,16 @@
             
 			// 2. Find posts in promsToDisplay that didn't make the cut.
 			NSMutableArray *promsToRemove = [[NSMutableArray alloc] initWithCapacity:QUERY_LIMIT];
-			for (SKProm *currentProm in promsToDisplay) {
+			for (SKProm *aProm in promsToDisplay) {
 				BOOL found = NO;
 				// Use our object cache from the first loop to save some work.
 				for (SKProm *newestProm in allNewProms) {
-					if ([currentProm equalTo:newestProm]) {
+					if ([aProm equalTo:newestProm]) {
 						found = YES;
 					}
 				}
 				if (!found) {
-					[promsToRemove addObject:currentProm];
+					[promsToRemove addObject:aProm];
 				}
 			}
 			// proms to remove are those that hwere there already, but not returned again by the query
@@ -206,8 +221,10 @@
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    SKPromDetailViewController *detail = (SKPromDetailViewController*) [[segue destinationViewController] viewControllers][0];
-    detail.prom = self.currentProm;
+    if([segue.identifier isEqualToString:@"showPromDetail"]){
+        SKPromDetailViewController *detail = (SKPromDetailViewController*) [[segue destinationViewController] viewControllers][0];
+        detail.prom = self.currentProm;
+    }
 }
 
 
