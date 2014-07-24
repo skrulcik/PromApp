@@ -76,7 +76,7 @@
         cell.locationDescription.text = self.prom.locationDescription;
         cell.address.text = self.prom.address;
         CLLocationCoordinate2D center = CLLocationCoordinate2DMake(self.prom.preciseLocation.latitude, self.prom.preciseLocation.longitude);
-        MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(center, 250, 250);
+        MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(center, 350, 350);
         [cell.map setRegion:[cell.map regionThatFits:region] animated:YES];
         MKPointAnnotation *pin = [[MKPointAnnotation alloc] init];
         pin.coordinate = center;

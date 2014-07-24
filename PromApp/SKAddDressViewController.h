@@ -12,6 +12,7 @@
 @interface SKAddDressViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *designerField;
+@property (weak, nonatomic) IBOutlet UIButton *colorField;
 @property (weak, nonatomic) IBOutlet UITextField *styleNumberField;
 @property (weak, nonatomic) IBOutlet UIButton *imageButton;
 @property (weak, nonatomic) IBOutlet UIImageView *dressImageView;
