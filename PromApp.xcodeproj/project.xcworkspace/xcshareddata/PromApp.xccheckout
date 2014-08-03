@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>496AA3CA-C4EC-4E7D-A30D-0AF1E23CE960</string>
+	<key>IDESourceControlProjectName</key>
+	<string>PromApp</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>526A643E-1ABF-4620-BF36-1129E541EF68</key>
+		<string>https://github.com/SkottyK/PromApp.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>PromApp.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>526A643E-1ABF-4620-BF36-1129E541EF68</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/SkottyK/PromApp.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>526A643E-1ABF-4620-BF36-1129E541EF68</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>526A643E-1ABF-4620-BF36-1129E541EF68</string>
+			<key>IDESourceControlWCCName</key>
+			<string>PromApp</string>
+		</dict>
+	</array>
+</dict>
+</plist>

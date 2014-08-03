@@ -11,6 +11,7 @@
 		D20DA6B1198B537300C1B225 /* EditUser.xib in Resources */ = {isa = PBXBuildFile; fileRef = D20DA6B0198B537300C1B225 /* EditUser.xib */; };
 		D2103456196F9EF70088484B /* DressCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2103455196F9EF70088484B /* DressCell.xib */; };
 		D21034591970AC710088484B /* SKAddPromViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D21034581970AC710088484B /* SKAddPromViewController.m */; };
+		D211794D198EBDAF004D254F /* SKStoreEditorTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = D211794C198EBDAF004D254F /* SKStoreEditorTableController.m */; };
 		D22299371965054000B747BA /* SKDressInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D22299361965054000B747BA /* SKDressInfoTableViewCell.m */; };
 		D2652159198E86E3000432BA /* StringEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2652158198E86E3000432BA /* StringEntryCell.xib */; };
 		D286BA3F196E47EE00AFC9C0 /* SKDressListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D286BA3E196E47EE00AFC9C0 /* SKDressListViewController.m */; };
@@ -51,7 +52,6 @@
 		D2BB590C198C9D8700431759 /* SKStore.m in Sources */ = {isa = PBXBuildFile; fileRef = D2BB590B198C9D8700431759 /* SKStore.m */; };
 		D2BB590F198CA89600431759 /* EditStore.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2BB590E198CA89600431759 /* EditStore.xib */; };
 		D2BB5914198D655400431759 /* SKStringEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D2BB5913198D655400431759 /* SKStringEntryCell.m */; };
-		D2BDC46E198D66AE0071369B /* SKStoreEditorTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2BDC46D198D66AE0071369B /* SKStoreEditorTableController.m */; };
 		D2C6D15C1980600E008080CD /* SKPromAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = D2C6D15B1980600E008080CD /* SKPromAnnotation.m */; };
 		D2C6D1611980CA81008080CD /* PromCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2C6D1601980CA81008080CD /* PromCell.xib */; };
 		D2C6D1641980CAD6008080CD /* SKPromTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D2C6D1631980CAD6008080CD /* SKPromTableViewCell.m */; };
@@ -76,6 +76,8 @@
 		D2103455196F9EF70088484B /* DressCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DressCell.xib; sourceTree = "<group>"; };
 		D21034571970AC710088484B /* SKAddPromViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKAddPromViewController.h; sourceTree = "<group>"; };
 		D21034581970AC710088484B /* SKAddPromViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKAddPromViewController.m; sourceTree = "<group>"; };
+		D211794B198EBDAF004D254F /* SKStoreEditorTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKStoreEditorTableController.h; sourceTree = "<group>"; };
+		D211794C198EBDAF004D254F /* SKStoreEditorTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKStoreEditorTableController.m; sourceTree = "<group>"; };
 		D22299351965054000B747BA /* SKDressInfoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKDressInfoTableViewCell.h; sourceTree = "<group>"; };
 		D22299361965054000B747BA /* SKDressInfoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKDressInfoTableViewCell.m; sourceTree = "<group>"; };
 		D2652158198E86E3000432BA /* StringEntryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StringEntryCell.xib; sourceTree = "<group>"; };
@@ -131,8 +133,6 @@
 		D2BB590E198CA89600431759 /* EditStore.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditStore.xib; sourceTree = "<group>"; };
 		D2BB5912198D655400431759 /* SKStringEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKStringEntryCell.h; sourceTree = "<group>"; };
 		D2BB5913198D655400431759 /* SKStringEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKStringEntryCell.m; sourceTree = "<group>"; };
-		D2BDC46C198D66AE0071369B /* SKStoreEditorTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKStoreEditorTableController.h; sourceTree = SOURCE_ROOT; };
-		D2BDC46D198D66AE0071369B /* SKStoreEditorTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKStoreEditorTableController.m; sourceTree = SOURCE_ROOT; };
 		D2C6D15A1980600E008080CD /* SKPromAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKPromAnnotation.h; sourceTree = "<group>"; };
 		D2C6D15B1980600E008080CD /* SKPromAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKPromAnnotation.m; sourceTree = "<group>"; };
 		D2C6D15D1980A7BA008080CD /* Saratoga.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Saratoga.gpx; sourceTree = "<group>"; };
@@ -188,12 +188,12 @@
 		D22299381965054400B747BA /* View */ = {
 			isa = PBXGroup;
 			children = (
-				D2BB590D198CA66A00431759 /* Layout Nibs */,
 				D2A4754E19624264005C2502 /* IpodLayout.storyboard */,
-				D2C6D1621980CAD6008080CD /* SKPromTableViewCell.h */,
-				D2C6D1631980CAD6008080CD /* SKPromTableViewCell.m */,
+				D2BB590D198CA66A00431759 /* Layout Nibs */,
 				D22299351965054000B747BA /* SKDressInfoTableViewCell.h */,
 				D22299361965054000B747BA /* SKDressInfoTableViewCell.m */,
+				D2C6D1621980CAD6008080CD /* SKPromTableViewCell.h */,
+				D2C6D1631980CAD6008080CD /* SKPromTableViewCell.m */,
 				D2BB5912198D655400431759 /* SKStringEntryCell.h */,
 				D2BB5913198D655400431759 /* SKStringEntryCell.m */,
 			);
@@ -325,8 +325,6 @@
 				D21034581970AC710088484B /* SKAddPromViewController.m */,
 				D286BA3D196E47EE00AFC9C0 /* SKDressListViewController.h */,
 				D286BA3E196E47EE00AFC9C0 /* SKDressListViewController.m */,
-				D2BDC46C198D66AE0071369B /* SKStoreEditorTableController.h */,
-				D2BDC46D198D66AE0071369B /* SKStoreEditorTableController.m */,
 				D2A4756C196262F4005C2502 /* SKLoginViewController.h */,
 				D2A4756D196262F4005C2502 /* SKLoginViewController.m */,
 				D2A4757519631D15005C2502 /* SKMainTabViewController.h */,
@@ -337,6 +335,8 @@
 				D2C6D1661980CE62008080CD /* SKPromDetailViewController.m */,
 				D2A475801963999E005C2502 /* SKPromFinderViewController.h */,
 				D2A475811963999E005C2502 /* SKPromFinderViewController.m */,
+				D211794B198EBDAF004D254F /* SKStoreEditorTableController.h */,
+				D211794C198EBDAF004D254F /* SKStoreEditorTableController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -466,7 +466,7 @@
 				D2C6D1671980CE62008080CD /* SKPromDetailViewController.m in Sources */,
 				D286BA3F196E47EE00AFC9C0 /* SKDressListViewController.m in Sources */,
 				D2A4756E196262F4005C2502 /* SKLoginViewController.m in Sources */,
-				D2BDC46E198D66AE0071369B /* SKStoreEditorTableController.m in Sources */,
+				D211794D198EBDAF004D254F /* SKStoreEditorTableController.m in Sources */,
 				D2A4752E1962198D005C2502 /* SKAppDelegate.m in Sources */,
 				D2F1440E1970D24400046490 /* SKProm.m in Sources */,
 				D2A475741963105B005C2502 /* SKAddDressViewController.m in Sources */,
