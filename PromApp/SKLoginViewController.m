@@ -7,6 +7,7 @@
 //
 
 #import "SKLoginViewController.h"
+#import "SKStoreEditorTableController.h"
 
 @interface SKLoginViewController ()
 
@@ -37,6 +38,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    [self.view endEditing:YES];// this will do the trick
+}
+
 /*
 #pragma mark - Navigation
 
@@ -55,10 +60,15 @@
             NSLog(@"Uh oh. The user cancelled the Facebook login.");
         } else if (user.isNew) {
             NSLog(@"User signed up and logged in through Facebook!");
+            //TODO: open account creation screen
         } else {
             NSLog(@"User logged in through Facebook!");
         }
         [self performSegueWithIdentifier:@"finishLogin" sender:self];
     }];
+}
+- (IBAction)registerStorePressed:(id)sender {
+    SKStoreEditorTableController *newStore = [[SKStoreEditorTableController alloc] initForCreation];
+    [self presentViewController:newStore animated:YES completion:nil];
 }
 @end

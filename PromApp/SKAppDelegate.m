@@ -17,6 +17,7 @@
     // Parse initialization
     [SKDress registerSubclass];
     [SKProm registerSubclass];
+    [SKStore registerSubclass];
 	[Parse setApplicationId:@"PJq63qVW5giu8JBkupPxHADBgSpMEEX87QlZjDlg"
                   clientKey:@"cxqrUMU3wX4UA67IvLgqv0aT78dhVY1DT3w8LWIt"];
     // Facebook initialization

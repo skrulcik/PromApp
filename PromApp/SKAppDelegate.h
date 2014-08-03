@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "SKDress.h"
 #import "SKProm.h"
+#import "SKStore.h"
 
 @interface SKAppDelegate : UIResponder <UIApplicationDelegate>
 
