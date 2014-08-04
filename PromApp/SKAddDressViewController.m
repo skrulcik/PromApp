@@ -7,31 +7,65 @@
 //
 
 #import "SKAddDressViewController.h"
-#import "SKDress.h"
+#import "SKImageEditorCell.h"
 #import "SKMainTabViewController.h"
+#import "SKStore.h"
+#import "SKStringEntryCell.h"
 
 @interface SKAddDressViewController ()
-
 @property (nonatomic) UIImagePickerController *imagePickerController;
 @property (nonatomic) NSMutableArray *capturedImages;
+@property (weak, nonatomic) IBOutlet UINavigationItem *navTitle;
 
 @end
 
-@implementation SKAddDressViewController
-
-@synthesize designerField;
-@synthesize styleNumberField;
-@synthesize imageButton;
-@synthesize dressImageView;
+@implementation SKAddDressViewController{
+    BOOL _isNewDress;       //So we know whether we are creating or editing
+    BOOL _imageChanged;     //No need to take up bandwith with images if they aren't changed
+}
 @synthesize cancelButton;
-@synthesize verifyButton;
 @synthesize doneButton;
+@synthesize dressImageView;
+@synthesize tableView;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+static NSArray *keyForRowIndex;
+static NSDictionary *readableNames;
+
+- (id) initForCreation{
+    self = [self initForDress:[[SKDress alloc] init]];
+    _isNewDress = YES;
+    return self;
+}
+
+- (id)initForDress:(SKDress *)dressObject
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
+    self = [super initWithNibName:@"EditDress" bundle:nil];
+    if([[PFUser currentUser] isMemberOfClass:[SKStore class]]){
+        keyForRowIndex = @[@"image", @"designer", @"styleNumber", @"dressColor", @"owner"];
+    }else{
+        keyForRowIndex = @[@"image", @"designer", @"styleNumber", @"dressColor", @"store"];
+    }
+    if(!readableNames){
+        readableNames = @{@"image":@"Dress Image",
+                          @"designer":@"Designer",
+                          @"styleNumber":@"Style ID Number",
+                          @"dressColor":@"Color",
+                          @"owner":@"Dress Owner",
+                          @"store":@"Store"};
+    }
+    if(self){
+        _isNewDress = NO;
+        _imageChanged = NO;
+        self.dress = dressObject;
+    }
+    return self;
+}
+
+- (id) init
+{
+    self = [super init];
+    if(self){
+        
     }
     return self;
 }
@@ -40,6 +74,13 @@
 {
     [super viewDidLoad];
     self.capturedImages = [[NSMutableArray alloc] init];
+    [self.tableView registerNib:[UINib nibWithNibName:@"StringEntryCell" bundle:nil] forCellReuseIdentifier:@"StringEntry"];
+     [self.tableView registerNib:[UINib nibWithNibName:@"ImageEditorCell" bundle:nil] forCellReuseIdentifier:@"ImageEditor"];
+    if(_isNewDress){
+        [self.navTitle setTitle:@"Add Dress"];
+    } else {
+        [self.navTitle setTitle:@"Edit Dress:"];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -57,6 +98,16 @@
 - (IBAction)showImagePickerForPhotoPicker:(id)sender
 {
     [self showImagePickerForSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+}
+
+- (IBAction)cancelPressed:(id)sender {
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)savePressed:(id)sender {
+    [self saveDress:self.dress withCompletion:^(void){
+        [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+    }];
 }
 
 
@@ -91,32 +142,63 @@
     }
 }
 
-- (void)saveDress{
-    NSString *designerText = self.designerField.text;
-    NSString *number = self.styleNumberField.text;
-    if(designerText != nil && number != nil){
+typedef void(^voidCompletion)(void);
+- (void) saveDress:(SKDress *)dress withCompletion:(voidCompletion)block
+{
+    NSMutableDictionary *dressData = [[NSMutableDictionary alloc] init];
+    NSArray *cells = [self.tableView visibleCells];
+    for (int i=0; i<[cells count]; i++){
+        if(i==0){
+            //Is image cell
+            SKImageEditorCell *imgCell = cells[i];
+            UIImage *currentPic = imgCell.imageView.image;
+            if(currentPic){
+                [dressData setObject:currentPic forKey:[SKAddDressViewController keyForRowIndex:i]];
+            }
+        }else{
+            //Is text entry cell
+            SKStringEntryCell *txtCell = cells[i];
+            NSString *val = txtCell.field.text;
+            if([val isEqualToString:@""] || [val isEqual:nil]){
+                val = [dress objectForKey:[SKAddDressViewController keyForRowIndex:i]];
+            }
+            if(val)
+                [dressData setObject:val forKey:[SKAddDressViewController keyForRowIndex:i]];
+        }
+    }
+    if(dressData[@"designer"] != nil && dressData[@"styleNumber"] != nil){
         PFUser *current = [PFUser currentUser];
-        SKDress *dress = [[SKDress alloc] init];
-        dress.designer = designerText;
-        dress.styleNumber = number;
-        dress.owner = current;
-        //Save Image of dress as PFFile
-        NSData *imageData = UIImagePNGRepresentation(self.dressImageView.image);
-        NSString *filename = [NSString stringWithFormat:@"%@%@Picture.png",dress.designer, dress.styleNumber];
-        PFFile *imageFile = [PFFile fileWithName:filename data:imageData];
-        dress.image = imageFile;
-        
-        [dress saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
+        for(NSString *key in dressData){
+            if(dressData[key]){
+                if(![key isEqualToString:@"image"]){
+                    //don't save the image until the end, other data is used for filename
+                    [dress setObject:dressData[key] forKey:key];
+                }
+            }
+        }
+        if(_imageChanged){
+            //Save Image of dress as PFFile
+            NSData *imageData = UIImagePNGRepresentation(self.dressImageView.image);
+            NSString *filename = [NSString stringWithFormat:@"%@%@Picture.png",dress.designer, dress.styleNumber];
+            PFFile *imageFile = [PFFile fileWithName:filename data:imageData];
+            dress.image = imageFile;
+        }
+        self.dress.owner = current;
+        [self.dress saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
             if (succeeded){
-                NSLog(@"Succeeded in saving %@ dress", dress.designer);
-                NSLog(@"DressID: %@", dress.objectId);
+                NSLog(@"Succeeded in saving %@ dress with ID %@.", dress.designer, dress.objectId);
                 [current addObject:dress.objectId forKey:@"dressIDs"];
                 [current saveInBackground];
-
+                block();
             } else {
-                NSLog(@"Failed in saving %@ dress", dress.designer);
+                NSLog(@"Failed in saving %@ dress for reason: %@", dress.designer, error);
+                UIAlertView *fail = [[UIAlertView alloc] initWithTitle:@"Internal Error" message:@"We are sorry, your changes could not be saved." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles: nil];
+                [fail show];
             }
         }];
+    }else{
+        UIAlertView *fail = [[UIAlertView alloc] initWithTitle:@"Missing Required Fields" message:@"You must enter a designer and style number." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [fail show];
     }
 }
 
@@ -129,7 +211,8 @@
         if ([self.capturedImages count] == 1)
         {
             // Camera took a single picture.
-            [self.dressImageView setImage:[self.capturedImages objectAtIndex:0]];
+            self.dressImageView.image = [self.capturedImages objectAtIndex:0];
+            NSLog(@"%@", self.dressImageView);
         }
         else
         {
@@ -147,13 +230,6 @@
     self.imagePickerController = nil;
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if ([segue.destinationViewController isKindOfClass:[SKMainTabViewController class]] && sender==doneButton) {
-        [self saveDress];
-    }
-}
-
 
 #pragma mark - UIImagePickerControllerDelegate
 
@@ -161,21 +237,89 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     UIImage *image = [info valueForKey:UIImagePickerControllerOriginalImage];
-    
+    NSLog(@"finished picking media");
     [self.capturedImages addObject:image];
-    
     [self populateImage];
+    _imageChanged = YES;
 }
 
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
+    NSLog(@"Picker cancelled");
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
 - (BOOL) textFieldShouldReturn:(UITextField *)textField{
     [textField resignFirstResponder];
     return YES;
+}
+
+#pragma mark - Table view data source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    NSLog(@"Said there was one section");
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [keyForRowIndex count];//How many keys (and corresponding editable properties) are there
+}
+
+- (UITableViewCell*) tableView:(UITableView *) tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString *key = [SKAddDressViewController keyForRowIndex:[indexPath row]];
+    NSLog(@"Tried creating cell for key %@", key);
+    if([key isEqualToString:@"image"]){
+        SKImageEditorCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"ImageEditor"];
+        [cell.editButton addTarget:self action:@selector(addImage:) forControlEvents:UIControlEventTouchUpInside];
+        cell.key = key;
+        cell.imageView.image = [UIImage imageNamed:@"EmptyDress"];
+        if(!_isNewDress){
+            [(PFImageView *)cell.imageView setFile:self.dress.image]; //placeholder (should already be there anyways)
+            [(PFImageView *)cell.imageView loadInBackground]; //Loads existing image from Parse
+        }
+        return cell;
+    }else{
+        SKStringEntryCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"StringEntry"];
+        cell.field.delegate = self;
+        cell.key = key;
+        NSString *currentVal = [self.dress objectForKey:key];
+        if(!_isNewDress && !([currentVal isEqualToString:@""] || [currentVal isEqual:nil])){
+            cell.field.text = [self.dress objectForKey:key];
+        }else{
+            cell.field.placeholder = [SKAddDressViewController readableNameForKey:key];
+        }
+        return cell;
+    }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if([indexPath row]==0){
+        //Is image editing cell
+        return 200;
+    }else{
+        return 43;
+    }
+}
+
+#pragma mark - Getters and Setters
+
+- (UIImageView *) dressImageView
+{
+    SKImageEditorCell *cell = [self.tableView visibleCells][0];
+    return [cell imageView];
+}
+
+#pragma mark - Statics
++(NSString *)readableNameForKey:(NSString *)key{
+    return readableNames[key];
+}
++(NSString *)keyForRowIndex:(int)num{
+    return keyForRowIndex[num];
 }
 
 
