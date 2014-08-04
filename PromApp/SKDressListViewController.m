@@ -7,7 +7,7 @@
 //
 
 #import <Parse/Parse.h>
-
+#import "SKAddDressViewController.h"
 #import "SKDressListViewController.h"
 #import "SKDressInfoTableViewCell.h"
 #import "SKDress.h"
@@ -39,10 +39,25 @@
          forCellReuseIdentifier:@"DressCell"];
 }
 
+-(void) viewDidAppear:(BOOL)animated{
+    // Do stuff like reload the tableview data...
+    [self loadDressInfo];
+}
+
+-(void) loadDressInfo
+{
+    NSLog(@"Loaded info explicitly");
+    [self.dressListView reloadData];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+- (IBAction)addDressPressed:(id)sender {
+    SKAddDressViewController *newDress = [[SKAddDressViewController alloc] initForCreation];
+    [self presentViewController:newDress animated:YES completion:nil];
 }
 
 #pragma mark - Table view data source
@@ -63,17 +78,6 @@
     }else{
         return [dressIDs count];
     }
-}
-
--(void) viewDidAppear:(BOOL)animated{
-    // Do stuff like reload the tableview data...
-    [self loadDressInfo];
-}
-
--(void) loadDressInfo
-{
-    NSLog(@"Loaded info explicitly");
-    [self.dressListView reloadData];
 }
 
 
