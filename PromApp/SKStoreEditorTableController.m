@@ -19,7 +19,6 @@
 
 @implementation SKStoreEditorTableController{
     BOOL _isNewStore;
-    NSMutableDictionary *storeData;
 }
 static NSDictionary *readableNames;
 @synthesize accountInfo, storeInfo;
@@ -51,7 +50,6 @@ static NSDictionary *readableNames;
         self.accountInfoName = @"Account Information:";
         self.storeInfoName = @"Store Information:";
         _isNewStore = NO;
-        storeData = [[NSMutableDictionary alloc] init];
     }
     return self;
 }
@@ -138,11 +136,13 @@ typedef void(^voidCompletion)(void);
     if(_isNewStore)
         [self.store signUp];
     [self.store saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if(!succeeded){
+        if(succeeded){
+            NSLog(@"Succeeded in saving %@ store with ID %@.", self.store.username, self.store.objectId);
+            block();
+        }else{
+            NSLog(@"Failed in saving %@ (a store) for reason: %@", self.store.username, error);
             UIAlertView *fail = [[UIAlertView alloc] initWithTitle:@"Internal Error" message:@"We are sorry, your changes could not be saved." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles: nil];
             [fail show];
-        }else{
-            block();
         }
     }];
 }
@@ -162,8 +162,7 @@ typedef void(^voidCompletion)(void);
 
 - (IBAction)savePressed:(id)sender {
     [self saveStore:self.store withCompletion:^(void){
-        [self performSegueWithIdentifier:@"finishLogin" sender:self];
-        //[self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+        [self.presentingViewController performSegueWithIdentifier:@"finishLogin" sender:self.presentingViewController];//removes both this page and login page from stack
     }];
 }
 
