@@ -46,7 +46,7 @@
 
 -(void) loadDressInfo
 {
-    NSLog(@"Loaded info explicitly");
+    //NSLog(@"Loaded info explicitly");
     [self.dressListView reloadData];
 }
 
@@ -57,6 +57,7 @@
 }
 - (IBAction)addDressPressed:(id)sender {
     SKAddDressViewController *newDress = [[SKAddDressViewController alloc] initForCreation];
+    [newDress setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
     [self presentViewController:newDress animated:YES completion:nil];
 }
 
