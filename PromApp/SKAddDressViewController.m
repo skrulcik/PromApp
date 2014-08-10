@@ -9,6 +9,7 @@
 #import "SKAddDressViewController.h"
 #import "SKImageEditorCell.h"
 #import "SKMainTabViewController.h"
+#import "SKPromQueryController.h"
 #import "SKStore.h"
 #import "SKStringEntryCell.h"
 
@@ -22,6 +23,8 @@
 @implementation SKAddDressViewController{
     BOOL _isNewDress;       //So we know whether we are creating or editing
     BOOL _imageChanged;     //No need to take up bandwith with images if they aren't changed
+    BOOL _promChanged;      //Stores if the prom has been changed
+    NSMutableDictionary *dressData;
 }
 @synthesize cancelButton;
 @synthesize doneButton;
@@ -41,9 +44,9 @@ static NSDictionary *readableNames;
 {
     self = [super initWithNibName:@"EditDress" bundle:nil];
     if([[PFUser currentUser] isMemberOfClass:[SKStore class]]){
-        keyForRowIndex = @[@"image", @"designer", @"styleNumber", @"dressColor", @"owner"];
+        keyForRowIndex = @[@"image", @"designer", @"styleNumber", @"dressColor", @"prom", @"owner"];
     }else{
-        keyForRowIndex = @[@"image", @"designer", @"styleNumber", @"dressColor", @"store"];
+        keyForRowIndex = @[@"image", @"designer", @"styleNumber", @"dressColor", @"prom", @"store"];
     }
     if(!readableNames){
         readableNames = @{@"image":@"Dress Image",
@@ -51,11 +54,14 @@ static NSDictionary *readableNames;
                           @"styleNumber":@"Style ID Number",
                           @"dressColor":@"Color",
                           @"owner":@"Dress Owner",
-                          @"store":@"Store"};
+                          @"store":@"Store",
+                          @"prom":@"Prom"};
     }
     if(self){
         _isNewDress = NO;
         _imageChanged = NO;
+        _promChanged = NO;
+        dressData = [[NSMutableDictionary alloc] init];
         self.dress = dressObject;
     }
     return self;
@@ -142,24 +148,39 @@ static NSDictionary *readableNames;
     }
 }
 
+- (void) performPromAssociation:(SKProm *) prom
+{
+    [dressData setObject:prom forKey:@"prom"];
+    _promChanged = YES;
+    NSArray *cells = [self.tableView visibleCells];
+    for (int i=0; i<[cells count]; i++){
+        if([@"prom" isEqualToString:[SKAddDressViewController keyForRowIndex:i]]){
+            //Is prom cell
+            SKStringEntryCell *pcell = cells[i];
+            pcell.field.text = [dressData[@"prom"] schoolName];
+        }
+    }
+}
+
+
+
 typedef void(^voidCompletion)(void);
 - (void) saveDress:(SKDress *)dress withCompletion:(voidCompletion)block
 {
-    NSMutableDictionary *dressData = [[NSMutableDictionary alloc] init];
     NSArray *cells = [self.tableView visibleCells];
     for (int i=0; i<[cells count]; i++){
-        if(i==0){
+        if([@"image" isEqualToString:[SKAddDressViewController keyForRowIndex:i]]){
             //Is image cell
             SKImageEditorCell *imgCell = cells[i];
             UIImage *currentPic = imgCell.imageView.image;
             if(currentPic){
                 [dressData setObject:currentPic forKey:[SKAddDressViewController keyForRowIndex:i]];
             }
-        }else{
+        }else if(![@"prom" isEqualToString:[SKAddDressViewController keyForRowIndex:i]] || _promChanged){
             //Is text entry cell
             SKStringEntryCell *txtCell = cells[i];
             NSString *val = txtCell.field.text;
-            if([val isEqualToString:@""] || [val isEqual:nil]){
+            if([val isEqualToString:@""] || val == nil){
                 val = [dress objectForKey:[SKAddDressViewController keyForRowIndex:i]];
             }
             if(val)
@@ -259,13 +280,26 @@ typedef void(^voidCompletion)(void);
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    NSLog(@"Said there was one section");
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [keyForRowIndex count];//How many keys (and corresponding editable properties) are there
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if([[SKAddDressViewController keyForRowIndex:[indexPath row]] isEqualToString:@"prom"]){
+        SKPromQueryController *promSelector = [[SKPromQueryController alloc]initWithStyle:UITableViewStylePlain];
+        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:promSelector];
+        UIBarButtonItem *cancel = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:promSelector action:@selector(cancelPressed:)];
+        navController.navigationBar.topItem.title = @"Find Prom";
+        promSelector.navigationItem.leftBarButtonItem = cancel;
+        [self presentViewController:navController animated:YES completion:^(void){
+            [promSelector loadObjects];
+        }];
+    }
 }
 
 - (UITableViewCell*) tableView:(UITableView *) tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -287,10 +321,18 @@ typedef void(^voidCompletion)(void);
         cell.field.delegate = self;
         cell.key = key;
         NSString *currentVal = [self.dress objectForKey:key];
-        if(!_isNewDress && !([currentVal isEqualToString:@""] || [currentVal isEqual:nil])){
-            cell.field.text = [self.dress objectForKey:key];
+        if(!_isNewDress && !(([currentVal class]==[NSString class] && [currentVal isEqualToString:@""]) || [currentVal isEqual:nil])){
+            if([key isEqualToString:@"prom"]){
+                cell.field.text = [[self.dress objectForKey:key] schoolName];
+            }else{
+                cell.field.text = [self.dress objectForKey:key];
+            }
         }else{
             cell.field.placeholder = [SKAddDressViewController readableNameForKey:key];
+        }
+        if([key isEqualToString:@"prom"]){
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            cell.field.enabled = NO;
         }
         return cell;
     }

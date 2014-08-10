@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 #import "SKDress.h"
+#import "SKProm.h"
 
 @interface SKAddDressViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate>
 
@@ -20,7 +21,7 @@
 
 - (id) initForCreation;
 - (id)initForDress:(SKDress *)dressObject;
-
+- (void) performPromAssociation:(SKProm *) prom;
 - (IBAction)addImage:(id)sender;
 - (IBAction)showImagePickerForCamera:(id)sender;
 - (IBAction)showImagePickerForPhotoPicker:(id)sender;

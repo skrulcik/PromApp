@@ -16,6 +16,8 @@
 		D2117951198EE1F0004D254F /* ImageEditorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2117950198EE1F0004D254F /* ImageEditorCell.xib */; };
 		D2117954198F0888004D254F /* SKImageEditorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D2117953198F0888004D254F /* SKImageEditorCell.m */; };
 		D22299371965054000B747BA /* SKDressInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D22299361965054000B747BA /* SKDressInfoTableViewCell.m */; };
+		D23654F919916BF3007277A6 /* PromQueryTable.xib in Resources */ = {isa = PBXBuildFile; fileRef = D23654F819916BF3007277A6 /* PromQueryTable.xib */; };
+		D23654FC19916DFF007277A6 /* SKPromQueryController.m in Sources */ = {isa = PBXBuildFile; fileRef = D23654FB19916DFF007277A6 /* SKPromQueryController.m */; };
 		D2652159198E86E3000432BA /* StringEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2652158198E86E3000432BA /* StringEntryCell.xib */; };
 		D286BA3F196E47EE00AFC9C0 /* SKDressListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D286BA3E196E47EE00AFC9C0 /* SKDressListViewController.m */; };
 		D2A4751E1962198D005C2502 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2A4751D1962198D005C2502 /* Foundation.framework */; };
@@ -87,6 +89,9 @@
 		D2117953198F0888004D254F /* SKImageEditorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKImageEditorCell.m; sourceTree = "<group>"; };
 		D22299351965054000B747BA /* SKDressInfoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKDressInfoTableViewCell.h; sourceTree = "<group>"; };
 		D22299361965054000B747BA /* SKDressInfoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKDressInfoTableViewCell.m; sourceTree = "<group>"; };
+		D23654F819916BF3007277A6 /* PromQueryTable.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PromQueryTable.xib; sourceTree = "<group>"; };
+		D23654FA19916DFF007277A6 /* SKPromQueryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKPromQueryController.h; sourceTree = "<group>"; };
+		D23654FB19916DFF007277A6 /* SKPromQueryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKPromQueryController.m; sourceTree = "<group>"; };
 		D2652158198E86E3000432BA /* StringEntryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StringEntryCell.xib; sourceTree = "<group>"; };
 		D286BA3D196E47EE00AFC9C0 /* SKDressListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKDressListViewController.h; sourceTree = "<group>"; };
 		D286BA3E196E47EE00AFC9C0 /* SKDressListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKDressListViewController.m; sourceTree = "<group>"; };
@@ -342,6 +347,8 @@
 				D2A4757019626ADF005C2502 /* SKProfileViewController.m */,
 				D2C6D1651980CE62008080CD /* SKPromDetailViewController.h */,
 				D2C6D1661980CE62008080CD /* SKPromDetailViewController.m */,
+				D23654FA19916DFF007277A6 /* SKPromQueryController.h */,
+				D23654FB19916DFF007277A6 /* SKPromQueryController.m */,
 				D2A475801963999E005C2502 /* SKPromFinderViewController.h */,
 				D2A475811963999E005C2502 /* SKPromFinderViewController.m */,
 				D211794B198EBDAF004D254F /* SKStoreEditorTableController.h */,
@@ -360,6 +367,7 @@
 				D2117950198EE1F0004D254F /* ImageEditorCell.xib */,
 				D2C6D1601980CA81008080CD /* PromCell.xib */,
 				D2652158198E86E3000432BA /* StringEntryCell.xib */,
+				D23654F819916BF3007277A6 /* PromQueryTable.xib */,
 			);
 			name = "Layout Nibs";
 			sourceTree = "<group>";
@@ -458,6 +466,7 @@
 				D2103456196F9EF70088484B /* DressCell.xib in Resources */,
 				D2074E3E198F3B5E0048E28E /* EditDress.xib in Resources */,
 				D20DA6AF198B311200C1B225 /* ColorText.plist in Resources */,
+				D23654F919916BF3007277A6 /* PromQueryTable.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -480,6 +489,7 @@
 				D286BA3F196E47EE00AFC9C0 /* SKDressListViewController.m in Sources */,
 				D2A4756E196262F4005C2502 /* SKLoginViewController.m in Sources */,
 				D211794D198EBDAF004D254F /* SKStoreEditorTableController.m in Sources */,
+				D23654FC19916DFF007277A6 /* SKPromQueryController.m in Sources */,
 				D2A4752E1962198D005C2502 /* SKAppDelegate.m in Sources */,
 				D2F1440E1970D24400046490 /* SKProm.m in Sources */,
 				D2117954198F0888004D254F /* SKImageEditorCell.m in Sources */,

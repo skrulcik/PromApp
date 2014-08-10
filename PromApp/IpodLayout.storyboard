@@ -141,19 +141,20 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Email" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ybq-Ca-mL3">
-                                <rect key="frame" x="20" y="323" width="280" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ybq-Ca-mL3">
+                                <rect key="frame" x="20" y="324" width="280" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="R9N-w8-2ss">
-                                <rect key="frame" x="40" y="40" width="240" height="240"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FBBlankProfilePhoto" translatesAutoresizingMaskIntoConstraints="NO" id="R9N-w8-2ss">
+                                <rect key="frame" x="50" y="40" width="220" height="240"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="R9N-w8-2ss" secondAttribute="height" multiplier="1:1" id="FXf-w5-dBn"/>
+                                    <constraint firstAttribute="height" constant="240" id="1fw-ok-Agf"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" secondItem="R9N-w8-2ss" secondAttribute="height" multiplier="1:1" id="FXf-w5-dBn"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jav-1s-MeB">
-                                <rect key="frame" x="50" y="367" width="220" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jav-1s-MeB">
+                                <rect key="frame" x="50" y="368" width="220" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Jav-1s-MeB" secondAttribute="height" multiplier="22:3" id="Bb6-Qt-3wy"/>
                                 </constraints>
@@ -176,8 +177,7 @@
                             <constraint firstItem="R9N-w8-2ss" firstAttribute="top" secondItem="8ZQ-fs-SVi" secondAttribute="bottom" constant="20" id="KUk-Qb-xZm"/>
                             <constraint firstItem="ybq-Ca-mL3" firstAttribute="top" secondItem="rsc-jI-zj9" secondAttribute="bottom" constant="15" id="OU1-bR-tX7"/>
                             <constraint firstItem="rsc-jI-zj9" firstAttribute="leading" secondItem="Fmp-Ot-bFe" secondAttribute="leading" constant="20" id="eEh-KX-jVe"/>
-                            <constraint firstItem="R9N-w8-2ss" firstAttribute="leading" secondItem="Fmp-Ot-bFe" secondAttribute="leading" constant="40" id="r7p-ae-QQh"/>
-                            <constraint firstAttribute="trailing" secondItem="R9N-w8-2ss" secondAttribute="trailing" constant="40" id="r8M-uo-hYA"/>
+                            <constraint firstAttribute="centerX" secondItem="R9N-w8-2ss" secondAttribute="centerX" id="ndd-bj-WIb"/>
                             <constraint firstAttribute="trailing" secondItem="rsc-jI-zj9" secondAttribute="trailing" constant="20" id="zxK-cq-1pJ"/>
                         </constraints>
                     </view>
@@ -584,6 +584,7 @@
         <image name="AddDress" width="17" height="25"/>
         <image name="DefaultWideButton" width="142" height="17"/>
         <image name="DressIcon" width="30" height="30"/>
+        <image name="FBBlankProfilePhoto" width="220" height="220"/>
         <image name="GoButton" width="150" height="150"/>
         <image name="LightGreyRect" width="301" height="401"/>
         <image name="LocationIconSelected" width="25" height="25"/>
