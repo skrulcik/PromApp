@@ -61,6 +61,9 @@
 		D2C6D1611980CA81008080CD /* PromCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2C6D1601980CA81008080CD /* PromCell.xib */; };
 		D2C6D1641980CAD6008080CD /* SKPromTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D2C6D1631980CAD6008080CD /* SKPromTableViewCell.m */; };
 		D2C6D1671980CE62008080CD /* SKPromDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2C6D1661980CE62008080CD /* SKPromDetailViewController.m */; };
+		D2DEBAA619B6D58E00BA0542 /* main.js in Sources */ = {isa = PBXBuildFile; fileRef = D2DEBAA119B6D58E00BA0542 /* main.js */; };
+		D2DEBAA719B6D58E00BA0542 /* global.json in Resources */ = {isa = PBXBuildFile; fileRef = D2DEBAA319B6D58E00BA0542 /* global.json */; };
+		D2DEBAA819B6D58E00BA0542 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = D2DEBAA519B6D58E00BA0542 /* index.html */; };
 		D2F1440E1970D24400046490 /* SKProm.m in Sources */ = {isa = PBXBuildFile; fileRef = D2F1440D1970D24400046490 /* SKProm.m */; };
 		D2FB986A196CFAE1003BFCEE /* SKAppearanceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D2FB9869196CFAE1003BFCEE /* SKAppearanceManager.m */; };
 /* End PBXBuildFile section */
@@ -153,6 +156,9 @@
 		D2C6D1631980CAD6008080CD /* SKPromTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKPromTableViewCell.m; sourceTree = "<group>"; };
 		D2C6D1651980CE62008080CD /* SKPromDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKPromDetailViewController.h; sourceTree = "<group>"; };
 		D2C6D1661980CE62008080CD /* SKPromDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKPromDetailViewController.m; sourceTree = "<group>"; };
+		D2DEBAA119B6D58E00BA0542 /* main.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = main.js; sourceTree = "<group>"; };
+		D2DEBAA319B6D58E00BA0542 /* global.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = global.json; sourceTree = "<group>"; };
+		D2DEBAA519B6D58E00BA0542 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		D2F1440C1970D24400046490 /* SKProm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKProm.h; sourceTree = "<group>"; };
 		D2F1440D1970D24400046490 /* SKProm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKProm.m; sourceTree = "<group>"; };
 		D2FB9868196CFAE1003BFCEE /* SKAppearanceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKAppearanceManager.h; sourceTree = "<group>"; };
@@ -226,6 +232,7 @@
 		D2A475111962198D005C2502 = {
 			isa = PBXGroup;
 			children = (
+				D2DEBA9F19B6D58E00BA0542 /* PromCloudCode */,
 				D2A475231962198D005C2502 /* PromApp */,
 				D2A4753C1962198D005C2502 /* PromAppTests */,
 				D2A4751C1962198D005C2502 /* Frameworks */,
@@ -372,6 +379,40 @@
 			name = "Layout Nibs";
 			sourceTree = "<group>";
 		};
+		D2DEBA9F19B6D58E00BA0542 /* PromCloudCode */ = {
+			isa = PBXGroup;
+			children = (
+				D2DEBAA019B6D58E00BA0542 /* cloud */,
+				D2DEBAA219B6D58E00BA0542 /* config */,
+				D2DEBAA419B6D58E00BA0542 /* public */,
+			);
+			path = PromCloudCode;
+			sourceTree = "<group>";
+		};
+		D2DEBAA019B6D58E00BA0542 /* cloud */ = {
+			isa = PBXGroup;
+			children = (
+				D2DEBAA119B6D58E00BA0542 /* main.js */,
+			);
+			path = cloud;
+			sourceTree = "<group>";
+		};
+		D2DEBAA219B6D58E00BA0542 /* config */ = {
+			isa = PBXGroup;
+			children = (
+				D2DEBAA319B6D58E00BA0542 /* global.json */,
+			);
+			path = config;
+			sourceTree = "<group>";
+		};
+		D2DEBAA419B6D58E00BA0542 /* public */ = {
+			isa = PBXGroup;
+			children = (
+				D2DEBAA519B6D58E00BA0542 /* index.html */,
+			);
+			path = public;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -459,8 +500,10 @@
 				D2BB590F198CA89600431759 /* EditStore.xib in Resources */,
 				D2A475281962198D005C2502 /* InfoPlist.strings in Resources */,
 				D20DA6B1198B537300C1B225 /* EditUser.xib in Resources */,
+				D2DEBAA719B6D58E00BA0542 /* global.json in Resources */,
 				D2117951198EE1F0004D254F /* ImageEditorCell.xib in Resources */,
 				D2A475301962198D005C2502 /* Images.xcassets in Resources */,
+				D2DEBAA819B6D58E00BA0542 /* index.html in Resources */,
 				D2652159198E86E3000432BA /* StringEntryCell.xib in Resources */,
 				D2C6D1611980CA81008080CD /* PromCell.xib in Resources */,
 				D2103456196F9EF70088484B /* DressCell.xib in Resources */,
@@ -485,6 +528,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2DEBAA619B6D58E00BA0542 /* main.js in Sources */,
 				D2C6D1671980CE62008080CD /* SKPromDetailViewController.m in Sources */,
 				D286BA3F196E47EE00AFC9C0 /* SKDressListViewController.m in Sources */,
 				D2A4756E196262F4005C2502 /* SKLoginViewController.m in Sources */,
