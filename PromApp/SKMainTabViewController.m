@@ -30,17 +30,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    /*
-    //Set up navigation bar
-    UINavigationBar *navBar = self.navigationController.navigationBar;
-    UIColor *navBarColor = [UIColor colorWithRed:0 green:210 blue:255 alpha:0.8]; //Later replaced with call to a settings function allowing user to set color
-    UIColor *buttonColor = [UIColor colorWithRed:30 green:255 blue:150 alpha:1];
-    //UIImageView *titleImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"TextLogo"]];
-    UIImage *backgroundImage = [SKMainTabViewController navBackgroundWithColor:navBarColor];
-    [navBar setBackgroundImage:backgroundImage forBarMetrics:UIBarMetricsDefault];
-    [navBar setTintColor:buttonColor];
-     */
-    
 }
 
 - (void)didReceiveMemoryWarning
