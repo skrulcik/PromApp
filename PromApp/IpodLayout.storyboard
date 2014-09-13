@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="xrr-NT-o2p">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="xrr-NT-o2p">
     <dependencies>
-        <deployment defaultVersion="1792" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
-        <!--Login View Controller - Login-->
+        <!--Login-->
         <scene sceneID="iCM-x2-Tc2">
             <objects>
                 <viewController storyboardIdentifier="Login" title="Login" id="gmQ-3J-jBv" customClass="SKLoginViewController" sceneMemberID="viewController">
@@ -20,7 +19,6 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CoverPromCouple" translatesAutoresizingMaskIntoConstraints="NO" id="5gW-Gx-HRF">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rLv-Zk-eLb">
                                 <rect key="frame" x="59" y="451" width="202" height="52"/>
@@ -38,18 +36,15 @@
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LoginText" translatesAutoresizingMaskIntoConstraints="NO" id="Qi9-0A-WsH">
                                 <rect key="frame" x="40" y="44" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="tzc-qM-K1S"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" alpha="0.74999999999999978" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="SloganBaskerville" translatesAutoresizingMaskIntoConstraints="NO" id="kFE-00-XV8">
                                 <rect key="frame" x="60" y="180" width="201" height="26"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <view alpha="0.89999999999999991" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Wu-7u-9hc">
                                 <rect key="frame" x="101" y="167" width="169" height="5"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
@@ -77,7 +72,7 @@
             </objects>
             <point key="canvasLocation" x="2176" y="-668"/>
         </scene>
-        <!--Profile View Controller - Profile-->
+        <!--Profile-->
         <scene sceneID="7hJ-r4-EPH">
             <objects>
                 <viewController id="vfN-lO-tca" customClass="SKProfileViewController" sceneMemberID="viewController">
@@ -106,7 +101,7 @@
                                     <constraint firstAttribute="width" secondItem="R9N-w8-2ss" secondAttribute="height" multiplier="1:1" id="FXf-w5-dBn"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jav-1s-MeB">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jav-1s-MeB">
                                 <rect key="frame" x="50" y="417" width="220" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Jav-1s-MeB" secondAttribute="height" multiplier="22:3" id="Bb6-Qt-3wy"/>
@@ -161,7 +156,7 @@
             </objects>
             <point key="canvasLocation" x="869" y="965"/>
         </scene>
-        <!--Prom Finder View Controller - Near You-->
+        <!--Near You-->
         <scene sceneID="1Td-S3-r05">
             <objects>
                 <viewController id="lA3-QL-eB2" customClass="SKPromFinderViewController" sceneMemberID="viewController">
@@ -174,12 +169,12 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="7kc-0S-Rcl">
-                                <rect key="frame" x="0.0" y="108" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="44"/>
                                 <color key="barTintColor" red="1" green="0.54901960780000003" blue="0.88235294119999996" alpha="0.84999999999999998" colorSpace="deviceRGB"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="wPC-T0-ofg">
-                                <rect key="frame" x="0.0" y="152" width="320" height="367"/>
+                                <rect key="frame" x="0.0" y="108" width="320" height="411"/>
                                 <connections>
                                     <outlet property="delegate" destination="lA3-QL-eB2" id="L5V-OQ-fHW"/>
                                 </connections>
@@ -198,7 +193,6 @@
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dFT-MP-kXy">
                                 <rect key="frame" x="0.0" y="519" width="320" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="sH8-pd-EL1"/>
@@ -215,7 +209,7 @@
                             <constraint firstAttribute="trailing" secondItem="dFT-MP-kXy" secondAttribute="trailing" id="Eez-wY-T4y"/>
                             <constraint firstItem="Wod-nP-Lcj" firstAttribute="top" secondItem="wPC-T0-ofg" secondAttribute="bottom" id="JSW-pD-A27"/>
                             <constraint firstItem="wPC-T0-ofg" firstAttribute="top" secondItem="7kc-0S-Rcl" secondAttribute="bottom" id="ZnJ-Ei-VBX"/>
-                            <constraint firstItem="7kc-0S-Rcl" firstAttribute="top" secondItem="CGf-Vk-Uv1" secondAttribute="bottom" constant="44" id="nZS-lw-XB3"/>
+                            <constraint firstItem="7kc-0S-Rcl" firstAttribute="top" secondItem="CGf-Vk-Uv1" secondAttribute="bottom" id="nZS-lw-XB3"/>
                             <constraint firstItem="Wod-nP-Lcj" firstAttribute="top" secondItem="RTT-DC-FvP" secondAttribute="bottom" constant="14" id="opf-ga-sRS"/>
                             <constraint firstAttribute="centerX" secondItem="wPC-T0-ofg" secondAttribute="centerX" id="uKs-rC-MpD"/>
                             <constraint firstAttribute="trailing" secondItem="7kc-0S-Rcl" secondAttribute="trailing" id="vgZ-oJ-TyQ"/>
@@ -240,8 +234,8 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="OLu-Iz-8hF" customClass="SKMainTabViewController" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="7Rm-g1-QU7">
-                        <barButtonItem key="backBarButtonItem" title="None" id="7fA-Ln-8yI"/>
-                        <barButtonItem key="rightBarButtonItem" image="cog" id="ZRF-W7-o3a"/>
+                        <nil key="title"/>
+                        <barButtonItem key="rightBarButtonItem" image="95619613-A3C4-42A4-A95A-4A50FCFB5B7A" id="PwP-WG-U8o"/>
                     </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="Sb6-5l-tUr">
@@ -259,7 +253,7 @@
             </objects>
             <point key="canvasLocation" x="1458" y="965"/>
         </scene>
-        <!--Dress List View Controller - Dresses-->
+        <!--Dresses-->
         <scene sceneID="57o-mH-pLX">
             <objects>
                 <viewController id="EIX-mn-ePP" customClass="SKDressListViewController" sceneMemberID="viewController">
@@ -272,7 +266,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="HQU-Ma-3YK">
-                                <rect key="frame" x="0.0" y="108" width="320" height="411"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <toolbar key="tableFooterView" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="7NM-1v-cgK">
                                     <rect key="frame" x="0.0" y="64" width="320" height="44"/>
@@ -298,7 +292,7 @@
                         <constraints>
                             <constraint firstItem="HQU-Ma-3YK" firstAttribute="leading" secondItem="sJE-0K-8QX" secondAttribute="leading" id="Dt2-TW-fs9"/>
                             <constraint firstItem="I6z-Zs-Ush" firstAttribute="top" secondItem="HQU-Ma-3YK" secondAttribute="bottom" id="Ha2-ky-dkR"/>
-                            <constraint firstItem="HQU-Ma-3YK" firstAttribute="top" secondItem="pse-BP-ABk" secondAttribute="bottom" constant="44" id="ayf-0w-ayW"/>
+                            <constraint firstItem="HQU-Ma-3YK" firstAttribute="top" secondItem="pse-BP-ABk" secondAttribute="bottom" id="ayf-0w-ayW"/>
                             <constraint firstAttribute="trailing" secondItem="HQU-Ma-3YK" secondAttribute="trailing" id="e3H-mu-TvY"/>
                         </constraints>
                     </view>
@@ -311,7 +305,7 @@
             </objects>
             <point key="canvasLocation" x="2176" y="777"/>
         </scene>
-        <!--Add Prom View Controller - Create Prom-->
+        <!--Create Prom-->
         <scene sceneID="rp1-X5-0RY">
             <objects>
                 <viewController id="U2F-Cs-GlY" customClass="SKAddPromViewController" sceneMemberID="viewController">
@@ -334,17 +328,17 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Theme:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dzB-GU-nMK">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Theme:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dzB-GU-nMK">
                                 <rect key="frame" x="20" y="324" width="119" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vUh-5z-aaG">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Location:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vUh-5z-aaG">
                                 <rect key="frame" x="20" y="232" width="119" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="When:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IyU-9k-Fs5">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="When:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IyU-9k-Fs5">
                                 <rect key="frame" x="20" y="278" width="119" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
@@ -360,7 +354,7 @@
                                     <outlet property="delegate" destination="U2F-Cs-GlY" id="9gK-C4-qDC"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="1 School Rd." textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7H9-zI-lYd">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="1 School Rd." textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7H9-zI-lYd">
                                 <rect key="frame" x="147" y="137" width="153" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="153" id="PYA-5p-l7r"/>
@@ -371,7 +365,7 @@
                                     <outlet property="delegate" destination="U2F-Cs-GlY" id="cNc-kG-Uje"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="1 School Rd." textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GTv-hy-XVa">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="1 School Rd." textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GTv-hy-XVa">
                                 <rect key="frame" x="147" y="183" width="153" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="153" id="ruz-bf-FZQ"/>
@@ -382,7 +376,7 @@
                                     <outlet property="delegate" destination="U2F-Cs-GlY" id="2Ea-af-UTH"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Gym, City Center, etc." textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cLH-dc-Zug">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Gym, City Center, etc." textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cLH-dc-Zug">
                                 <rect key="frame" x="147" y="229" width="153" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="153" id="MYg-hC-BI3"/>
@@ -393,7 +387,7 @@
                                     <outlet property="delegate" destination="U2F-Cs-GlY" id="dxt-T2-t6a"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="MM-dd-yyyy" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h0N-6h-D5P">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="MM-dd-yyyy" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h0N-6h-D5P">
                                 <rect key="frame" x="147" y="275" width="153" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="153" id="qvQ-cb-yj9"/>
@@ -405,7 +399,7 @@
                                     <outlet property="delegate" destination="U2F-Cs-GlY" id="T6T-wn-XSI"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Gatsby, Paris, 80's" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zd4-vw-eDU">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Gatsby, Paris, 80's" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zd4-vw-eDU">
                                 <rect key="frame" x="147" y="321" width="153" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="153" id="4Wj-4Q-PP4"/>
@@ -416,7 +410,7 @@
                                     <outlet property="delegate" destination="U2F-Cs-GlY" id="mKL-lP-7kJ"/>
                                 </connections>
                             </textField>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City Address:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CCZ-Gt-PcG">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="City Address:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CCZ-Gt-PcG">
                                 <rect key="frame" x="20" y="186" width="119" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
@@ -501,7 +495,7 @@
             </objects>
             <point key="canvasLocation" x="2747" y="1462"/>
         </scene>
-        <!--Prom Detail View Controller - Prom Detail View-->
+        <!--Prom Detail View-->
         <scene sceneID="9UR-o8-zyZ">
             <objects>
                 <tableViewController id="CRO-iZ-oKd" customClass="SKPromDetailViewController" sceneMemberID="viewController">
@@ -528,7 +522,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KEb-bS-xEr" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="qYZ-9R-ZOH" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3269" y="2148"/>
+            <point key="canvasLocation" x="3252" y="2173"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="k9s-OL-UkG">
@@ -546,10 +540,140 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l7R-KS-suC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2743" y="2148"/>
+            <point key="canvasLocation" x="2727" y="2173"/>
         </scene>
     </scenes>
     <resources>
+        <image name="95619613-A3C4-42A4-A95A-4A50FCFB5B7A" width="30" height="30">
+            <mutableData key="keyedArchiveRepresentation">
+YnBsaXN0MDDUAQIDBAUGOzxYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
+GxwgISksLzU4VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
+DBIAwAAAgAKACtISCRMVWk5TLm9iamVjdHOhFIADgAnSEgkXGqIYGYAEgAWACBAA0h0JHh9fEBROU1RJ
+RkZSZXByZXNlbnRhdGlvboAGgAdPERseTU0AKgAADhgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAD///8U////ZP///7n///+S////CgAAAAAAAAAA////Cv///5L///+4////ZP///xQAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAD///9o////8v//////////////fv///wn///8J////fv//////////////8v///2gAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP///wEAAAAA
+AAAAAAAAAAD///+L////+////////////////////5L///+S/////////////////////P///4wAAAAA
+AAAAAAAAAAD///8BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA////HP///07///8u
+////FP///wv///+1/////////////////////////////////////////////////////////7X///8L
+////FP///y7///9O////HAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD///8c////ov/////////3
+////qv///7X////1//////////////////////////////////////////////////////////X///+2
+////qv////f/////////ov///xwAAAAAAAAAAAAAAAAAAAAAAAAAAP///wH///9L////////////////
+////////////////////////////////////+f///+v+/v7p/v7+9P7+/v//////////////////////
+/////////////////////////0v///8BAAAAAAAAAAAAAAAAAAAAAAAAAAD///8q////8v//////////
+/////////////////////////9L///+g////d////1/8/Pxc+v39cf7+/rL/////////////////////
+////////////////////8v///yoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD///8S////of//////////
+///////////////0////i////zYAAAAAAAAAAAAAAAAAAAAAAAAAAP39/Yz/////////+f///+//////
+////////////////////oP///xIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD///8I////rP//////////
+///////////////7////ZwAAAAAAAAAAAAAAAAAAAAAAAAAA////K/////n/////////wP///1T////P
+////////////////////q////wcAAAAAAAAAAAAAAAD///8O////Z////4n///+y////8///////////
+////8P////j/////////6////3AAAAAA////EP///zj///80////oP/////////t////UwAAAAD///9R
+////4f//////////////8////7L///+J////Z////w3///9V////8v////v/////////////////////
+////iv///13////n/////////+7///+p////yf///9v////Z////9v////3///+wAAAAAAAAAAAAAAAA
+////g//////////////////////////7////8v///1b///+v///////////////////////////////T
+////OAAAAAD///9g////6v/////////+//////////////////////////7////B////BAAAAAAAAAAA
+////NP///8///////////////////////////////67///97//////////////////////////////+i
+AAAAAAAAAAAAAAAA////mf////r/////////3v///37///9+////3v/////////z////fQAAAAAAAAAA
+AAAAAP///6D//////////////////////////////3r///8I////av////////////////////z///99
+AAAAAAAAAAD///8F////xP/////////f////HP///wb///8G////HP///+D/////////xP///wMAAAAA
+AAAAAP///3z////8////////////////////aP///wgAAAAA////B////4L///////////////D///9n
+AAAAAAAAAAD///8u////1v////////+E////BgAAAAAAAAAA////Bv///4T/////////6v///4b///9E
+////DP///2z////y//////////////+C////BwAAAAAAAAAA////Cf///5D///////////////D///9n
+AAAAAAAAAAD///8u////1v////////+K////BwAAAAAAAAAA////B////4r/////////////////////
+//////////7////+//////////////+Q////CQAAAAD///8K////hv////////////////////z///9+
+AAAAAP///zX///+w////+f/////////u////Jf///wf///8H////Jv///+7/////////+f////P////2
+////+f////3/////////////////////////iP///wr///+S//////////////////////////////+9
+////m/////7//////////f////3/////////6////4n///+J////6//////////w////fv///yz///9Y
+////g////9v//////////////////////////////5L///+n////////////////////////////////
+///////////////s////rP///7L////u/////////////////////////+3///+bAAAAAAAAAAAAAAAA
+////Lv///87//////////////////////////////6b///9U////8f////v/////////////////////
+////+////77///9MAAAAAAAAAAD///9w////v////+T/////////+P///3QAAAAAAAAAAAAAAAD///8C
+////i//////////////////////////7////8f///1P///8O////Zv///4n///+w////7///////////
+////8v///14AAAAAAAAAAAAAAAAAAAAAAAAAAP///3H/////////8////zEAAAAAAAAAAAAAAAD///9f
+////6P//////////////7////7D///+J////Zv///w4AAAAAAAAAAAAAAAD///8G////qP//////////
+/////////93///9h////BAAAAAAAAAAAAAAAAP///zr/////////9////2EAAAAA////B////2X////f
+////////////////////qP///wYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD///8U////qf//////////
+/////v/////////r/f39j/v7+z7b29sHAAAAAP///wX/////////+vz9/ZP1+vo0////lP///+//////
+/////v//////////////qf///xQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD///8w////+f//////////
+/////////////////v////7+/tf9/f2p/f39iP///3X////+/////v7+/uP9/v3S////////////////
+////////////////////+f///zAAAAAAAAAAAAAAAAAAAAAAAAAAAP///wH///9J////////////////
+//////////////////////////////////////////j////+////////////////////////////////
+/////////////////////////0j///8BAAAAAAAAAAAAAAAAAAAAAAAAAAD///8Y////lv/////////s
+////kv///5f////s/////////////////////////////////////////////////////////+3///+Y
+////kv///+z/////////mP///xgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA////Gv///0v///8p
+////Dv///wT///+w/////////////////////////////////////////////////////////7D///8D
+////Dv///yr///9J////GQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP///wEAAAAA
+AAAAAAAAAAD///+G////+f///////////////////4P///+C////////////////////+v///4cAAAAA
+AAAAAAAAAAD///8BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAD///9j////8f//////////////Zf///wf///8H////Zf//////////////8f///2IAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAD///8K////Rv///5X///9w////BwAAAAAAAAAA////B////3H///+W////Rv///woAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgEAAAMAAAABAB4AAAEBAAMAAAABAB4AAAEC
+AAMAAAAEAAAOxgEDAAMAAAABAAEAAAEGAAMAAAABAAIAAAERAAQAAAABAAAACAESAAMAAAABAAEAAAEV
+AAMAAAABAAQAAAEWAAMAAAABAB4AAAEXAAQAAAABAAAOEAEcAAMAAAABAAEAAAFSAAMAAAABAAIAAAFT
+AAMAAAAEAAAOzodzAAcAAAxIAAAO1gAAAAAACAAIAAgACAABAAEAAQABAAAMSExpbm8CEAAAbW50clJH
+QiBYWVogB84AAgAJAAYAMQAAYWNzcE1TRlQAAAAASUVDIHNSR0IAAAAAAAAAAAAAAAAAAPbWAAEAAAAA
+0y1IUCAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAARY3BydAAA
+AVAAAAAzZGVzYwAAAYQAAABsd3RwdAAAAfAAAAAUYmtwdAAAAgQAAAAUclhZWgAAAhgAAAAUZ1hZWgAA
+AiwAAAAUYlhZWgAAAkAAAAAUZG1uZAAAAlQAAABwZG1kZAAAAsQAAACIdnVlZAAAA0wAAACGdmlldwAA
+A9QAAAAkbHVtaQAAA/gAAAAUbWVhcwAABAwAAAAkdGVjaAAABDAAAAAMclRSQwAABDwAAAgMZ1RSQwAA
+BDwAAAgMYlRSQwAABDwAAAgMdGV4dAAAAABDb3B5cmlnaHQgKGMpIDE5OTggSGV3bGV0dC1QYWNrYXJk
+IENvbXBhbnkAAGRlc2MAAAAAAAAAEnNSR0IgSUVDNjE5NjYtMi4xAAAAAAAAAAAAAAASc1JHQiBJRUM2
+MTk2Ni0yLjEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFhZ
+WiAAAAAAAADzUQABAAAAARbMWFlaIAAAAAAAAAAAAAAAAAAAAABYWVogAAAAAAAAb6IAADj1AAADkFhZ
+WiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9kZXNjAAAAAAAAABZJRUMgaHR0cDov
+L3d3dy5pZWMuY2gAAAAAAAAAAAAAABZJRUMgaHR0cDovL3d3dy5pZWMuY2gAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAZGVzYwAAAAAAAAAuSUVDIDYxOTY2LTIuMSBEZWZh
+dWx0IFJHQiBjb2xvdXIgc3BhY2UgLSBzUkdCAAAAAAAAAAAAAAAuSUVDIDYxOTY2LTIuMSBEZWZhdWx0
+IFJHQiBjb2xvdXIgc3BhY2UgLSBzUkdCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGRlc2MAAAAAAAAALFJl
+ZmVyZW5jZSBWaWV3aW5nIENvbmRpdGlvbiBpbiBJRUM2MTk2Ni0yLjEAAAAAAAAAAAAAACxSZWZlcmVu
+Y2UgVmlld2luZyBDb25kaXRpb24gaW4gSUVDNjE5NjYtMi4xAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAB2aWV3AAAAAAATpP4AFF8uABDPFAAD7cwABBMLAANcngAAAAFYWVogAAAAAABMCVYAUAAAAFcf521l
+YXMAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAKPAAAAAnNpZyAAAAAAQ1JUIGN1cnYAAAAAAAAEAAAA
+AAUACgAPABQAGQAeACMAKAAtADIANwA7AEAARQBKAE8AVABZAF4AYwBoAG0AcgB3AHwAgQCGAIsAkACV
+AJoAnwCkAKkArgCyALcAvADBAMYAywDQANUA2wDgAOUA6wDwAPYA+wEBAQcBDQETARkBHwElASsBMgE4
+AT4BRQFMAVIBWQFgAWcBbgF1AXwBgwGLAZIBmgGhAakBsQG5AcEByQHRAdkB4QHpAfIB+gIDAgwCFAId
+AiYCLwI4AkECSwJUAl0CZwJxAnoChAKOApgCogKsArYCwQLLAtUC4ALrAvUDAAMLAxYDIQMtAzgDQwNP
+A1oDZgNyA34DigOWA6IDrgO6A8cD0wPgA+wD+QQGBBMEIAQtBDsESARVBGMEcQR+BIwEmgSoBLYExATT
+BOEE8AT+BQ0FHAUrBToFSQVYBWcFdwWGBZYFpgW1BcUF1QXlBfYGBgYWBicGNwZIBlkGagZ7BowGnQav
+BsAG0QbjBvUHBwcZBysHPQdPB2EHdAeGB5kHrAe/B9IH5Qf4CAsIHwgyCEYIWghuCIIIlgiqCL4I0gjn
+CPsJEAklCToJTwlkCXkJjwmkCboJzwnlCfsKEQonCj0KVApqCoEKmAquCsUK3ArzCwsLIgs5C1ELaQuA
+C5gLsAvIC+EL+QwSDCoMQwxcDHUMjgynDMAM2QzzDQ0NJg1ADVoNdA2ODakNww3eDfgOEw4uDkkOZA5/
+DpsOtg7SDu4PCQ8lD0EPXg96D5YPsw/PD+wQCRAmEEMQYRB+EJsQuRDXEPURExExEU8RbRGMEaoRyRHo
+EgcSJhJFEmQShBKjEsMS4xMDEyMTQxNjE4MTpBPFE+UUBhQnFEkUahSLFK0UzhTwFRIVNBVWFXgVmxW9
+FeAWAxYmFkkWbBaPFrIW1hb6Fx0XQRdlF4kXrhfSF/cYGxhAGGUYihivGNUY+hkgGUUZaxmRGbcZ3RoE
+GioaURp3Gp4axRrsGxQbOxtjG4obshvaHAIcKhxSHHscoxzMHPUdHh1HHXAdmR3DHeweFh5AHmoelB6+
+HukfEx8+H2kflB+/H+ogFSBBIGwgmCDEIPAhHCFIIXUhoSHOIfsiJyJVIoIiryLdIwojOCNmI5QjwiPw
+JB8kTSR8JKsk2iUJJTglaCWXJccl9yYnJlcmhya3JugnGCdJJ3onqyfcKA0oPyhxKKIo1CkGKTgpaymd
+KdAqAio1KmgqmyrPKwIrNitpK50r0SwFLDksbiyiLNctDC1BLXYtqy3hLhYuTC6CLrcu7i8kL1ovkS/H
+L/4wNTBsMKQw2zESMUoxgjG6MfIyKjJjMpsy1DMNM0YzfzO4M/E0KzRlNJ402DUTNU01hzXCNf02NzZy
+Nq426TckN2A3nDfXOBQ4UDiMOMg5BTlCOX85vDn5OjY6dDqyOu87LTtrO6o76DwnPGU8pDzjPSI9YT2h
+PeA+ID5gPqA+4D8hP2E/oj/iQCNAZECmQOdBKUFqQaxB7kIwQnJCtUL3QzpDfUPARANER0SKRM5FEkVV
+RZpF3kYiRmdGq0bwRzVHe0fASAVIS0iRSNdJHUljSalJ8Eo3Sn1KxEsMS1NLmkviTCpMcky6TQJNSk2T
+TdxOJU5uTrdPAE9JT5NP3VAnUHFQu1EGUVBRm1HmUjFSfFLHUxNTX1OqU/ZUQlSPVNtVKFV1VcJWD1Zc
+VqlW91dEV5JX4FgvWH1Yy1kaWWlZuFoHWlZaplr1W0VblVvlXDVchlzWXSddeF3JXhpebF69Xw9fYV+z
+YAVgV2CqYPxhT2GiYfViSWKcYvBjQ2OXY+tkQGSUZOllPWWSZedmPWaSZuhnPWeTZ+loP2iWaOxpQ2ma
+afFqSGqfavdrT2una/9sV2yvbQhtYG25bhJua27Ebx5veG/RcCtwhnDgcTpxlXHwcktypnMBc11zuHQU
+dHB0zHUodYV14XY+dpt2+HdWd7N4EXhueMx5KnmJeed6RnqlewR7Y3vCfCF8gXzhfUF9oX4BfmJ+wn8j
+f4R/5YBHgKiBCoFrgc2CMIKSgvSDV4O6hB2EgITjhUeFq4YOhnKG14c7h5+IBIhpiM6JM4mZif6KZIrK
+izCLlov8jGOMyo0xjZiN/45mjs6PNo+ekAaQbpDWkT+RqJIRknqS45NNk7aUIJSKlPSVX5XJljSWn5cK
+l3WX4JhMmLiZJJmQmfyaaJrVm0Kbr5wcnImc951kndKeQJ6unx2fi5/6oGmg2KFHobaiJqKWowajdqPm
+pFakx6U4pammGqaLpv2nbqfgqFKoxKk3qamqHKqPqwKrdavprFys0K1ErbiuLa6hrxavi7AAsHWw6rFg
+sdayS7LCszizrrQltJy1E7WKtgG2ebbwt2i34LhZuNG5SrnCuju6tbsuu6e8IbybvRW9j74KvoS+/796
+v/XAcMDswWfB48JfwtvDWMPUxFHEzsVLxcjGRsbDx0HHv8g9yLzJOsm5yjjKt8s2y7bMNcy1zTXNtc42
+zrbPN8+40DnQutE80b7SP9LB00TTxtRJ1MvVTtXR1lXW2Ndc1+DYZNjo2WzZ8dp22vvbgNwF3IrdEN2W
+3hzeot8p36/gNuC94UThzOJT4tvjY+Pr5HPk/OWE5g3mlucf56noMui86Ubp0Opb6uXrcOv77IbtEe2c
+7ijutO9A78zwWPDl8XLx//KM8xnzp/Q09ML1UPXe9m32+/eK+Bn4qPk4+cf6V/rn+3f8B/yY/Sn9uv5L
+/tz/bf//0iIjJCVaJGNsYXNzbmFtZVgkY2xhc3Nlc18QEE5TQml0bWFwSW1hZ2VSZXCjJicoXxAQTlNC
+aXRtYXBJbWFnZVJlcFpOU0ltYWdlUmVwWE5TT2JqZWN00iIjKitXTlNBcnJheaIqKNIiIy0uXk5TTXV0
+YWJsZUFycmF5oy0qKNMwMQkyMzRXTlNXaGl0ZVxOU0NvbG9yU3BhY2VEMCAwABADgAvSIiM2N1dOU0Nv
+bG9yojYo0iIjOTpXTlNJbWFnZaI5KF8QD05TS2V5ZWRBcmNoaXZlctE9PlRyb290gAEACAARABoAIwAt
+ADIANwBFAEsAVABbAGgAbwB3AHkAfgCAAIIAhwCSAJQAlgCYAJ0AoACiAKQApgCoAK0AxADGAMgb6hvv
+G/ocAxwWHBocLRw4HEEcRhxOHFEcVhxlHGkccBx4HIUcihyMHI4ckxybHJ4coxyrHK4cwBzDHMgAAAAA
+AAACAQAAAAAAAAA/AAAAAAAAAAAAAAAAAAAcyg
+</mutableData>
+        </image>
         <image name="CoverPromCouple" width="1125" height="1997"/>
         <image name="DefaultWideButton" width="142" height="17"/>
         <image name="DressIcon" width="30" height="30"/>
@@ -559,12 +683,11 @@
         <image name="PinkPill" width="202" height="52"/>
         <image name="ProfileIconSelected" width="25" height="25"/>
         <image name="SloganBaskerville" width="783" height="91"/>
-        <image name="cog" width="30" height="30"/>
     </resources>
-    <color key="tintColor" red="0.25490197539329529" green="0.47843140363693237" blue="0.98823535442352295" alpha="1" colorSpace="deviceRGB"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <color key="tintColor" red="0.25490197539329529" green="0.47843140363693237" blue="0.98823535442352295" alpha="1" colorSpace="deviceRGB"/>
 </document>
