@@ -30,6 +30,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"cog"] style:UIBarButtonItemStylePlain target:self action:nil];
+    //UIImageView *title = [[UIImageView alloc] initWithFrame:CGRectMake(0, -64, 245, 44)];
+    //title.image = [UIImage imageNamed:@"WhiteNavTitle"];
+    //self.navigationItem.titleView = title;
+    
 }
 
 - (void)didReceiveMemoryWarning

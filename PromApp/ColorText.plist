@@ -8,6 +8,10 @@
 	<string>#0055D7</string>
 	<key>Standard White</key>
 	<string>#F7F7F7</string>
+	<key>Standard Pink</key>
+	<string>#FF8BE2</string>
+	<key>Dark Pink</key>
+	<string>#DE23AF</string>
 	<key>Standard White Darkened</key>
 	<string>#C7C7CC</string>
 </dict>
