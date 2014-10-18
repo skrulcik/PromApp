@@ -7,7 +7,7 @@
 //
 
 #import "SKMainTabViewController.h"
-#import "SKDressListViewController.h"
+#import "SKAddDressViewController.h"
 #import "SKProfileViewController.h"
 #import "SKLoginViewController.h"
 
@@ -30,10 +30,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"cog"] style:UIBarButtonItemStylePlain target:self action:nil];
+    //self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"cog"] style:UIBarButtonItemStylePlain target:self action:nil];
     //UIImageView *title = [[UIImageView alloc] initWithFrame:CGRectMake(0, -64, 245, 44)];
     //title.image = [UIImage imageNamed:@"WhiteNavTitle"];
     //self.navigationItem.titleView = title;
+    [self setNeedsStatusBarAppearanceUpdate];
     
 }
 
@@ -41,6 +42,51 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
+}
+- (IBAction)showAddOptionPane:(id)sender {
+    UIAlertController * view=   [UIAlertController
+                                 alertControllerWithTitle:nil
+                                 message:nil
+                                 preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    UIAlertAction* addDressAction = [UIAlertAction
+                         actionWithTitle:@"Add Dress"
+                         style:UIAlertActionStyleDefault
+                         handler:^(UIAlertAction * action)
+                         {
+                             //Do some thing here
+                             [view dismissViewControllerAnimated:YES completion:nil];
+                             SKAddDressViewController *newDress = [[SKAddDressViewController alloc] initForCreation];
+                             [newDress setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
+                             [self presentViewController:newDress animated:YES completion:nil];
+                         }];
+    UIAlertAction* findPromAction = [UIAlertAction
+                                     actionWithTitle:@"Find a Prom"
+                                     style:UIAlertActionStyleDefault
+                                     handler:^(UIAlertAction * action)
+                                     {
+                                         //Do some thing here
+                                         NSLog(@"Would have searched for prom.");
+                                         [view dismissViewControllerAnimated:YES completion:nil];
+                                         
+                                     }];
+    UIAlertAction* cancel = [UIAlertAction
+                             actionWithTitle:@"Cancel"
+                             style:UIAlertActionStyleDefault
+                             handler:^(UIAlertAction * action)
+                             {
+                                 [view dismissViewControllerAnimated:YES completion:nil];
+                             }];
+    
+    [view addAction:addDressAction];
+    [view addAction:findPromAction];
+    [view addAction:cancel];
+    [self presentViewController:view animated:YES completion:nil];
 }
 
 - (IBAction) unwindFromLogin:(UIStoryboardSegue *)segue
@@ -51,8 +97,6 @@
 
 - (IBAction) unwindFromAddDress:(UIStoryboardSegue *)segue
 {
-    SKDressListViewController *dressList = (SKDressListViewController *)self.viewControllers[1];
-    [dressList loadDressInfo];
 }
 
 - (IBAction) unwindFromAddProm:(UIStoryboardSegue *)segue

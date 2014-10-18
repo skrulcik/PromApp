@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="14A388a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProfileCell" id="tEf-VF-vyq" customClass="ProfileCell" customModule="PromApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tEf-VF-vyq" id="qN8-Mm-MIL">
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FBBlankProfilePhoto" translatesAutoresizingMaskIntoConstraints="NO" id="td8-3n-aPa">
+                        <rect key="frame" x="108" y="8" width="105" height="105"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="td8-3n-aPa" secondAttribute="height" multiplier="1:1" id="EfK-8o-TQf"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FirstName LastName" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EoB-Fi-Rjl">
+                        <rect key="frame" x="43" y="121" width="234" height="24"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="# Proms - # Dresses" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tUg-KI-U6J">
+                        <rect key="frame" x="43" y="151" width="234" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="centerX" secondItem="td8-3n-aPa" secondAttribute="centerX" constant="-0.5" id="HTm-UG-DDF"/>
+                    <constraint firstItem="td8-3n-aPa" firstAttribute="top" secondItem="qN8-Mm-MIL" secondAttribute="topMargin" id="MxJ-rN-wOS"/>
+                    <constraint firstItem="EoB-Fi-Rjl" firstAttribute="width" secondItem="tUg-KI-U6J" secondAttribute="width" id="NIY-r6-x49"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="EoB-Fi-Rjl" secondAttribute="trailing" constant="35" id="cLz-sR-CGS"/>
+                    <constraint firstItem="td8-3n-aPa" firstAttribute="leading" secondItem="qN8-Mm-MIL" secondAttribute="leadingMargin" constant="100" id="cke-Qb-iCj"/>
+                    <constraint firstItem="EoB-Fi-Rjl" firstAttribute="top" secondItem="td8-3n-aPa" secondAttribute="bottom" constant="8" id="ohq-mt-EL3"/>
+                    <constraint firstItem="EoB-Fi-Rjl" firstAttribute="centerX" secondItem="tUg-KI-U6J" secondAttribute="centerX" id="pdA-P3-uz0"/>
+                    <constraint firstItem="EoB-Fi-Rjl" firstAttribute="leading" secondItem="qN8-Mm-MIL" secondAttribute="leadingMargin" constant="35" id="pvJ-1B-3zB"/>
+                    <constraint firstItem="tUg-KI-U6J" firstAttribute="top" secondItem="EoB-Fi-Rjl" secondAttribute="bottom" constant="5.5" id="sb2-Gh-V8U"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="infoLabel" destination="tUg-KI-U6J" id="Sev-ED-WQi"/>
+                <outlet property="nameLabel" destination="EoB-Fi-Rjl" id="fOm-gH-jTV"/>
+                <outlet property="profPic" destination="td8-3n-aPa" id="tx2-3F-ShV"/>
+            </connections>
+            <point key="canvasLocation" x="473" y="518"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="FBBlankProfilePhoto" width="220" height="220"/>
+    </resources>
+</document>
