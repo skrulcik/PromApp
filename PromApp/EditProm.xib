@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SKAddDressViewController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SKAddPromViewController">
             <connections>
                 <outlet property="cancelButton" destination="ZO4-Oc-Uu9" id="BaP-6g-3uG"/>
                 <outlet property="doneButton" destination="mfu-QK-1Zx" id="rBU-Zf-OZI"/>
