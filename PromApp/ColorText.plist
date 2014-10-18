@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>Light Blue</key>
+	<string>#8bc2ff</string>
 	<key>Standard Blue</key>
 	<string>#007AFF</string>
 	<key>Standard Blue Darkened</key>
