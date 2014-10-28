@@ -15,10 +15,6 @@ class ProfileCell: UITableViewCell
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var infoLabel: UILabel!
     
-    override init() {
-        super.init()
-        
-    }
     
     required override init(frame: CGRect) {
         super.init(frame: frame)

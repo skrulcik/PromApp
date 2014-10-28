@@ -7,16 +7,19 @@
 //
 #import "SKPromQueryController.h"
 #import "SKAddDressViewController.h"
-#import "SKProm.h"
 
 @interface SKPromQueryController ()
 @property NSString *className;
 @property CLLocationManager *locationManager;
 @end
 
-@implementation SKPromQueryController
+@implementation SKPromQueryController{
+    NSIndexPath *selectedPath;
+}
 @synthesize className;
 @synthesize locationManager;
+@synthesize selectedProm;
+@synthesize searchBar;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -34,6 +37,34 @@
         
         // The number of objects to show per page
         self.objectsPerPage = QUERY_LIMIT;
+        selectedPath = nil;
+    }
+    return self;
+}
+
+- (id)initWithCoder:(NSCoder *)aCoder {
+    self = [super initWithCoder:aCoder];
+    if (self) {
+        // Customize the table
+        
+        // The className to query on
+        self.className = @"SKProm";
+        
+        // The key of the PFObject to display in the label of the default cell style
+        self.textKey = PROM_TEXT_KEY;
+        
+        // Uncomment the following line to specify the key of a PFFile on the PFObject to display in the imageView of the default cell style
+        self.imageKey = PROM_IMAGE_KEY;
+        
+        // Whether the built-in pull-to-refresh is enabled
+        self.pullToRefreshEnabled = YES;
+        
+        // Whether the built-in pagination is enabled
+        self.paginationEnabled = YES;
+        
+        // The number of objects to show per page
+        self.objectsPerPage = QUERY_LIMIT;
+        selectedPath = nil;
     }
     return self;
 }
@@ -50,19 +81,13 @@
     [super viewDidLoad];
 
     self.locationManager = [[CLLocationManager alloc] init];
+    [self.locationManager startUpdatingLocation];
     self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     self.locationManager.delegate = self;
+    [locationManager setDelegate:self];
     [self.locationManager startUpdatingLocation];
 }
 
-- (void)viewDidAppear:(BOOL)animated
-{
-}
-
--(IBAction)cancelPressed:(id)sender
-{
-    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
-}
 
 #pragma mark - UIViewController
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -90,12 +115,18 @@
 // Override to customize what kind of query to perform on the class. The default is to query for
 // all objects ordered by createdAt descending.
 - (PFQuery *)queryForTable {
-    CLLocation *searchLocation = [locationManager location];
-    return [self queryForTableWithLocation:searchLocation];
+    //CLLocation *searchLocation = [locationManager location];
+    //return [self queryForTableWithLocation:searchLocation];
+    NSString* searchString = self.searchBar.text;
+    if([searchString isEqualToString:@""]){
+        return [self queryForTableWithLocation:[self.locationManager location]];
+    }
+    return [self queryForTableWithString:searchString];
 }
 
 - (PFQuery *)queryForTableWithLocation: (CLLocation *)searchLocation
 {
+    searchLocation = [self.locationManager location];
     PFQuery *query = [PFQuery queryWithClassName:@"Prom"];
 
     // If Pull To Refresh is enabled, query against the network by default.
@@ -115,6 +146,33 @@
     return query;
 }
 
+- (PFQuery *)queryForTableWithString: (NSString *)searchString
+{
+    PFQuery *query = [PFQuery queryWithClassName:@"Prom"];
+    
+    // If Pull To Refresh is enabled, query against the network by default.
+    if (self.pullToRefreshEnabled) {
+        query.cachePolicy = kPFCachePolicyNetworkOnly;
+    }
+    if (self.objects.count == 0) {
+        query.cachePolicy = kPFCachePolicyCacheThenNetwork;
+    }
+    [query whereKey:@"schoolName" containsString:searchString];
+    //[query whereKey:PROM_LOCATION_KEY nearGeoPoint:point withinKilometers:SEARCH_RADIUS];
+    query.limit = QUERY_LIMIT;
+    
+    return query;
+}
+
+#pragma mark - Search
+
+-(void) searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    self.objectsPerPage = QUERY_LIMIT;
+    [self loadObjects];
+}
+
+
 // Override to customize the look of a cell representing an object. The default is to display
 // a UITableViewCellStyleDefault style cell with the label being the textKey in the object,
 // and the imageView being the imageKey in the object.
@@ -128,6 +186,11 @@
 
     // Configure the cell
     cell.textLabel.text = [object objectForKey:self.textKey];
+    if ([indexPath isEqual:selectedPath]) {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    } else {
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }
 
     return cell;
 }
@@ -198,10 +261,11 @@ return YES;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //[super tableView:tableView didSelectRowAtIndexPath:indexPath];
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    selectedPath = indexPath;
+    [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
     SKProm *prom = (SKProm*)[self objectAtIndexPath:indexPath];
-    [(SKAddDressViewController *)[self presentingViewController] performPromAssociation:prom];
-    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+    self.selectedProm = prom;
 }
 
 @end

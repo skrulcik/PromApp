@@ -15,6 +15,7 @@
 @property NSString *locationDescription;
 @property NSString *time;
 @property NSString *theme;
+@property PFFile *image;
 @property PFGeoPoint *preciseLocation;
 @property NSMutableArray *dresses;
 
