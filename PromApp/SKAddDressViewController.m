@@ -13,6 +13,8 @@
 #import "SKStore.h"
 #import "SKStringEntryCell.h"
 
+
+
 @interface SKAddDressViewController ()
 @property (nonatomic) UIImagePickerController *imagePickerController;
 @property (nonatomic) NSMutableArray *capturedImages;
@@ -29,20 +31,20 @@
 @synthesize cancelButton;
 @synthesize doneButton;
 @synthesize dressImageView;
-@synthesize tableView;
+//@synthesize tableView;
 
 static NSArray *keyForRowIndex;
 static NSDictionary *readableNames;
 
-- (id) initForCreation{
-    self = [self initForDress:[[SKDress alloc] init]];
+- (void) setupForCreation{
+    //self = [self initForDress:[[SKDress alloc] init]];
+    [self setupWithDress:[[SKDress alloc] init]];
     _isNewDress = YES;
-    return self;
 }
 
-- (id)initForDress:(SKDress *)dressObject
+- (void) setupWithDress:(SKDress *)dressObject
 {
-    self = [super initWithNibName:@"EditDress" bundle:nil];
+    //self = [super initWithNibName:@"EditDress" bundle:nil];
     if([[PFUser currentUser] isMemberOfClass:[SKStore class]]){
         keyForRowIndex = @[@"image", @"designer", @"styleNumber", @"dressColor", @"prom", @"owner"];
     }else{
@@ -57,22 +59,17 @@ static NSDictionary *readableNames;
                           @"store":@"Store",
                           @"prom":@"Prom"};
     }
-    if(self){
-        _isNewDress = NO;
-        _imageChanged = NO;
-        _promChanged = NO;
-        dressData = [[NSMutableDictionary alloc] init];
-        self.dress = dressObject;
-    }
-    return self;
+    _imageChanged = NO;
+    _promChanged = NO;
+    dressData = [[NSMutableDictionary alloc] init];
+    self.dress = dressObject;
 }
 
-- (id) init
+- (id) initWithCoder:(NSCoder *)aDecoder
 {
-    self = [super init];
-    if(self){
-        
-    }
+    self = [super initWithCoder:aDecoder];
+    _isNewDress = YES;
+    [self setupForCreation];
     return self;
 }
 
@@ -80,13 +77,9 @@ static NSDictionary *readableNames;
 {
     [super viewDidLoad];
     self.capturedImages = [[NSMutableArray alloc] init];
+    
     [self.tableView registerNib:[UINib nibWithNibName:@"StringEntryCell" bundle:nil] forCellReuseIdentifier:@"StringEntry"];
-     [self.tableView registerNib:[UINib nibWithNibName:@"ImageEditorCell" bundle:nil] forCellReuseIdentifier:@"ImageEditor"];
-    if(_isNewDress){
-        [self.navTitle setTitle:@"Add Dress"];
-    } else {
-        [self.navTitle setTitle:@"Edit Dress:"];
-    }
+    [self.tableView registerNib:[UINib nibWithNibName:@"ImageEditorCell" bundle:nil] forCellReuseIdentifier:@"ImageEditor"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -106,13 +99,10 @@ static NSDictionary *readableNames;
     [self showImagePickerForSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
 }
 
-- (IBAction)cancelPressed:(id)sender {
-    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
-}
 
 - (IBAction)savePressed:(id)sender {
     [self saveDress:self.dress withCompletion:^(void){
-        [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+        [self performSegueWithIdentifier:@"SaveDress" sender:self];
     }];
 }
 
@@ -172,7 +162,7 @@ typedef void(^voidCompletion)(void);
         if([@"image" isEqualToString:[SKAddDressViewController keyForRowIndex:i]]){
             //Is image cell
             SKImageEditorCell *imgCell = cells[i];
-            UIImage *currentPic = imgCell.imageView.image;
+            UIImage *currentPic = imgCell.basicImage.image;
             if(currentPic){
                 [dressData setObject:currentPic forKey:[SKAddDressViewController keyForRowIndex:i]];
             }
@@ -291,14 +281,7 @@ typedef void(^voidCompletion)(void);
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if([[SKAddDressViewController keyForRowIndex:[indexPath row]] isEqualToString:@"prom"]){
-        SKPromQueryController *promSelector = [[SKPromQueryController alloc]initWithStyle:UITableViewStylePlain];
-        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:promSelector];
-        UIBarButtonItem *cancel = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:promSelector action:@selector(cancelPressed:)];
-        navController.navigationBar.topItem.title = @"Find Prom";
-        promSelector.navigationItem.leftBarButtonItem = cancel;
-        [self presentViewController:navController animated:YES completion:^(void){
-            [promSelector loadObjects];
-        }];
+        [self performSegueWithIdentifier:@"SelectProm" sender:self];
     }
 }
 
@@ -306,28 +289,36 @@ typedef void(^voidCompletion)(void);
 {
     NSString *key = [SKAddDressViewController keyForRowIndex:[indexPath row]];
     NSLog(@"Tried creating cell for key %@", key);
+    
     if([key isEqualToString:@"image"]){
         SKImageEditorCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"ImageEditor"];
+        if (cell == nil){
+            cell = [[SKImageEditorCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ImageEditor" ];
+        }
         [cell.editButton addTarget:self action:@selector(addImage:) forControlEvents:UIControlEventTouchUpInside];
         cell.key = key;
-        cell.imageView.image = [UIImage imageNamed:@"EmptyDress"];
+        cell.basicImage.image = [UIImage imageNamed:@"EmptyDress"];
         if(!_isNewDress){
-            [(PFImageView *)cell.imageView setFile:self.dress.image]; //placeholder (should already be there anyways)
-            [(PFImageView *)cell.imageView loadInBackground]; //Loads existing image from Parse
+            [(PFImageView *)cell.pfimage setFile:self.dress.image]; //placeholder (should already be there anyways)
+            [(PFImageView *)cell.pfimage loadInBackground]; //Loads existing image from Parse
         }
         return cell;
     }else{
         SKStringEntryCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"StringEntry"];
+        if (cell == nil){
+            cell = [[SKStringEntryCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"StringEntry" ];
+        }
         cell.field.delegate = self;
         cell.key = key;
         NSString *currentVal = [self.dress objectForKey:key];
-        if(!_isNewDress && !(([currentVal class]==[NSString class] && [currentVal isEqualToString:@""]) || [currentVal isEqual:nil])){
+        if(!_isNewDress && ![currentVal isEqualToString:@""]){
             if([key isEqualToString:@"prom"]){
                 cell.field.text = [[self.dress objectForKey:key] schoolName];
-            }else{
-                cell.field.text = [self.dress objectForKey:key];
+            }else{;
+                cell.field.text =[self.dress objectForKey:key];
             }
         }else{
+            cell.field.text = @"";
             cell.field.placeholder = [SKAddDressViewController readableNameForKey:key];
         }
         if([key isEqualToString:@"prom"]){
@@ -353,27 +344,41 @@ typedef void(^voidCompletion)(void);
 - (UIImageView *) dressImageView
 {
     SKImageEditorCell *cell = [self.tableView visibleCells][0];
-    return [cell imageView];
+    return [cell basicImage];
 }
 
 #pragma mark - Statics
 +(NSString *)readableNameForKey:(NSString *)key{
     return readableNames[key];
 }
-+(NSString *)keyForRowIndex:(int)num{
++(NSString *)keyForRowIndex:(long)num{
     return keyForRowIndex[num];
 }
 
 
-/*
 #pragma mark - Navigation
+- (IBAction) unwindFromSelectProm:(UIStoryboardSegue *)segue
+{
+    if ([segue.sourceViewController isKindOfClass:[SKPromQueryController class]]) {
+        SKPromQueryController *promController = segue.sourceViewController;
+        // if the user clicked Cancel, we don't want to change the color
+        if (promController.selectedProm) {
+            [self performPromAssociation:promController.selectedProm];
+        }
+    }
+}
 
+- (IBAction) unwindFromSelectPromCancel:(UIStoryboardSegue *)segue
+{
+}
+/*
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
-*/
+ */
+
 
 @end

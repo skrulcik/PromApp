@@ -15,14 +15,16 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        // Initialization code
+        self.pfimage = (PFImageView *)self.basicImage;
+        
     }
     return self;
 }
 
 - (void)awakeFromNib
 {
-    // Initialization code
+    //self.imageView = (PFImageView *)self.basicImage;
+
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated

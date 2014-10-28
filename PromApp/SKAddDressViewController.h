@@ -11,19 +11,19 @@
 #import "SKDress.h"
 #import "SKProm.h"
 
-@interface SKAddDressViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface SKAddDressViewController : UITableViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate>//, UITableViewDataSource, UITableViewDelegate>
 
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+//@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *cancelButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
 @property (weak, nonatomic, getter=dressImageView) UIImageView *dressImageView;
 @property SKDress *dress;
 
-- (id) initForCreation;
-- (id)initForDress:(SKDress *)dressObject;
+- (void) setupForCreation;
+- (void) setupWithDress:(SKDress *)dressObject;
 - (void) performPromAssociation:(SKProm *) prom;
 - (IBAction)addImage:(id)sender;
 - (IBAction)showImagePickerForCamera:(id)sender;
 - (IBAction)showImagePickerForPhotoPicker:(id)sender;
-
+- (IBAction) unwindFromSelectProm:(UIStoryboardSegue *)segue;
 @end

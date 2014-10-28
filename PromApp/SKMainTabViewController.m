@@ -8,6 +8,7 @@
 
 #import "SKMainTabViewController.h"
 #import "SKAddDressViewController.h"
+#import "SKAddPromViewController.h"
 #import "SKProfileViewController.h"
 #import "SKLoginViewController.h"
 
@@ -34,7 +35,6 @@
     //UIImageView *title = [[UIImageView alloc] initWithFrame:CGRectMake(0, -64, 245, 44)];
     //title.image = [UIImage imageNamed:@"WhiteNavTitle"];
     //self.navigationItem.titleView = title;
-    [self setNeedsStatusBarAppearanceUpdate];
     
 }
 
@@ -42,11 +42,6 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
--(UIStatusBarStyle)preferredStatusBarStyle
-{
-    return UIStatusBarStyleLightContent;
 }
 - (IBAction)showAddOptionPane:(id)sender {
     UIAlertController * view=   [UIAlertController
@@ -61,9 +56,10 @@
                          {
                              //Do some thing here
                              [view dismissViewControllerAnimated:YES completion:nil];
-                             SKAddDressViewController *newDress = [[SKAddDressViewController alloc] initForCreation];
-                             [newDress setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
-                             [self presentViewController:newDress animated:YES completion:nil];
+                             [self performSegueWithIdentifier:@"ShowEditDress" sender:self];
+                             //SKAddDressViewController *newDress = [[SKAddDressViewController alloc] initForCreation];
+                             //[newDress setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
+                             //[self presentViewController:newDress animated:YES completion:nil];
                          }];
     UIAlertAction* findPromAction = [UIAlertAction
                                      actionWithTitle:@"Find a Prom"
@@ -73,6 +69,9 @@
                                          //Do some thing here
                                          NSLog(@"Would have searched for prom.");
                                          [view dismissViewControllerAnimated:YES completion:nil];
+                                         SKAddPromViewController *newProm = [[SKAddPromViewController alloc] initForCreation];
+                                         [newProm setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
+                                         [self presentViewController:newProm animated:YES completion:nil];
                                          
                                      }];
     UIAlertAction* cancel = [UIAlertAction
@@ -91,8 +90,9 @@
 
 - (IBAction) unwindFromLogin:(UIStoryboardSegue *)segue
 {
-    SKProfileViewController *profile = (SKProfileViewController *)self.viewControllers[0];
+    ProfileViewController *profile = (ProfileViewController *)self.viewControllers[0];
     [profile updateData];
+    [profile forceTableReload];
 }
 
 - (IBAction) unwindFromAddDress:(UIStoryboardSegue *)segue

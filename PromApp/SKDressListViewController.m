@@ -56,10 +56,10 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)addDressPressed:(id)sender {
-    SKAddDressViewController *newDress = [[SKAddDressViewController alloc] initForCreation];
+/*    SKAddDressViewController *newDress = [[SKAddDressViewController alloc] initForCreation];
     [newDress setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
     [self presentViewController:newDress animated:YES completion:nil];
-}
+*/}
 
 #pragma mark - Table view data source
 
