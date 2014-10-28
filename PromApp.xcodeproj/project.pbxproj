@@ -19,6 +19,7 @@
 		D23654F919916BF3007277A6 /* PromQueryTable.xib in Resources */ = {isa = PBXBuildFile; fileRef = D23654F819916BF3007277A6 /* PromQueryTable.xib */; };
 		D23654FC19916DFF007277A6 /* SKPromQueryController.m in Sources */ = {isa = PBXBuildFile; fileRef = D23654FB19916DFF007277A6 /* SKPromQueryController.m */; };
 		D2652159198E86E3000432BA /* StringEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2652158198E86E3000432BA /* StringEntryCell.xib */; };
+		D26C88C919C575C5002B52A8 /* Tester.xib in Resources */ = {isa = PBXBuildFile; fileRef = D26C88C819C575C5002B52A8 /* Tester.xib */; };
 		D286BA3F196E47EE00AFC9C0 /* SKDressListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D286BA3E196E47EE00AFC9C0 /* SKDressListViewController.m */; };
 		D2A4751E1962198D005C2502 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2A4751D1962198D005C2502 /* Foundation.framework */; };
 		D2A475201962198D005C2502 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2A4751F1962198D005C2502 /* CoreGraphics.framework */; };
@@ -57,10 +58,17 @@
 		D2BB590C198C9D8700431759 /* SKStore.m in Sources */ = {isa = PBXBuildFile; fileRef = D2BB590B198C9D8700431759 /* SKStore.m */; };
 		D2BB590F198CA89600431759 /* EditStore.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2BB590E198CA89600431759 /* EditStore.xib */; };
 		D2BB5914198D655400431759 /* SKStringEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D2BB5913198D655400431759 /* SKStringEntryCell.m */; };
+		D2C2473D19F2CDA5007F2AF9 /* EditProm.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2C2473C19F2CDA5007F2AF9 /* EditProm.xib */; };
 		D2C6D15C1980600E008080CD /* SKPromAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = D2C6D15B1980600E008080CD /* SKPromAnnotation.m */; };
 		D2C6D1611980CA81008080CD /* PromCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2C6D1601980CA81008080CD /* PromCell.xib */; };
 		D2C6D1641980CAD6008080CD /* SKPromTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D2C6D1631980CAD6008080CD /* SKPromTableViewCell.m */; };
 		D2C6D1671980CE62008080CD /* SKPromDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2C6D1661980CE62008080CD /* SKPromDetailViewController.m */; };
+		D2C890DE19D6308400458094 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C890DD19D6308400458094 /* ProfileCell.swift */; };
+		D2C890E119D68E7C00458094 /* ProfileCellLayout.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2C890E019D68E7C00458094 /* ProfileCellLayout.xib */; };
+		D2C890E319D725D500458094 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C890E219D725D500458094 /* ProfileViewController.swift */; };
+		D2DEBAA619B6D58E00BA0542 /* main.js in Sources */ = {isa = PBXBuildFile; fileRef = D2DEBAA119B6D58E00BA0542 /* main.js */; };
+		D2DEBAA719B6D58E00BA0542 /* global.json in Resources */ = {isa = PBXBuildFile; fileRef = D2DEBAA319B6D58E00BA0542 /* global.json */; };
+		D2DEBAA819B6D58E00BA0542 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = D2DEBAA519B6D58E00BA0542 /* index.html */; };
 		D2F1440E1970D24400046490 /* SKProm.m in Sources */ = {isa = PBXBuildFile; fileRef = D2F1440D1970D24400046490 /* SKProm.m */; };
 		D2FB986A196CFAE1003BFCEE /* SKAppearanceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D2FB9869196CFAE1003BFCEE /* SKAppearanceManager.m */; };
 /* End PBXBuildFile section */
@@ -93,6 +101,7 @@
 		D23654FA19916DFF007277A6 /* SKPromQueryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKPromQueryController.h; sourceTree = "<group>"; };
 		D23654FB19916DFF007277A6 /* SKPromQueryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKPromQueryController.m; sourceTree = "<group>"; };
 		D2652158198E86E3000432BA /* StringEntryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StringEntryCell.xib; sourceTree = "<group>"; };
+		D26C88C819C575C5002B52A8 /* Tester.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Tester.xib; sourceTree = "<group>"; };
 		D286BA3D196E47EE00AFC9C0 /* SKDressListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKDressListViewController.h; sourceTree = "<group>"; };
 		D286BA3E196E47EE00AFC9C0 /* SKDressListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKDressListViewController.m; sourceTree = "<group>"; };
 		D2A4751A1962198D005C2502 /* PromApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PromApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -145,6 +154,7 @@
 		D2BB590E198CA89600431759 /* EditStore.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditStore.xib; sourceTree = "<group>"; };
 		D2BB5912198D655400431759 /* SKStringEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKStringEntryCell.h; sourceTree = "<group>"; };
 		D2BB5913198D655400431759 /* SKStringEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKStringEntryCell.m; sourceTree = "<group>"; };
+		D2C2473C19F2CDA5007F2AF9 /* EditProm.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditProm.xib; sourceTree = "<group>"; };
 		D2C6D15A1980600E008080CD /* SKPromAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKPromAnnotation.h; sourceTree = "<group>"; };
 		D2C6D15B1980600E008080CD /* SKPromAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKPromAnnotation.m; sourceTree = "<group>"; };
 		D2C6D15D1980A7BA008080CD /* Saratoga.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Saratoga.gpx; sourceTree = "<group>"; };
@@ -153,6 +163,13 @@
 		D2C6D1631980CAD6008080CD /* SKPromTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKPromTableViewCell.m; sourceTree = "<group>"; };
 		D2C6D1651980CE62008080CD /* SKPromDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKPromDetailViewController.h; sourceTree = "<group>"; };
 		D2C6D1661980CE62008080CD /* SKPromDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKPromDetailViewController.m; sourceTree = "<group>"; };
+		D2C890DD19D6308400458094 /* ProfileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
+		D2C890DF19D656F200458094 /* PromApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PromApp-Bridging-Header.h"; sourceTree = "<group>"; };
+		D2C890E019D68E7C00458094 /* ProfileCellLayout.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileCellLayout.xib; sourceTree = "<group>"; };
+		D2C890E219D725D500458094 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		D2DEBAA119B6D58E00BA0542 /* main.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = main.js; sourceTree = "<group>"; };
+		D2DEBAA319B6D58E00BA0542 /* global.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = global.json; sourceTree = "<group>"; };
+		D2DEBAA519B6D58E00BA0542 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		D2F1440C1970D24400046490 /* SKProm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKProm.h; sourceTree = "<group>"; };
 		D2F1440D1970D24400046490 /* SKProm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKProm.m; sourceTree = "<group>"; };
 		D2FB9868196CFAE1003BFCEE /* SKAppearanceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKAppearanceManager.h; sourceTree = "<group>"; };
@@ -200,6 +217,7 @@
 		D22299381965054400B747BA /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D2C890DD19D6308400458094 /* ProfileCell.swift */,
 				D2A4754E19624264005C2502 /* IpodLayout.storyboard */,
 				D2BB590D198CA66A00431759 /* Layout Nibs */,
 				D22299351965054000B747BA /* SKDressInfoTableViewCell.h */,
@@ -226,6 +244,7 @@
 		D2A475111962198D005C2502 = {
 			isa = PBXGroup;
 			children = (
+				D2DEBA9F19B6D58E00BA0542 /* PromCloudCode */,
 				D2A475231962198D005C2502 /* PromApp */,
 				D2A4753C1962198D005C2502 /* PromAppTests */,
 				D2A4751C1962198D005C2502 /* Frameworks */,
@@ -270,6 +289,7 @@
 		D2A475231962198D005C2502 /* PromApp */ = {
 			isa = PBXGroup;
 			children = (
+				D2C890DF19D656F200458094 /* PromApp-Bridging-Header.h */,
 				D22299381965054400B747BA /* View */,
 				D2A4757E19633484005C2502 /* Model */,
 				D2A4757F19633494005C2502 /* Controller */,
@@ -333,6 +353,7 @@
 		D2A4757F19633494005C2502 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				D2C890E219D725D500458094 /* ProfileViewController.swift */,
 				D2A475721963105B005C2502 /* SKAddDressViewController.h */,
 				D2A475731963105B005C2502 /* SKAddDressViewController.m */,
 				D21034571970AC710088484B /* SKAddPromViewController.h */,
@@ -362,14 +383,51 @@
 			children = (
 				D2103455196F9EF70088484B /* DressCell.xib */,
 				D2074E3D198F3B5E0048E28E /* EditDress.xib */,
+				D2C2473C19F2CDA5007F2AF9 /* EditProm.xib */,
 				D2BB590E198CA89600431759 /* EditStore.xib */,
 				D20DA6B0198B537300C1B225 /* EditUser.xib */,
 				D2117950198EE1F0004D254F /* ImageEditorCell.xib */,
+				D2C890E019D68E7C00458094 /* ProfileCellLayout.xib */,
 				D2C6D1601980CA81008080CD /* PromCell.xib */,
 				D2652158198E86E3000432BA /* StringEntryCell.xib */,
 				D23654F819916BF3007277A6 /* PromQueryTable.xib */,
+				D26C88C819C575C5002B52A8 /* Tester.xib */,
 			);
 			name = "Layout Nibs";
+			sourceTree = "<group>";
+		};
+		D2DEBA9F19B6D58E00BA0542 /* PromCloudCode */ = {
+			isa = PBXGroup;
+			children = (
+				D2DEBAA019B6D58E00BA0542 /* cloud */,
+				D2DEBAA219B6D58E00BA0542 /* config */,
+				D2DEBAA419B6D58E00BA0542 /* public */,
+			);
+			path = PromCloudCode;
+			sourceTree = "<group>";
+		};
+		D2DEBAA019B6D58E00BA0542 /* cloud */ = {
+			isa = PBXGroup;
+			children = (
+				D2DEBAA119B6D58E00BA0542 /* main.js */,
+			);
+			path = cloud;
+			sourceTree = "<group>";
+		};
+		D2DEBAA219B6D58E00BA0542 /* config */ = {
+			isa = PBXGroup;
+			children = (
+				D2DEBAA319B6D58E00BA0542 /* global.json */,
+			);
+			path = config;
+			sourceTree = "<group>";
+		};
+		D2DEBAA419B6D58E00BA0542 /* public */ = {
+			isa = PBXGroup;
+			children = (
+				D2DEBAA519B6D58E00BA0542 /* index.html */,
+			);
+			path = public;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -421,6 +479,7 @@
 				ORGANIZATIONNAME = "___FULLUSERNAME___";
 				TargetAttributes = {
 					D2A475191962198D005C2502 = {
+						DevelopmentTeam = 4HKUYNJ4FM;
 						SystemCapabilities = {
 							com.apple.iOS = {
 								enabled = 1;
@@ -459,12 +518,17 @@
 				D2BB590F198CA89600431759 /* EditStore.xib in Resources */,
 				D2A475281962198D005C2502 /* InfoPlist.strings in Resources */,
 				D20DA6B1198B537300C1B225 /* EditUser.xib in Resources */,
+				D2DEBAA719B6D58E00BA0542 /* global.json in Resources */,
+				D2C890E119D68E7C00458094 /* ProfileCellLayout.xib in Resources */,
 				D2117951198EE1F0004D254F /* ImageEditorCell.xib in Resources */,
+				D2C2473D19F2CDA5007F2AF9 /* EditProm.xib in Resources */,
 				D2A475301962198D005C2502 /* Images.xcassets in Resources */,
+				D2DEBAA819B6D58E00BA0542 /* index.html in Resources */,
 				D2652159198E86E3000432BA /* StringEntryCell.xib in Resources */,
 				D2C6D1611980CA81008080CD /* PromCell.xib in Resources */,
 				D2103456196F9EF70088484B /* DressCell.xib in Resources */,
 				D2074E3E198F3B5E0048E28E /* EditDress.xib in Resources */,
+				D26C88C919C575C5002B52A8 /* Tester.xib in Resources */,
 				D20DA6AF198B311200C1B225 /* ColorText.plist in Resources */,
 				D23654F919916BF3007277A6 /* PromQueryTable.xib in Resources */,
 			);
@@ -485,6 +549,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2DEBAA619B6D58E00BA0542 /* main.js in Sources */,
 				D2C6D1671980CE62008080CD /* SKPromDetailViewController.m in Sources */,
 				D286BA3F196E47EE00AFC9C0 /* SKDressListViewController.m in Sources */,
 				D2A4756E196262F4005C2502 /* SKLoginViewController.m in Sources */,
@@ -505,6 +570,8 @@
 				D2A4757719631D15005C2502 /* SKMainTabViewController.m in Sources */,
 				D2A4757A19632DB8005C2502 /* SKDress.m in Sources */,
 				D2BB590C198C9D8700431759 /* SKStore.m in Sources */,
+				D2C890DE19D6308400458094 /* ProfileCell.swift in Sources */,
+				D2C890E319D725D500458094 /* ProfileViewController.swift in Sources */,
 				D2A4757D19633462005C2502 /* MBProgressHUD.m in Sources */,
 				D2C6D1641980CAD6008080CD /* SKPromTableViewCell.m in Sources */,
 			);
@@ -580,7 +647,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -613,7 +680,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -633,11 +700,12 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PromApp/PromApp-Prefix.pch";
 				INFOPLIST_FILE = "PromApp/PromApp-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "PromApp/PromApp-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -655,10 +723,12 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PromApp/PromApp-Prefix.pch";
 				INFOPLIST_FILE = "PromApp/PromApp-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "PromApp/PromApp-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

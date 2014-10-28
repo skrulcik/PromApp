@@ -11,7 +11,9 @@
 
 @interface SKImageEditorCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIButton *editButton;
-@property (weak, nonatomic) IBOutlet PFImageView *imageView;
+
+@property IBOutlet UIImageView *basicImage;
+@property PFImageView *pfimage;
 @property NSString *key;
 
 @end

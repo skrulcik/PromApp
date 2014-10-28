@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -14,17 +15,14 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="199"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="EmptyDress" translatesAutoresizingMaskIntoConstraints="NO" id="F1I-Lr-keG" customClass="PFImageView">
-                        <rect key="frame" x="60" y="-1" width="200" height="200"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="EmptyDress" translatesAutoresizingMaskIntoConstraints="NO" id="F1I-Lr-keG" customClass="PFImageView">
+                        <rect key="frame" x="68" y="8" width="184.5" height="183.5"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="200" id="Tob-zq-1eS"/>
-                            <constraint firstAttribute="width" relation="lessThanOrEqual" secondItem="F1I-Lr-keG" secondAttribute="height" multiplier="1:1" id="xVd-8G-GAl"/>
+                            <constraint firstAttribute="width" secondItem="F1I-Lr-keG" secondAttribute="height" multiplier="1:1" constant="1" id="VXV-XK-pwB"/>
                         </constraints>
                     </imageView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TY4-h5-8OU">
-                        <rect key="frame" x="217" y="6" width="33" height="35"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <rect key="frame" x="210" y="14" width="33" height="35"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="33" id="GFa-0p-L2g"/>
                             <constraint firstAttribute="height" constant="35" id="Zcx-2c-4t7"/>
@@ -35,15 +33,16 @@
                     </button>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="F1I-Lr-keG" firstAttribute="trailing" secondItem="TY4-h5-8OU" secondAttribute="trailing" constant="10" id="4uu-dz-lLo"/>
-                    <constraint firstAttribute="centerY" secondItem="F1I-Lr-keG" secondAttribute="centerY" constant="0.5" id="cuS-IB-8YB"/>
-                    <constraint firstItem="F1I-Lr-keG" firstAttribute="top" secondItem="TY4-h5-8OU" secondAttribute="top" constant="-7" id="gFR-xc-edg"/>
-                    <constraint firstAttribute="centerX" secondItem="F1I-Lr-keG" secondAttribute="centerX" id="vdq-l8-j69"/>
+                    <constraint firstItem="TY4-h5-8OU" firstAttribute="leading" secondItem="F1I-Lr-keG" secondAttribute="trailing" constant="-42.5" id="JuN-Ah-qwp"/>
+                    <constraint firstItem="TY4-h5-8OU" firstAttribute="top" secondItem="F1I-Lr-keG" secondAttribute="top" constant="6" id="L51-VM-VLu"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="F1I-Lr-keG" secondAttribute="bottom" id="NIb-Qs-qqW"/>
+                    <constraint firstAttribute="centerX" secondItem="F1I-Lr-keG" secondAttribute="centerX" constant="-0.25" id="PNZ-bt-LpL"/>
+                    <constraint firstItem="F1I-Lr-keG" firstAttribute="top" secondItem="ARv-fu-GMA" secondAttribute="topMargin" id="sKG-9p-lTW"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="basicImage" destination="F1I-Lr-keG" id="BNe-os-YpL"/>
                 <outlet property="editButton" destination="TY4-h5-8OU" id="G1r-Sf-vnX"/>
-                <outlet property="imageView" destination="F1I-Lr-keG" id="gCM-Xc-7CB"/>
             </connections>
         </tableViewCell>
     </objects>
@@ -51,4 +50,9 @@
         <image name="EmptyDress" width="350" height="350"/>
         <image name="edit" width="50" height="50"/>
     </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
 </document>
