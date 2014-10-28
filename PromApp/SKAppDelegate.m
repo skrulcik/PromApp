@@ -7,8 +7,10 @@
 //
 
 #import "SKAppDelegate.h"
-
 #import <Parse/Parse.h>
+
+#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+
 
 @implementation SKAppDelegate
 
@@ -25,6 +27,15 @@
 	
 	
 	[PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    
+    //Navigation Bar
+    // Set the global tint on the navigation bar
+    UIColor *navBarColor = UIColorFromRGB(0xFF8BE2);
+    UIColor *buttonColor = [UIColor whiteColor];
+	[[UINavigationBar appearance] setTintColor:buttonColor];
+    [[UINavigationBar appearance] setBarTintColor:navBarColor];
+	[[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"PinkNav"] forBarMetrics:UIBarMetricsDefault];
+    [[UITabBar appearance] setTintColor:navBarColor];
     
     return YES;
 }

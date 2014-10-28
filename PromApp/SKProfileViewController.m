@@ -33,6 +33,8 @@ NSMutableData *_imageData;
 {
     [super viewDidLoad];
     [self updateData];
+    self.profilePicture.layer.cornerRadius = self.profilePicture.frame.size.width / 2;
+    self.profilePicture.clipsToBounds = YES;
 }
 
 - (void) viewDidAppear:(BOOL)animated

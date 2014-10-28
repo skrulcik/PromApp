@@ -3,55 +3,61 @@
     {
       "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "AppIconSettingsHighResolution.png",
+      "filename" : "Prom29@2x-1.png",
       "scale" : "2x"
     },
     {
       "size" : "40x40",
       "idiom" : "iphone",
-      "filename" : "AppIconSpotlight.png",
+      "filename" : "Prom40@2x.png",
       "scale" : "2x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "AppIconIphoneHighRes.png",
+      "filename" : "Prom60@2x.png",
       "scale" : "2x"
+    },
+    {
+      "size" : "60x60",
+      "idiom" : "iphone",
+      "filename" : "Prom60@3x.png",
+      "scale" : "3x"
     },
     {
       "size" : "29x29",
       "idiom" : "ipad",
-      "filename" : "AppIconSettingsLowResolution.png",
+      "filename" : "Prom29@1x.png",
       "scale" : "1x"
     },
     {
       "size" : "29x29",
       "idiom" : "ipad",
-      "filename" : "AppIconSettingsHighResolution-1.png",
+      "filename" : "Prom29@2x.png",
       "scale" : "2x"
     },
     {
       "size" : "40x40",
       "idiom" : "ipad",
-      "filename" : "AppIconSpotlightLowResolution.png",
+      "filename" : "Prom40@1x.png",
       "scale" : "1x"
     },
     {
       "size" : "40x40",
       "idiom" : "ipad",
-      "filename" : "AppIconSpotlight-1.png",
+      "filename" : "Prom40@2x-1.png",
       "scale" : "2x"
     },
     {
       "size" : "76x76",
       "idiom" : "ipad",
-      "filename" : "AppIconIpadLowResolution.png",
+      "filename" : "Prom76@1x.png",
       "scale" : "1x"
     },
     {
       "size" : "76x76",
       "idiom" : "ipad",
-      "filename" : "AppIconIpadHighRes.png",
+      "filename" : "Prom76@2x.png",
       "scale" : "2x"
     }
   ],

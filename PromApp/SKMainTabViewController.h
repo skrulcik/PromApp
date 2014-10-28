@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PromApp-Swift.h"
 
 @interface SKMainTabViewController : UITabBarController
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *addDressButton;
