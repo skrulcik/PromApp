@@ -18,6 +18,7 @@
 		D22299371965054000B747BA /* SKDressInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D22299361965054000B747BA /* SKDressInfoTableViewCell.m */; };
 		D23654F919916BF3007277A6 /* PromQueryTable.xib in Resources */ = {isa = PBXBuildFile; fileRef = D23654F819916BF3007277A6 /* PromQueryTable.xib */; };
 		D23654FC19916DFF007277A6 /* SKPromQueryController.m in Sources */ = {isa = PBXBuildFile; fileRef = D23654FB19916DFF007277A6 /* SKPromQueryController.m */; };
+		D24AFB391A003AC1004108BF /* PromApp.css in Resources */ = {isa = PBXBuildFile; fileRef = D24AFB381A003AC1004108BF /* PromApp.css */; };
 		D2652159198E86E3000432BA /* StringEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2652158198E86E3000432BA /* StringEntryCell.xib */; };
 		D26C88C919C575C5002B52A8 /* Tester.xib in Resources */ = {isa = PBXBuildFile; fileRef = D26C88C819C575C5002B52A8 /* Tester.xib */; };
 		D286BA3F196E47EE00AFC9C0 /* SKDressListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D286BA3E196E47EE00AFC9C0 /* SKDressListViewController.m */; };
@@ -100,6 +101,7 @@
 		D23654F819916BF3007277A6 /* PromQueryTable.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PromQueryTable.xib; sourceTree = "<group>"; };
 		D23654FA19916DFF007277A6 /* SKPromQueryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKPromQueryController.h; sourceTree = "<group>"; };
 		D23654FB19916DFF007277A6 /* SKPromQueryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKPromQueryController.m; sourceTree = "<group>"; };
+		D24AFB381A003AC1004108BF /* PromApp.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = PromApp.css; path = CSS/PromApp.css; sourceTree = "<group>"; };
 		D2652158198E86E3000432BA /* StringEntryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StringEntryCell.xib; sourceTree = "<group>"; };
 		D26C88C819C575C5002B52A8 /* Tester.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Tester.xib; sourceTree = "<group>"; };
 		D286BA3D196E47EE00AFC9C0 /* SKDressListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKDressListViewController.h; sourceTree = "<group>"; };
@@ -230,6 +232,14 @@
 				D2BB5913198D655400431759 /* SKStringEntryCell.m */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		D24AFB3A1A003AD1004108BF /* CSS */ = {
+			isa = PBXGroup;
+			children = (
+				D24AFB381A003AC1004108BF /* PromApp.css */,
+			);
+			name = CSS;
 			sourceTree = "<group>";
 		};
 		D2A101111974AA360019A2B3 /* Externally Created Resources */ = {
@@ -425,6 +435,7 @@
 		D2DEBAA419B6D58E00BA0542 /* public */ = {
 			isa = PBXGroup;
 			children = (
+				D24AFB3A1A003AD1004108BF /* CSS */,
 				D2DEBAA519B6D58E00BA0542 /* index.html */,
 			);
 			path = public;
@@ -527,6 +538,7 @@
 				D2652159198E86E3000432BA /* StringEntryCell.xib in Resources */,
 				D2C6D1611980CA81008080CD /* PromCell.xib in Resources */,
 				D2103456196F9EF70088484B /* DressCell.xib in Resources */,
+				D24AFB391A003AC1004108BF /* PromApp.css in Resources */,
 				D2074E3E198F3B5E0048E28E /* EditDress.xib in Resources */,
 				D26C88C919C575C5002B52A8 /* Tester.xib in Resources */,
 				D20DA6AF198B311200C1B225 /* ColorText.plist in Resources */,
