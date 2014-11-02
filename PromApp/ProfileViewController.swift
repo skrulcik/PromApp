@@ -17,16 +17,16 @@ let profCellID = "ProfileCell"
 
 let defaultName:String = "FirstName Last"
 let dressKey:String = "dressIDs"
-let nameKey:String = "name"
+let nameKey:NSString = NSString(string: "name")
 let userDataKey:String = "profile"
-let picURLKey:String = "pictureURL"
+let picURLKey:NSString = NSString(string:"pictureURL")
 
 class ProfileViewController:UIViewController, NSURLConnectionDataDelegate, UITableViewDelegate, UITableViewDataSource
 {
     //Store all information needed for table locally
     //This is to minimize calls to parse for new information
     private var currentUser:PFUser?
-    private var dressList:Array<String>?
+    private var dressList:NSMutableArray?//Array<String>?
     private var imageData:NSMutableData?
     private var profName:String = defaultName
     private var profImage:UIImage?          // profImage is special, it does not point to the
@@ -45,15 +45,16 @@ class ProfileViewController:UIViewController, NSURLConnectionDataDelegate, UITab
     {
         currentUser = PFUser.currentUser()
         if currentUser != nil{
-            //println(currentUser!.objectForKey(userDataKey) as NSDictionary);
+            println(currentUser!.objectForKey(userDataKey) as NSDictionary);
             if let userData = currentUser!.objectForKey(userDataKey) as? NSDictionary
             {
+                println(userData)
                 self.updateDresses()
                 if let name = userData[nameKey] as? NSString{
                     self.profName = name as String
                 }
-                if let urlString:String = userData[picURLKey] as? String{
-                    self.updateProfPicRemote(urlString)
+                if let urlString:String = userData[picURLKey] as? NSString{
+                    self.updateProfPicRemote(urlString as String)
                 }
             }
         } else {
@@ -64,8 +65,7 @@ class ProfileViewController:UIViewController, NSURLConnectionDataDelegate, UITab
     func updateDresses()
     {
         if currentUser != nil{
-            var tempDresses:Array<String>? = currentUser!.objectForKey(dressKey) as? Array<String>
-            if tempDresses != nil {
+            if let tempDresses:NSMutableArray = currentUser!.objectForKey(dressKey) as? NSMutableArray {
                 self.dressList = tempDresses
             }
         }
@@ -223,7 +223,7 @@ class ProfileViewController:UIViewController, NSURLConnectionDataDelegate, UITab
                     //we know that cell is not empty now so we use ! to force unwrapping
                     let dressIndex = (indexPath.row)
                     if(dressIndex < dressList!.count){ //Ensure valid access
-                        let idString = dressList![dressIndex]
+                        let idString = dressList![dressIndex] as String
                         let currentDress:SKDress = PFQuery.getObjectOfClass(SKDress.parseClassName(), objectId: idString) as SKDress
                         cell!.designerLabel.text! = currentDress.designer
                         cell!.styleNumberLabel.text! = currentDress.styleNumber
