@@ -21,6 +21,8 @@ let nameKey:NSString = NSString(string: "name")
 let userDataKey:String = "profile"
 let picURLKey:NSString = NSString(string:"pictureURL")
 
+let EditDressSegue = "EditDress"
+
 class ProfileViewController:UIViewController, NSURLConnectionDataDelegate, UITableViewDelegate, UITableViewDataSource
 {
     //Store all information needed for table locally
@@ -64,7 +66,7 @@ class ProfileViewController:UIViewController, NSURLConnectionDataDelegate, UITab
     }
     func updateDresses()
     {
-        if currentUser != nil{
+        if currentUser != nil && dressList == nil{
             if let tempDresses:NSMutableArray = currentUser!.objectForKey(dressKey) as? NSMutableArray {
                 self.dressList = tempDresses
             }
@@ -175,6 +177,12 @@ class ProfileViewController:UIViewController, NSURLConnectionDataDelegate, UITab
                 //Only look for dresses if someone is logged in
                 if dressList != nil {
                     return dressList!.count //Number of dresses + profile slot
+                }else{
+                    //Try to fill dressList once
+                    updateDresses()
+                    if(dressList != nil){
+                        return dressList!.count
+                    }
                 }
             }
         }
@@ -192,7 +200,8 @@ class ProfileViewController:UIViewController, NSURLConnectionDataDelegate, UITab
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        if(indexPath.section == 0){
+        //return UITableViewCell()
+        if(indexPath.section == 0 && indexPath.row == 0){
             //Profile Cell
             var cell = tableView.dequeueReusableCellWithIdentifier(profCellID) as? ProfileCell
             if (cell == nil) {
@@ -208,7 +217,7 @@ class ProfileViewController:UIViewController, NSURLConnectionDataDelegate, UITab
             }
             cell!.nameLabel.text = self.profName
             return cell!
-        }else{
+        }else if (indexPath.section == 1){
             //Dress Cell
             //variable type is inferred
             var cell = tableView.dequeueReusableCellWithIdentifier(dressCellID) as? SKDressInfoTableViewCell
@@ -241,6 +250,44 @@ class ProfileViewController:UIViewController, NSURLConnectionDataDelegate, UITab
                 }
             }
             return cell!
+        }
+        return UITableViewCell(style: .Default, reuseIdentifier: "Cell")
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if(indexPath.section == 0 && indexPath.row == 0){
+            //Is the profile cell
+            println("Would have edited user cell")
+        } else if (indexPath.section == 1){
+            //Is the profile cell
+            if(dressList != nil && indexPath.row < dressList!.count){
+                performSegueWithIdentifier(EditDressSegue, sender: self)
+            } else {
+                println("Tried to edit non-existant dress")
+            }
+        }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if(segue.identifier == EditDressSegue){
+            if let destViewController = segue.destinationViewController as? UINavigationController{
+                if let dressController = destViewController.childViewControllers[0] as? SKAddDressViewController{
+                    if let indx = listView.indexPathForSelectedRow(){
+                        if(dressList != nil && indx.row < dressList!.count){
+                            if let dressString = dressList?.objectAtIndex(indx.row) as? String {
+                                let q:PFQuery = PFQuery(className: "Dress")
+                                if let dress = q.getObjectWithId("Dress") as? SKDress{
+                                    dressController.setupWithDress(dress)
+                                } else {
+                                    println("Could not retrieve dress information from server")
+                                }
+                            } else {
+                                println("Error retrieving dressID object from list.")
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }
