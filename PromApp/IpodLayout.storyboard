@@ -236,6 +236,7 @@
                     <tabBarItem key="tabBarItem" title="Profile" image="ProfileIconSelected" id="SGz-Gx-0ND"/>
                     <connections>
                         <outlet property="listView" destination="HQU-Ma-3YK" id="Kdr-xr-fit"/>
+                        <segue destination="LVU-Dx-8u5" kind="modal" identifier="EditDress" id="n2s-DK-Qf9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Evx-Yx-TZo" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -294,7 +295,7 @@
             <objects>
                 <tableViewController id="Sbo-G7-eXo" customClass="SKAddDressViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="6A1-hE-fV9">
-                        <rect key="frame" x="0.0" y="64" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections/>
@@ -428,5 +429,8 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="n2s-DK-Qf9"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.25490197539329529" green="0.47843140363693237" blue="0.98823535442352295" alpha="1" colorSpace="deviceRGB"/>
 </document>
