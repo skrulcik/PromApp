@@ -38,11 +38,17 @@ static NSDictionary *readableNames;
 
 - (void) setupForCreation{
     //self = [self initForDress:[[SKDress alloc] init]];
-    [self setupWithDress:[[SKDress alloc] init]];
+    [self loadDressInfo:[[SKDress alloc] init]];
     _isNewDress = YES;
 }
 
 - (void) setupWithDress:(SKDress *)dressObject
+{
+    [self loadDressInfo:dressObject];
+    _isNewDress = NO;
+}
+
+- (void) loadDressInfo:(SKDress *)dressObject
 {
     //self = [super initWithNibName:@"EditDress" bundle:nil];
     if([[PFUser currentUser] isMemberOfClass:[SKStore class]]){
@@ -62,6 +68,11 @@ static NSDictionary *readableNames;
     _imageChanged = NO;
     _promChanged = NO;
     dressData = [[NSMutableDictionary alloc] init];
+    NSLog(@"Dress information");
+    for (NSString* key in keyForRowIndex) {
+        id value = [dressObject objectForKey:key];
+        NSLog(@"Key %@ with value %@", key, value);
+    }
     self.dress = dressObject;
 }
 
@@ -288,7 +299,7 @@ typedef void(^voidCompletion)(void);
 - (UITableViewCell*) tableView:(UITableView *) tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString *key = [SKAddDressViewController keyForRowIndex:[indexPath row]];
-    NSLog(@"Tried creating cell for key %@", key);
+    //NSLog(@"Tried creating cell for key %@", key);
     
     if([key isEqualToString:@"image"]){
         SKImageEditorCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"ImageEditor"];
@@ -297,10 +308,11 @@ typedef void(^voidCompletion)(void);
         }
         [cell.editButton addTarget:self action:@selector(addImage:) forControlEvents:UIControlEventTouchUpInside];
         cell.key = key;
-        cell.basicImage.image = [UIImage imageNamed:@"EmptyDress"];
-        if(!_isNewDress){
-            [(PFImageView *)cell.pfimage setFile:self.dress.image]; //placeholder (should already be there anyways)
-            [(PFImageView *)cell.pfimage loadInBackground]; //Loads existing image from Parse
+        cell.basicImage.image = [UIImage imageNamed:@"EmptyDress"];//placeholder (should already be there anyways)
+        self.dress.image = [self.dress objectForKey:@"image"];
+        if(!_isNewDress && self.dress.image != nil){
+            [(PFImageView *)cell.basicImage setFile:self.dress.image];
+            [(PFImageView *)cell.basicImage loadInBackground]; //Loads existing image from Parse
         }
         return cell;
     }else{
@@ -310,16 +322,36 @@ typedef void(^voidCompletion)(void);
         }
         cell.field.delegate = self;
         cell.key = key;
-        NSString *currentVal = [self.dress objectForKey:key];
-        if(!_isNewDress && ![currentVal isEqualToString:@""]){
+        
+        //Fill in generic information first
+        cell.field.text = @"";
+        cell.field.placeholder = [SKAddDressViewController readableNameForKey:key];
+        
+        if(!_isNewDress){
             if([key isEqualToString:@"prom"]){
-                cell.field.text = [[self.dress objectForKey:key] schoolName];
-            }else{;
-                cell.field.text =[self.dress objectForKey:key];
+                SKProm *prom =[self.dress objectForKey:key];
+                if(prom != nil){
+                    cell.field.text = [prom schoolName];
+                }
+            } else if ([key isEqualToString:@"owner"]){
+                PFUser *user = [self.dress objectForKey:key];
+                if(user != nil){
+                    [user fetchIfNeeded];
+                    NSString *displayName = [user objectForKey:@"username"];
+                    cell.field.text = displayName;
+                }
+            }else if ([key isEqualToString:@"store"]){
+                SKStore *store = [self.dress objectForKey:key];
+                if(store != nil){
+                    NSString *displayName = [store objectForKey:@"username"];
+                    cell.field.text = displayName;
+                }
+            }else{
+                NSString *current = [self.dress objectForKey:key];
+                if(current != nil && ![current isEqualToString:@"" ]){
+                    cell.field.text = current;
+                }
             }
-        }else{
-            cell.field.text = @"";
-            cell.field.placeholder = [SKAddDressViewController readableNameForKey:key];
         }
         if([key isEqualToString:@"prom"]){
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
