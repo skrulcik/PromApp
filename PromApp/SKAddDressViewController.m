@@ -177,7 +177,7 @@ typedef void(^voidCompletion)(void);
             if(currentPic){
                 [dressData setObject:currentPic forKey:[SKAddDressViewController keyForRowIndex:i]];
             }
-        }else if(![@"prom" isEqualToString:[SKAddDressViewController keyForRowIndex:i]] || _promChanged){
+        }else if(![@"prom" isEqualToString:[SKAddDressViewController keyForRowIndex:i]]){
             //Is text entry cell
             SKStringEntryCell *txtCell = cells[i];
             NSString *val = txtCell.field.text;
@@ -209,7 +209,11 @@ typedef void(^voidCompletion)(void);
         [self.dress saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
             if (succeeded){
                 NSLog(@"Succeeded in saving %@ dress with ID %@.", dress.designer, dress.objectId);
-                [current addObject:dress.objectId forKey:@"dressIDs"];
+                NSMutableArray *dresses = [current objectForKey:@"dressIDs"];
+                if(![dresses containsObject:dress.objectId]){
+                    //Only add dress to user's inventory if it is not already there
+                    [current addObject:dress.objectId forKey:@"dressIDs"];
+                }
                 [current saveInBackground];
                 block();
             } else {
@@ -330,6 +334,7 @@ typedef void(^voidCompletion)(void);
         if(!_isNewDress){
             if([key isEqualToString:@"prom"]){
                 SKProm *prom =[self.dress objectForKey:key];
+                [prom fetchIfNeeded];
                 if(prom != nil){
                     cell.field.text = [prom schoolName];
                 }
