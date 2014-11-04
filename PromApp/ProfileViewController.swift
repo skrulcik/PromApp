@@ -276,7 +276,7 @@ class ProfileViewController:UIViewController, NSURLConnectionDataDelegate, UITab
                         if(dressList != nil && indx.row < dressList!.count){
                             if let dressString = dressList?.objectAtIndex(indx.row) as? String {
                                 let q:PFQuery = PFQuery(className: "Dress")
-                                if let dress = q.getObjectWithId("Dress") as? SKDress{
+                                if let dress = q.getObjectWithId(dressString) as? SKDress{
                                     dressController.setupWithDress(dress)
                                 } else {
                                     println("Could not retrieve dress information from server")
