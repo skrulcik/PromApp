@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="xrr-NT-o2p">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B23" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="xrr-NT-o2p">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
@@ -104,7 +104,7 @@
                         <subviews>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="7kc-0S-Rcl">
                                 <rect key="frame" x="0.0" y="64" width="320" height="44"/>
-                                <color key="barTintColor" red="1" green="0.54901960780000003" blue="0.88235294119999996" alpha="0.84999999999999998" colorSpace="deviceRGB"/>
+                                <color key="barTintColor" red="1" green="0.4392156862745098" blue="0.58039215686274515" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="wPC-T0-ofg">
@@ -147,13 +147,12 @@
             </objects>
             <point key="canvasLocation" x="2176" y="1462"/>
         </scene>
-        <!--Main Tab View Controller-->
+        <!--PromApp-->
         <scene sceneID="7dg-yT-nOi">
             <objects>
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="OLu-Iz-8hF" customClass="SKMainTabViewController" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="7Rm-g1-QU7">
-                        <nil key="title"/>
+                    <navigationItem key="navigationItem" title="PromApp" id="7Rm-g1-QU7">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Kil-VU-B6D">
                             <connections>
                                 <action selector="showAddOptionPane:" destination="OLu-Iz-8hF" id="sqX-FP-3zv"/>
@@ -430,7 +429,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="n2s-DK-Qf9"/>
+        <segue reference="lEq-ej-grH"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.25490197539329529" green="0.47843140363693237" blue="0.98823535442352295" alpha="1" colorSpace="deviceRGB"/>
 </document>
