@@ -21,9 +21,8 @@
 
 - (void) setupForCreation;
 - (void) setupWithDress:(SKDress *)dressObject;
-- (void) performPromAssociation:(SKProm *) prom;
 - (IBAction)addImage:(id)sender;
 - (IBAction)showImagePickerForCamera:(id)sender;
 - (IBAction)showImagePickerForPhotoPicker:(id)sender;
-- (IBAction) unwindFromSelectProm:(UIStoryboardSegue *)segue;
+- (IBAction)unwindFromSelectProm:(UIStoryboardSegue *)segue;
 @end

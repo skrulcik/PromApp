@@ -151,22 +151,33 @@ static NSDictionary *readableNames;
 
 - (void) performPromAssociation:(SKProm *) prom
 {
-    [dressData setObject:prom forKey:@"prom"];
-    _promChanged = YES;
-    NSArray *cells = [self.tableView visibleCells];
-    for (int i=0; i<[cells count]; i++){
-        if([@"prom" isEqualToString:[SKAddDressViewController keyForRowIndex:i]]){
-            //Is prom cell
-            SKStringEntryCell *pcell = cells[i];
-            pcell.field.text = [dressData[@"prom"] schoolName];
+    [self storeDressData:self.dress];
+    NSString *designer = [dressData objectForKey:@"designer"];
+    NSString *styleNumber = [dressData objectForKey:@"styleNumber"];
+    if(designer == NULL || styleNumber == NULL){
+        //Put up some alert
+        return;
+    }
+    BOOL is_available = [prom verifyDesigner:designer withStyle:styleNumber];
+    if(is_available){
+        [dressData setObject:prom forKey:@"prom"];
+        _promChanged = YES;
+        NSArray *cells = [self.tableView visibleCells];
+        for (int i=0; i<[cells count]; i++){
+            if([@"prom" isEqualToString:[SKAddDressViewController keyForRowIndex:i]]){
+                //Is prom cell
+                SKStringEntryCell *pcell = cells[i];
+                pcell.field.text = [dressData[@"prom"] schoolName];
+            }
         }
+    } else {
+        //Make dialog pop up
+        UIAlertView * popup = [[UIAlertView alloc] initWithTitle:@"Don't be that girl!" message:@"This dress has already been registered for this prom. Please select a different prom, or choose a different dress." delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+        [popup show];
     }
 }
 
-
-
-typedef void(^voidCompletion)(void);
-- (void) saveDress:(SKDress *)dress withCompletion:(voidCompletion)block
+- (void) storeDressData:(SKDress *)dress
 {
     NSArray *cells = [self.tableView visibleCells];
     for (int i=0; i<[cells count]; i++){
@@ -188,6 +199,12 @@ typedef void(^voidCompletion)(void);
                 [dressData setObject:val forKey:[SKAddDressViewController keyForRowIndex:i]];
         }
     }
+}
+
+typedef void(^voidCompletion)(void);
+- (void) saveDress:(SKDress *)dress withCompletion:(voidCompletion)block
+{
+    [self storeDressData:dress];
     if(dressData[@"designer"] != nil && dressData[@"styleNumber"] != nil){
         PFUser *current = [PFUser currentUser];
         for(NSString *key in dressData){

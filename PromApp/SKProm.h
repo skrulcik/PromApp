@@ -8,6 +8,7 @@
 
 #import <Parse/Parse.h>
 #import <MapKit/MapKit.h>
+#import "SKDress.h"
 
 @interface SKProm : PFObject <PFSubclassing>
 @property NSString *schoolName;
@@ -23,4 +24,5 @@
 + (NSString *)parseClassName;
 - (BOOL) equalTo:(SKProm*)other;
 - (NSString *)readableInfo;
+- (BOOL) verifyDesigner:(NSString *)designer withStyle:(NSString *)styleNumber;
 @end
