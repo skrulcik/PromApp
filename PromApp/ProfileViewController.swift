@@ -199,6 +199,15 @@ class ProfileViewController:UIViewController, NSURLConnectionDataDelegate, UITab
         }
     }
     
+    func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
+        if(indexPath.section == 0){
+            //Is profile cell
+            return nil //Do not allow selection
+        } else{
+            return indexPath
+        }
+    }
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         //return UITableViewCell()
         if(indexPath.section == 0 && indexPath.row == 0){
@@ -274,6 +283,7 @@ class ProfileViewController:UIViewController, NSURLConnectionDataDelegate, UITab
                 if let dressController = destViewController.childViewControllers[0] as? SKAddDressViewController{
                     if let indx = listView.indexPathForSelectedRow(){
                         if(dressList != nil && indx.row < dressList!.count){
+                            self.listView.deselectRowAtIndexPath(indx, animated: true)
                             if let dressString = dressList?.objectAtIndex(indx.row) as? String {
                                 let q:PFQuery = PFQuery(className: "Dress")
                                 if let dress = q.getObjectWithId(dressString) as? SKDress{
