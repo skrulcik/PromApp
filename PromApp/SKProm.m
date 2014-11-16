@@ -10,6 +10,7 @@
 #import <Parse/PFObject+Subclass.h>
 
 @implementation SKProm
+@dynamic image;
 @dynamic schoolName;
 @dynamic address;
 @dynamic locationDescription;
@@ -38,6 +39,16 @@
     NSString *info=[NSString stringWithFormat:@"School:%@\nAddress:%@\nLocation:%@\nTime:%@\nTheme:%@\nDresses:%@\nCoordinates:\n%f\n%f",
                     self.schoolName, self.address, self.locationDescription, self.time, self.theme, self.dresses, self.preciseLocation.latitude, self.preciseLocation.longitude];
     return info;
+}
+
+- (BOOL) verifyDesigner:(NSString *)designer withStyle:(NSString *)styleNumber{
+    PFQuery *q = [[PFQuery alloc] initWithClassName:[SKDress parseClassName]];
+    [q whereKey:@"prom" equalTo:self];
+    [q whereKey:@"designer" containsString:designer];
+    [q whereKey:@"styleNumber" equalTo:styleNumber];
+    int num_matches = [q countObjects];
+    NSLog(@"Found %d matches for %@ %@. \n", num_matches, designer, styleNumber);
+    return num_matches == 0;
 }
 
 @end
