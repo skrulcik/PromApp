@@ -425,14 +425,25 @@ typedef void(^voidCompletion)(void);
 - (IBAction) unwindFromSelectPromCancel:(UIStoryboardSegue *)segue
 {
 }
-/*
+
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    if([segue.identifier isEqualToString:@"SelectProm"]){
+        SKProm *currentProm = [self.dress objectForKey:@"prom"];
+        if(currentProm != NULL){
+            //If there is an existing dress already registered, set it to be the current selection
+            SKPromQueryController *queryTable = [segue destinationViewController];
+            if(queryTable != NULL){
+                
+            } else {
+                NSLog(@"Could not locate destination view controller for SelectPromSegue");
+            }
+        }
+        
+    }
     // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    
 }
- */
-
 
 @end
