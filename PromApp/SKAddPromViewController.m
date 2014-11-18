@@ -340,7 +340,7 @@ static NSDictionary *readableNames;
         SKImageEditorCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"ImageEditor"];
         [cell.editButton addTarget:self action:@selector(addImage:) forControlEvents:UIControlEventTouchUpInside];
         cell.key = key;
-        cell.imageView.image = [UIImage imageNamed:@"EmptyDress"];
+        cell.imageView.image = [UIImage imageNamed:@"placeholder"];
         if(!_isNewProm){
             [(PFImageView *)cell.imageView setFile:self.prom.image]; //placeholder (should already be there anyways)
             [(PFImageView *)cell.imageView loadInBackground]; //Loads existing image from Parse

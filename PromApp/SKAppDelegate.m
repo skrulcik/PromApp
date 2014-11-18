@@ -48,6 +48,7 @@
                                                             NSShadowAttributeName: shadow
                                                             }];
     [[UITabBar appearance] setTintColor:navBarColor];
+    [self.window setTintColor:navBarColor];
     
     return YES;
 }
