@@ -329,7 +329,7 @@ typedef void(^voidCompletion)(void);
         }
         [cell.editButton addTarget:self action:@selector(addImage:) forControlEvents:UIControlEventTouchUpInside];
         cell.key = key;
-        cell.basicImage.image = [UIImage imageNamed:@"EmptyDress"];//placeholder (should already be there anyways)
+        cell.basicImage.image = [UIImage imageNamed:@"placeholder"];//placeholder (should already be there anyways)
         self.dress.image = [self.dress objectForKey:@"image"];
         if(!_isNewDress && self.dress.image != nil){
             [(PFImageView *)cell.basicImage setFile:self.dress.image];
@@ -442,8 +442,6 @@ typedef void(^voidCompletion)(void);
         }
         
     }
-    // Get the new view controller using [segue destinationViewController].
-    
 }
 
 @end

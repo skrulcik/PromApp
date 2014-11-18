@@ -327,9 +327,9 @@
 		D22299381965054400B747BA /* View */ = {
 			isa = PBXGroup;
 			children = (
-				D2C890DD19D6308400458094 /* ProfileCell.swift */,
 				D2A4754E19624264005C2502 /* IpodLayout.storyboard */,
 				D2BB590D198CA66A00431759 /* Layout Nibs */,
+				D2C890DD19D6308400458094 /* ProfileCell.swift */,
 				D22299351965054000B747BA /* SKDressInfoTableViewCell.h */,
 				D22299361965054000B747BA /* SKDressInfoTableViewCell.m */,
 				D2117952198F0888004D254F /* SKImageEditorCell.h */,
