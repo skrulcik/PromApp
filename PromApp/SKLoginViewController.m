@@ -57,14 +57,16 @@
     NSArray *permissions = @[ @"public_profile", @"email", @"user_friends"];
     [PFFacebookUtils logInWithPermissions:permissions block:^(PFUser *user, NSError *error) {
         if (!user) {
+            NSLog(@"%@", [error description]);
             NSLog(@"Uh oh. The user cancelled the Facebook login.");
         } else if (user.isNew) {
             NSLog(@"User signed up and logged in through Facebook!");
             //TODO: open account creation screen
+            [self performSegueWithIdentifier:@"finishLogin" sender:self];
         } else {
             NSLog(@"User logged in through Facebook!");
+            [self performSegueWithIdentifier:@"finishLogin" sender:self];
         }
-        [self performSegueWithIdentifier:@"finishLogin" sender:self];
     }];
 }
 - (IBAction)registerStorePressed:(id)sender {
