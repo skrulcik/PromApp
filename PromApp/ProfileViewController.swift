@@ -20,6 +20,7 @@ let dressKey:String = "dressIDs"
 let nameKey:NSString = NSString(string: "name")
 let userDataKey:String = "profile"
 let picURLKey:NSString = NSString(string:"pictureURL")
+let fbIDKey:String = "id"
 
 let EditDressSegue = "EditDress"
 
@@ -45,24 +46,41 @@ class ProfileViewController:UIViewController, NSURLConnectionDataDelegate, UITab
     // Fills local data with new information
     // Does NOT update table
     {
-        currentUser = PFUser.currentUser()
-        if currentUser != nil{
-            println(currentUser!.objectForKey(userDataKey) as NSDictionary);
-            if let userData = currentUser!.objectForKey(userDataKey) as? NSDictionary
-            {
-                println(userData)
-                self.updateDresses()
-                if let name = userData[nameKey] as? NSString{
-                    self.profName = name as String
+        if let currentUser = PFUser.currentUser(){
+            updateFBProfile(currentUser, {
+                (result:NSDictionary?) in
+                if let userData = result
+                {
+                    println(userData)
+                    userData.setValue("https://graph.facebook.com/\(userData.objectForKey(fbIDKey)!)/picture?type=large", forKey: picURLKey)
+                    currentUser.setObject(userData, forKey: "profile")
+                    self.updateDresses()
+                    if let name = userData[nameKey] as? NSString{
+                        self.profName = name as String
+                    }
+                    if let urlString:String = userData[picURLKey] as? NSString{
+                        println("URLString is \(urlString)")
+                        self.updateProfPicRemote(urlString)
+                    }
                 }
-                if let urlString:String = userData[picURLKey] as? NSString{
-                    self.updateProfPicRemote(urlString as String)
-                }
-            }
+                self.listView.reloadData()
+            })
         } else {
             self.clearData()
             self.showLoginScreen()
         }
+    }
+    func updateFBProfile(user:PFUser, completion: (result: NSDictionary) -> Void){
+        let request:FBRequest = FBRequest.requestForMe()
+        request.startWithCompletionHandler({
+            (connection:FBRequestConnection!, result:AnyObject!, error:NSError!) in
+            if let userData = result as? NSDictionary{
+                user.setObject(userData, forKey:"profile")
+                completion(result: userData)
+            }else{
+                completion(result: user.objectForKey("profile") as NSDictionary)
+            }
+        })
     }
     func updateDresses()
     {
@@ -226,7 +244,7 @@ class ProfileViewController:UIViewController, NSURLConnectionDataDelegate, UITab
             }
             cell!.nameLabel.text = self.profName
             return cell!
-        }else if (indexPath.section == 1){
+        }else if (indexPath.section == 1 && indexPath.row < dressList?.count){
             //Dress Cell
             //variable type is inferred
             var cell = tableView.dequeueReusableCellWithIdentifier(dressCellID) as? SKDressInfoTableViewCell
@@ -299,5 +317,9 @@ class ProfileViewController:UIViewController, NSURLConnectionDataDelegate, UITab
                 }
             }
         }
+    }
+    
+    @IBAction func unwindFromSaveDress(segue: UIStoryboardSegue) {
+        
     }
 }
