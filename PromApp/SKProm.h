@@ -8,7 +8,6 @@
 
 #import <Parse/Parse.h>
 #import <MapKit/MapKit.h>
-#import "SKDress.h"
 
 @interface SKProm : PFObject <PFSubclassing>
 @property NSString *schoolName;
@@ -18,7 +17,6 @@
 @property NSString *theme;
 @property PFFile *image;
 @property PFGeoPoint *preciseLocation;
-@property NSMutableArray *dresses;
 
 
 + (NSString *)parseClassName;

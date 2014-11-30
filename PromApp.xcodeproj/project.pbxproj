@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		D2074E3E198F3B5E0048E28E /* EditDress.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2074E3D198F3B5E0048E28E /* EditDress.xib */; };
+		D208B8581A29207B00E0C9A4 /* Rochester-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = D208B8571A29207B00E0C9A4 /* Rochester-Regular.otf */; };
+		D208B85A1A29209600E0C9A4 /* GrandHotel-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = D208B8591A29209600E0C9A4 /* GrandHotel-Regular.otf */; };
 		D20DA6AF198B311200C1B225 /* ColorText.plist in Resources */ = {isa = PBXBuildFile; fileRef = D20DA6AE198B311200C1B225 /* ColorText.plist */; };
 		D20DA6B1198B537300C1B225 /* EditUser.xib in Resources */ = {isa = PBXBuildFile; fileRef = D20DA6B0198B537300C1B225 /* EditUser.xib */; };
 		D2103456196F9EF70088484B /* DressCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2103455196F9EF70088484B /* DressCell.xib */; };
@@ -121,6 +123,7 @@
 		D2C890E319D725D500458094 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C890E219D725D500458094 /* ProfileViewController.swift */; };
 		D2DEBAA619B6D58E00BA0542 /* main.js in Sources */ = {isa = PBXBuildFile; fileRef = D2DEBAA119B6D58E00BA0542 /* main.js */; };
 		D2DEBAA719B6D58E00BA0542 /* global.json in Resources */ = {isa = PBXBuildFile; fileRef = D2DEBAA319B6D58E00BA0542 /* global.json */; };
+		D2ED80FB1A2A7EB9002F4511 /* StoreAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ED80FA1A2A7EB9002F4511 /* StoreAnnotation.swift */; };
 		D2EF94051A17D8F00093CD4C /* SignPainter.otf in Resources */ = {isa = PBXBuildFile; fileRef = D2EF94041A17D8F00093CD4C /* SignPainter.otf */; };
 		D2F1440E1970D24400046490 /* SKProm.m in Sources */ = {isa = PBXBuildFile; fileRef = D2F1440D1970D24400046490 /* SKProm.m */; };
 		D2F639AF1A17E5FC0026A3D8 /* pinyon-script.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D2F639AE1A17E5FC0026A3D8 /* pinyon-script.ttf */; };
@@ -140,6 +143,8 @@
 
 /* Begin PBXFileReference section */
 		D2074E3D198F3B5E0048E28E /* EditDress.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditDress.xib; sourceTree = "<group>"; };
+		D208B8571A29207B00E0C9A4 /* Rochester-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Rochester-Regular.otf"; path = "../../../../Downloads/rochester/Rochester-Regular.otf"; sourceTree = "<group>"; };
+		D208B8591A29209600E0C9A4 /* GrandHotel-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "GrandHotel-Regular.otf"; path = "../../../../Downloads/grand-hotel/GrandHotel-Regular.otf"; sourceTree = "<group>"; };
 		D20DA6AE198B311200C1B225 /* ColorText.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ColorText.plist; sourceTree = "<group>"; };
 		D20DA6B0198B537300C1B225 /* EditUser.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditUser.xib; sourceTree = "<group>"; };
 		D2103455196F9EF70088484B /* DressCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DressCell.xib; sourceTree = "<group>"; };
@@ -277,6 +282,7 @@
 		D2C890E219D725D500458094 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		D2DEBAA119B6D58E00BA0542 /* main.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = main.js; sourceTree = "<group>"; };
 		D2DEBAA319B6D58E00BA0542 /* global.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = global.json; sourceTree = "<group>"; };
+		D2ED80FA1A2A7EB9002F4511 /* StoreAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreAnnotation.swift; sourceTree = "<group>"; };
 		D2EF94041A17D8F00093CD4C /* SignPainter.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SignPainter.otf; sourceTree = "<group>"; };
 		D2F1440C1970D24400046490 /* SKProm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKProm.h; sourceTree = "<group>"; };
 		D2F1440D1970D24400046490 /* SKProm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKProm.m; sourceTree = "<group>"; };
@@ -534,6 +540,8 @@
 			isa = PBXGroup;
 			children = (
 				D2EF94041A17D8F00093CD4C /* SignPainter.otf */,
+				D208B8571A29207B00E0C9A4 /* Rochester-Regular.otf */,
+				D208B8591A29209600E0C9A4 /* GrandHotel-Regular.otf */,
 				D2C6D15D1980A7BA008080CD /* Saratoga.gpx */,
 				D2A101111974AA360019A2B3 /* Externally Created Resources */,
 				D2A475251962198D005C2502 /* PromApp-Info.plist */,
@@ -573,6 +581,7 @@
 				D2F1440C1970D24400046490 /* SKProm.h */,
 				D2F1440D1970D24400046490 /* SKProm.m */,
 				D2C6D15A1980600E008080CD /* SKPromAnnotation.h */,
+				D2ED80FA1A2A7EB9002F4511 /* StoreAnnotation.swift */,
 				D2C6D15B1980600E008080CD /* SKPromAnnotation.m */,
 				D2BB590A198C9D8700431759 /* SKStore.h */,
 				D2BB590B198C9D8700431759 /* SKStore.m */,
@@ -769,6 +778,7 @@
 				D20DA6B1198B537300C1B225 /* EditUser.xib in Resources */,
 				D2F639B11A17ECA50026A3D8 /* LaunchScreen.xib in Resources */,
 				D25B30541A0C030000DE5521 /* font-awesome.scss in Resources */,
+				D208B8581A29207B00E0C9A4 /* Rochester-Regular.otf in Resources */,
 				D2DEBAA719B6D58E00BA0542 /* global.json in Resources */,
 				D25B305D1A0C030000DE5521 /* portfolio-3.jpg in Resources */,
 				D25B30571A0C030000DE5521 /* glyphicons-halflings-regular.ttf in Resources */,
@@ -794,6 +804,7 @@
 				D25B30311A0C030000DE5521 /* bootstrap.min.css in Resources */,
 				D25B30371A0C030000DE5521 /* fontawesome-webfont.svg in Resources */,
 				D25B305A1A0C030000DE5521 /* callout.jpg in Resources */,
+				D208B85A1A29209600E0C9A4 /* GrandHotel-Regular.otf in Resources */,
 				D25B30631A0C030000DE5521 /* LICENSE in Resources */,
 				D2C6D1611980CA81008080CD /* PromCell.xib in Resources */,
 				D25B30431A0C030000DE5521 /* path.less in Resources */,
@@ -853,6 +864,7 @@
 				D2A475741963105B005C2502 /* SKAddDressViewController.m in Sources */,
 				D2A4757119626ADF005C2502 /* SKProfileViewController.m in Sources */,
 				D2C6D15C1980600E008080CD /* SKPromAnnotation.m in Sources */,
+				D2ED80FB1A2A7EB9002F4511 /* StoreAnnotation.swift in Sources */,
 				D2FB986A196CFAE1003BFCEE /* SKAppearanceManager.m in Sources */,
 				D22299371965054000B747BA /* SKDressInfoTableViewCell.m in Sources */,
 				D2BB5914198D655400431759 /* SKStringEntryCell.m in Sources */,

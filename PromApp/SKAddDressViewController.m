@@ -229,7 +229,7 @@ typedef void(^voidCompletion)(void);
                 NSMutableArray *dresses = [current objectForKey:@"dressIDs"];
                 if(![dresses containsObject:dress.objectId]){
                     //Only add dress to user's inventory if it is not already there
-                    [current addObject:dress.objectId forKey:@"dressIDs"];
+                    [current addUniqueObject:dress.objectId forKey:@"dressIDs"];
                 }
                 [current saveInBackground];
                 block();
