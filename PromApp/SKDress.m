@@ -17,6 +17,7 @@
 @dynamic styleNumber;
 @dynamic dressColor;
 @dynamic image;
+@dynamic prom;
 
 + (NSString *)parseClassName
 {

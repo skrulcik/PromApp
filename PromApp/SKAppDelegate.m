@@ -41,7 +41,7 @@
     NSShadow* shadow = [NSShadow new];
     //shadow.shadowOffset = CGSizeMake(0.0f, 1.0f);
     //shadow.shadowColor = [UIColor redColor];
-    UIFont *titlefont = [UIFont fontWithName:@"Optima-Bold" size:40.0f];
+    UIFont *titlefont = [UIFont fontWithName:@"Rochester" size:36.0f];
     [[UINavigationBar appearance] setTitleTextAttributes: @{
                                                             NSForegroundColorAttributeName: buttonColor,
                                                             NSFontAttributeName: titlefont,

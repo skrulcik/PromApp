@@ -59,7 +59,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 1+[self.prom.dresses count];
+    return 1;
 }
 
 
@@ -84,7 +84,7 @@
         SKDressInfoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DressCell"];
         /*if (cell == nil) {
          cell = [[SKDressInfoTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"DressCell"];
-         }*/
+         }
         
         NSString *objID = prom.dresses[indexPath.row-1];
         PFObject *dressInfo = [PFQuery getObjectOfClass:[SKDress parseClassName] objectId:objID];
@@ -103,7 +103,7 @@
                 UIImage *dressImage = [UIImage imageWithData:imageData];
                 dressImageView.image = dressImage;
             }
-        }];
+        }];*/
         return cell;
     }
 }

@@ -11,8 +11,10 @@
 #import <CoreLocation/CoreLocation.h>
 #import <Parse/Parse.h>
 #import "SKProm.h"
+#import "SKStore.h"
 
 static NSString * const PROM_LOCATION_KEY = @"preciseLocation";
+static NSString * const STORE_LOCATION_KEY = @"location";
 static int const SEARCH_RADIUS = 75; //in km
 static int const QUERY_LIMIT = 30; //Don't want 
 
@@ -22,6 +24,7 @@ static int const QUERY_LIMIT = 30; //Don't want
 @property (weak, nonatomic) IBOutlet MKMapView *map;
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) SKProm *currentProm;
+@property (strong, nonatomic) SKStore*currentStore;
 
 - (void)viewWillAppear:(BOOL)animated;
 - (void) searchBarSearchButtonClicked:(UISearchBar *)searchBar;

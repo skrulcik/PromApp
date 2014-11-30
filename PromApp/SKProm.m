@@ -8,6 +8,7 @@
 
 #import "SKProm.h"
 #import <Parse/PFObject+Subclass.h>
+#import "SKDress.h"
 
 @implementation SKProm
 @dynamic image;
@@ -16,7 +17,6 @@
 @dynamic locationDescription;
 @dynamic time;
 @dynamic theme;
-@dynamic dresses;
 @dynamic preciseLocation;
 
 - (BOOL) equalTo:(SKProm*)other
@@ -36,8 +36,8 @@
 
 -(NSString *)readableInfo
 {
-    NSString *info=[NSString stringWithFormat:@"School:%@\nAddress:%@\nLocation:%@\nTime:%@\nTheme:%@\nDresses:%@\nCoordinates:\n%f\n%f",
-                    self.schoolName, self.address, self.locationDescription, self.time, self.theme, self.dresses, self.preciseLocation.latitude, self.preciseLocation.longitude];
+    NSString *info=[NSString stringWithFormat:@"School:%@\nAddress:%@\nLocation:%@\nTime:%@\nTheme:%@\nCoordinates:\n%f\n%f",
+                    self.schoolName, self.address, self.locationDescription, self.time, self.theme, self.preciseLocation.latitude, self.preciseLocation.longitude];
     return info;
 }
 

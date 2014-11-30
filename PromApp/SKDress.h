@@ -9,6 +9,7 @@
 //
 
 #import <Parse/Parse.h>
+#import "SKProm.h"
 
 @interface SKDress : PFObject <PFSubclassing>
 
@@ -17,6 +18,7 @@
 @property NSString *designer;
 @property NSString *styleNumber;
 @property NSString *dressColor;
+@property SKProm *prom;
 @property PFFile *image;
 
 + (NSString *)parseClassName;

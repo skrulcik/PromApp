@@ -41,7 +41,7 @@
 	<true/>
 	<key>UIAppFonts</key>
 	<array>
-		<string>pinyon-script.ttf</string>
+		<string>Rochester-Regular.otf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
