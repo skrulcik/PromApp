@@ -20,59 +20,6 @@
 		D22299371965054000B747BA /* SKDressInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D22299361965054000B747BA /* SKDressInfoTableViewCell.m */; };
 		D23654F919916BF3007277A6 /* PromQueryTable.xib in Resources */ = {isa = PBXBuildFile; fileRef = D23654F819916BF3007277A6 /* PromQueryTable.xib */; };
 		D23654FC19916DFF007277A6 /* SKPromQueryController.m in Sources */ = {isa = PBXBuildFile; fileRef = D23654FB19916DFF007277A6 /* SKPromQueryController.m */; };
-		D25B30301A0C030000DE5521 /* bootstrap.css in Resources */ = {isa = PBXBuildFile; fileRef = D25B2FF31A0C030000DE5521 /* bootstrap.css */; };
-		D25B30311A0C030000DE5521 /* bootstrap.min.css in Resources */ = {isa = PBXBuildFile; fileRef = D25B2FF41A0C030000DE5521 /* bootstrap.min.css */; };
-		D25B30321A0C030000DE5521 /* PromApp.css in Resources */ = {isa = PBXBuildFile; fileRef = D25B2FF51A0C030000DE5521 /* PromApp.css */; };
-		D25B30331A0C030000DE5521 /* stylish-portfolio.css in Resources */ = {isa = PBXBuildFile; fileRef = D25B2FF61A0C030000DE5521 /* stylish-portfolio.css */; };
-		D25B30341A0C030000DE5521 /* font-awesome.css in Resources */ = {isa = PBXBuildFile; fileRef = D25B2FF91A0C030000DE5521 /* font-awesome.css */; };
-		D25B30351A0C030000DE5521 /* font-awesome.min.css in Resources */ = {isa = PBXBuildFile; fileRef = D25B2FFA1A0C030000DE5521 /* font-awesome.min.css */; };
-		D25B30361A0C030000DE5521 /* fontawesome-webfont.eot in Resources */ = {isa = PBXBuildFile; fileRef = D25B2FFC1A0C030000DE5521 /* fontawesome-webfont.eot */; };
-		D25B30371A0C030000DE5521 /* fontawesome-webfont.svg in Resources */ = {isa = PBXBuildFile; fileRef = D25B2FFD1A0C030000DE5521 /* fontawesome-webfont.svg */; };
-		D25B30381A0C030000DE5521 /* fontawesome-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D25B2FFE1A0C030000DE5521 /* fontawesome-webfont.ttf */; };
-		D25B30391A0C030000DE5521 /* fontawesome-webfont.woff in Resources */ = {isa = PBXBuildFile; fileRef = D25B2FFF1A0C030000DE5521 /* fontawesome-webfont.woff */; };
-		D25B303A1A0C030000DE5521 /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = D25B30001A0C030000DE5521 /* FontAwesome.otf */; };
-		D25B303B1A0C030000DE5521 /* bordered-pulled.less in Resources */ = {isa = PBXBuildFile; fileRef = D25B30021A0C030000DE5521 /* bordered-pulled.less */; };
-		D25B303C1A0C030000DE5521 /* core.less in Resources */ = {isa = PBXBuildFile; fileRef = D25B30031A0C030000DE5521 /* core.less */; };
-		D25B303D1A0C030000DE5521 /* fixed-width.less in Resources */ = {isa = PBXBuildFile; fileRef = D25B30041A0C030000DE5521 /* fixed-width.less */; };
-		D25B303E1A0C030000DE5521 /* font-awesome.less in Resources */ = {isa = PBXBuildFile; fileRef = D25B30051A0C030000DE5521 /* font-awesome.less */; };
-		D25B303F1A0C030000DE5521 /* icons.less in Resources */ = {isa = PBXBuildFile; fileRef = D25B30061A0C030000DE5521 /* icons.less */; };
-		D25B30401A0C030000DE5521 /* larger.less in Resources */ = {isa = PBXBuildFile; fileRef = D25B30071A0C030000DE5521 /* larger.less */; };
-		D25B30411A0C030000DE5521 /* list.less in Resources */ = {isa = PBXBuildFile; fileRef = D25B30081A0C030000DE5521 /* list.less */; };
-		D25B30421A0C030000DE5521 /* mixins.less in Resources */ = {isa = PBXBuildFile; fileRef = D25B30091A0C030000DE5521 /* mixins.less */; };
-		D25B30431A0C030000DE5521 /* path.less in Resources */ = {isa = PBXBuildFile; fileRef = D25B300A1A0C030000DE5521 /* path.less */; };
-		D25B30441A0C030000DE5521 /* rotated-flipped.less in Resources */ = {isa = PBXBuildFile; fileRef = D25B300B1A0C030000DE5521 /* rotated-flipped.less */; };
-		D25B30451A0C030000DE5521 /* spinning.less in Resources */ = {isa = PBXBuildFile; fileRef = D25B300C1A0C030000DE5521 /* spinning.less */; };
-		D25B30461A0C030000DE5521 /* stacked.less in Resources */ = {isa = PBXBuildFile; fileRef = D25B300D1A0C030000DE5521 /* stacked.less */; };
-		D25B30471A0C030000DE5521 /* variables.less in Resources */ = {isa = PBXBuildFile; fileRef = D25B300E1A0C030000DE5521 /* variables.less */; };
-		D25B30481A0C030000DE5521 /* _bordered-pulled.scss in Resources */ = {isa = PBXBuildFile; fileRef = D25B30101A0C030000DE5521 /* _bordered-pulled.scss */; };
-		D25B30491A0C030000DE5521 /* _core.scss in Resources */ = {isa = PBXBuildFile; fileRef = D25B30111A0C030000DE5521 /* _core.scss */; };
-		D25B304A1A0C030000DE5521 /* _fixed-width.scss in Resources */ = {isa = PBXBuildFile; fileRef = D25B30121A0C030000DE5521 /* _fixed-width.scss */; };
-		D25B304B1A0C030000DE5521 /* _icons.scss in Resources */ = {isa = PBXBuildFile; fileRef = D25B30131A0C030000DE5521 /* _icons.scss */; };
-		D25B304C1A0C030000DE5521 /* _larger.scss in Resources */ = {isa = PBXBuildFile; fileRef = D25B30141A0C030000DE5521 /* _larger.scss */; };
-		D25B304D1A0C030000DE5521 /* _list.scss in Resources */ = {isa = PBXBuildFile; fileRef = D25B30151A0C030000DE5521 /* _list.scss */; };
-		D25B304E1A0C030000DE5521 /* _mixins.scss in Resources */ = {isa = PBXBuildFile; fileRef = D25B30161A0C030000DE5521 /* _mixins.scss */; };
-		D25B304F1A0C030000DE5521 /* _path.scss in Resources */ = {isa = PBXBuildFile; fileRef = D25B30171A0C030000DE5521 /* _path.scss */; };
-		D25B30501A0C030000DE5521 /* _rotated-flipped.scss in Resources */ = {isa = PBXBuildFile; fileRef = D25B30181A0C030000DE5521 /* _rotated-flipped.scss */; };
-		D25B30511A0C030000DE5521 /* _spinning.scss in Resources */ = {isa = PBXBuildFile; fileRef = D25B30191A0C030000DE5521 /* _spinning.scss */; };
-		D25B30521A0C030000DE5521 /* _stacked.scss in Resources */ = {isa = PBXBuildFile; fileRef = D25B301A1A0C030000DE5521 /* _stacked.scss */; };
-		D25B30531A0C030000DE5521 /* _variables.scss in Resources */ = {isa = PBXBuildFile; fileRef = D25B301B1A0C030000DE5521 /* _variables.scss */; };
-		D25B30541A0C030000DE5521 /* font-awesome.scss in Resources */ = {isa = PBXBuildFile; fileRef = D25B301C1A0C030000DE5521 /* font-awesome.scss */; };
-		D25B30551A0C030000DE5521 /* glyphicons-halflings-regular.eot in Resources */ = {isa = PBXBuildFile; fileRef = D25B301E1A0C030000DE5521 /* glyphicons-halflings-regular.eot */; };
-		D25B30561A0C030000DE5521 /* glyphicons-halflings-regular.svg in Resources */ = {isa = PBXBuildFile; fileRef = D25B301F1A0C030000DE5521 /* glyphicons-halflings-regular.svg */; };
-		D25B30571A0C030000DE5521 /* glyphicons-halflings-regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D25B30201A0C030000DE5521 /* glyphicons-halflings-regular.ttf */; };
-		D25B30581A0C030000DE5521 /* glyphicons-halflings-regular.woff in Resources */ = {isa = PBXBuildFile; fileRef = D25B30211A0C030000DE5521 /* glyphicons-halflings-regular.woff */; };
-		D25B30591A0C030000DE5521 /* bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D25B30231A0C030000DE5521 /* bg.jpg */; };
-		D25B305A1A0C030000DE5521 /* callout.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D25B30241A0C030000DE5521 /* callout.jpg */; };
-		D25B305B1A0C030000DE5521 /* portfolio-1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D25B30251A0C030000DE5521 /* portfolio-1.jpg */; };
-		D25B305C1A0C030000DE5521 /* portfolio-2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D25B30261A0C030000DE5521 /* portfolio-2.jpg */; };
-		D25B305D1A0C030000DE5521 /* portfolio-3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D25B30271A0C030000DE5521 /* portfolio-3.jpg */; };
-		D25B305E1A0C030000DE5521 /* portfolio-4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D25B30281A0C030000DE5521 /* portfolio-4.jpg */; };
-		D25B305F1A0C030000DE5521 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = D25B30291A0C030000DE5521 /* index.html */; };
-		D25B30601A0C030000DE5521 /* bootstrap.js in Resources */ = {isa = PBXBuildFile; fileRef = D25B302B1A0C030000DE5521 /* bootstrap.js */; };
-		D25B30611A0C030000DE5521 /* bootstrap.min.js in Resources */ = {isa = PBXBuildFile; fileRef = D25B302C1A0C030000DE5521 /* bootstrap.min.js */; };
-		D25B30621A0C030000DE5521 /* jquery.js in Resources */ = {isa = PBXBuildFile; fileRef = D25B302D1A0C030000DE5521 /* jquery.js */; };
-		D25B30631A0C030000DE5521 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = D25B302E1A0C030000DE5521 /* LICENSE */; };
-		D25B30641A0C030000DE5521 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = D25B302F1A0C030000DE5521 /* README.md */; };
 		D2652159198E86E3000432BA /* StringEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2652158198E86E3000432BA /* StringEntryCell.xib */; };
 		D26C88C919C575C5002B52A8 /* Tester.xib in Resources */ = {isa = PBXBuildFile; fileRef = D26C88C819C575C5002B52A8 /* Tester.xib */; };
 		D286BA3F196E47EE00AFC9C0 /* SKDressListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D286BA3E196E47EE00AFC9C0 /* SKDressListViewController.m */; };
@@ -123,6 +70,10 @@
 		D2C890E319D725D500458094 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C890E219D725D500458094 /* ProfileViewController.swift */; };
 		D2DEBAA619B6D58E00BA0542 /* main.js in Sources */ = {isa = PBXBuildFile; fileRef = D2DEBAA119B6D58E00BA0542 /* main.js */; };
 		D2DEBAA719B6D58E00BA0542 /* global.json in Resources */ = {isa = PBXBuildFile; fileRef = D2DEBAA319B6D58E00BA0542 /* global.json */; };
+		D2E8EB3F1A2E146500A153FA /* css in Resources */ = {isa = PBXBuildFile; fileRef = D2E8EB3B1A2E146500A153FA /* css */; };
+		D2E8EB401A2E146500A153FA /* images in Resources */ = {isa = PBXBuildFile; fileRef = D2E8EB3C1A2E146500A153FA /* images */; };
+		D2E8EB411A2E146500A153FA /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = D2E8EB3D1A2E146500A153FA /* index.html */; };
+		D2E8EB421A2E146500A153FA /* js in Resources */ = {isa = PBXBuildFile; fileRef = D2E8EB3E1A2E146500A153FA /* js */; };
 		D2ED80FB1A2A7EB9002F4511 /* StoreAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ED80FA1A2A7EB9002F4511 /* StoreAnnotation.swift */; };
 		D2EF94051A17D8F00093CD4C /* SignPainter.otf in Resources */ = {isa = PBXBuildFile; fileRef = D2EF94041A17D8F00093CD4C /* SignPainter.otf */; };
 		D2F1440E1970D24400046490 /* SKProm.m in Sources */ = {isa = PBXBuildFile; fileRef = D2F1440D1970D24400046490 /* SKProm.m */; };
@@ -160,59 +111,6 @@
 		D23654F819916BF3007277A6 /* PromQueryTable.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PromQueryTable.xib; sourceTree = "<group>"; };
 		D23654FA19916DFF007277A6 /* SKPromQueryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKPromQueryController.h; sourceTree = "<group>"; };
 		D23654FB19916DFF007277A6 /* SKPromQueryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKPromQueryController.m; sourceTree = "<group>"; };
-		D25B2FF31A0C030000DE5521 /* bootstrap.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = bootstrap.css; sourceTree = "<group>"; };
-		D25B2FF41A0C030000DE5521 /* bootstrap.min.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = bootstrap.min.css; sourceTree = "<group>"; };
-		D25B2FF51A0C030000DE5521 /* PromApp.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = PromApp.css; sourceTree = "<group>"; };
-		D25B2FF61A0C030000DE5521 /* stylish-portfolio.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = "stylish-portfolio.css"; sourceTree = "<group>"; };
-		D25B2FF91A0C030000DE5521 /* font-awesome.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = "font-awesome.css"; sourceTree = "<group>"; };
-		D25B2FFA1A0C030000DE5521 /* font-awesome.min.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = "font-awesome.min.css"; sourceTree = "<group>"; };
-		D25B2FFC1A0C030000DE5521 /* fontawesome-webfont.eot */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fontawesome-webfont.eot"; sourceTree = "<group>"; };
-		D25B2FFD1A0C030000DE5521 /* fontawesome-webfont.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "fontawesome-webfont.svg"; sourceTree = "<group>"; };
-		D25B2FFE1A0C030000DE5521 /* fontawesome-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fontawesome-webfont.ttf"; sourceTree = "<group>"; };
-		D25B2FFF1A0C030000DE5521 /* fontawesome-webfont.woff */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fontawesome-webfont.woff"; sourceTree = "<group>"; };
-		D25B30001A0C030000DE5521 /* FontAwesome.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.otf; sourceTree = "<group>"; };
-		D25B30021A0C030000DE5521 /* bordered-pulled.less */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "bordered-pulled.less"; sourceTree = "<group>"; };
-		D25B30031A0C030000DE5521 /* core.less */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = core.less; sourceTree = "<group>"; };
-		D25B30041A0C030000DE5521 /* fixed-width.less */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "fixed-width.less"; sourceTree = "<group>"; };
-		D25B30051A0C030000DE5521 /* font-awesome.less */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "font-awesome.less"; sourceTree = "<group>"; };
-		D25B30061A0C030000DE5521 /* icons.less */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = icons.less; sourceTree = "<group>"; };
-		D25B30071A0C030000DE5521 /* larger.less */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = larger.less; sourceTree = "<group>"; };
-		D25B30081A0C030000DE5521 /* list.less */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = list.less; sourceTree = "<group>"; };
-		D25B30091A0C030000DE5521 /* mixins.less */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mixins.less; sourceTree = "<group>"; };
-		D25B300A1A0C030000DE5521 /* path.less */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = path.less; sourceTree = "<group>"; };
-		D25B300B1A0C030000DE5521 /* rotated-flipped.less */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "rotated-flipped.less"; sourceTree = "<group>"; };
-		D25B300C1A0C030000DE5521 /* spinning.less */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = spinning.less; sourceTree = "<group>"; };
-		D25B300D1A0C030000DE5521 /* stacked.less */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = stacked.less; sourceTree = "<group>"; };
-		D25B300E1A0C030000DE5521 /* variables.less */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = variables.less; sourceTree = "<group>"; };
-		D25B30101A0C030000DE5521 /* _bordered-pulled.scss */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "_bordered-pulled.scss"; sourceTree = "<group>"; };
-		D25B30111A0C030000DE5521 /* _core.scss */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = _core.scss; sourceTree = "<group>"; };
-		D25B30121A0C030000DE5521 /* _fixed-width.scss */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "_fixed-width.scss"; sourceTree = "<group>"; };
-		D25B30131A0C030000DE5521 /* _icons.scss */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = _icons.scss; sourceTree = "<group>"; };
-		D25B30141A0C030000DE5521 /* _larger.scss */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = _larger.scss; sourceTree = "<group>"; };
-		D25B30151A0C030000DE5521 /* _list.scss */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = _list.scss; sourceTree = "<group>"; };
-		D25B30161A0C030000DE5521 /* _mixins.scss */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = _mixins.scss; sourceTree = "<group>"; };
-		D25B30171A0C030000DE5521 /* _path.scss */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = _path.scss; sourceTree = "<group>"; };
-		D25B30181A0C030000DE5521 /* _rotated-flipped.scss */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "_rotated-flipped.scss"; sourceTree = "<group>"; };
-		D25B30191A0C030000DE5521 /* _spinning.scss */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = _spinning.scss; sourceTree = "<group>"; };
-		D25B301A1A0C030000DE5521 /* _stacked.scss */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = _stacked.scss; sourceTree = "<group>"; };
-		D25B301B1A0C030000DE5521 /* _variables.scss */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = _variables.scss; sourceTree = "<group>"; };
-		D25B301C1A0C030000DE5521 /* font-awesome.scss */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "font-awesome.scss"; sourceTree = "<group>"; };
-		D25B301E1A0C030000DE5521 /* glyphicons-halflings-regular.eot */ = {isa = PBXFileReference; lastKnownFileType = file; path = "glyphicons-halflings-regular.eot"; sourceTree = "<group>"; };
-		D25B301F1A0C030000DE5521 /* glyphicons-halflings-regular.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "glyphicons-halflings-regular.svg"; sourceTree = "<group>"; };
-		D25B30201A0C030000DE5521 /* glyphicons-halflings-regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "glyphicons-halflings-regular.ttf"; sourceTree = "<group>"; };
-		D25B30211A0C030000DE5521 /* glyphicons-halflings-regular.woff */ = {isa = PBXFileReference; lastKnownFileType = file; path = "glyphicons-halflings-regular.woff"; sourceTree = "<group>"; };
-		D25B30231A0C030000DE5521 /* bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg.jpg; sourceTree = "<group>"; };
-		D25B30241A0C030000DE5521 /* callout.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = callout.jpg; sourceTree = "<group>"; };
-		D25B30251A0C030000DE5521 /* portfolio-1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "portfolio-1.jpg"; sourceTree = "<group>"; };
-		D25B30261A0C030000DE5521 /* portfolio-2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "portfolio-2.jpg"; sourceTree = "<group>"; };
-		D25B30271A0C030000DE5521 /* portfolio-3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "portfolio-3.jpg"; sourceTree = "<group>"; };
-		D25B30281A0C030000DE5521 /* portfolio-4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "portfolio-4.jpg"; sourceTree = "<group>"; };
-		D25B30291A0C030000DE5521 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
-		D25B302B1A0C030000DE5521 /* bootstrap.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = bootstrap.js; sourceTree = "<group>"; };
-		D25B302C1A0C030000DE5521 /* bootstrap.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = bootstrap.min.js; sourceTree = "<group>"; };
-		D25B302D1A0C030000DE5521 /* jquery.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = jquery.js; sourceTree = "<group>"; };
-		D25B302E1A0C030000DE5521 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		D25B302F1A0C030000DE5521 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D2652158198E86E3000432BA /* StringEntryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StringEntryCell.xib; sourceTree = "<group>"; };
 		D26C88C819C575C5002B52A8 /* Tester.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Tester.xib; sourceTree = "<group>"; };
 		D286BA3D196E47EE00AFC9C0 /* SKDressListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKDressListViewController.h; sourceTree = "<group>"; };
@@ -282,6 +180,10 @@
 		D2C890E219D725D500458094 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		D2DEBAA119B6D58E00BA0542 /* main.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = main.js; sourceTree = "<group>"; };
 		D2DEBAA319B6D58E00BA0542 /* global.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = global.json; sourceTree = "<group>"; };
+		D2E8EB3B1A2E146500A153FA /* css */ = {isa = PBXFileReference; lastKnownFileType = folder; path = css; sourceTree = "<group>"; };
+		D2E8EB3C1A2E146500A153FA /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = images; sourceTree = "<group>"; };
+		D2E8EB3D1A2E146500A153FA /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
+		D2E8EB3E1A2E146500A153FA /* js */ = {isa = PBXFileReference; lastKnownFileType = folder; path = js; sourceTree = "<group>"; };
 		D2ED80FA1A2A7EB9002F4511 /* StoreAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreAnnotation.swift; sourceTree = "<group>"; };
 		D2EF94041A17D8F00093CD4C /* SignPainter.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SignPainter.otf; sourceTree = "<group>"; };
 		D2F1440C1970D24400046490 /* SKProm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKProm.h; sourceTree = "<group>"; };
@@ -346,123 +248,6 @@
 				D2BB5913198D655400431759 /* SKStringEntryCell.m */,
 			);
 			name = View;
-			sourceTree = "<group>";
-		};
-		D25B2FF21A0C030000DE5521 /* css */ = {
-			isa = PBXGroup;
-			children = (
-				D25B2FF31A0C030000DE5521 /* bootstrap.css */,
-				D25B2FF41A0C030000DE5521 /* bootstrap.min.css */,
-				D25B2FF51A0C030000DE5521 /* PromApp.css */,
-				D25B2FF61A0C030000DE5521 /* stylish-portfolio.css */,
-			);
-			path = css;
-			sourceTree = "<group>";
-		};
-		D25B2FF71A0C030000DE5521 /* font-awesome-4.1.0 */ = {
-			isa = PBXGroup;
-			children = (
-				D25B2FF81A0C030000DE5521 /* css */,
-				D25B2FFB1A0C030000DE5521 /* fonts */,
-				D25B30011A0C030000DE5521 /* less */,
-				D25B300F1A0C030000DE5521 /* scss */,
-			);
-			path = "font-awesome-4.1.0";
-			sourceTree = "<group>";
-		};
-		D25B2FF81A0C030000DE5521 /* css */ = {
-			isa = PBXGroup;
-			children = (
-				D25B2FF91A0C030000DE5521 /* font-awesome.css */,
-				D25B2FFA1A0C030000DE5521 /* font-awesome.min.css */,
-			);
-			path = css;
-			sourceTree = "<group>";
-		};
-		D25B2FFB1A0C030000DE5521 /* fonts */ = {
-			isa = PBXGroup;
-			children = (
-				D25B2FFC1A0C030000DE5521 /* fontawesome-webfont.eot */,
-				D25B2FFD1A0C030000DE5521 /* fontawesome-webfont.svg */,
-				D25B2FFE1A0C030000DE5521 /* fontawesome-webfont.ttf */,
-				D25B2FFF1A0C030000DE5521 /* fontawesome-webfont.woff */,
-				D25B30001A0C030000DE5521 /* FontAwesome.otf */,
-			);
-			path = fonts;
-			sourceTree = "<group>";
-		};
-		D25B30011A0C030000DE5521 /* less */ = {
-			isa = PBXGroup;
-			children = (
-				D25B30021A0C030000DE5521 /* bordered-pulled.less */,
-				D25B30031A0C030000DE5521 /* core.less */,
-				D25B30041A0C030000DE5521 /* fixed-width.less */,
-				D25B30051A0C030000DE5521 /* font-awesome.less */,
-				D25B30061A0C030000DE5521 /* icons.less */,
-				D25B30071A0C030000DE5521 /* larger.less */,
-				D25B30081A0C030000DE5521 /* list.less */,
-				D25B30091A0C030000DE5521 /* mixins.less */,
-				D25B300A1A0C030000DE5521 /* path.less */,
-				D25B300B1A0C030000DE5521 /* rotated-flipped.less */,
-				D25B300C1A0C030000DE5521 /* spinning.less */,
-				D25B300D1A0C030000DE5521 /* stacked.less */,
-				D25B300E1A0C030000DE5521 /* variables.less */,
-			);
-			path = less;
-			sourceTree = "<group>";
-		};
-		D25B300F1A0C030000DE5521 /* scss */ = {
-			isa = PBXGroup;
-			children = (
-				D25B30101A0C030000DE5521 /* _bordered-pulled.scss */,
-				D25B30111A0C030000DE5521 /* _core.scss */,
-				D25B30121A0C030000DE5521 /* _fixed-width.scss */,
-				D25B30131A0C030000DE5521 /* _icons.scss */,
-				D25B30141A0C030000DE5521 /* _larger.scss */,
-				D25B30151A0C030000DE5521 /* _list.scss */,
-				D25B30161A0C030000DE5521 /* _mixins.scss */,
-				D25B30171A0C030000DE5521 /* _path.scss */,
-				D25B30181A0C030000DE5521 /* _rotated-flipped.scss */,
-				D25B30191A0C030000DE5521 /* _spinning.scss */,
-				D25B301A1A0C030000DE5521 /* _stacked.scss */,
-				D25B301B1A0C030000DE5521 /* _variables.scss */,
-				D25B301C1A0C030000DE5521 /* font-awesome.scss */,
-			);
-			path = scss;
-			sourceTree = "<group>";
-		};
-		D25B301D1A0C030000DE5521 /* fonts */ = {
-			isa = PBXGroup;
-			children = (
-				D25B301E1A0C030000DE5521 /* glyphicons-halflings-regular.eot */,
-				D25B301F1A0C030000DE5521 /* glyphicons-halflings-regular.svg */,
-				D25B30201A0C030000DE5521 /* glyphicons-halflings-regular.ttf */,
-				D25B30211A0C030000DE5521 /* glyphicons-halflings-regular.woff */,
-			);
-			path = fonts;
-			sourceTree = "<group>";
-		};
-		D25B30221A0C030000DE5521 /* img */ = {
-			isa = PBXGroup;
-			children = (
-				D25B30231A0C030000DE5521 /* bg.jpg */,
-				D25B30241A0C030000DE5521 /* callout.jpg */,
-				D25B30251A0C030000DE5521 /* portfolio-1.jpg */,
-				D25B30261A0C030000DE5521 /* portfolio-2.jpg */,
-				D25B30271A0C030000DE5521 /* portfolio-3.jpg */,
-				D25B30281A0C030000DE5521 /* portfolio-4.jpg */,
-			);
-			path = img;
-			sourceTree = "<group>";
-		};
-		D25B302A1A0C030000DE5521 /* js */ = {
-			isa = PBXGroup;
-			children = (
-				D25B302B1A0C030000DE5521 /* bootstrap.js */,
-				D25B302C1A0C030000DE5521 /* bootstrap.min.js */,
-				D25B302D1A0C030000DE5521 /* jquery.js */,
-			);
-			path = js;
 			sourceTree = "<group>";
 		};
 		D2A101111974AA360019A2B3 /* Externally Created Resources */ = {
@@ -664,14 +449,10 @@
 		D2DEBAA419B6D58E00BA0542 /* public */ = {
 			isa = PBXGroup;
 			children = (
-				D25B2FF21A0C030000DE5521 /* css */,
-				D25B2FF71A0C030000DE5521 /* font-awesome-4.1.0 */,
-				D25B301D1A0C030000DE5521 /* fonts */,
-				D25B30221A0C030000DE5521 /* img */,
-				D25B30291A0C030000DE5521 /* index.html */,
-				D25B302A1A0C030000DE5521 /* js */,
-				D25B302E1A0C030000DE5521 /* LICENSE */,
-				D25B302F1A0C030000DE5521 /* README.md */,
+				D2E8EB3B1A2E146500A153FA /* css */,
+				D2E8EB3C1A2E146500A153FA /* images */,
+				D2E8EB3D1A2E146500A153FA /* index.html */,
+				D2E8EB3E1A2E146500A153FA /* js */,
 			);
 			path = public;
 			sourceTree = "<group>";
@@ -760,78 +541,30 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D25B30341A0C030000DE5521 /* font-awesome.css in Resources */,
+				D2E8EB421A2E146500A153FA /* js in Resources */,
 				D2A4754F19624264005C2502 /* IpodLayout.storyboard in Resources */,
-				D25B30481A0C030000DE5521 /* _bordered-pulled.scss in Resources */,
-				D25B30451A0C030000DE5521 /* spinning.less in Resources */,
 				D2BB590F198CA89600431759 /* EditStore.xib in Resources */,
-				D25B305F1A0C030000DE5521 /* index.html in Resources */,
-				D25B30471A0C030000DE5521 /* variables.less in Resources */,
-				D25B30601A0C030000DE5521 /* bootstrap.js in Resources */,
-				D25B30521A0C030000DE5521 /* _stacked.scss in Resources */,
 				D2A475281962198D005C2502 /* InfoPlist.strings in Resources */,
-				D25B30411A0C030000DE5521 /* list.less in Resources */,
-				D25B30331A0C030000DE5521 /* stylish-portfolio.css in Resources */,
-				D25B30551A0C030000DE5521 /* glyphicons-halflings-regular.eot in Resources */,
-				D25B30421A0C030000DE5521 /* mixins.less in Resources */,
-				D25B30361A0C030000DE5521 /* fontawesome-webfont.eot in Resources */,
 				D20DA6B1198B537300C1B225 /* EditUser.xib in Resources */,
 				D2F639B11A17ECA50026A3D8 /* LaunchScreen.xib in Resources */,
-				D25B30541A0C030000DE5521 /* font-awesome.scss in Resources */,
 				D208B8581A29207B00E0C9A4 /* Rochester-Regular.otf in Resources */,
+				D2E8EB3F1A2E146500A153FA /* css in Resources */,
 				D2DEBAA719B6D58E00BA0542 /* global.json in Resources */,
-				D25B305D1A0C030000DE5521 /* portfolio-3.jpg in Resources */,
-				D25B30571A0C030000DE5521 /* glyphicons-halflings-regular.ttf in Resources */,
-				D25B30391A0C030000DE5521 /* fontawesome-webfont.woff in Resources */,
-				D25B305B1A0C030000DE5521 /* portfolio-1.jpg in Resources */,
 				D2C890E119D68E7C00458094 /* ProfileCellLayout.xib in Resources */,
 				D2117951198EE1F0004D254F /* ImageEditorCell.xib in Resources */,
-				D25B304F1A0C030000DE5521 /* _path.scss in Resources */,
-				D25B30581A0C030000DE5521 /* glyphicons-halflings-regular.woff in Resources */,
-				D25B303F1A0C030000DE5521 /* icons.less in Resources */,
-				D25B30441A0C030000DE5521 /* rotated-flipped.less in Resources */,
 				D2C2473D19F2CDA5007F2AF9 /* EditProm.xib in Resources */,
-				D25B30321A0C030000DE5521 /* PromApp.css in Resources */,
-				D25B304B1A0C030000DE5521 /* _icons.scss in Resources */,
 				D2A475301962198D005C2502 /* Images.xcassets in Resources */,
-				D25B303A1A0C030000DE5521 /* FontAwesome.otf in Resources */,
-				D25B30531A0C030000DE5521 /* _variables.scss in Resources */,
-				D25B304D1A0C030000DE5521 /* _list.scss in Resources */,
-				D25B30511A0C030000DE5521 /* _spinning.scss in Resources */,
-				D25B305C1A0C030000DE5521 /* portfolio-2.jpg in Resources */,
 				D2652159198E86E3000432BA /* StringEntryCell.xib in Resources */,
-				D25B303D1A0C030000DE5521 /* fixed-width.less in Resources */,
-				D25B30311A0C030000DE5521 /* bootstrap.min.css in Resources */,
-				D25B30371A0C030000DE5521 /* fontawesome-webfont.svg in Resources */,
-				D25B305A1A0C030000DE5521 /* callout.jpg in Resources */,
 				D208B85A1A29209600E0C9A4 /* GrandHotel-Regular.otf in Resources */,
-				D25B30631A0C030000DE5521 /* LICENSE in Resources */,
 				D2C6D1611980CA81008080CD /* PromCell.xib in Resources */,
-				D25B30431A0C030000DE5521 /* path.less in Resources */,
 				D2EF94051A17D8F00093CD4C /* SignPainter.otf in Resources */,
-				D25B305E1A0C030000DE5521 /* portfolio-4.jpg in Resources */,
-				D25B30611A0C030000DE5521 /* bootstrap.min.js in Resources */,
-				D25B30381A0C030000DE5521 /* fontawesome-webfont.ttf in Resources */,
 				D2103456196F9EF70088484B /* DressCell.xib in Resources */,
-				D25B30501A0C030000DE5521 /* _rotated-flipped.scss in Resources */,
-				D25B30491A0C030000DE5521 /* _core.scss in Resources */,
-				D25B30301A0C030000DE5521 /* bootstrap.css in Resources */,
-				D25B30461A0C030000DE5521 /* stacked.less in Resources */,
-				D25B30621A0C030000DE5521 /* jquery.js in Resources */,
-				D25B303E1A0C030000DE5521 /* font-awesome.less in Resources */,
+				D2E8EB401A2E146500A153FA /* images in Resources */,
 				D2074E3E198F3B5E0048E28E /* EditDress.xib in Resources */,
-				D25B30561A0C030000DE5521 /* glyphicons-halflings-regular.svg in Resources */,
-				D25B303B1A0C030000DE5521 /* bordered-pulled.less in Resources */,
-				D25B30591A0C030000DE5521 /* bg.jpg in Resources */,
-				D25B30351A0C030000DE5521 /* font-awesome.min.css in Resources */,
-				D25B30401A0C030000DE5521 /* larger.less in Resources */,
 				D26C88C919C575C5002B52A8 /* Tester.xib in Resources */,
-				D25B303C1A0C030000DE5521 /* core.less in Resources */,
 				D2F639AF1A17E5FC0026A3D8 /* pinyon-script.ttf in Resources */,
-				D25B304E1A0C030000DE5521 /* _mixins.scss in Resources */,
+				D2E8EB411A2E146500A153FA /* index.html in Resources */,
 				D20DA6AF198B311200C1B225 /* ColorText.plist in Resources */,
-				D25B304C1A0C030000DE5521 /* _larger.scss in Resources */,
-				D25B304A1A0C030000DE5521 /* _fixed-width.scss in Resources */,
 				D23654F919916BF3007277A6 /* PromQueryTable.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -855,7 +588,6 @@
 				D2C6D1671980CE62008080CD /* SKPromDetailViewController.m in Sources */,
 				D286BA3F196E47EE00AFC9C0 /* SKDressListViewController.m in Sources */,
 				D2A4756E196262F4005C2502 /* SKLoginViewController.m in Sources */,
-				D25B30641A0C030000DE5521 /* README.md in Sources */,
 				D211794D198EBDAF004D254F /* SKStoreEditorTableController.m in Sources */,
 				D23654FC19916DFF007277A6 /* SKPromQueryController.m in Sources */,
 				D2A4752E1962198D005C2502 /* SKAppDelegate.m in Sources */,

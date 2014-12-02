@@ -1,302 +1,398 @@
+<!--A Design by W3layouts
+Author: W3layout
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
+<title>The Jaaj Website Template | Home :: w3layouts</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">	
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+<link href="css/style.css" rel='stylesheet' type='text/css' />
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Play:400,700' rel='stylesheet' type='text/css'>
+<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>  
+<!---- start-smoth-scrolling---->
+<script type="text/javascript" src="js/move-top.js"></script>
+<script type="text/javascript" src="js/easing.js"></script>
+<script type="text/javascript">
+			jQuery(document).ready(function($) {
+				$(".scroll").click(function(event){		
+					event.preventDefault();
+					$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+				});
+			});
+		</script>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Stylish Portfolio - Start Bootstrap Theme</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link href="css/stylish-portfolio.css" rel="stylesheet">
-
-    <!-- Custom Fonts -->
-    <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+<!---- start-smoth-scrolling---->
+<!---image-carsuals---->
+	    <link href="css/owl.carousel.css" rel="stylesheet">
+	    <link href="css/owl.theme.css" rel="stylesheet">
+   		<script src="js/owl.carousel.js"></script>
+   		<script>
+	    $(document).ready(function() {
+	      $("#owl-demo").owlCarousel({
+	      	navigation: true,
+		    navigationText: [
+		      "<i class='icon-chevron-left icon-white'></i>",
+		      "<i class='icon-chevron-right icon-white'></i>"
+		      ],
+	        items :3,
+	        slideSpeed :100,
+	        lazyLoad : true,
+	        autoPlay : true,
+	      });
+	    });
+	    </script>
+   		<!---//End-carsuals---->
 
 </head>
-
 <body>
+	<div class="banner" id="home">
+		<div class="container">
+			<div class="header">
+				<div class="header-left">
+					<a href="index.html"><img src="images/logo.png" alt=""></a>
+				</div>
+				<div class="menu">
+                                     <a class="toggleMenu" href="#"><img src="images/menu-icon.png" alt="" /> </a>
 
-    <!-- Navigation -->
-    <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a>
-    <nav id="sidebar-wrapper">
-        <ul class="sidebar-nav">
-            <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
-            <li class="sidebar-brand">
-                <a href="#top">PromApp</a>
-            </li>
-            <li>
-                <a href="#top">Home</a>
-            </li>
-            <li>
-                <a href="#about">About</a>
-            </li>
-            <li>
-                <a href="#portfolio">Register A Store</a>
-            </li>
-            <li>
-                <a href="#contact">Contact</a>
-            </li>
-        </ul>
-    </nav>
+					<ul class="nav" id="nav">
+					<li><a href="#home" class="scroll">HOME</a></li>
+					<li><a href="#about" class="scroll">ABOUT</a></li>
+					<li><a href="#features" class="scroll">FEATURES</a></li>
+					<li><a href="#screens" class="scroll">SCREENS</a></li>
+					<li><a href="#reviews" class="scroll">REVIEWS</a></li>
+					<li><a href="#contact" class="scroll">CONTACT</a></li>
+					</ul>
+                                  <!----start-top-nav-script---->
+		                      <script type="text/javascript" src="js/responsive-nav.js"></script>
 
-    <!-- Header -->
-    <header id="top" class="header">
-        <div class="text-vertical-center">
-            <h1>PromApp</h1>
-            <h3>Never get caught wearing the same dress again.</h3>
-            <br>
-            <a href="#about" class="btn btn-dark btn-lg">Find Out More</a>
-        </div>
-    </header>
+					<script type="text/javascript">
+					jQuery(document).ready(function($) {
+						$(".scroll").click(function(event){		
+							event.preventDefault();
+							$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+						});
+					});
+					</script>
 
-    <!-- About -->
-    <section id="about" class="about">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2>Stylish Portfolio is the perfect theme for your next project!</h2>
-                    <p class="lead">This theme features some wonderful photography courtesy of <a target="_blank" href="http://join.deathtothestockphoto.com/">Death to the Stock Photo</a>.</p>
-                </div>
-            </div>
-            <!-- /.row -->
-        </div>
-        <!-- /.container -->
-    </section>
 
-    <!-- Services -->
-    <!-- The circle icons use Font Awesome's stacked icon classes. For more information, visit http://fontawesome.io/examples/ -->
-    <section id="services" class="services bg-primary">
-        <div class="container">
-            <div class="row text-center">
-                <div class="col-lg-10 col-lg-offset-1">
-                    <h2>Our Services</h2>
-                    <hr class="small">
-                    <div class="row">
-                        <div class="col-md-3 col-sm-6">
-                            <div class="service-item">
-                                <span class="fa-stack fa-4x">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-cloud fa-stack-1x text-primary"></i>
-                            </span>
-                                <h4>
-                                    <strong>Service Name</strong>
-                                </h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                                <a href="#" class="btn btn-light">Learn More</a>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6">
-                            <div class="service-item">
-                                <span class="fa-stack fa-4x">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-compass fa-stack-1x text-primary"></i>
-                            </span>
-                                <h4>
-                                    <strong>Service Name</strong>
-                                </h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                                <a href="#" class="btn btn-light">Learn More</a>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6">
-                            <div class="service-item">
-                                <span class="fa-stack fa-4x">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-flask fa-stack-1x text-primary"></i>
-                            </span>
-                                <h4>
-                                    <strong>Service Name</strong>
-                                </h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                                <a href="#" class="btn btn-light">Learn More</a>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6">
-                            <div class="service-item">
-                                <span class="fa-stack fa-4x">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-shield fa-stack-1x text-primary"></i>
-                            </span>
-                                <h4>
-                                    <strong>Service Name</strong>
-                                </h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                                <a href="#" class="btn btn-light">Learn More</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /.row (nested) -->
-                </div>
-                <!-- /.col-lg-10 -->
-            </div>
-            <!-- /.row -->
-        </div>
-        <!-- /.container -->
-    </section>
+		<!----//End-top-nav-script---->
 
-    <!-- Callout -->
-    <aside class="callout">
-        <div class="text-vertical-center">
-            <h1>Vertically Centered Text</h1>
-        </div>
-    </aside>
-
-    <!-- Portfolio -->
-    <section id="portfolio" class="portfolio">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-10 col-lg-offset-1 text-center">
-                    <h2>Our Work</h2>
-                    <hr class="small">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="portfolio-item">
-                                <a href="#">
-                                    <img class="img-portfolio img-responsive" src="img/portfolio-1.jpg">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="portfolio-item">
-                                <a href="#">
-                                    <img class="img-portfolio img-responsive" src="img/portfolio-2.jpg">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="portfolio-item">
-                                <a href="#">
-                                    <img class="img-portfolio img-responsive" src="img/portfolio-3.jpg">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="portfolio-item">
-                                <a href="#">
-                                    <img class="img-portfolio img-responsive" src="img/portfolio-4.jpg">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /.row (nested) -->
-                    <a href="#" class="btn btn-dark">View More Items</a>
-                </div>
-                <!-- /.col-lg-10 -->
-            </div>
-            <!-- /.row -->
-        </div>
-        <!-- /.container -->
-    </section>
-
-    <!-- Call to Action -->
-    <aside class="call-to-action bg-primary">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h3>The buttons below are impossible to resist.</h3>
-                    <a href="#" class="btn btn-lg btn-light">Click Me!</a>
-                    <a href="#" class="btn btn-lg btn-dark">Look at Me!</a>
-                </div>
-            </div>
-        </div>
-    </aside>
-
-    <!-- Map -->
-    <section id="contact" class="map">
-        <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A&amp;output=embed"></iframe>
-        <br />
-        <small>
-            <a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A"></a>
-        </small>
-        </iframe>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-10 col-lg-offset-1 text-center">
-                    <h4><strong>Start Bootstrap</strong>
-                    </h4>
-                    <p>3481 Melrose Place<br>Beverly Hills, CA 90210</p>
-                    <ul class="list-unstyled">
-                        <li><i class="fa fa-phone fa-fw"></i> (123) 456-7890</li>
-                        <li><i class="fa fa-envelope-o fa-fw"></i>  <a href="mailto:name@example.com">name@example.com</a>
-                        </li>
-                    </ul>
-                    <br>
-                    <ul class="list-inline">
-                        <li>
-                            <a href="#"><i class="fa fa-facebook fa-fw fa-3x"></i></a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-twitter fa-fw fa-3x"></i></a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-dribbble fa-fw fa-3x"></i></a>
-                        </li>
-                    </ul>
-                    <hr class="small">
-                    <p class="text-muted">Copyright &copy; Your Website 2014</p>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-
-    <!-- Custom Theme JavaScript -->
-    <script>
-    // Closes the sidebar menu
-    $("#menu-close").click(function(e) {
-        e.preventDefault();
-        $("#sidebar-wrapper").toggleClass("active");
-    });
-
-    // Opens the sidebar menu
-    $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#sidebar-wrapper").toggleClass("active");
-    });
-
-    // Scrolls to the selected menu item on the page
-    $(function() {
-        $('a[href*=#]:not([href=#])').click(function() {
-            if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
-
-                var target = $(this.hash);
-                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-                if (target.length) {
-                    $('html,body').animate({
-                        scrollTop: target.offset().top
-                    }, 1000);
-                    return false;
-                }
-            }
-        });
-    });
-    </script>
-
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+			<div class="banner-bottom">
+				<div class="col-md-6">
+					<div class="banner-bottom-left">
+						<img src="images/phone.png" alt="">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="banner-bottom-right">
+						<h1>BezelShop</h1>
+						<h3>Simple, Beautiful and Amazing</h3>
+						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enimcidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim</p>
+						<ul>
+							<li><a class="active" href="#">Download</a></li>
+							<li><a href="#">Learn More</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+	<div class="welcome" id="about">
+		<div class="container">
+			<div class="welcome-top">
+				<h3>Welcome to BezalShop</h3>
+				<img src="images/border.png" alt="">
+				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enimcidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim</p>
+			</div>
+			<div class="welcome-bottom">
+				<div class="col-md-4">
+					<div class="welcome-bottom-one">
+						<span class="w-fst"> </span>
+						<h4>Responsive Layout</h4>
+						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </p>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="welcome-bottom-one">
+						<span class="w-snd"> </span>
+						<h4>Beautiful Design</h4>
+						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </p>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="welcome-bottom-one">
+						<span class="w-tre"> </span>
+						<h4>Easy to Use</h4>
+						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </p>
+					</div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>		
+		</div>
+	</div>
+	<div class="features" id="features">
+		<div class="container">
+			<div class="features-main">
+				<div class="col-md-6">
+					<div class="features-left">
+						<img src="images/phone-1.png" alt="">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="features-right">
+						<h3>Excellent Features</h3>
+						<img src="images/border.png" alt="">
+						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh </p>
+						<ul>
+							<li><span class="one"> </span><p>Responsive Design</p></li>
+							<li><span class="tw"> </span><p>Redina Display</p></li>
+							<li><span class="tr"> </span><p>Bootstrap 3.1</p></li>
+							<li><span class="fr"> </span><p>Cross Browser</p></li>
+							<li><span class="fv"> </span><p>700+ Fonts</p></li>
+						</ul>
+					</div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+	<div class="news">
+		<div class="container">
+			<div class="news-main">
+				<div class="col-md-4">
+					<div class="news-left">
+						<h4>Newsletter Sign Up</h4>
+					</div>
+				</div>
+				<div class="col-md-8">
+					<div class="news-right">
+						<span>
+							<input type="text"  value="Your email address" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Your email address';}">
+							<input type="submit" value="SUBSCRIBE">
+						</span>
+					</div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+	<!--start-divice-scree-slider-->
+		<!--start-divice-scree-slider-->
+		<div class="app" id="screens">
+		<div class="wrap">									
+				<div class="img-cursual">
+						<div id="owl-demo" class="owl-carousel">
+			                <div class="item"><img class="lazyOwl" data-src="images/mob-1.png" alt="Lazy Owl Image"></div>
+			                <div class="item"><img class="lazyOwl" data-src="images/mob-7.png" alt="Lazy Owl Image"></div>
+			                <div class="item"><img class="lazyOwl" data-src="images/mob-3.png" alt="Lazy Owl Image"></div>
+			                <div class="item"><img class="lazyOwl" data-src="images/mob-1.png" alt="Lazy Owl Image"></div>
+			                <div class="item"><img class="lazyOwl" data-src="images/mob-7.png" alt="Lazy Owl Image"></div>
+			                <div class="item"><img class="lazyOwl" data-src="images/mob-3.png" alt="Lazy Owl Image"></div>
+			                <div class="item"><img class="lazyOwl" data-src="images/mob-1.png" alt="Lazy Owl Image"></div>
+			                <div class="item"><img class="lazyOwl" data-src="images/mob-7.png" alt="Lazy Owl Image"></div>
+			                <div class="item"><img class="lazyOwl" data-src="images/mob-3.png" alt="Lazy Owl Image"></div>
+			                <div class="item"><img class="lazyOwl" data-src="images/mob-1.png" alt="Lazy Owl Image"></div>
+			                <div class="item"><img class="lazyOwl" data-src="images/mob-7.png" alt="Lazy Owl Image"></div>
+			                <div class="item"><img class="lazyOwl" data-src="images/mob-3.png" alt="Lazy Owl Image"></div>
+			                <div class="item"><img class="lazyOwl" data-src="images/mob-1.png" alt="Lazy Owl Image"></div>
+			                <div class="item"><img class="lazyOwl" data-src="images/mob-7.png" alt="Lazy Owl Image"></div>
+			                <div class="item"><img class="lazyOwl" data-src="images/mob-3.png" alt="Lazy Owl Image"></div>
+		               </div>
+				</div>	
+			</div>
+			</div>
+			<!--End-divice-scree-slider-->	
+			<!--app-review-starts-here-->
+			<div class="app-review" id="reviews">
+				<div class="container">
+					<div class="app-review-main">
+						<div class="col-md-8">
+							<div class="app-review-left">
+								<h3>App Reviews</h3>
+								<img src="images/border.png" alt="">
+								<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh </p>
+								 <div  id="top" class="callbacks_container">
+			      					<ul class="rslides" id="slider4">
+			       					 <li>
+										<div class="app-review-left-one">
+											<div class="tool">
+												<a class="tooltips" href="#">
+													<span><i><h4>Great to work with, did work to acceptable standards and would use again. Always listened and built upon feedback. Excellent</h4></i></span></a>
+												</div>
+												<i><img src="images/men-1.png" alt=""></i>
+													<div class="app-review-bottom">
+														<h4>Anthony DiPrizio</h4>
+														<small>CEO</small>
+													</div>
+										</div>
+									</li>
+									<li>
+										<div class="app-review-left-one">
+											<div class="tool">
+												<a class="tooltips" href="#">
+													<span><i><h4>Great to work with, did work to acceptable standards and would use again. Always listened and built upon feedback.</h4></i></span></a>
+												</div>
+											<i><img src="images/men-1.png" alt=""></i>
+												<div class="app-review-bottom">
+													<h4>Anthony</h4>
+													<small>CEO</small>
+												</div>
+										</div>
+									</li>
+									<li>
+										<div class="app-review-left-one">
+											<div class="tool">
+												<a class="tooltips" href="#">
+													<span><i><h4>Great to work with, did work to acceptable standards and would use again. Always listened and built.</h4></i></span></a>
+												</div>
+											<i><img src="images/men-1.png" alt=""></i>
+												<div class="app-review-bottom">
+													<h4>DiPrizio</h4>
+													<small>CEO</small>
+												</div>
+										</div>
+									</li>
+									</ul>
+									</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="app-review-right">
+								<img src="images/app-1.png" alt="">
+							</div>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+				</div>
+			</div>   
+			<!--- banner Slider starts Here --->
+	  			<script src="js/responsiveslides.min.js"></script>
+			 <script>
+			    // You can also use "$(window).load(function() {"
+			    $(function () {
+			      // Slideshow 4
+			      $("#slider4").responsiveSlides({
+			        auto: true,
+			        pager: true,
+			        nav: true,
+			        speed: 500,
+			        namespace: "callbacks",
+			        before: function () {
+			          $('.events').append("<li>before event fired.</li>");
+			        },
+			        after: function () {
+			          $('.events').append("<li>after event fired.</li>");
+			        }
+			      });
+			
+			    });
+			  </script>
+			<!--End-slider-script-->
+	<!--app-review-Ends-Here-->
+	<!--download-starts-Here-->
+	<div class="download">
+		<div class="container">
+			<div class="download-top">
+				<h3>Download BezalShop Now</h3>
+				<img src="images/border.png" alt="">
+				<p class="lorem">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh</p>
+				<ul>
+					<li><a href="#">
+						<span class="ph"> </span>
+						<div class="d-1">
+							<p class="a">Available on the</p>
+							<h6 class="store">App Store</h6>
+						</div>
+					</a>
+					</li>
+					<li><a href="#">
+						<span class="d"> </span>
+						<div class="d-1">
+							<p class="g">Get it on</p>
+							<h6 class="google">GOOGLE PLAY</h6>
+						</div>
+					</a>
+					</li>
+					<li><a href="#">
+						<span class="b"> </span>
+						<div class="d-1">
+							<p class="w">Available for</p>
+							<h6 class="window">Windows Phone</h6>
+						</div>
+					</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!--download-Ends-Here-->
+	<!--getin-starts-Here-->
+	<div class="getin" id="contact">
+		<div class="container">
+			<div class="getin-top">
+				<h3>Get In Touch</h3>
+				<img src="images/border.png" alt="">
+				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh</p>
+			</div>
+			<div class="getin-bottom">
+				<div class="col-md-5">
+					<div class="getin-left">
+						<h4>Contact Details :-</h4>
+						<ul>
+							<li><span class="get-ph"> </span><p>(804) 747-5204</p></li>
+							<li><span class="get-cl"> </span><p>(804) 747-4771</p></li>
+							<li><span class="get-msg"> </span><p><a href="mailto:example@email.com">jaaj@bejal.com</a></p></li>
+							<li><span class="get-dp"> </span><p>3951 Westerre Parkway, suite 350 Richmond, VA 23233</p></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-md-7">
+					<div class="getin-right">
+						<h4>Contact Us :-</h4>
+						<form> 
+					     <input type="text" class="text" value="Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}">
+						 <input type="text" class="text" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}">
+						<input type="text" class="text" value="Subject" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Subject';}">
+						<textarea value="Message" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message';}">Message</textarea>
+						 <div class="clear"> </div>
+						<div class="sub-button">
+							<input name="submit" type="submit" value="SEND">
+						</div>
+					</form>
+					</div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+	<!--getin-ends-Here-->
+	<!--footer-starts-Here-->
+	<div class="footer">
+		<div class="container">
+			<div class="footer-main">
+				<a href="#home" class="scroll"><img src="images/top-arw.png" alt=""></a>
+				<h3>Go to Top</h3>
+				<ul>
+					<li><a href="#"><span class="f-f"> </span></a></li>
+					<li><a href="#"><span class="f-t"> </span></a></li>
+					<li><a href="#"><span class="f-g"> </span></a></li>
+					<li><a href="#"><span class="f-in"> </span></a></li>
+					<li><a href="#"><span class="f-c"> </span></a></li>
+				</ul>
+				<p>&copy; 2014 Template by &nbsp;<a href="http://w3layouts.com">W3Layouts</a></p>
+			</div>
+		</div>
+	</div>
+	<!--footer-ends-Here-->
 </body>
-
 </html>
