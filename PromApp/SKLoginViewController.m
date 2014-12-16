@@ -69,8 +69,4 @@
         }
     }];
 }
-- (IBAction)registerStorePressed:(id)sender {
-    SKStoreEditorTableController *newStore = [[SKStoreEditorTableController alloc] initForCreation];
-    [self presentViewController:newStore animated:YES completion:nil];
-}
 @end

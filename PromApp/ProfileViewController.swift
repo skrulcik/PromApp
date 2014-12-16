@@ -46,22 +46,24 @@ class ProfileViewController:UIViewController, NSURLConnectionDataDelegate, UITab
     // Fills local data with new information
     // Does NOT update table
     {
-        if let currentUser = PFUser.currentUser(){
-            updateFBProfile(currentUser, {
+        self.currentUser = PFUser.currentUser()
+        if self.currentUser != nil{
+            updateFBProfile(currentUser!, {
                 (result:NSDictionary?) in
                 if let userData = result
                 {
-                    println(userData)
-                    userData.setValue("https://graph.facebook.com/\(userData.objectForKey(fbIDKey)!)/picture?type=large", forKey: picURLKey)
-                    currentUser.setObject(userData, forKey: "profile")
+                    if let idstring:String = userData.objectForKey(fbIDKey) as? String{
+                        userData.setValue("https://graph.facebook.com/\(idstring)/picture?type=large", forKey: picURLKey)
+                    }
+                    self.currentUser!.setObject(userData, forKey: "profile")
                     self.updateDresses()
                     if let name = userData[nameKey] as? NSString{
                         self.profName = name as String
                     }
                     if let urlString:String = userData[picURLKey] as? NSString{
-                        println("URLString is \(urlString)")
                         self.updateProfPicRemote(urlString)
                     }
+                    self.currentUser!.saveInBackground()
                 }
                 self.listView.reloadData()
             })
@@ -85,9 +87,7 @@ class ProfileViewController:UIViewController, NSURLConnectionDataDelegate, UITab
     func updateDresses()
     {
         if currentUser != nil && dressList == nil{
-            if let tempDresses:NSMutableArray = currentUser!.objectForKey(dressKey) as? NSMutableArray {
-                self.dressList = tempDresses
-            }
+            self.dressList = currentUser!.objectForKey(dressKey) as? NSMutableArray
         }
     }
     func updateProfPicRemote(urlString:String)
@@ -188,11 +188,13 @@ class ProfileViewController:UIViewController, NSURLConnectionDataDelegate, UITab
     }
     //UITableViewDelegate
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        self.updateData()
         if (section == 0){
             return 1
         } else {
-            if currentUser != nil {
+            if currentUser != nil{
                 //Only look for dresses if someone is logged in
+                println("Here is info: current \(currentUser) dresslist: \(dressList) count: \(dressList)")
                 if dressList != nil {
                     return dressList!.count //Number of dresses + profile slot
                 }else{
@@ -202,6 +204,8 @@ class ProfileViewController:UIViewController, NSURLConnectionDataDelegate, UITab
                         return dressList!.count
                     }
                 }
+            } else {
+                println("Error finding user")
             }
         }
         return 0
@@ -227,7 +231,7 @@ class ProfileViewController:UIViewController, NSURLConnectionDataDelegate, UITab
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        //return UITableViewCell()
+        println("Looking for cell at \(indexPath)")
         if(indexPath.section == 0 && indexPath.row == 0){
             //Profile Cell
             var cell = tableView.dequeueReusableCellWithIdentifier(profCellID) as? ProfileCell
@@ -254,13 +258,13 @@ class ProfileViewController:UIViewController, NSURLConnectionDataDelegate, UITab
                 //cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: dressCellID) as? SKDressInfoTableViewCell
             }
             if currentUser != nil {//PFUser.currentUser(){
-                if dressList != nil
-                {
+                if dressList != nil {
                     //we know that cell is not empty now so we use ! to force unwrapping
                     let dressIndex = (indexPath.row)
                     if(dressIndex < dressList!.count){ //Ensure valid access
                         let idString = dressList![dressIndex] as String
                         let currentDress:SKDress = PFQuery.getObjectOfClass(SKDress.parseClassName(), objectId: idString) as SKDress
+                        println("Current Dress \(currentDress)")
                         cell!.designerLabel.text! = currentDress.designer
                         cell!.styleNumberLabel.text! = currentDress.styleNumber
                         let dressImageView = cell?.dressPicView
@@ -295,6 +299,38 @@ class ProfileViewController:UIViewController, NSURLConnectionDataDelegate, UITab
         }
     }
     
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        if(indexPath.section == 1){
+            return true
+        }
+        return false
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if(editingStyle == .Delete){
+            print("Delete row \(indexPath)")
+            //First delete dressID from user dress list
+            if let user:PFUser = PFUser.currentUser(){
+                let dressIndex = (indexPath.row)
+                if(dressList != nil && dressIndex < dressList!.count){
+                    if let idString = dressList![dressIndex] as? String{
+                        user.removeObjectsInArray([idString], forKey: dressKey)     //Remove dress from user list
+                        user.saveInBackground()                                     //Save changes to user list
+                        dressList?.removeObject(idString)                           //Update local list as well
+                        let currentDress:SKDress = PFQuery.getObjectOfClass(SKDress.parseClassName(), objectId: idString) as SKDress
+                        if(currentDress.objectForKey("prom") != nil){
+                            currentDress.prom!.removeObjectsInArray([currentDress], forKey: "dresses");
+                        }
+                        currentDress.deleteInBackground()                           //Delete the dress from the server
+                        tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)//Remove the cell
+                    }
+                }
+            }
+            
+        }
+    }
+    
+    //Navigation------------------------------------------
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if(segue.identifier == EditDressSegue){
             if let destViewController = segue.destinationViewController as? UINavigationController{
@@ -320,6 +356,7 @@ class ProfileViewController:UIViewController, NSURLConnectionDataDelegate, UITab
     }
     
     @IBAction func unwindFromSaveDress(segue: UIStoryboardSegue) {
-        
+        self.listView.reloadData()
+        println("reload data")
     }
 }
