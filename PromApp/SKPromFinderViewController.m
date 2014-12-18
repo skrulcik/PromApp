@@ -109,7 +109,7 @@
             [self performSegueWithIdentifier:@"showPromDetail" sender:self ];
         } else if([[view annotation] isKindOfClass:[StoreAnnotation class]]){
             StoreAnnotation *storeNote = (StoreAnnotation *) [view annotation];
-            self.currentStore = storeNote.store;
+            self.currentStore = (SKStore *)storeNote.store;
             //NSLog(@"%@", [promNote.prom readableInfo]);
             [self performSegueWithIdentifier:@"showPromDetail" sender:self ];
         }
