@@ -59,6 +59,7 @@
 /* Updates user profile with latest information from facebook
  */
 - (void) updateFacebookProfile:(PFUser *)parseUser withBlock:(void (^)(void))callbackBlock{
+    //TODO: if connection unavailable: 1) Show alert 2) Check if profile already available
     if (FBSession.activeSession.isOpen) {
         [[FBRequest requestForMe] startWithCompletionHandler:
          ^(FBRequestConnection *connection, NSDictionary<FBGraphUser> *user, NSError *error) {

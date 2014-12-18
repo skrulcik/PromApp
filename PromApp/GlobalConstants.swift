@@ -17,7 +17,8 @@ let profCellNibName = "ProfileCellLayout"
 let profCellID = "ProfileCell"
 
 let defaultName:String = "FirstName Last"
-let dressKey:String = "dressIDs"
+let dressKey:String = "dresses"
+let promKey:String = "proms"
 let nameKey:NSString = NSString(string: "name")
 let userDataKey:String = "profile"
 let picURLKey:NSString = NSString(string:"pictureURL")
