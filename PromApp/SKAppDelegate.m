@@ -8,6 +8,7 @@
 
 #import "SKAppDelegate.h"
 #import <Parse/Parse.h>
+#import <ParseFacebookUtils/PFFacebookUtils.h>
 
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
@@ -24,9 +25,6 @@
                   clientKey:@"cxqrUMU3wX4UA67IvLgqv0aT78dhVY1DT3w8LWIt"];
     // Facebook initialization
     [PFFacebookUtils initializeFacebook];
-	
-	
-	[PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     
     //Navigation Bar
     // Set the global tint on the navigation bar
@@ -49,7 +47,6 @@
                                                             }];
     [[UITabBar appearance] setTintColor:navBarColor];
     [self.window setTintColor:navBarColor];
-    
     return YES;
 }
 

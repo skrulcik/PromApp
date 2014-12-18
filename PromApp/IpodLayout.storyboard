@@ -198,7 +198,7 @@
                                         <barButtonItem title="Logout" id="Ew9-Ke-M5e">
                                             <color key="tintColor" red="1" green="0.54901963470000004" blue="0.88235294819999999" alpha="1" colorSpace="deviceRGB"/>
                                             <connections>
-                                                <action selector="logoutUser" destination="EIX-mn-ePP" id="Pya-Am-2rI"/>
+                                                <action selector="logoutUser" destination="EIX-mn-ePP" id="fPv-gW-IPe"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem style="plain" systemItem="flexibleSpace" id="TEg-vR-1x8"/>
@@ -219,8 +219,8 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="EIX-mn-ePP" id="p6h-bT-95t"/>
-                                    <outlet property="delegate" destination="EIX-mn-ePP" id="RQE-Ya-8I1"/>
+                                    <outlet property="dataSource" destination="EIX-mn-ePP" id="TLs-w9-NfR"/>
+                                    <outlet property="delegate" destination="EIX-mn-ePP" id="AOo-nr-4Y8"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -234,8 +234,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" image="ProfileIconSelected" id="SGz-Gx-0ND"/>
                     <connections>
-                        <outlet property="listView" destination="HQU-Ma-3YK" id="Kdr-xr-fit"/>
-                        <segue destination="LVU-Dx-8u5" kind="modal" identifier="EditDress" id="n2s-DK-Qf9"/>
+                        <outlet property="listView" destination="HQU-Ma-3YK" id="uyv-Jz-E6O"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Evx-Yx-TZo" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -429,8 +428,5 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
-    <inferredMetricsTieBreakers>
-        <segue reference="n2s-DK-Qf9"/>
-    </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.25490197539329529" green="0.47843140363693237" blue="0.98823535442352295" alpha="1" colorSpace="deviceRGB"/>
 </document>

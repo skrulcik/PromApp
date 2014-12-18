@@ -8,6 +8,7 @@
 
 #import "SKProfileViewController.h"
 #import "SKLoginViewController.h"
+#import <ParseFacebookUtils/PFFacebookUtils.h>
 
 @interface SKProfileViewController ()
 

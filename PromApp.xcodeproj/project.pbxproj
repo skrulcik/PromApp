@@ -18,11 +18,20 @@
 		D2117951198EE1F0004D254F /* ImageEditorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2117950198EE1F0004D254F /* ImageEditorCell.xib */; };
 		D2117954198F0888004D254F /* SKImageEditorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D2117953198F0888004D254F /* SKImageEditorCell.m */; };
 		D22299371965054000B747BA /* SKDressInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D22299361965054000B747BA /* SKDressInfoTableViewCell.m */; };
+		D22B2B771A4295DC0085F54E /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D22B2B6D1A42950B0085F54E /* Bolts.framework */; };
+		D22B2B781A4295DC0085F54E /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D22B2B6E1A42950B0085F54E /* Parse.framework */; };
+		D22B2B791A4295DC0085F54E /* ParseCrashReporting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D22B2B6F1A42950B0085F54E /* ParseCrashReporting.framework */; };
+		D22B2B7A1A4295DC0085F54E /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D22B2B701A42950B0085F54E /* ParseFacebookUtils.framework */; };
+		D22B2B7B1A4295DC0085F54E /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D22B2B711A42950B0085F54E /* ParseUI.framework */; };
+		D22B2B7D1A4296180085F54E /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D22B2B7C1A4296180085F54E /* libsqlite3.dylib */; };
+		D22B2B7F1A4297950085F54E /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D22B2B7E1A4297950085F54E /* FacebookSDK.framework */; };
+		D22B2B811A42B0AE0085F54E /* GlobalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22B2B801A42B0AE0085F54E /* GlobalConstants.swift */; };
 		D23654F919916BF3007277A6 /* PromQueryTable.xib in Resources */ = {isa = PBXBuildFile; fileRef = D23654F819916BF3007277A6 /* PromQueryTable.xib */; };
 		D23654FC19916DFF007277A6 /* SKPromQueryController.m in Sources */ = {isa = PBXBuildFile; fileRef = D23654FB19916DFF007277A6 /* SKPromQueryController.m */; };
 		D2652159198E86E3000432BA /* StringEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2652158198E86E3000432BA /* StringEntryCell.xib */; };
 		D26C88C919C575C5002B52A8 /* Tester.xib in Resources */ = {isa = PBXBuildFile; fileRef = D26C88C819C575C5002B52A8 /* Tester.xib */; };
 		D286BA3F196E47EE00AFC9C0 /* SKDressListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D286BA3E196E47EE00AFC9C0 /* SKDressListViewController.m */; };
+		D2A382971A4279C300D3E3B7 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A382961A4279C300D3E3B7 /* ProfileController.swift */; };
 		D2A4751E1962198D005C2502 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2A4751D1962198D005C2502 /* Foundation.framework */; };
 		D2A475201962198D005C2502 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2A4751F1962198D005C2502 /* CoreGraphics.framework */; };
 		D2A475221962198D005C2502 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2A475211962198D005C2502 /* UIKit.framework */; };
@@ -30,14 +39,12 @@
 		D2A4752A1962198D005C2502 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D2A475291962198D005C2502 /* main.m */; };
 		D2A4752E1962198D005C2502 /* SKAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D2A4752D1962198D005C2502 /* SKAppDelegate.m */; };
 		D2A475301962198D005C2502 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2A4752F1962198D005C2502 /* Images.xcassets */; };
-		D2A475371962198D005C2502 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2A475361962198D005C2502 /* XCTest.framework */; };
 		D2A475381962198D005C2502 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2A4751D1962198D005C2502 /* Foundation.framework */; };
 		D2A475391962198D005C2502 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2A475211962198D005C2502 /* UIKit.framework */; };
 		D2A475411962198D005C2502 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D2A4753F1962198D005C2502 /* InfoPlist.strings */; };
 		D2A475431962198D005C2502 /* PromAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D2A475421962198D005C2502 /* PromAppTests.m */; };
 		D2A4754D196219BF005C2502 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2A4754C196219BF005C2502 /* MapKit.framework */; };
 		D2A4754F19624264005C2502 /* IpodLayout.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2A4754E19624264005C2502 /* IpodLayout.storyboard */; };
-		D2A475531962481B005C2502 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2A475521962481B005C2502 /* Parse.framework */; };
 		D2A4755F196249BA005C2502 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2A47554196249BA005C2502 /* Accounts.framework */; };
 		D2A47560196249BA005C2502 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2A47555196249BA005C2502 /* AudioToolbox.framework */; };
 		D2A47561196249BA005C2502 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2A47556196249BA005C2502 /* CFNetwork.framework */; };
@@ -49,7 +56,6 @@
 		D2A47567196249BA005C2502 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2A4755C196249BA005C2502 /* Social.framework */; };
 		D2A47568196249BA005C2502 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2A4755D196249BA005C2502 /* StoreKit.framework */; };
 		D2A47569196249BA005C2502 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2A4755E196249BA005C2502 /* SystemConfiguration.framework */; };
-		D2A4756B19625CBF005C2502 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2A4756A19625CBF005C2502 /* FacebookSDK.framework */; };
 		D2A4756E196262F4005C2502 /* SKLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2A4756D196262F4005C2502 /* SKLoginViewController.m */; };
 		D2A4757119626ADF005C2502 /* SKProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2A4757019626ADF005C2502 /* SKProfileViewController.m */; };
 		D2A475741963105B005C2502 /* SKAddDressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2A475731963105B005C2502 /* SKAddDressViewController.m */; };
@@ -67,8 +73,6 @@
 		D2C6D1671980CE62008080CD /* SKPromDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2C6D1661980CE62008080CD /* SKPromDetailViewController.m */; };
 		D2C890DE19D6308400458094 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C890DD19D6308400458094 /* ProfileCell.swift */; };
 		D2C890E119D68E7C00458094 /* ProfileCellLayout.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2C890E019D68E7C00458094 /* ProfileCellLayout.xib */; };
-		D2C890E319D725D500458094 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C890E219D725D500458094 /* ProfileViewController.swift */; };
-		D2DEBAA619B6D58E00BA0542 /* main.js in Sources */ = {isa = PBXBuildFile; fileRef = D2DEBAA119B6D58E00BA0542 /* main.js */; };
 		D2DEBAA719B6D58E00BA0542 /* global.json in Resources */ = {isa = PBXBuildFile; fileRef = D2DEBAA319B6D58E00BA0542 /* global.json */; };
 		D2E8EB3F1A2E146500A153FA /* css in Resources */ = {isa = PBXBuildFile; fileRef = D2E8EB3B1A2E146500A153FA /* css */; };
 		D2E8EB401A2E146500A153FA /* images in Resources */ = {isa = PBXBuildFile; fileRef = D2E8EB3C1A2E146500A153FA /* images */; };
@@ -108,6 +112,14 @@
 		D2117953198F0888004D254F /* SKImageEditorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKImageEditorCell.m; sourceTree = "<group>"; };
 		D22299351965054000B747BA /* SKDressInfoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKDressInfoTableViewCell.h; sourceTree = "<group>"; };
 		D22299361965054000B747BA /* SKDressInfoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKDressInfoTableViewCell.m; sourceTree = "<group>"; };
+		D22B2B6D1A42950B0085F54E /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		D22B2B6E1A42950B0085F54E /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		D22B2B6F1A42950B0085F54E /* ParseCrashReporting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseCrashReporting.framework; sourceTree = "<group>"; };
+		D22B2B701A42950B0085F54E /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
+		D22B2B711A42950B0085F54E /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
+		D22B2B7C1A4296180085F54E /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		D22B2B7E1A4297950085F54E /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		D22B2B801A42B0AE0085F54E /* GlobalConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalConstants.swift; sourceTree = "<group>"; };
 		D23654F819916BF3007277A6 /* PromQueryTable.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PromQueryTable.xib; sourceTree = "<group>"; };
 		D23654FA19916DFF007277A6 /* SKPromQueryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKPromQueryController.h; sourceTree = "<group>"; };
 		D23654FB19916DFF007277A6 /* SKPromQueryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKPromQueryController.m; sourceTree = "<group>"; };
@@ -115,6 +127,7 @@
 		D26C88C819C575C5002B52A8 /* Tester.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Tester.xib; sourceTree = "<group>"; };
 		D286BA3D196E47EE00AFC9C0 /* SKDressListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKDressListViewController.h; sourceTree = "<group>"; };
 		D286BA3E196E47EE00AFC9C0 /* SKDressListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKDressListViewController.m; sourceTree = "<group>"; };
+		D2A382961A4279C300D3E3B7 /* ProfileController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 		D2A4751A1962198D005C2502 /* PromApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PromApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2A4751D1962198D005C2502 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D2A4751F1962198D005C2502 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -127,13 +140,11 @@
 		D2A4752D1962198D005C2502 /* SKAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SKAppDelegate.m; sourceTree = "<group>"; };
 		D2A4752F1962198D005C2502 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D2A475351962198D005C2502 /* PromAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PromAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D2A475361962198D005C2502 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		D2A4753E1962198D005C2502 /* PromAppTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PromAppTests-Info.plist"; sourceTree = "<group>"; };
 		D2A475401962198D005C2502 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D2A475421962198D005C2502 /* PromAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PromAppTests.m; sourceTree = "<group>"; };
 		D2A4754C196219BF005C2502 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		D2A4754E19624264005C2502 /* IpodLayout.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IpodLayout.storyboard; sourceTree = "<group>"; };
-		D2A475521962481B005C2502 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		D2A47554196249BA005C2502 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		D2A47555196249BA005C2502 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		D2A47556196249BA005C2502 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -145,7 +156,6 @@
 		D2A4755C196249BA005C2502 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		D2A4755D196249BA005C2502 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		D2A4755E196249BA005C2502 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		D2A4756A19625CBF005C2502 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		D2A4756C196262F4005C2502 /* SKLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKLoginViewController.h; sourceTree = "<group>"; };
 		D2A4756D196262F4005C2502 /* SKLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKLoginViewController.m; sourceTree = "<group>"; };
 		D2A4756F19626ADF005C2502 /* SKProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKProfileViewController.h; sourceTree = "<group>"; };
@@ -177,7 +187,6 @@
 		D2C890DD19D6308400458094 /* ProfileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
 		D2C890DF19D656F200458094 /* PromApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PromApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		D2C890E019D68E7C00458094 /* ProfileCellLayout.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileCellLayout.xib; sourceTree = "<group>"; };
-		D2C890E219D725D500458094 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		D2DEBAA119B6D58E00BA0542 /* main.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = main.js; sourceTree = "<group>"; };
 		D2DEBAA319B6D58E00BA0542 /* global.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = global.json; sourceTree = "<group>"; };
 		D2E8EB3B1A2E146500A153FA /* css */ = {isa = PBXFileReference; lastKnownFileType = folder; path = css; sourceTree = "<group>"; };
@@ -199,6 +208,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D22B2B7F1A4297950085F54E /* FacebookSDK.framework in Frameworks */,
+				D22B2B7D1A4296180085F54E /* libsqlite3.dylib in Frameworks */,
+				D22B2B771A4295DC0085F54E /* Bolts.framework in Frameworks */,
+				D22B2B781A4295DC0085F54E /* Parse.framework in Frameworks */,
+				D22B2B791A4295DC0085F54E /* ParseCrashReporting.framework in Frameworks */,
+				D22B2B7A1A4295DC0085F54E /* ParseFacebookUtils.framework in Frameworks */,
+				D22B2B7B1A4295DC0085F54E /* ParseUI.framework in Frameworks */,
 				D2A4755F196249BA005C2502 /* Accounts.framework in Frameworks */,
 				D2A47560196249BA005C2502 /* AudioToolbox.framework in Frameworks */,
 				D2A47561196249BA005C2502 /* CFNetwork.framework in Frameworks */,
@@ -207,7 +223,6 @@
 				D2A47564196249BA005C2502 /* MobileCoreServices.framework in Frameworks */,
 				D2A47565196249BA005C2502 /* QuartzCore.framework in Frameworks */,
 				D2A47566196249BA005C2502 /* Security.framework in Frameworks */,
-				D2A4756B19625CBF005C2502 /* FacebookSDK.framework in Frameworks */,
 				D2A47567196249BA005C2502 /* Social.framework in Frameworks */,
 				D2A47568196249BA005C2502 /* StoreKit.framework in Frameworks */,
 				D2A47569196249BA005C2502 /* SystemConfiguration.framework in Frameworks */,
@@ -215,7 +230,6 @@
 				D2A475221962198D005C2502 /* UIKit.framework in Frameworks */,
 				D2A4754D196219BF005C2502 /* MapKit.framework in Frameworks */,
 				D2A4751E1962198D005C2502 /* Foundation.framework in Frameworks */,
-				D2A475531962481B005C2502 /* Parse.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -223,7 +237,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2A475371962198D005C2502 /* XCTest.framework in Frameworks */,
 				D2A475391962198D005C2502 /* UIKit.framework in Frameworks */,
 				D2A475381962198D005C2502 /* Foundation.framework in Frameworks */,
 			);
@@ -283,7 +296,13 @@
 		D2A4751C1962198D005C2502 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D2A4756A19625CBF005C2502 /* FacebookSDK.framework */,
+				D22B2B7E1A4297950085F54E /* FacebookSDK.framework */,
+				D22B2B7C1A4296180085F54E /* libsqlite3.dylib */,
+				D22B2B6D1A42950B0085F54E /* Bolts.framework */,
+				D22B2B6E1A42950B0085F54E /* Parse.framework */,
+				D22B2B6F1A42950B0085F54E /* ParseCrashReporting.framework */,
+				D22B2B701A42950B0085F54E /* ParseFacebookUtils.framework */,
+				D22B2B711A42950B0085F54E /* ParseUI.framework */,
 				D2A47554196249BA005C2502 /* Accounts.framework */,
 				D2A47555196249BA005C2502 /* AudioToolbox.framework */,
 				D2A47556196249BA005C2502 /* CFNetwork.framework */,
@@ -295,12 +314,10 @@
 				D2A4755C196249BA005C2502 /* Social.framework */,
 				D2A4755D196249BA005C2502 /* StoreKit.framework */,
 				D2A4755E196249BA005C2502 /* SystemConfiguration.framework */,
-				D2A475521962481B005C2502 /* Parse.framework */,
 				D2A4754C196219BF005C2502 /* MapKit.framework */,
 				D2A4751D1962198D005C2502 /* Foundation.framework */,
 				D2A4751F1962198D005C2502 /* CoreGraphics.framework */,
 				D2A475211962198D005C2502 /* UIKit.framework */,
-				D2A475361962198D005C2502 /* XCTest.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -308,6 +325,7 @@
 		D2A475231962198D005C2502 /* PromApp */ = {
 			isa = PBXGroup;
 			children = (
+				D22B2B801A42B0AE0085F54E /* GlobalConstants.swift */,
 				D2C890DF19D656F200458094 /* PromApp-Bridging-Header.h */,
 				D22299381965054400B747BA /* View */,
 				D2A4757E19633484005C2502 /* Model */,
@@ -377,7 +395,7 @@
 		D2A4757F19633494005C2502 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				D2C890E219D725D500458094 /* ProfileViewController.swift */,
+				D2A382961A4279C300D3E3B7 /* ProfileController.swift */,
 				D2A475721963105B005C2502 /* SKAddDressViewController.h */,
 				D2A475731963105B005C2502 /* SKAddDressViewController.m */,
 				D21034571970AC710088484B /* SKAddPromViewController.h */,
@@ -584,11 +602,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2DEBAA619B6D58E00BA0542 /* main.js in Sources */,
 				D2C6D1671980CE62008080CD /* SKPromDetailViewController.m in Sources */,
 				D286BA3F196E47EE00AFC9C0 /* SKDressListViewController.m in Sources */,
 				D2A4756E196262F4005C2502 /* SKLoginViewController.m in Sources */,
 				D211794D198EBDAF004D254F /* SKStoreEditorTableController.m in Sources */,
+				D2A382971A4279C300D3E3B7 /* ProfileController.swift in Sources */,
 				D23654FC19916DFF007277A6 /* SKPromQueryController.m in Sources */,
 				D2A4752E1962198D005C2502 /* SKAppDelegate.m in Sources */,
 				D2F1440E1970D24400046490 /* SKProm.m in Sources */,
@@ -602,12 +620,12 @@
 				D2BB5914198D655400431759 /* SKStringEntryCell.m in Sources */,
 				D2A475821963999E005C2502 /* SKPromFinderViewController.m in Sources */,
 				D2A4752A1962198D005C2502 /* main.m in Sources */,
+				D22B2B811A42B0AE0085F54E /* GlobalConstants.swift in Sources */,
 				D21034591970AC710088484B /* SKAddPromViewController.m in Sources */,
 				D2A4757719631D15005C2502 /* SKMainTabViewController.m in Sources */,
 				D2A4757A19632DB8005C2502 /* SKDress.m in Sources */,
 				D2BB590C198C9D8700431759 /* SKStore.m in Sources */,
 				D2C890DE19D6308400458094 /* ProfileCell.swift in Sources */,
-				D2C890E319D725D500458094 /* ProfileViewController.swift in Sources */,
 				D2A4757D19633462005C2502 /* MBProgressHUD.m in Sources */,
 				D2C6D1641980CAD6008080CD /* SKPromTableViewCell.m in Sources */,
 			);
