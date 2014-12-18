@@ -90,9 +90,8 @@
 
 - (IBAction) unwindFromLogin:(UIStoryboardSegue *)segue
 {
-    ProfileViewController *profile = (ProfileViewController *)self.viewControllers[0];
-    [profile updateData];
-    [profile forceTableReload];
+    ProfileController *profile = (ProfileController *)self.viewControllers[0];
+    [profile updateListView];
 }
 
 - (IBAction) unwindFromAddDress:(UIStoryboardSegue *)segue

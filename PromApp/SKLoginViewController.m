@@ -53,6 +53,26 @@
 }
 */
 
+
+/* Updates user profile with latest information from facebook
+ */
+- (void) updateFacebookProfile:(PFUser *)parseUser{
+    if (FBSession.activeSession.isOpen) {
+        [[FBRequest requestForMe] startWithCompletionHandler:
+         ^(FBRequestConnection *connection, NSDictionary<FBGraphUser> *user, NSError *error) {
+             if (!error) {
+                 if(user != NULL){
+                     [parseUser setObject:user forKey:@"profile"];
+                 }
+             } else {
+                 NSLog(@"Error retrieving facebook data: %@", error);
+             }
+         }];
+    } else {
+        NSLog(@"no active session");
+    }
+}
+
 - (IBAction)fBookLoginPressed:(id)sender {
     NSArray *permissions = @[ @"public_profile", @"email", @"user_friends"];
     [PFFacebookUtils logInWithPermissions:permissions block:^(PFUser *user, NSError *error) {
@@ -65,6 +85,7 @@
             [self performSegueWithIdentifier:@"finishLogin" sender:self];
         } else {
             NSLog(@"User logged in through Facebook!");
+            [self updateFacebookProfile:[PFUser currentUser]];
             [self performSegueWithIdentifier:@"finishLogin" sender:self];
         }
     }];
