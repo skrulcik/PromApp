@@ -55,33 +55,51 @@ class ProfileController:UIViewController, NSURLConnectionDataDelegate, UITableVi
         self.listView.reloadData()
     }
     
+    func updateUserData(currentUser:PFUser?){
+        if (currentUser != nil) {
+            currentUser!.fetchIfNeededInBackgroundWithBlock({
+                (user:PFObject!, error:NSError!) in
+                if (error != nil){
+                    println("Error fetching user info: \(error)")
+                } else {
+                    println("Fetched user data")
+                    if let profile: NSDictionary = user!.objectForKey("profile") as? NSDictionary{
+                        //Get FB ID so we can create url for picture
+                        if let idstring:String = profile.objectForKey("id") as? String{
+                            profile.setValue("https://graph.facebook.com/\(idstring)/picture?type=large", forKey: picURLKey)
+                        }
+                        
+                        // Load profile name if it is there, otherwise load
+                        var profileName:NSString? = profile[nameKey] as? NSString
+                        self.profName = profileName != nil ? profileName!:defaultName
+                        
+                        // Update Profile Picture
+                        if let urlString:String = profile[picURLKey] as? NSString{
+                            self.updateProfPictureWithURL(urlString)
+                        }
+                    } else {
+                        println("Error: could not load profile for user \(user)")
+                    }
+                }
+            })
+        }
+    }
+
     /* When view loads:
     * - Start updating profile picture
     * - Load dresses into table
     */
     override func viewDidLoad() {
-        self.listView.registerNib(UINib(nibName: profCellNibName, bundle: nil), forCellReuseIdentifier: profCellID)
-        self.listView.registerNib(UINib(nibName: dressCellNibName, bundle: nil), forCellReuseIdentifier: dressCellID)
-        let user = PFUser.currentUser()
-        if let profile: AnyObject = user.objectForKey("profile"){
-            //Get FB ID so we can create url for picture
-            if let idstring:String = profile.objectForKey(fbIDKey) as? String{
-                profile.setValue("https://graph.facebook.com/\(idstring)/picture?type=large", forKey: picURLKey)
-            }
-            
-            // Load profile name if it is there, otherwise load
-            var profileName:NSString? = profile[nameKey] as? NSString
-            profName = profileName != nil ? profileName!:defaultName
-            
-            // Update Profile Picture
-            if let urlString:String = profile[picURLKey] as? NSString{
-                updateProfPictureWithURL(urlString)
-            }
-            
-            // Load Profile and Dress Information to table
-            updateListView()
+        listView.registerNib(UINib(nibName: profCellNibName, bundle: nil), forCellReuseIdentifier: profCellID)
+        listView.registerNib(UINib(nibName: dressCellNibName, bundle: nil), forCellReuseIdentifier: dressCellID)
+        if let user:PFUser = PFUser.currentUser(){
+                updateUserData(user)
+                // Load Profile and Dress Information to table
+                updateListView()
         } else {
-            println("Error: could not load profile for user \(user)")
+            println("User not logged in. Showing Login Screen.")
+            self.clearData()
+            self.showLoginScreen()
         }
     }
     
@@ -104,6 +122,7 @@ class ProfileController:UIViewController, NSURLConnectionDataDelegate, UITableVi
         PFUser.logOut()
         assert(PFUser.currentUser() == nil)
         updateListView() //Clear dresses from view
+        showLoginScreen()
     }
     
     //MARK: NSURLConnectionDataDelegate
@@ -208,9 +227,8 @@ class ProfileController:UIViewController, NSURLConnectionDataDelegate, UITableVi
         }
     }
     
-    func unwindFromSaveDress(segue: UIStoryboardSegue) {
-        self.listView.reloadData()
-        println("reload data")
+    @IBAction func unwindFromSaveDress(segue: UIStoryboardSegue) {
+        listView.reloadData()
     }
     
 }
