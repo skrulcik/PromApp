@@ -18,6 +18,8 @@ class ProfileController:UIViewController, NSURLConnectionDataDelegate, UITableVi
     
     private var imageData:NSMutableData?
     private var profName:String = defaultName
+    private var promCount:Int? = 0
+    private var dressCount:Int? = 0
     private var profImage:UIImage?
     
     @IBOutlet weak var listView: UITableView!
@@ -62,7 +64,6 @@ class ProfileController:UIViewController, NSURLConnectionDataDelegate, UITableVi
                 if (error != nil){
                     println("Error fetching user info: \(error)")
                 } else {
-                    println("Fetched user data")
                     if let profile: NSDictionary = user!.objectForKey("profile") as? NSDictionary{
                         //Get FB ID so we can create url for picture
                         if let idstring:String = profile.objectForKey("id") as? String{
@@ -72,6 +73,14 @@ class ProfileController:UIViewController, NSURLConnectionDataDelegate, UITableVi
                         // Load profile name if it is there, otherwise load
                         var profileName:NSString? = profile[nameKey] as? NSString
                         self.profName = profileName != nil ? profileName!:defaultName
+                        
+                        // Update Dress and Prom Information
+                        if let promList = user.objectForKey(promKey) as? NSArray {
+                            self.promCount = promList.count
+                        }
+                        if let dressList = user.objectForKey(dressKey) as? NSArray {
+                            self.dressCount = dressList.count
+                        }
                         
                         // Update Profile Picture
                         if let urlString:String = profile[picURLKey] as? NSString{
@@ -188,11 +197,14 @@ class ProfileController:UIViewController, NSURLConnectionDataDelegate, UITableVi
                     // Crop image to a circle for styling
                     cell.profPic.layer.cornerRadius = cell.profPic.frame.size.width / 2;
                     cell.profPic.clipsToBounds = true;
-                    
                     if profImage != nil {
                         cell.profPic.image = profImage
                     }
+                    
+                    // Display name
                     cell.nameLabel.text = profName
+                    // Display data information
+                    cell.setInfoLabel(promCount!, dressCount: dressCount!)
                     return cell
             }
             case DRESS_SECTION:
