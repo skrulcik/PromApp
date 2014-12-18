@@ -8,6 +8,7 @@
 
 #import "SKLoginViewController.h"
 #import "SKStoreEditorTableController.h"
+#import <Parse/Parse.h>
 #import <ParseFacebookUtils/PFFacebookUtils.h>
 
 @interface SKLoginViewController ()
@@ -57,17 +58,19 @@
 
 /* Updates user profile with latest information from facebook
  */
-- (void) updateFacebookProfile:(PFUser *)parseUser{
+- (void) updateFacebookProfile:(PFUser *)parseUser withBlock:(void (^)(void))callbackBlock{
     if (FBSession.activeSession.isOpen) {
         [[FBRequest requestForMe] startWithCompletionHandler:
          ^(FBRequestConnection *connection, NSDictionary<FBGraphUser> *user, NSError *error) {
              if (!error) {
                  if(user != NULL){
                      [parseUser setObject:user forKey:@"profile"];
+                     [parseUser saveEventually];
                  }
              } else {
                  NSLog(@"Error retrieving facebook data: %@", error);
              }
+             callbackBlock();
          }];
     } else {
         NSLog(@"no active session");
@@ -78,16 +81,19 @@
     NSArray *permissions = @[ @"public_profile", @"email", @"user_friends"];
     [PFFacebookUtils logInWithPermissions:permissions block:^(PFUser *user, NSError *error) {
         if (!user) {
+            NSLog(@"The user cancelled the Facebook login.");
             NSLog(@"%@", [error description]);
-            NSLog(@"Uh oh. The user cancelled the Facebook login.");
         } else if (user.isNew) {
-            NSLog(@"User signed up and logged in through Facebook!");
+            NSLog(@"User signed up and logged in through Facebook.");
             //TODO: open account creation screen
             [self performSegueWithIdentifier:@"finishLogin" sender:self];
         } else {
-            NSLog(@"User logged in through Facebook!");
-            [self updateFacebookProfile:[PFUser currentUser]];
-            [self performSegueWithIdentifier:@"finishLogin" sender:self];
+            NSLog(@"User logged in through Facebook.");
+            if([PFUser currentUser] != NULL){
+                [self updateFacebookProfile:[PFUser currentUser] withBlock:^{
+                    [self performSegueWithIdentifier:@"finishLogin" sender:self];
+                }];
+            }
         }
     }];
 }

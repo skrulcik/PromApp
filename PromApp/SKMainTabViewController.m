@@ -91,6 +91,7 @@
 - (IBAction) unwindFromLogin:(UIStoryboardSegue *)segue
 {
     ProfileController *profile = (ProfileController *)self.viewControllers[0];
+    [profile updateUserData:[PFUser currentUser]];
     [profile updateListView];
 }
 

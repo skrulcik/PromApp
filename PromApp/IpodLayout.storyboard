@@ -63,13 +63,13 @@
                     </view>
                     <navigationItem key="navigationItem" title="Login" id="86v-XH-wuI"/>
                     <connections>
-                        <segue destination="P8W-CJ-ayo" kind="unwind" identifier="finishLogin" unwindAction="unwindFromLogin:" id="d51-jE-Pbx"/>
+                        <segue destination="P8W-CJ-ayo" kind="unwind" identifier="finishLogin" unwindAction="unwindFromLogin:" id="ora-OG-pK7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PCF-25-GJS" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="P8W-CJ-ayo" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2252" y="-683"/>
+            <point key="canvasLocation" x="1172" y="1441"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="y06-PK-COl">
@@ -198,7 +198,7 @@
                                         <barButtonItem title="Logout" id="Ew9-Ke-M5e">
                                             <color key="tintColor" red="1" green="0.54901963470000004" blue="0.88235294819999999" alpha="1" colorSpace="deviceRGB"/>
                                             <connections>
-                                                <action selector="logoutUser" destination="EIX-mn-ePP" id="fPv-gW-IPe"/>
+                                                <action selector="logoutUser" destination="EIX-mn-ePP" id="RUb-o4-pZC"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem style="plain" systemItem="flexibleSpace" id="TEg-vR-1x8"/>
