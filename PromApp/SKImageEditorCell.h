@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
+#import <ParseUI/ParseUI.h>
 
 @interface SKImageEditorCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIButton *editButton;

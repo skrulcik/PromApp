@@ -8,26 +8,14 @@
 
 import UIKit
 
-//Constants
-let profileCellHeight:Double = 180.0
-let dressCellHeight:Double = 80.0
-let dressCellNibName = "DressCell"
-let dressCellID = "DressCell"
-let profCellNibName = "ProfileCellLayout"
-let profCellID = "ProfileCell"
-
-let defaultName:String = "FirstName Last"
-let dressKey:String = "dressIDs"
-let nameKey:NSString = NSString(string: "name")
-let userDataKey:String = "profile"
-let picURLKey:NSString = NSString(string:"pictureURL")
-let fbIDKey:String = "id"
-
-let EditDressSegue = "EditDress"
-
 
 class ProfileController:UIViewController, NSURLConnectionDataDelegate, UITableViewDelegate, UITableViewDataSource
 {
+    // These will be be static constants once supported
+    private let PROF_SECTION = 0
+    private let DRESS_SECTION = 1
+    private let PROM_SECTION = 2
+    
     private var imageData:NSMutableData?
     private var profName:String = defaultName
     private var profImage:UIImage?
@@ -36,14 +24,11 @@ class ProfileController:UIViewController, NSURLConnectionDataDelegate, UITableVi
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        self.listView.registerNib(UINib(nibName: profCellNibName, bundle: nil), forCellReuseIdentifier: profCellID)
-        self.listView.registerNib(UINib(nibName: dressCellNibName, bundle: nil), forCellReuseIdentifier: dressCellID)
+        println("Initialized")
     }
     
     
-    /****************************
-    * Updating and Loading Data *
-    *****************************/
+    //MARK:Updating and Loading Data
     
     /* Given a URL, retrieve the profile picture */
     func updateProfPictureWithURL(urlString:String){
@@ -75,11 +60,13 @@ class ProfileController:UIViewController, NSURLConnectionDataDelegate, UITableVi
     * - Load dresses into table
     */
     override func viewDidLoad() {
+        self.listView.registerNib(UINib(nibName: profCellNibName, bundle: nil), forCellReuseIdentifier: profCellID)
+        self.listView.registerNib(UINib(nibName: dressCellNibName, bundle: nil), forCellReuseIdentifier: dressCellID)
         let user = PFUser.currentUser()
         if let profile: AnyObject = user.objectForKey("profile"){
             //Get FB ID so we can create url for picture
             if let idstring:String = profile.objectForKey(fbIDKey) as? String{
-                profile.setValue("https://graph.facebook.com/\(idstring)/picture?type=small", forKey: picURLKey)
+                profile.setValue("https://graph.facebook.com/\(idstring)/picture?type=large", forKey: picURLKey)
             }
             
             // Load profile name if it is there, otherwise load
@@ -98,9 +85,7 @@ class ProfileController:UIViewController, NSURLConnectionDataDelegate, UITableVi
         }
     }
     
-    /***************************************
-    * Clearing Old Data & Logging in Users *
-    ****************************************/
+    //MARK: Clearing Old Data & Logging in Users
     func clearProfImage()
     {
         self.setProfImage(UIImage(named:"FBBlankProfilePhoto")!)
@@ -121,9 +106,7 @@ class ProfileController:UIViewController, NSURLConnectionDataDelegate, UITableVi
         updateListView() //Clear dresses from view
     }
     
-    /******************************
-    * NSURLConnectionDataDelegate *
-    *******************************/
+    //MARK: NSURLConnectionDataDelegate
     func connection(connection: NSURLConnection, didReceiveData data: NSData) {
         self.imageData?.appendData(data)
     }
@@ -133,9 +116,7 @@ class ProfileController:UIViewController, NSURLConnectionDataDelegate, UITableVi
         self.setProfImage(image)
     }
     
-    /**********************
-    * UITableViewDelagate *
-    ***********************/
+    //MARK: UITableViewDelagate
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
     {
         if (indexPath.section == 0) {
@@ -167,9 +148,7 @@ class ProfileController:UIViewController, NSURLConnectionDataDelegate, UITableVi
         }
     }
     
-    /************************
-    * UITableViewDataSource *
-    *************************/
+    //MARK: UITableViewDataSource
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 2 //one for profile, one for dresses
     }
@@ -188,9 +167,7 @@ class ProfileController:UIViewController, NSURLConnectionDataDelegate, UITableVi
     }
     
     
-    /*************
-    * Navigation *
-    **************/
+    //MARK: Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if(segue.identifier == EditDressSegue){
             if let dressController = (segue.destinationViewController as? UINavigationController)?.childViewControllers[0] as? SKAddDressViewController {
