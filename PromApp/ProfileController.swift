@@ -163,7 +163,28 @@ class ProfileController:UIViewController, NSURLConnectionDataDelegate, UITableVi
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        switch indexPath.section {
+            case PROF_SECTION:
+                if let cell:ProfileCell = listView.dequeueReusableCellWithIdentifier(profCellID, forIndexPath: indexPath) as? ProfileCell {
+                    // Crop image to a circle for styling
+                    cell.profPic.layer.cornerRadius = cell.profPic.frame.size.width / 2;
+                    cell.profPic.clipsToBounds = true;
+                    
+                    if profImage != nil {
+                        cell.profPic.image = profImage
+                    }
+                    cell.nameLabel.text = profName
+                    return cell
+            }
+            case DRESS_SECTION:
+                if let cell:SKDressInfoTableViewCell = listView.dequeueReusableCellWithIdentifier(dressCellID, forIndexPath: indexPath) as? SKDressInfoTableViewCell{
+                    return cell
+                    
+            }
+            default:
+                return UITableViewCell()
+        }
+        return UITableViewCell() //Default case won't work because of lack of implicit fallthrough
     }
     
     
