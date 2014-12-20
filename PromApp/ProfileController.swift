@@ -209,6 +209,14 @@ class ProfileController:UIViewController, NSURLConnectionDataDelegate, UITableVi
             }
             case DRESS_SECTION:
                 if let cell:SKDressInfoTableViewCell = listView.dequeueReusableCellWithIdentifier(dressCellID, forIndexPath: indexPath) as? SKDressInfoTableViewCell{
+                    if let dresses:Array<SKDress> = PFUser.currentUser().objectForKey("dresses") as? Array<SKDress>{
+                        if indexPath.row < dresses.count{
+                            //Ensure valid array access
+                            let dress:SKDress = dresses[indexPath.row]
+                            cell.designerLabel.text = dress.designer
+                            cell.styleNumberLabel.text = dress.styleNumber
+                        }
+                    }
                     return cell
                     
             }
@@ -240,7 +248,9 @@ class ProfileController:UIViewController, NSURLConnectionDataDelegate, UITableVi
     }
     
     @IBAction func unwindFromSaveDress(segue: UIStoryboardSegue) {
-        listView.reloadData()
+        updateUserData(PFUser.currentUser())
+        // Load Profile and Dress Information to table
+        updateListView()
     }
     
 }

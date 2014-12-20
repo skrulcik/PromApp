@@ -51,11 +51,7 @@ static NSDictionary *readableNames;
 - (void) loadDressInfo:(SKDress *)dressObject
 {
     //self = [super initWithNibName:@"EditDress" bundle:nil];
-    if([[PFUser currentUser] isMemberOfClass:[SKStore class]]){
-        keyForRowIndex = @[@"image", @"designer", @"styleNumber", @"dressColor", @"prom", @"owner"];
-    }else{
-        keyForRowIndex = @[@"image", @"designer", @"styleNumber", @"dressColor", @"prom", @"store"];
-    }
+    keyForRowIndex = @[@"image", @"designer", @"styleNumber", @"dressColor", @"prom"];
     if(!readableNames){
         readableNames = @{@"image":@"Dress Image",
                           @"designer":@"Designer",
@@ -68,11 +64,6 @@ static NSDictionary *readableNames;
     _imageChanged = NO;
     _promChanged = NO;
     dressData = [[NSMutableDictionary alloc] init];
-    NSLog(@"Dress information");
-    for (NSString* key in keyForRowIndex) {
-        id value = [dressObject objectForKey:key];
-        NSLog(@"Key %@ with value %@", key, value);
-    }
     self.dress = dressObject;
 }
 
@@ -113,6 +104,7 @@ static NSDictionary *readableNames;
 
 - (IBAction)savePressed:(id)sender {
     [self saveDress:self.dress withCompletion:^(void){
+        NSLog(@"Right before segue: %@", [[PFUser currentUser] objectForKey:@"dresses"]);
         [self performSegueWithIdentifier:@"SaveDress" sender:self];
     }];
 }
@@ -145,7 +137,24 @@ static NSDictionary *readableNames;
     {
         [self showImagePickerForPhotoPicker:sender];
     } else {
-        [self showImagePickerForCamera:sender];
+        UIAlertController *chooser = [UIAlertController
+                                      alertControllerWithTitle:nil
+                                      message:nil
+                                      preferredStyle:UIAlertControllerStyleActionSheet];
+        
+        UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action){
+            //Dismiss window - do nothing
+        }];
+        UIAlertAction *picker = [UIAlertAction actionWithTitle:@"Choose Existing" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+            [self showImagePickerForPhotoPicker:sender]; //Show picker
+        }];
+        UIAlertAction *camera = [UIAlertAction actionWithTitle:@"Open Camera" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+            [self showImagePickerForCamera:sender]; //Open camera
+        }];
+        [chooser addAction:cancel];
+        [chooser addAction:camera];
+        [chooser addAction:picker];
+        [self presentViewController:chooser animated:YES completion:nil];
     }
 }
 
@@ -222,23 +231,19 @@ typedef void(^voidCompletion)(void);
             PFFile *imageFile = [PFFile fileWithName:filename data:imageData];
             dress.image = imageFile;
         }
-        self.dress.owner = current;
-        [self.dress saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
-            if (succeeded){
-                NSLog(@"Succeeded in saving %@ dress with ID %@.", dress.designer, dress.objectId);
-                NSMutableArray *dresses = [current objectForKey:@"dressIDs"];
-                if(![dresses containsObject:dress.objectId]){
-                    //Only add dress to user's inventory if it is not already there
-                    [current addUniqueObject:dress.objectId forKey:@"dressIDs"];
-                }
-                [current saveInBackground];
-                block();
-            } else {
-                NSLog(@"Failed in saving %@ dress for reason: %@", dress.designer, error);
-                UIAlertView *fail = [[UIAlertView alloc] initWithTitle:@"Internal Error" message:@"We are sorry, your changes could not be saved." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles: nil];
-                [fail show];
-            }
-        }];
+        //self.dress.owner = current; //FIXME: causes recursion problems
+        NSMutableArray *dresses = (NSMutableArray *)[current objectForKey:@"dresses"];
+        if(![dresses containsObject:dress]){
+            //Only add dress to user's inventory if it is not already there
+            [dress.image save];
+            NSLog(@"This is dresses: %@", [current objectForKey:@"dresses"]);
+            [current addObject:dress forKey:@"dresses"];
+            [current saveEventually];
+            block();
+        } else {
+            UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"Could Not Save Dress" message:@"You have already registered this dress." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            [errorMessage show];
+        }
     }else{
         UIAlertView *fail = [[UIAlertView alloc] initWithTitle:@"Missing Required Fields" message:@"You must enter a designer and style number." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
         [fail show];
