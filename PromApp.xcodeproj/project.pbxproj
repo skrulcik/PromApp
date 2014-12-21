@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		D2074E3E198F3B5E0048E28E /* EditDress.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2074E3D198F3B5E0048E28E /* EditDress.xib */; };
-		D208B8581A29207B00E0C9A4 /* Rochester-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = D208B8571A29207B00E0C9A4 /* Rochester-Regular.otf */; };
-		D208B85A1A29209600E0C9A4 /* GrandHotel-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = D208B8591A29209600E0C9A4 /* GrandHotel-Regular.otf */; };
 		D20DA6AF198B311200C1B225 /* ColorText.plist in Resources */ = {isa = PBXBuildFile; fileRef = D20DA6AE198B311200C1B225 /* ColorText.plist */; };
 		D20DA6B1198B537300C1B225 /* EditUser.xib in Resources */ = {isa = PBXBuildFile; fileRef = D20DA6B0198B537300C1B225 /* EditUser.xib */; };
 		D2103456196F9EF70088484B /* DressCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2103455196F9EF70088484B /* DressCell.xib */; };
@@ -29,6 +27,8 @@
 		D23654F919916BF3007277A6 /* PromQueryTable.xib in Resources */ = {isa = PBXBuildFile; fileRef = D23654F819916BF3007277A6 /* PromQueryTable.xib */; };
 		D23654FC19916DFF007277A6 /* SKPromQueryController.m in Sources */ = {isa = PBXBuildFile; fileRef = D23654FB19916DFF007277A6 /* SKPromQueryController.m */; };
 		D2652159198E86E3000432BA /* StringEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2652158198E86E3000432BA /* StringEntryCell.xib */; };
+		D266D1621A47287B00A3C51C /* grand-hotel in Resources */ = {isa = PBXBuildFile; fileRef = D266D1601A47287B00A3C51C /* grand-hotel */; };
+		D266D1631A47287B00A3C51C /* rochester in Resources */ = {isa = PBXBuildFile; fileRef = D266D1611A47287B00A3C51C /* rochester */; };
 		D26C88C919C575C5002B52A8 /* Tester.xib in Resources */ = {isa = PBXBuildFile; fileRef = D26C88C819C575C5002B52A8 /* Tester.xib */; };
 		D286BA3F196E47EE00AFC9C0 /* SKDressListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D286BA3E196E47EE00AFC9C0 /* SKDressListViewController.m */; };
 		D2A382971A4279C300D3E3B7 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A382961A4279C300D3E3B7 /* ProfileController.swift */; };
@@ -98,8 +98,6 @@
 
 /* Begin PBXFileReference section */
 		D2074E3D198F3B5E0048E28E /* EditDress.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditDress.xib; sourceTree = "<group>"; };
-		D208B8571A29207B00E0C9A4 /* Rochester-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Rochester-Regular.otf"; path = "../../../../Downloads/rochester/Rochester-Regular.otf"; sourceTree = "<group>"; };
-		D208B8591A29209600E0C9A4 /* GrandHotel-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "GrandHotel-Regular.otf"; path = "../../../../Downloads/grand-hotel/GrandHotel-Regular.otf"; sourceTree = "<group>"; };
 		D20DA6AE198B311200C1B225 /* ColorText.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ColorText.plist; sourceTree = "<group>"; };
 		D20DA6B0198B537300C1B225 /* EditUser.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditUser.xib; sourceTree = "<group>"; };
 		D2103455196F9EF70088484B /* DressCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DressCell.xib; sourceTree = "<group>"; };
@@ -124,6 +122,8 @@
 		D23654FA19916DFF007277A6 /* SKPromQueryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKPromQueryController.h; sourceTree = "<group>"; };
 		D23654FB19916DFF007277A6 /* SKPromQueryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKPromQueryController.m; sourceTree = "<group>"; };
 		D2652158198E86E3000432BA /* StringEntryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StringEntryCell.xib; sourceTree = "<group>"; };
+		D266D1601A47287B00A3C51C /* grand-hotel */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "grand-hotel"; sourceTree = "<group>"; };
+		D266D1611A47287B00A3C51C /* rochester */ = {isa = PBXFileReference; lastKnownFileType = folder; path = rochester; sourceTree = "<group>"; };
 		D26C88C819C575C5002B52A8 /* Tester.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Tester.xib; sourceTree = "<group>"; };
 		D286BA3D196E47EE00AFC9C0 /* SKDressListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKDressListViewController.h; sourceTree = "<group>"; };
 		D286BA3E196E47EE00AFC9C0 /* SKDressListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKDressListViewController.m; sourceTree = "<group>"; };
@@ -342,9 +342,9 @@
 		D2A475241962198D005C2502 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D266D1601A47287B00A3C51C /* grand-hotel */,
+				D266D1611A47287B00A3C51C /* rochester */,
 				D2EF94041A17D8F00093CD4C /* SignPainter.otf */,
-				D208B8571A29207B00E0C9A4 /* Rochester-Regular.otf */,
-				D208B8591A29209600E0C9A4 /* GrandHotel-Regular.otf */,
 				D2C6D15D1980A7BA008080CD /* Saratoga.gpx */,
 				D2A101111974AA360019A2B3 /* Externally Created Resources */,
 				D2A475251962198D005C2502 /* PromApp-Info.plist */,
@@ -565,7 +565,6 @@
 				D2A475281962198D005C2502 /* InfoPlist.strings in Resources */,
 				D20DA6B1198B537300C1B225 /* EditUser.xib in Resources */,
 				D2F639B11A17ECA50026A3D8 /* LaunchScreen.xib in Resources */,
-				D208B8581A29207B00E0C9A4 /* Rochester-Regular.otf in Resources */,
 				D2E8EB3F1A2E146500A153FA /* css in Resources */,
 				D2DEBAA719B6D58E00BA0542 /* global.json in Resources */,
 				D2C890E119D68E7C00458094 /* ProfileCellLayout.xib in Resources */,
@@ -573,16 +572,17 @@
 				D2C2473D19F2CDA5007F2AF9 /* EditProm.xib in Resources */,
 				D2A475301962198D005C2502 /* Images.xcassets in Resources */,
 				D2652159198E86E3000432BA /* StringEntryCell.xib in Resources */,
-				D208B85A1A29209600E0C9A4 /* GrandHotel-Regular.otf in Resources */,
 				D2C6D1611980CA81008080CD /* PromCell.xib in Resources */,
 				D2EF94051A17D8F00093CD4C /* SignPainter.otf in Resources */,
 				D2103456196F9EF70088484B /* DressCell.xib in Resources */,
+				D266D1621A47287B00A3C51C /* grand-hotel in Resources */,
 				D2E8EB401A2E146500A153FA /* images in Resources */,
 				D2074E3E198F3B5E0048E28E /* EditDress.xib in Resources */,
 				D26C88C919C575C5002B52A8 /* Tester.xib in Resources */,
 				D2F639AF1A17E5FC0026A3D8 /* pinyon-script.ttf in Resources */,
 				D2E8EB411A2E146500A153FA /* index.html in Resources */,
 				D20DA6AF198B311200C1B225 /* ColorText.plist in Resources */,
+				D266D1631A47287B00A3C51C /* rochester in Resources */,
 				D23654F919916BF3007277A6 /* PromQueryTable.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
