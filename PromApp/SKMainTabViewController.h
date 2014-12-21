@@ -13,7 +13,6 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *addDressButton;
 
 - (IBAction) unwindFromLogin:(UIStoryboardSegue *) segue;
-- (IBAction) unwindFromAddDress:(UIStoryboardSegue *) segue;
 - (IBAction) unwindFromAddProm:(UIStoryboardSegue *) segue;
 //+ (UIImage *)navBackgroundWithColor:(UIColor *)color;
 
