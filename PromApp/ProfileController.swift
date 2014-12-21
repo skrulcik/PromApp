@@ -62,7 +62,7 @@ class ProfileController:UIViewController, NSURLConnectionDataDelegate, UITableVi
             currentUser!.fetchIfNeededInBackgroundWithBlock({
                 (user:PFObject!, error:NSError!) in
                 if (error != nil){
-                    println("Error fetching user info: \(error)")
+                    NSLog("Error fetching user info: %@", error)
                 } else {
                     if let profile: NSDictionary = user!.objectForKey("profile") as? NSDictionary{
                         //Get FB ID so we can create url for picture
@@ -212,9 +212,8 @@ class ProfileController:UIViewController, NSURLConnectionDataDelegate, UITableVi
                     if let dresses:Array<SKDress> = PFUser.currentUser().objectForKey("dresses") as? Array<SKDress>{
                         if indexPath.row < dresses.count{
                             //Ensure valid array access
-                            let dress:SKDress = dresses[indexPath.row]
-                            cell.designerLabel.text = dress.designer
-                            cell.styleNumberLabel.text = dress.styleNumber
+                            let dressPointer:SKDress = dresses[indexPath.row]
+                            self.fillCell(cell, withDress: dressPointer)
                         }
                     }
                     return cell
@@ -224,6 +223,29 @@ class ProfileController:UIViewController, NSURLConnectionDataDelegate, UITableVi
                 return UITableViewCell()
         }
         return UITableViewCell() //Default case won't work because of lack of implicit fallthrough
+    }
+    
+    func fillCell(cell:SKDressInfoTableViewCell, withDress dressPointer:SKDress){
+        NSLog("Filling cell %@ \nwith dress %@", cell, dressPointer)
+        dressPointer.fetchIfNeededInBackgroundWithBlock({
+            (dressObj:PFObject!, error:NSError!) in
+            if let dress:SKDress = dressObj as? SKDress {
+                cell.designerLabel.text = dress.designer
+                cell.styleNumberLabel.text = dress.styleNumber
+                // Fill in dress picture over time
+                let dressImageView = cell.dressPicView
+                let dressPicFile:PFFile = dress.image
+                dressPicFile.getDataInBackgroundWithBlock({
+                    (imageData:NSData!, error:NSError!) in
+                    if(imageData != nil){
+                        let dressImage:UIImage = UIImage(data: imageData!)!
+                        dressImageView!.image = dressImage
+                    } else{
+                        NSLog("Error retrieving image data from dress. PFFile:%@ Error:%@", dressPicFile, error)
+                    }
+                })
+            }
+        })
     }
     
     
