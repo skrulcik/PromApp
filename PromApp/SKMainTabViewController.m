@@ -92,7 +92,6 @@
 {
     ProfileController *profile = (ProfileController *)self.viewControllers[0];
     [profile updateUserData:[PFUser currentUser]];
-    [profile updateListView];
 }
 
 - (IBAction) unwindFromAddProm:(UIStoryboardSegue *)segue

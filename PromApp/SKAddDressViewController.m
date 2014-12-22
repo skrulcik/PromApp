@@ -234,12 +234,22 @@ typedef void(^voidCompletion)(void);
         //self.dress.owner = current; //FIXME: causes recursion problems
         NSMutableArray *dresses = (NSMutableArray *)[current objectForKey:@"dresses"];
         if(![dresses containsObject:dress]){
+            //TODO: replace containsObject with custom method to compare fields rather than object IDs
             //Only add dress to user's inventory if it is not already there
             [dress.image save];
-            NSLog(@"This is dresses: %@", [current objectForKey:@"dresses"]);
             [current addObject:dress forKey:@"dresses"];
-            [current saveEventually];
-            block();
+            NSLog(@"Added dress %@ to user's list of dresses", dress);
+            //TODO: local datastore
+            [current saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
+                if(!error){
+                    NSLog(@"Saved changes to dress list.");
+                    block();
+                } else {
+                    NSLog(@"Failed to save changes to dress list: %@", error);
+                    UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"Could Not Save Dress" message:@"You have already registered this dress." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+                    [errorMessage show];
+                }
+            }];
         } else {
             UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"Could Not Save Dress" message:@"You have already registered this dress." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
             [errorMessage show];

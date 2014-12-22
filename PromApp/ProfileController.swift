@@ -26,7 +26,6 @@ class ProfileController:UIViewController, NSURLConnectionDataDelegate, UITableVi
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        println("Initialized")
     }
     
     
@@ -86,8 +85,9 @@ class ProfileController:UIViewController, NSURLConnectionDataDelegate, UITableVi
                         if let urlString:String = profile[picURLKey] as? NSString{
                             self.updateProfPictureWithURL(urlString)
                         }
+                        self.listView.reloadData()
                     } else {
-                        println("Error: could not load profile for user \(user)")
+                        NSLog("Error: could not load profile for user %@", user)
                     }
                 }
             })
@@ -103,10 +103,8 @@ class ProfileController:UIViewController, NSURLConnectionDataDelegate, UITableVi
         listView.registerNib(UINib(nibName: dressCellNibName, bundle: nil), forCellReuseIdentifier: dressCellID)
         if let user:PFUser = PFUser.currentUser(){
                 updateUserData(user)
-                // Load Profile and Dress Information to table
-                updateListView()
         } else {
-            println("User not logged in. Showing Login Screen.")
+            NSLog("User not logged in. Showing Login Screen.")
             self.clearData()
             self.showLoginScreen()
         }
@@ -184,7 +182,6 @@ class ProfileController:UIViewController, NSURLConnectionDataDelegate, UITableVi
         if (section == 0){
             return 1
         } else if (section == 1){
-            var dressCount:Int? = (PFUser.currentUser()?.objectForKey("dresses") as? NSMutableArray)?.count
             return dressCount != nil ? dressCount!:0
         }
         return 0
@@ -193,7 +190,7 @@ class ProfileController:UIViewController, NSURLConnectionDataDelegate, UITableVi
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         switch indexPath.section {
             case PROF_SECTION:
-                if let cell:ProfileCell = listView.dequeueReusableCellWithIdentifier(profCellID, forIndexPath: indexPath) as? ProfileCell {
+                if let cell:ProfileCell = listView.dequeueReusableCellWithIdentifier(profCellID) as? ProfileCell {
                     // Crop image to a circle for styling
                     cell.profPic.layer.cornerRadius = cell.profPic.frame.size.width / 2;
                     cell.profPic.clipsToBounds = true;
@@ -208,12 +205,14 @@ class ProfileController:UIViewController, NSURLConnectionDataDelegate, UITableVi
                     return cell
             }
             case DRESS_SECTION:
-                if let cell:SKDressInfoTableViewCell = listView.dequeueReusableCellWithIdentifier(dressCellID, forIndexPath: indexPath) as? SKDressInfoTableViewCell{
-                    if let dresses:Array<SKDress> = PFUser.currentUser().objectForKey("dresses") as? Array<SKDress>{
-                        if indexPath.row < dresses.count{
-                            //Ensure valid array access
-                            let dressPointer:SKDress = dresses[indexPath.row]
-                            self.fillCell(cell, withDress: dressPointer)
+                if let cell:SKDressInfoTableViewCell = listView.dequeueReusableCellWithIdentifier(dressCellID) as? SKDressInfoTableViewCell{
+                    if let user:PFUser = PFUser.currentUser(){
+                        if let dresses:Array<SKDress> = user.objectForKey("dresses") as? Array<SKDress>{
+                            if indexPath.row < dresses.count{
+                                //Ensure valid array access
+                                let dressPointer:SKDress = dresses[indexPath.row]
+                                self.fillCell(cell, withDress: dressPointer)
+                            }
                         }
                     }
                     return cell
@@ -226,7 +225,6 @@ class ProfileController:UIViewController, NSURLConnectionDataDelegate, UITableVi
     }
     
     func fillCell(cell:SKDressInfoTableViewCell, withDress dressPointer:SKDress){
-        NSLog("Filling cell %@ \nwith dress %@", cell, dressPointer)
         dressPointer.fetchIfNeededInBackgroundWithBlock({
             (dressObj:PFObject!, error:NSError!) in
             if let dress:SKDress = dressObj as? SKDress {
@@ -260,7 +258,7 @@ class ProfileController:UIViewController, NSURLConnectionDataDelegate, UITableVi
                             if let dress = dressList[indx.row] as? SKDress{
                                 dressController.setupWithDress(dress)
                             } else {
-                                println("Could not retrieve dress information from server")
+                                NSLog("Could not retrieve dress information from server")
                             }
                         }
                     }
@@ -271,8 +269,6 @@ class ProfileController:UIViewController, NSURLConnectionDataDelegate, UITableVi
     
     @IBAction func unwindFromSaveDress(segue: UIStoryboardSegue) {
         updateUserData(PFUser.currentUser())
-        // Load Profile and Dress Information to table
-        updateListView()
     }
     
 }
