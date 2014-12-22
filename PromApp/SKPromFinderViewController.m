@@ -5,13 +5,12 @@
 //  Created by Scott Krulcik on 6/24/14.
 //  Copyright (c) 2014 Scott Krulcik. All rights reserved.
 //
-
+#import <PromApp-Swift.h>
+#import <Bolts/Bolts.h>
 #import "SKPromFinderViewController.h"
 #import "SKProm.h"
 #import "SKPromAnnotation.h"
 #import "SKPromDetailViewController.h"
-#import <PromApp-Swift.h>
-
 
 @interface SKPromFinderViewController ()
 @property NSMutableArray *promsToDisplay;  //Nearby proms to pin onto map
@@ -66,16 +65,10 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    NSLog(@"Latitude: %f",self.locationManager.location.coordinate.latitude);
     if(self.locationManager.location.coordinate.latitude !=0){
         self.mapCenter = self.locationManager.location;
     }
     [self queryForAllPostsNearLocation:self.mapCenter withNearbyDistance:kCLLocationAccuracyBest];
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-
 }
 
 #pragma mark - MKMapViewDelegate
@@ -153,12 +146,8 @@
     if(self.promsToDisplay == nil){
         self.promsToDisplay = [[NSMutableArray alloc] initWithCapacity:QUERY_LIMIT];
     }
-	PFQuery *query = [PFQuery queryWithClassName:[SKProm parseClassName]];
-	// Check locally then externally
-	if ([self.promsToDisplay count] == 0) {
-		query.cachePolicy = kPFCachePolicyCacheThenNetwork;
-	}
-    
+	
+    PFQuery *query = [PFQuery queryWithClassName:[SKProm parseClassName]];
 	// Query for posts sort of kind of near our current location.
 	PFGeoPoint *point = [PFGeoPoint geoPointWithLatitude:searchLocation.coordinate.latitude longitude:searchLocation.coordinate.longitude];
     NSLog(@"Search Lat %f Current Long %f", searchLocation.coordinate.latitude, searchLocation.coordinate.longitude);
@@ -169,7 +158,6 @@
 		if (error) {
 			NSLog(@"%s Query failed.", __PRETTY_FUNCTION__);
 		} else {
-            //NSLog(@"Query returned %lu proms.", (unsigned long)[objects count]);
 			NSMutableArray *newProms = [[NSMutableArray alloc] initWithCapacity:QUERY_LIMIT];   //Proms that are not being displayed
 			NSMutableArray *allNewProms = [[NSMutableArray alloc] initWithCapacity:QUERY_LIMIT];//All proms returned by the query
 			for (PFObject *object in objects) {
@@ -211,6 +199,7 @@
             
 			// 3. Configure our new posts; these are about to go onto the map.
             [self.promsToDisplay addObjectsFromArray:newProms];
+            [PFObject pinAll:newProms];
 			[self.promsToDisplay removeObjectsInArray:promsToRemove];
 			for (SKProm *newProm in newProms) {
 				SKPromAnnotation *promPoint = [[SKPromAnnotation alloc] initWithLatitude:newProm.preciseLocation.latitude andLongitude:newProm.preciseLocation.longitude];
@@ -226,10 +215,6 @@
         self.storesToDisplay = [[NSMutableArray alloc] initWithCapacity:QUERY_LIMIT];
     }
     PFQuery *query = [PFQuery queryWithClassName:@"Store"];
-    // Check locally then externally
-    if ([self.storesToDisplay count] == 0) {
-        query.cachePolicy = kPFCachePolicyCacheThenNetwork;
-    }
     
     // Query for posts sort of kind of near our current location.
     PFGeoPoint *point = [PFGeoPoint geoPointWithLatitude:searchLocation.coordinate.latitude longitude:searchLocation.coordinate.longitude];

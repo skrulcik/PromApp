@@ -15,8 +15,8 @@
 
 static NSString * const PROM_LOCATION_KEY = @"preciseLocation";
 static NSString * const STORE_LOCATION_KEY = @"location";
-static int const SEARCH_RADIUS = 75; //in km
-static int const QUERY_LIMIT = 30; //Don't want 
+static int const SEARCH_RADIUS = 20;
+static int const QUERY_LIMIT = 20; //Don't want
 
 @interface SKPromFinderViewController : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate, UISearchBarDelegate>
 
