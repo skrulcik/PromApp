@@ -43,15 +43,18 @@
     [super viewDidLoad];
     //To ensure mapview shows in right place
     [self setEdgesForExtendedLayout:UIRectEdgeNone];
-    
+    //Setup location manager
     self.locationManager = [[CLLocationManager alloc] init];
-    [self.locationManager startUpdatingLocation];
+    [self.locationManager requestAlwaysAuthorization];   //Prompts user for access to location
     self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-    //Set up delegates
-    self.searchBar.delegate = self;
     self.locationManager.delegate = self;
-    self.map.delegate = self;
     [self.locationManager startUpdatingLocation];
+    //Set search bar delegate
+    self.searchBar.delegate = self;
+    //Set map to show location and to continuously track
+    self.map.delegate = self;
+    self.map.showsUserLocation = YES;
+    [self.map setUserTrackingMode:MKUserTrackingModeFollow animated:YES];
 
 }
 
