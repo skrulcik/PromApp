@@ -18,7 +18,7 @@ static NSString * const PROM_LOCATION_KEY = @"preciseLocation";
 static NSString * const STORE_LOCATION_KEY = @"location";
 static NSString * const PROM_TEXT_KEY = @"schoolName";
 static NSString * const PROM_IMAGE_KEY = @"image";
-static int const SEARCH_RADIUS = 75; //In km
+static int const SEARCH_RADIUS = 20;
 static int const QUERY_LIMIT = 10;
 
 @interface SKPromQueryController : PFQueryTableViewController <CLLocationManagerDelegate>

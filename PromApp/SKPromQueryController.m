@@ -84,7 +84,7 @@
     [self.locationManager startUpdatingLocation];
     self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     self.locationManager.delegate = self;
-    [locationManager setDelegate:self];
+    [self.locationManager requestAlwaysAuthorization];
     [self.locationManager startUpdatingLocation];
 }
 
@@ -101,13 +101,13 @@
 
 - (void)objectsWillLoad {
     [super objectsWillLoad];
-
+    NSLog(@"Beginning prom list query...");
     // This method is called before a PFQuery is fired to get more objects
 }
 
 - (void)objectsDidLoad:(NSError *)error {
     [super objectsDidLoad:error];
-
+    NSLog(@"Finished prom list query.");
     // This method is called every time objects are loaded from Parse via the PFQuery
 }
 
@@ -126,37 +126,25 @@
 
 - (PFQuery *)queryForTableWithLocation: (CLLocation *)searchLocation
 {
-    searchLocation = [self.locationManager location];
-    PFQuery *query = [PFQuery queryWithClassName:@"Prom"];
-
-    // If Pull To Refresh is enabled, query against the network by default.
-    if (self.pullToRefreshEnabled) {
-        query.cachePolicy = kPFCachePolicyNetworkOnly;
+    if(searchLocation.coordinate.latitude != 0.0 || searchLocation.coordinate.longitude != 0.0){
+        PFQuery *query = [PFQuery queryWithClassName:[SKProm parseClassName]];
+        [query fromLocalDatastore];
+        query.limit = QUERY_LIMIT;
+        // Query for posts sort of kind of near our current location.
+        NSLog(@"Querying for prom list near lat:%f long: %f", searchLocation.coordinate.latitude, searchLocation.coordinate.longitude);
+        PFGeoPoint *point = [PFGeoPoint geoPointWithLatitude:searchLocation.coordinate.latitude longitude:searchLocation.coordinate.longitude];
+        [query whereKey:PROM_LOCATION_KEY nearGeoPoint:point withinMiles:SEARCH_RADIUS];
+        return query;
+    } else {
+        PFQuery *query = [PFQuery queryWithClassName:[SKProm parseClassName]];
+        query.limit = QUERY_LIMIT;
+        return query;
     }
-    if (self.objects.count == 0) {
-        query.cachePolicy = kPFCachePolicyCacheThenNetwork;
-    }
-
-    // Query for posts sort of kind of near our current location.
-    PFGeoPoint *point = [PFGeoPoint geoPointWithLatitude:searchLocation.coordinate.latitude longitude:searchLocation.coordinate.longitude];
-    NSLog(@"Search Lat %f Current Long %f", searchLocation.coordinate.latitude, searchLocation.coordinate.longitude);
-    [query whereKey:PROM_LOCATION_KEY nearGeoPoint:point withinKilometers:SEARCH_RADIUS];
-    query.limit = QUERY_LIMIT;
-
-    return query;
 }
 
 - (PFQuery *)queryForTableWithString: (NSString *)searchString
 {
-    PFQuery *query = [PFQuery queryWithClassName:@"Prom"];
-    
-    // If Pull To Refresh is enabled, query against the network by default.
-    if (self.pullToRefreshEnabled) {
-        query.cachePolicy = kPFCachePolicyNetworkOnly;
-    }
-    if (self.objects.count == 0) {
-        query.cachePolicy = kPFCachePolicyCacheThenNetwork;
-    }
+    PFQuery *query = [PFQuery queryWithClassName:[SKProm parseClassName]];
     [query whereKey:@"schoolName" containsString:searchString];
     //[query whereKey:PROM_LOCATION_KEY nearGeoPoint:point withinKilometers:SEARCH_RADIUS];
     query.limit = QUERY_LIMIT;
