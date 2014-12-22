@@ -306,7 +306,11 @@
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="Kly-dX-3C6">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="OAX-mU-g6g"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="OAX-mU-g6g">
+                            <connections>
+                                <segue destination="UZh-5H-2L0" kind="unwind" unwindAction="unwindToProfileCancel:" id="HD3-tb-HFC"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="dyk-Bp-dBT">
                             <connections>
                                 <action selector="savePressed:" destination="Sbo-G7-eXo" id="GWq-ND-Bxq"/>

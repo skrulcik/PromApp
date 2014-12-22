@@ -288,6 +288,9 @@ class ProfileController:UIViewController, NSURLConnectionDataDelegate, UITableVi
         updateUserData(PFUser.currentUser())
     }
     
+    @IBAction func unwindToProfileCancel(segue: UIStoryboardSegue){
+    }
+    
 }
 
 
