@@ -232,16 +232,17 @@ class ProfileController:UIViewController, NSURLConnectionDataDelegate, UITableVi
                 cell.styleNumberLabel.text = dress.styleNumber
                 // Fill in dress picture over time
                 let dressImageView = cell.dressPicView
-                let dressPicFile:PFFile = dress.image
-                dressPicFile.getDataInBackgroundWithBlock({
-                    (imageData:NSData!, error:NSError!) in
-                    if(imageData != nil){
-                        let dressImage:UIImage = UIImage(data: imageData!)!
-                        dressImageView!.image = dressImage
-                    } else{
-                        NSLog("Error retrieving image data from dress. PFFile:%@ Error:%@", dressPicFile, error)
-                    }
-                })
+                if let dressPicFile:PFFile = dress.objectForKey("imageThumbnail") as? PFFile{
+                    dressPicFile.getDataInBackgroundWithBlock({
+                        (imageData:NSData!, error:NSError!) in
+                        if(imageData != nil){
+                            let dressImage:UIImage = UIImage(data: imageData!)!
+                            dressImageView!.image = dressImage
+                        } else{
+                            NSLog("Error retrieving image data from dress. PFFile:%@ Error:%@", dressPicFile, error)
+                        }
+                    })
+                }
             }
         })
     }
