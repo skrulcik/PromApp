@@ -173,6 +173,23 @@ class ProfileController:UIViewController, NSURLConnectionDataDelegate, UITableVi
             return indexPath
         }
     }
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if(indexPath.section == PROF_SECTION && indexPath.row == 0){
+            //Is the profile cell
+            println("Would have edited user cell")
+        } else if (indexPath.section == DRESS_SECTION){
+            //Is a dress cell
+            if let user:PFUser = PFUser.currentUser(){
+                if let dresses:Array<SKDress> = user.objectForKey("dresses") as? Array<SKDress>{
+                    if(indexPath.row < dresses.count){
+                        performSegueWithIdentifier(EditDressSegue, sender: self)
+                    } else {
+                        println("Tried to edit non-existant dress")
+                    }
+                }
+            }
+        }
+    }
     
     //MARK: UITableViewDataSource
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -186,7 +203,6 @@ class ProfileController:UIViewController, NSURLConnectionDataDelegate, UITableVi
         }
         return 0
     }
-    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         switch indexPath.section {
             case PROF_SECTION:

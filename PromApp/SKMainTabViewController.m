@@ -56,7 +56,7 @@
                          {
                              //Do some thing here
                              [view dismissViewControllerAnimated:YES completion:nil];
-                             [self performSegueWithIdentifier:@"ShowEditDress" sender:self];
+                             [self performSegueWithIdentifier:@"NewDress" sender:self];
                              //SKAddDressViewController *newDress = [[SKAddDressViewController alloc] initForCreation];
                              //[newDress setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
                              //[self presentViewController:newDress animated:YES completion:nil];

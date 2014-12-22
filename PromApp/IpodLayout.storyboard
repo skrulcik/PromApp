@@ -168,7 +168,7 @@
                         <segue destination="EIX-mn-ePP" kind="relationship" relationship="viewControllers" id="wb7-OK-kQY"/>
                         <segue destination="lA3-QL-eB2" kind="relationship" relationship="viewControllers" id="yMY-vI-VKd"/>
                         <segue destination="gmQ-3J-jBv" kind="modal" identifier="showLogin" id="hka-we-5Pj"/>
-                        <segue destination="LVU-Dx-8u5" kind="modal" identifier="ShowEditDress" id="lEq-ej-grH"/>
+                        <segue destination="LVU-Dx-8u5" kind="modal" identifier="NewDress" id="lEq-ej-grH"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ldr-8P-S1r" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -235,6 +235,7 @@
                     <tabBarItem key="tabBarItem" title="Profile" image="ProfileIconSelected" id="SGz-Gx-0ND"/>
                     <connections>
                         <outlet property="listView" destination="HQU-Ma-3YK" id="uyv-Jz-E6O"/>
+                        <segue destination="LVU-Dx-8u5" kind="modal" identifier="EditDress" modalTransitionStyle="flipHorizontal" id="62s-3m-7gd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Evx-Yx-TZo" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -423,5 +424,8 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="62s-3m-7gd"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.25490197539329529" green="0.47843140363693237" blue="0.98823535442352295" alpha="1" colorSpace="deviceRGB"/>
 </document>
