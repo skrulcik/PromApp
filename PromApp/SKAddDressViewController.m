@@ -217,17 +217,14 @@ static NSDictionary *readableNames;
 {
     int goal_w = width;
     int goal_h = height;
-    float scale;
     if(image.size.height > image.size.width){
         //Most dress pics will be in portrait format
-        scale = image.size.height/image.size.width;
-        goal_w = width/scale;
+        goal_w = (int)((float)width/(float)height * goal_h);
     }else{
         //Picture is landscape
-        scale = image.size.width/image.size.height;
-        goal_h = height/scale;
+        goal_h = (int)((float)height/(float)width * goal_w);
     }
-    
+    assert(goal_w<=width && goal_h <= height);
     UIGraphicsBeginImageContextWithOptions(CGSizeMake(goal_w, goal_h), NO, 0.0);
     CGRect scaledImageRect = CGRectMake(0.0, 0.0, goal_w, goal_h);
     [image drawInRect:scaledImageRect];
@@ -251,37 +248,31 @@ typedef void(^voidCompletion)(void);
                 }
             }
         }
-        if(_imageChanged){
-            //Save Image of dress as PFFile
-            UIImage *constrained = [self constrainedCopyOf:self.dressImageView.image withWidth:MAX_IMG_WIDTH height:MAX_IMG_HEIGHT];
-            NSData *imageData = UIImageJPEGRepresentation(constrained, 0.5); //Compress to save space
-            NSString *filename = [NSString stringWithFormat:@"%@%@Picture.png",dress.designer, dress.styleNumber];
-            PFFile *imageFile = [PFFile fileWithName:filename data:imageData];
-            dress.image = imageFile;
-        }
+        //Save Image of dress as PFFile
+        UIImage *constrained = [self constrainedCopyOf:self.dressImageView.image withWidth:MAX_IMG_WIDTH height:MAX_IMG_HEIGHT];
+        NSData *imageData = UIImageJPEGRepresentation(constrained, 0.6); //Compress to save space
+        NSString *filename = [NSString stringWithFormat:@"%@%@Picture.jpg",dress.designer, dress.styleNumber];
+        PFFile *imageFile = [PFFile fileWithName:filename data:imageData];
+        dress.image = imageFile;
+        [dress.image save]; //Synchronously save dress before attempting to save dress
         //self.dress.owner = current; //FIXME: causes recursion problems
+        
+        //If dress is not an existing dress, add it to the array
         NSMutableArray *dresses = (NSMutableArray *)[current objectForKey:@"dresses"];
         if(![dresses containsObject:dress]){
-            //TODO: replace containsObject with custom method to compare fields rather than object IDs
-            //Only add dress to user's inventory if it is not already there
-            [dress.image save];
             [current addObject:dress forKey:@"dresses"];
-            NSLog(@"Added dress %@ to user's list of dresses", dress);
-            //TODO: local datastore
-            [current saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
-                if(!error){
-                    NSLog(@"Saved changes to dress list.");
-                    block();
-                } else {
-                    NSLog(@"Failed to save changes to dress list: %@", error);
-                    UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"Could Not Save Dress" message:@"You have already registered this dress." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
-                    [errorMessage show];
-                }
-            }];
-        } else {
-            UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"Could Not Save Dress" message:@"You have already registered this dress." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
-            [errorMessage show];
         }
+        NSLog(@"Added dress %@ to user's list of dresses", dress);
+        [current saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
+            if(!error){
+                NSLog(@"Saved changes to dress list.");
+                block();
+            } else {
+                NSLog(@"Failed to save changes to dress list: %@", error);
+                UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"Could Not Save Dress" message:@"" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+                [errorMessage show];
+            }
+        }];
     }else{
         UIAlertView *fail = [[UIAlertView alloc] initWithTitle:@"Missing Required Fields" message:@"You must enter a designer and style number." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
         [fail show];
