@@ -26,6 +26,7 @@
 		D22B2B811A42B0AE0085F54E /* GlobalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22B2B801A42B0AE0085F54E /* GlobalConstants.swift */; };
 		D23654F919916BF3007277A6 /* PromQueryTable.xib in Resources */ = {isa = PBXBuildFile; fileRef = D23654F819916BF3007277A6 /* PromQueryTable.xib */; };
 		D23654FC19916DFF007277A6 /* SKPromQueryController.m in Sources */ = {isa = PBXBuildFile; fileRef = D23654FB19916DFF007277A6 /* SKPromQueryController.m */; };
+		D25B4D751A490DAF00AB6B06 /* PillButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25B4D741A490DAF00AB6B06 /* PillButton.swift */; };
 		D2652159198E86E3000432BA /* StringEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2652158198E86E3000432BA /* StringEntryCell.xib */; };
 		D266D1621A47287B00A3C51C /* grand-hotel in Resources */ = {isa = PBXBuildFile; fileRef = D266D1601A47287B00A3C51C /* grand-hotel */; };
 		D266D1631A47287B00A3C51C /* rochester in Resources */ = {isa = PBXBuildFile; fileRef = D266D1611A47287B00A3C51C /* rochester */; };
@@ -121,6 +122,7 @@
 		D23654F819916BF3007277A6 /* PromQueryTable.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PromQueryTable.xib; sourceTree = "<group>"; };
 		D23654FA19916DFF007277A6 /* SKPromQueryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKPromQueryController.h; sourceTree = "<group>"; };
 		D23654FB19916DFF007277A6 /* SKPromQueryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKPromQueryController.m; sourceTree = "<group>"; };
+		D25B4D741A490DAF00AB6B06 /* PillButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PillButton.swift; sourceTree = "<group>"; };
 		D2652158198E86E3000432BA /* StringEntryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StringEntryCell.xib; sourceTree = "<group>"; };
 		D266D1601A47287B00A3C51C /* grand-hotel */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "grand-hotel"; sourceTree = "<group>"; };
 		D266D1611A47287B00A3C51C /* rochester */ = {isa = PBXFileReference; lastKnownFileType = folder; path = rochester; sourceTree = "<group>"; };
@@ -259,6 +261,7 @@
 				D2C6D1631980CAD6008080CD /* SKPromTableViewCell.m */,
 				D2BB5912198D655400431759 /* SKStringEntryCell.h */,
 				D2BB5913198D655400431759 /* SKStringEntryCell.m */,
+				D25B4D741A490DAF00AB6B06 /* PillButton.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -605,6 +608,7 @@
 				D2C6D1671980CE62008080CD /* SKPromDetailViewController.m in Sources */,
 				D286BA3F196E47EE00AFC9C0 /* SKDressListViewController.m in Sources */,
 				D2A4756E196262F4005C2502 /* SKLoginViewController.m in Sources */,
+				D25B4D751A490DAF00AB6B06 /* PillButton.swift in Sources */,
 				D211794D198EBDAF004D254F /* SKStoreEditorTableController.m in Sources */,
 				D2A382971A4279C300D3E3B7 /* ProfileController.swift in Sources */,
 				D23654FC19916DFF007277A6 /* SKPromQueryController.m in Sources */,

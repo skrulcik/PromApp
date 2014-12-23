@@ -19,15 +19,15 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CoverPromCouple-1" translatesAutoresizingMaskIntoConstraints="NO" id="5gW-Gx-HRF">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rLv-Zk-eLb">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rLv-Zk-eLb" customClass="PillButton" customModule="PromApp" customModuleProvider="target">
                                 <rect key="frame" x="59" y="451" width="202" height="52"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="202" id="nD8-WJ-NJg"/>
                                     <constraint firstAttribute="height" constant="52" id="sLe-w8-kwY"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                <state key="normal" title="Facebook Login" backgroundImage="PinkPill">
-                                    <color key="titleColor" red="0.92156863212585449" green="0.92156863212585449" blue="0.92156863212585449" alpha="1" colorSpace="deviceRGB"/>
+                                <state key="normal" title="Facebook Login">
+                                    <color key="titleColor" red="1" green="0.99997437000274658" blue="0.99999129772186279" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="fBookLoginPressed:" destination="gmQ-3J-jBv" eventType="touchUpInside" id="Yvi-FR-NGX"/>
@@ -102,9 +102,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="7kc-0S-Rcl">
+                            <searchBar contentMode="redraw" placeholder="Search By Location" translatesAutoresizingMaskIntoConstraints="NO" id="7kc-0S-Rcl">
                                 <rect key="frame" x="0.0" y="64" width="320" height="44"/>
-                                <color key="barTintColor" red="1" green="0.4392156862745098" blue="0.58039215686274515" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="barTintColor" red="1" green="0.52549019607843139" blue="0.6470588235294118" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="wPC-T0-ofg">
@@ -196,7 +196,7 @@
                                     <items>
                                         <barButtonItem style="plain" systemItem="flexibleSpace" id="Ah6-6Q-lgm"/>
                                         <barButtonItem title="Logout" id="Ew9-Ke-M5e">
-                                            <color key="tintColor" red="1" green="0.54901963470000004" blue="0.88235294819999999" alpha="1" colorSpace="deviceRGB"/>
+                                            <color key="tintColor" red="1" green="0.52549019607843139" blue="0.6470588235294118" alpha="1" colorSpace="deviceRGB"/>
                                             <connections>
                                                 <action selector="logoutUser" destination="EIX-mn-ePP" id="RUb-o4-pZC"/>
                                             </connections>
@@ -405,7 +405,6 @@
         <image name="CoverPromCouple-1" width="642" height="1140"/>
         <image name="LocationIconSelected" width="25" height="25"/>
         <image name="LoginText" width="416" height="174"/>
-        <image name="PinkPill" width="202" height="52"/>
         <image name="ProfileIconSelected" width="25" height="25"/>
         <image name="SloganBaskerville" width="783" height="91"/>
     </resources>
