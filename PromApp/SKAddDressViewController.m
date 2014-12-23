@@ -6,6 +6,9 @@
 //  Copyright (c) 2014 Scott Krulcik. All rights reserved.
 //
 
+#define MAX_IMG_WIDTH 400
+#define MAX_IMG_HEIGHT 600
+
 #import "SKAddDressViewController.h"
 #import "SKImageEditorCell.h"
 #import "SKMainTabViewController.h"
@@ -210,6 +213,30 @@ static NSDictionary *readableNames;
     }
 }
 
+- (UIImage *) constrainedCopyOf:(UIImage *)image withWidth:(int)width height:(int)height
+{
+    int goal_w = width;
+    int goal_h = height;
+    float scale;
+    if(image.size.height > image.size.width){
+        //Most dress pics will be in portrait format
+        scale = image.size.height/image.size.width;
+        goal_w = width/scale;
+    }else{
+        //Picture is landscape
+        scale = image.size.width/image.size.height;
+        goal_h = height/scale;
+    }
+    
+    UIGraphicsBeginImageContextWithOptions(CGSizeMake(goal_w, goal_h), NO, 0.0);
+    CGRect scaledImageRect = CGRectMake(0.0, 0.0, goal_w, goal_h);
+    [image drawInRect:scaledImageRect];
+    UIImage* constrainedImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return constrainedImage;
+}
+
 typedef void(^voidCompletion)(void);
 - (void) saveDress:(SKDress *)dress withCompletion:(voidCompletion)block
 {
@@ -226,7 +253,8 @@ typedef void(^voidCompletion)(void);
         }
         if(_imageChanged){
             //Save Image of dress as PFFile
-            NSData *imageData = UIImagePNGRepresentation(self.dressImageView.image);
+            UIImage *constrained = [self constrainedCopyOf:self.dressImageView.image withWidth:MAX_IMG_WIDTH height:MAX_IMG_HEIGHT];
+            NSData *imageData = UIImageJPEGRepresentation(constrained, 0.5); //Compress to save space
             NSString *filename = [NSString stringWithFormat:@"%@%@Picture.png",dress.designer, dress.styleNumber];
             PFFile *imageFile = [PFFile fileWithName:filename data:imageData];
             dress.image = imageFile;
