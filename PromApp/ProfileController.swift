@@ -151,6 +151,16 @@ class ProfileController:UIViewController, NSURLConnectionDataDelegate, UITableVi
             return CGFloat(dressCellHeight)
         }
     }
+    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        if(section == DRESS_SECTION){
+            return 10; //Buffer before logout button
+        } else {
+            return 0;
+        }
+    }
+    func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return UIView() //Override default grey color for better look
+    }
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if(section == 0){
             //Profile

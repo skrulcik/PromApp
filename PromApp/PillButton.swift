@@ -17,3 +17,17 @@ class PillButton: UIButton {
         rounded.fill()
     }
 }
+
+class LogoutPill:PillButton {
+    let top_buff = 0 //Pixel buffer between table and button
+    let bottom_buff = 0
+    let wl_ratio = 4
+    override func drawRect(rect: CGRect) {
+        let height = Int(rect.height) - top_buff - bottom_buff
+        let width = wl_ratio * height
+        let left_x = Int(rect.midX) - width/2
+        let top_y = Int(rect.minY) + top_buff
+        let base = CGRect(x: left_x, y: top_y, width: width, height: height)
+        super.drawRect(base)
+    }
+}
