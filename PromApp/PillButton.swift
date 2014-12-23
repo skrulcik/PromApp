@@ -31,3 +31,20 @@ class LogoutPill:PillButton {
         super.drawRect(base)
     }
 }
+
+class AddImagePill:PillButton {
+    var stroke:Int = 3
+    var foreground:UIColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+    override func drawRect(rect: CGRect) {
+        super.drawRect(rect)
+        let tvert = CGRect(x: Int(rect.midX)-stroke/2, y: (Int(rect.minY)*1+Int(rect.midY))/2,
+            width: stroke, height: Int(rect.height)-((Int(rect.minY)*1+Int(rect.midY))/2 * 2))
+        let thor = CGRect(x: (Int(rect.minX)*1+Int(rect.midX))/2, y:Int(rect.midY)-stroke/2,
+                width: Int(rect.width)-((Int(rect.minX)*1+Int(rect.midX))/2 * 2), height: stroke)
+        foreground.setFill()
+        let vertPath = UIBezierPath(rect: tvert)
+        vertPath.fill()
+        let horpath = UIBezierPath(rect: thor)
+        horpath.fill()
+    }
+}
