@@ -25,7 +25,7 @@
                   clientKey:@"cxqrUMU3wX4UA67IvLgqv0aT78dhVY1DT3w8LWIt"];
     // Facebook initialization
     [PFFacebookUtils initializeFacebook];
-    [Parse enableLocalDatastore];
+    //[Parse enableLocalDatastore];
     
     //Navigation Bar
     // Set the global tint on the navigation bar
