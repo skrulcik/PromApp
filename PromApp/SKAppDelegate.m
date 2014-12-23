@@ -26,7 +26,6 @@
     // Facebook initialization
     [PFFacebookUtils initializeFacebook];
     [Parse enableLocalDatastore];
-    [PFUser enableAutomaticUser];
     
     //Navigation Bar
     // Set the global tint on the navigation bar
@@ -54,7 +53,6 @@
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
-    //Added to handle facebook API and Parse (i.e. I don't know exactly what it does)
     return [FBAppCall handleOpenURL:url
                   sourceApplication:sourceApplication
                         withSession:[PFFacebookUtils session]];
