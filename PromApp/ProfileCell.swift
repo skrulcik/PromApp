@@ -36,6 +36,8 @@ class ProfileCell: UITableViewCell
     }
     
     func setInfoLabel(promCount:Int, dressCount:Int){
-        infoLabel.text = NSString(format: "%d Proms | %d Dresses", promCount, dressCount)
+        infoLabel.text = NSString(format: "%d Prom%@ | %d Dress%@", promCount,
+                                    (promCount==1 ? "":"s"), dressCount,
+                                    (dressCount==1 ? "":"es"))
     }
 }
