@@ -253,6 +253,7 @@
 				D2A4754E19624264005C2502 /* IpodLayout.storyboard */,
 				D2BB590D198CA66A00431759 /* Layout Nibs */,
 				D2C890DD19D6308400458094 /* ProfileCell.swift */,
+				D25B4D741A490DAF00AB6B06 /* PillButton.swift */,
 				D22299351965054000B747BA /* SKDressInfoTableViewCell.h */,
 				D22299361965054000B747BA /* SKDressInfoTableViewCell.m */,
 				D2117952198F0888004D254F /* SKImageEditorCell.h */,
@@ -261,7 +262,6 @@
 				D2C6D1631980CAD6008080CD /* SKPromTableViewCell.m */,
 				D2BB5912198D655400431759 /* SKStringEntryCell.h */,
 				D2BB5913198D655400431759 /* SKStringEntryCell.m */,
-				D25B4D741A490DAF00AB6B06 /* PillButton.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
