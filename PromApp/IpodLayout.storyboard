@@ -204,20 +204,6 @@
                                         <barButtonItem style="plain" systemItem="flexibleSpace" id="TEg-vR-1x8"/>
                                     </items>
                                 </toolbar>
-                                <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ProfileCell" id="syK-5h-TAi" customClass="ProfileCell" customModule="PromApp" customModuleProvider="target">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="syK-5h-TAi" id="zDp-zt-W9D">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DressCell" id="zSN-jd-67i" customClass="SKDressInfoTableViewCell">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zSN-jd-67i" id="Ic3-32-iHz">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="EIX-mn-ePP" id="TLs-w9-NfR"/>
                                     <outlet property="delegate" destination="EIX-mn-ePP" id="AOo-nr-4Y8"/>
