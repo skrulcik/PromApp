@@ -4,6 +4,7 @@
 //
 //  Created by Scott Krulcik on 7/1/14.
 //  Copyright (c) 2014 Scott Krulcik. All rights reserved.
+//  Some code adapted from http://stackoverflow.com/questions/18880364/uiimagepickercontroller-breaks-status-bar-appearance
 //
 
 #define MAX_IMG_WIDTH 400
@@ -104,6 +105,12 @@ static NSDictionary *readableNames;
     [self showImagePickerForSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
 }
 
+-(void)navigationController:(UINavigationController *)navigationController
+     willShowViewController:(UIViewController *)viewController
+                   animated:(BOOL)animated
+{
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+}
 
 - (IBAction)savePressed:(id)sender {
     [self saveDress:self.dress withCompletion:^(void){
@@ -128,7 +135,7 @@ static NSDictionary *readableNames;
     UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
     imagePickerController.modalPresentationStyle = UIModalPresentationCurrentContext;
     imagePickerController.sourceType = sourceType;
-    imagePickerController.delegate = self;
+    imagePickerController.delegate = self; //Needed to preserve status bar state
     
     self.imagePickerController = imagePickerController;
     [self presentViewController:self.imagePickerController animated:YES completion:nil];
