@@ -25,3 +25,6 @@ let picURLKey:NSString = NSString(string:"pictureURL")
 let fbIDKey:String = "id"
 
 let EditDressSegue = "EditDress"
+
+let MAX_IMG_WIDTH = 400
+let MAX_IMG_HEIGHT = 600
