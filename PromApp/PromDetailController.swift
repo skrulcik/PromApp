@@ -342,6 +342,15 @@ class PromEditor:UITableViewController, UITextFieldDelegate, UIImagePickerContro
         }
         return 43
     }
+    /* Prevents image editing to be selected (highlighted) */
+    override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
+        if(indexPath.section == 0 && keyForRowIndex[indexPath.row] == "image"){
+            //Is image editor cell
+            return nil //Do not allow selection
+        } else{
+            return indexPath
+        }
+    }
 }
 
 

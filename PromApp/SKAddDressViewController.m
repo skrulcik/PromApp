@@ -338,8 +338,7 @@ typedef void(^voidCompletion)(void);
     return YES;
 }
 
-#pragma mark - Table view data source
-
+#pragma mark - UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
@@ -348,13 +347,6 @@ typedef void(^voidCompletion)(void);
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [keyForRowIndex count];//How many keys (and corresponding editable properties) are there
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if([[SKAddDressViewController keyForRowIndex:[indexPath row]] isEqualToString:@"prom"]){
-        [self performSegueWithIdentifier:@"SelectProm" sender:self];
-    }
 }
 
 - (UITableViewCell*) tableView:(UITableView *) tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -423,6 +415,17 @@ typedef void(^voidCompletion)(void);
     }
 }
 
+#pragma mark - UITableViewDelegate
+/* Prevents image editing to be selected (highlighted) */
+- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(indexPath.section == 0 && [keyForRowIndex[indexPath.row] isEqualToString:@"image"]){
+        //Is image editor cell
+        return nil; //Do not allow selection
+    } else{
+        return indexPath;
+    }
+}
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if([indexPath row]==0){
@@ -430,6 +433,12 @@ typedef void(^voidCompletion)(void);
         return 200;
     }else{
         return 43;
+    }
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if([[SKAddDressViewController keyForRowIndex:[indexPath row]] isEqualToString:@"prom"]){
+        [self performSegueWithIdentifier:@"SelectProm" sender:self];
     }
 }
 
