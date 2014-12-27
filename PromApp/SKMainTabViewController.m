@@ -69,7 +69,7 @@
                                          //Do some thing here
                                          NSLog(@"Would have searched for prom.");
                                          [view dismissViewControllerAnimated:YES completion:nil];
-                                         SKAddPromViewController *newProm = [[SKAddPromViewController alloc] initForCreation];
+                                         PromEditor *newProm = [[PromEditor alloc] init];
                                          [newProm setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
                                          [self presentViewController:newProm animated:YES completion:nil];
                                          

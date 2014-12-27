@@ -19,6 +19,25 @@
 @dynamic theme;
 @dynamic preciseLocation;
 
++ (NSArray *)requiredKeys{
+    return @[@"locationDescription",@"schoolName"];
+}
++ (NSString *)parseClassName
+{
+    return @"Prom";
+}
+
++ (SKProm *)defaultProm{
+    SKProm *prom = [[SKProm alloc] init];
+    prom.schoolName = @"School Name";
+    prom.address = @"School address";
+    prom.locationDescription = @"Description";
+    prom.time = @"Prom Time";
+    prom.theme = @"Prom theme";
+    prom.preciseLocation = [[PFGeoPoint alloc] init];
+    return prom;
+}
+
 - (BOOL) equalTo:(SKProm*)other
 {
     if ([self.schoolName isEqualToString:other.schoolName])
@@ -27,11 +46,6 @@
     } else{
         return NO;
     }
-}
-
-+ (NSString *)parseClassName
-{
-    return @"Prom";
 }
 
 -(NSString *)readableInfo

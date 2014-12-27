@@ -114,7 +114,6 @@ static NSDictionary *readableNames;
 
 - (IBAction)savePressed:(id)sender {
     [self saveDress:self.dress withCompletion:^(void){
-        NSLog(@"Right before segue: %@", [[PFUser currentUser] objectForKey:@"dresses"]);
         [self performSegueWithIdentifier:@"SaveDress" sender:self];
     }];
 }
@@ -170,7 +169,7 @@ static NSDictionary *readableNames;
 
 - (void) performPromAssociation:(SKProm *) prom
 {
-    [self storeDressData:self.dress];
+    [self updateTempData:self.dress];
     NSString *designer = [dressData objectForKey:@"designer"];
     NSString *styleNumber = [dressData objectForKey:@"styleNumber"];
     if(designer == NULL || styleNumber == NULL){
@@ -196,7 +195,7 @@ static NSDictionary *readableNames;
     }
 }
 
-- (void) storeDressData:(SKDress *)dress
+- (void) updateTempData:(SKDress *)dress
 {
     NSArray *cells = [self.tableView visibleCells];
     for (int i=0; i<[cells count]; i++){
@@ -244,7 +243,7 @@ static NSDictionary *readableNames;
 typedef void(^voidCompletion)(void);
 - (void) saveDress:(SKDress *)dress withCompletion:(voidCompletion)block
 {
-    [self storeDressData:dress];
+    [self updateTempData:dress];
     if(dressData[@"designer"] != nil && dressData[@"styleNumber"] != nil){
         PFUser *current = [PFUser currentUser];
         for(NSString *key in dressData){

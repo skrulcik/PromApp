@@ -18,8 +18,9 @@
 @property PFFile *image;
 @property PFGeoPoint *preciseLocation;
 
-
++ (NSArray *)requiredKeys;
 + (NSString *)parseClassName;
++ (SKProm *)defaultProm;
 - (BOOL) equalTo:(SKProm*)other;
 - (NSString *)readableInfo;
 - (BOOL) verifyDesigner:(NSString *)designer withStyle:(NSString *)styleNumber;
