@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 class PromSearchTable:UITableViewController, UISearchBarDelegate {
     var proms = [SKProm]()
     var maxObjects:Int = 10
@@ -20,45 +19,83 @@ class PromSearchTable:UITableViewController, UISearchBarDelegate {
     }
     @IBAction func newPressed(sender:AnyObject){
         NSLog("Creating new prom instance.")
-        self.performSegueWithIdentifier("NewProm", sender: self)
+        self.performSegueWithIdentifier(NewPromSegueID, sender: self)
     }
     
+    //MARK: UISearchBarDelegate
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
         searchString = searchBar.text
         searchForProms()
     }
+    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+        refreshControl?.enabled = false
+    }
     
     //MARK: Refresh Control
-    override func viewDidLoad() {
-        let reload = UIRefreshControl()
-        reload.addTarget(self, action:"searchForProms:", forControlEvents: .ValueChanged)
+    func refreshView(sender:AnyObject){
+        if proms.count == maxObjects{
+            //Table has reached search capacity
+            //Add capacity to table to load more matching schools
+            maxObjects += 10
+        }
+        //Redo search
+        searchForProms()
+    }
+    override func viewDidAppear(animated: Bool) {
+        createRefreshControl()
+    }
+    func createRefreshControl() {
+        //FIXME: try UISearchCOntroller
+        if refreshControl == nil && false{
+            refreshControl = UIRefreshControl()
+            refreshControl?.backgroundColor = SKColor.triadBlueLight()
+            let reloadFont = UIFont(name: "Palatino-Italic", size: 20)
+            let reloadColor = SKColor.white()
+            let attribs:Dictionary<NSObject, AnyObject> = [NSForegroundColorAttributeName:reloadColor]//, NSFontAttributeName:reloadFont]
+            refreshControl!.attributedTitle = NSAttributedString(string: "Loading Proms...",
+                attributes: attribs)
+            refreshControl!.addTarget(self, action: "refreshView:", forControlEvents: .ValueChanged)
+        }
     }
     
     //MARK: Queries
     func searchForProms(){
         if searchString == nil{
+            self.refreshControl?.endRefreshing()
             NSLog("Attempted to search for prom without assigning search string.")
-            return
-        }
-        NSLog("Searching for proms with string %@", searchString!)
-        let query = PFQuery(className: SKProm.parseClassName())
-        query.whereKey("schoolName", containsString: searchString!)
-        query.limit = maxObjects
-        //query.orderByAscending("preciseLocation")
-        query.findObjectsInBackgroundWithBlock({
-            (objects:Array!, error:NSError!) in
-            if objects.count != 0{
-                for object in objects{
-                    if let prom = object as? SKProm{
-                        self.proms.append(prom)
+        } else {
+            NSLog("Searching for proms with string %@", searchString!)
+            let query = PFQuery(className: SKProm.parseClassName())
+            query.cachePolicy = kPFCachePolicyCacheThenNetwork //Note: will not work with local datastore
+            query.whereKey("schoolName", containsString: searchString!)
+            query.limit = maxObjects
+            //query.orderByAscending("preciseLocation") //TODO: figure out how to look for closest proms first
+            query.findObjectsInBackgroundWithBlock({
+                (objects:Array!, error:NSError!) in
+                if objects != nil {
+                    if objects.count != 0{
+                        for object in objects{
+                            if let prom = object as? SKProm{
+                                if contains(self.proms, prom){
+                                    NSLog("Queried for same prom twice")
+                                } else {
+                                    self.proms.append(prom)
+                                }
+                            }
+                        }
+                        NSLog("Succeeded in finding %lu proms with search %@.", objects.count, self.searchString!)
+                        self.tableView.reloadData()
+                        self.refreshControl?.endRefreshing()
+                    } else {
+                        NSLog("Did not find any results for prom search %@. %@", self.searchString!)
                     }
+                } else {
+                    NSLog("Error searching descriptions for string \"%@\". %@", self.searchString!, error.description)
                 }
-                NSLog("Succeeded in finding %lu proms with search %@.", objects.count, self.searchString!)
-                self.tableView.reloadData()
-            } else {
-                NSLog("Did not find any results for prom search %@. %@", self.searchString!, error.description)
-            }
-        })
+            })
+        }
+        self.refreshControl?.endRefreshing()
     }
     
     //MARK:UITableViewDataSource
@@ -84,7 +121,51 @@ class PromSearchTable:UITableViewController, UISearchBarDelegate {
         return 0
     }
     
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        if (proms.count > 0) {
+            tableView.separatorStyle = .SingleLine
+            return 1;
+        } else {
+            //Adapted from Obj-C AppCoda tutorial
+            //TODO: Display a message when the table is empty
+            /*let messageLabel = UILabel(frame: CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height))
+            
+            messageLabel.text = "Pull down to refresh, or try a new search."
+            messageLabel.textColor = UIColor.blackColor()
+            messageLabel.numberOfLines = 0
+            messageLabel.textAlignment = .Center
+            messageLabel.font = UIFont(name: "Palatino-Italic", size: 20)
+            messageLabel.sizeToFit();
+            
+            self.tableView.backgroundView = messageLabel;
+            self.tableView.separatorStyle = .None;*/
+        }
+        return 0
+    }
     
+    //MARK: UITableViewDelegate
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if (indexPath.row < proms.count){
+            let prom = proms[indexPath.row]
+            performSegueWithIdentifier(EditPromSegueID, sender: self)
+        }else{
+            NSLog("Attempted to edit index out of bounds in prom query controller.")
+        }
+    }
+    
+    //MARK: Navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if(segue.identifier == EditPromSegueID){
+            if let promEditor = (segue.destinationViewController as? UINavigationController)?.childViewControllers[0] as? PromEditor {
+                if let indx = tableView.indexPathForSelectedRow(){
+                    if(indx.row < proms.count){
+                        tableView.deselectRowAtIndexPath(indx, animated: true)
+                        promEditor.setupWithProm(proms[indx.row])
+                    }
+                }
+            }
+        }
+    }
     
     
 }
