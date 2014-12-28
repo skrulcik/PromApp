@@ -83,6 +83,7 @@
 		D2CD3E631A4FB9F100BF0359 /* Prom.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CD3E621A4FB9F100BF0359 /* Prom.swift */; };
 		D2CD3E651A4FBB6700BF0359 /* ArrayUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CD3E641A4FBB6700BF0359 /* ArrayUtil.swift */; };
 		D2CD3E671A4FCDE200BF0359 /* ColorProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CD3E661A4FCDE200BF0359 /* ColorProfile.swift */; };
+		D2CD3E691A5062BA00BF0359 /* PromInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CD3E681A5062BA00BF0359 /* PromInfoController.swift */; };
 		D2DEBAA719B6D58E00BA0542 /* global.json in Resources */ = {isa = PBXBuildFile; fileRef = D2DEBAA319B6D58E00BA0542 /* global.json */; };
 		D2E8EB3F1A2E146500A153FA /* css in Resources */ = {isa = PBXBuildFile; fileRef = D2E8EB3B1A2E146500A153FA /* css */; };
 		D2E8EB401A2E146500A153FA /* images in Resources */ = {isa = PBXBuildFile; fileRef = D2E8EB3C1A2E146500A153FA /* images */; };
@@ -207,6 +208,7 @@
 		D2CD3E621A4FB9F100BF0359 /* Prom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Prom.swift; sourceTree = "<group>"; };
 		D2CD3E641A4FBB6700BF0359 /* ArrayUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayUtil.swift; sourceTree = "<group>"; };
 		D2CD3E661A4FCDE200BF0359 /* ColorProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorProfile.swift; sourceTree = "<group>"; };
+		D2CD3E681A5062BA00BF0359 /* PromInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PromInfoController.swift; sourceTree = "<group>"; };
 		D2DEBAA119B6D58E00BA0542 /* main.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = main.js; sourceTree = "<group>"; };
 		D2DEBAA319B6D58E00BA0542 /* global.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = global.json; sourceTree = "<group>"; };
 		D2E8EB3B1A2E146500A153FA /* css */ = {isa = PBXFileReference; lastKnownFileType = folder; path = css; sourceTree = "<group>"; };
@@ -432,6 +434,7 @@
 			children = (
 				D2A382961A4279C300D3E3B7 /* ProfileController.swift */,
 				D29FA1971A4B16890046A5BD /* PromEditorController.swift */,
+				D2CD3E681A5062BA00BF0359 /* PromInfoController.swift */,
 				D28DD0041A4F5BAE00B73582 /* PromSearchTable.swift */,
 				D2AC23231A4A257900E5EA19 /* MainTabController.swift */,
 				D2A475721963105B005C2502 /* SKAddDressViewController.h */,
@@ -666,6 +669,7 @@
 				D2BB5914198D655400431759 /* SKStringEntryCell.m in Sources */,
 				D2A475821963999E005C2502 /* SKPromFinderViewController.m in Sources */,
 				D2A4752A1962198D005C2502 /* main.m in Sources */,
+				D2CD3E691A5062BA00BF0359 /* PromInfoController.swift in Sources */,
 				D22B2B811A42B0AE0085F54E /* GlobalConstants.swift in Sources */,
 				D21034591970AC710088484B /* SKAddPromViewController.m in Sources */,
 				D2A4757719631D15005C2502 /* SKMainTabViewController.m in Sources */,

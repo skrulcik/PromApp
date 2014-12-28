@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C81f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="xrr-NT-o2p">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Login-->
@@ -103,15 +104,9 @@
                         <subviews>
                             <searchBar contentMode="redraw" placeholder="Search By Location" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7kc-0S-Rcl">
                                 <rect key="frame" x="0.0" y="64" width="320" height="44"/>
-                                <color key="barTintColor" red="1" green="0.4823529411764706" blue="0.61960784313725492" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="barTintColor" red="0.30588235289999999" green="0.67843137249999996" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="wPC-T0-ofg">
-                                <rect key="frame" x="0.0" y="108" width="320" height="411"/>
-                                <connections>
-                                    <outlet property="delegate" destination="lA3-QL-eB2" id="L5V-OQ-fHW"/>
-                                </connections>
-                            </mapView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dFT-MP-kXy">
                                 <rect key="frame" x="0.0" y="519" width="320" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -119,6 +114,12 @@
                                     <constraint firstAttribute="height" constant="50" id="sH8-pd-EL1"/>
                                 </constraints>
                             </view>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" pitchEnabled="NO" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wPC-T0-ofg">
+                                <rect key="frame" x="0.0" y="108" width="320" height="411"/>
+                                <connections>
+                                    <outlet property="delegate" destination="lA3-QL-eB2" id="L5V-OQ-fHW"/>
+                                </connections>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -139,12 +140,12 @@
                     <connections>
                         <outlet property="map" destination="wPC-T0-ofg" id="oQ8-Hx-sDe"/>
                         <outlet property="searchBar" destination="7kc-0S-Rcl" id="gp5-HK-8rB"/>
-                        <segue destination="2We-KQ-sIb" kind="modal" identifier="showPromDetail" id="1rf-N0-iFg"/>
+                        <segue destination="QjP-nM-Wwt" kind="push" id="iqa-wj-pyQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eCV-Pv-JsZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2176" y="1462"/>
+            <point key="canvasLocation" x="2252" y="666"/>
         </scene>
         <!--Proms-->
         <scene sceneID="wNw-aQ-yC4">
@@ -157,20 +158,12 @@
                         <searchBar key="tableHeaderView" contentMode="redraw" text="" placeholder="Seach by Prom Name" translucent="NO" id="fVd-MC-RRv">
                             <rect key="frame" x="0.0" y="64" width="320" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <color key="barTintColor" red="1" green="0.4823529412" blue="0.61960784310000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="barTintColor" red="0.30588235294117649" green="0.67843137254901964" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <textInputTraits key="textInputTraits"/>
                             <connections>
                                 <outlet property="delegate" destination="AG1-YC-Jqg" id="BRH-dm-F2q"/>
                             </connections>
                         </searchBar>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Wol-fQ-7gu">
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Wol-fQ-7gu" id="aZy-BM-BiN">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="AG1-YC-Jqg" id="bUA-4V-7Y9"/>
                             <outlet property="delegate" destination="AG1-YC-Jqg" id="3WU-k7-d7S"/>
@@ -193,11 +186,12 @@
                     <connections>
                         <segue destination="KZY-om-zlH" kind="modal" identifier="NewProm" id="2v2-gE-Mdm"/>
                         <segue destination="KZY-om-zlH" kind="modal" identifier="EditProm" id="wWb-Iu-D5E"/>
+                        <segue destination="QjP-nM-Wwt" kind="push" identifier="ViewPromFromList" id="NX7-gU-RLT"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="II1-Ei-3Oo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2628" y="-73"/>
+            <point key="canvasLocation" x="2675" y="-73"/>
         </scene>
         <!--Edit-->
         <scene sceneID="k61-mx-yRK">
@@ -264,6 +258,87 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HgD-F9-PNy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2252" y="-73"/>
+        </scene>
+        <!--Prom Detail-->
+        <scene sceneID="u2f-5k-dHc">
+            <objects>
+                <viewController id="QjP-nM-Wwt" customClass="PromInfoController" customModule="PromApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="eeA-Fk-V8i"/>
+                        <viewControllerLayoutGuide type="bottom" id="sJB-io-BoA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="XGz-vU-iXw">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9DG-Lq-qQ4" customClass="PFImageView">
+                                <rect key="frame" x="0.0" y="64" width="320" height="159"/>
+                                <color key="backgroundColor" red="0.30588235294117649" green="0.67843137254901964" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="159" id="YMF-S3-96v"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="School Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XRf-bP-SLe">
+                                <rect key="frame" x="16" y="184" width="288" height="39"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="39" id="Cf6-yi-qKh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <color key="textColor" red="1" green="0.99997437" blue="0.99999129769999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bmk-bF-n1z">
+                                <rect key="frame" x="16" y="236" width="288" height="167"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="167" id="fgL-hJ-TPN"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="Prom Information">
+                                        <attributes>
+                                            <font key="NSFont" size="18" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" link="YES" address="YES" calendarEvent="YES"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5a4-Lc-xTv" customClass="PillButton" customModule="PromApp" customModuleProvider="target">
+                                <rect key="frame" x="96" y="418" width="128" height="30"/>
+                                <state key="normal" title="Dresses">
+                                    <color key="titleColor" red="1" green="0.99997437000274658" blue="0.99999129772186279" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Bmk-bF-n1z" firstAttribute="trailing" secondItem="XGz-vU-iXw" secondAttribute="trailingMargin" id="3Ll-VZ-nkj"/>
+                            <constraint firstItem="5a4-Lc-xTv" firstAttribute="leading" secondItem="XGz-vU-iXw" secondAttribute="leadingMargin" constant="80" id="6Ig-ey-LxC"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="5a4-Lc-xTv" secondAttribute="trailing" constant="80" id="AvP-Ti-t5B"/>
+                            <constraint firstItem="XRf-bP-SLe" firstAttribute="leading" secondItem="XGz-vU-iXw" secondAttribute="leadingMargin" id="Cun-2S-Lp7"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="9DG-Lq-qQ4" secondAttribute="trailing" constant="-16" id="FPw-ZH-3sV"/>
+                            <constraint firstItem="9DG-Lq-qQ4" firstAttribute="top" secondItem="eeA-Fk-V8i" secondAttribute="bottom" id="Gaz-44-uJj"/>
+                            <constraint firstItem="9DG-Lq-qQ4" firstAttribute="leading" secondItem="XGz-vU-iXw" secondAttribute="leadingMargin" constant="-16" id="Jme-R8-FWJ"/>
+                            <constraint firstItem="Bmk-bF-n1z" firstAttribute="leading" secondItem="XGz-vU-iXw" secondAttribute="leadingMargin" id="O7m-1w-d3b"/>
+                            <constraint firstItem="Bmk-bF-n1z" firstAttribute="top" secondItem="9DG-Lq-qQ4" secondAttribute="bottom" constant="13" id="U8Q-md-WU5"/>
+                            <constraint firstItem="XRf-bP-SLe" firstAttribute="top" secondItem="eeA-Fk-V8i" secondAttribute="bottom" constant="120" id="ZYE-yl-sb7"/>
+                            <constraint firstItem="5a4-Lc-xTv" firstAttribute="top" secondItem="Bmk-bF-n1z" secondAttribute="bottom" constant="15" id="qtz-w8-H2F"/>
+                            <constraint firstItem="XRf-bP-SLe" firstAttribute="trailing" secondItem="XGz-vU-iXw" secondAttribute="trailingMargin" id="sxe-Uq-zl7"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Prom Detail" id="5tY-ud-ihA"/>
+                    <connections>
+                        <outlet property="dressButton" destination="5a4-Lc-xTv" id="mfj-EX-3f5"/>
+                        <outlet property="infoLabel" destination="Bmk-bF-n1z" id="Qw0-LX-4uU"/>
+                        <outlet property="nameLabel" destination="XRf-bP-SLe" id="6IL-LE-kCJ"/>
+                        <outlet property="promImage" destination="9DG-Lq-qQ4" id="Ejx-hn-aCQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ylC-AM-9HP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2675" y="660"/>
         </scene>
         <!--PromApp-->
         <scene sceneID="7dg-yT-nOi">
@@ -345,63 +420,6 @@
             </objects>
             <point key="canvasLocation" x="1574" y="1462"/>
         </scene>
-        <!--Prom Editor-->
-        <scene sceneID="9UR-o8-zyZ">
-            <objects>
-                <tableViewController id="CRO-iZ-oKd" customClass="PromEditor" customModule="PromApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="vaa-G7-JsJ">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <connections>
-                            <outlet property="dataSource" destination="CRO-iZ-oKd" id="T95-pg-MUe"/>
-                            <outlet property="delegate" destination="CRO-iZ-oKd" id="OWb-4w-atk"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="2kE-Nm-SYT">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="R1O-3J-1e1">
-                            <connections>
-                                <action selector="cancelPressed:" destination="CRO-iZ-oKd" id="Pu4-YK-jpg"/>
-                                <segue destination="qYZ-9R-ZOH" kind="unwind" unwindAction="unwindFromPromDetail:" id="YY3-MW-yIv"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="GwL-G4-sEA">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="pzc-vL-QMl">
-                                <rect key="frame" x="-23" y="-15" width="71" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Save">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="savePressed:" destination="CRO-iZ-oKd" eventType="touchUpInside" id="1lG-xT-AeF"/>
-                                </connections>
-                            </button>
-                        </barButtonItem>
-                    </navigationItem>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="KEb-bS-xEr" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="qYZ-9R-ZOH" userLabel="Exit" sceneMemberID="exit"/>
-            </objects>
-            <point key="canvasLocation" x="3252" y="2173"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="k9s-OL-UkG">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2We-KQ-sIb" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Nj9-CH-fDu">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="CRO-iZ-oKd" kind="relationship" relationship="rootViewController" id="O2f-We-C0C"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="l7R-KS-suC" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2727" y="2173"/>
-        </scene>
         <!--Add Dress View Controller-->
         <scene sceneID="V2G-2R-bCo">
             <objects>
@@ -441,7 +459,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZRa-3k-Fru" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="UZh-5H-2L0" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2710" y="666"/>
+            <point key="canvasLocation" x="2373" y="1462"/>
         </scene>
         <!--Prom Query Controller-->
         <scene sceneID="WHj-SE-vls">
@@ -492,7 +510,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Em-m9-QjV" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="v8J-VL-Y5e" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3870" y="663"/>
+            <point key="canvasLocation" x="3122" y="1465"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wef-ua-uyH">
@@ -508,7 +526,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lOE-3p-Zia" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2252" y="666"/>
+            <point key="canvasLocation" x="2016" y="1462"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Q04-uI-8Ih">
@@ -526,7 +544,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F0v-eE-XgX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3338" y="663"/>
+            <point key="canvasLocation" x="2768" y="1465"/>
         </scene>
     </scenes>
     <resources>
@@ -542,8 +560,9 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="lEq-ej-grH"/>
         <segue reference="wWb-Iu-D5E"/>
-        <segue reference="62s-3m-7gd"/>
+        <segue reference="iqa-wj-pyQ"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.25490197539329529" green="0.47843140363693237" blue="0.98823535442352295" alpha="1" colorSpace="deviceRGB"/>
 </document>

@@ -146,8 +146,7 @@ class PromSearchTable:UITableViewController, UISearchBarDelegate {
     //MARK: UITableViewDelegate
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if (indexPath.row < proms.count){
-            let prom = proms[indexPath.row]
-            performSegueWithIdentifier(EditPromSegueID, sender: self)
+            performSegueWithIdentifier(PromFromListSegueID, sender: self)
         }else{
             NSLog("Attempted to edit index out of bounds in prom query controller.")
         }
@@ -155,12 +154,12 @@ class PromSearchTable:UITableViewController, UISearchBarDelegate {
     
     //MARK: Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if(segue.identifier == EditPromSegueID){
-            if let promEditor = (segue.destinationViewController as? UINavigationController)?.childViewControllers[0] as? PromEditor {
+        if(segue.identifier == PromFromListSegueID){
+            if let promInfo = segue.destinationViewController as? PromInfoController {
                 if let indx = tableView.indexPathForSelectedRow(){
                     if(indx.row < proms.count){
                         tableView.deselectRowAtIndexPath(indx, animated: true)
-                        promEditor.setupWithProm(proms[indx.row])
+                        promInfo.promObject = proms[indx.row]
                     }
                 }
             }
