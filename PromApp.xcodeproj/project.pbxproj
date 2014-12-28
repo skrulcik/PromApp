@@ -422,6 +422,9 @@
 			isa = PBXGroup;
 			children = (
 				D2A382961A4279C300D3E3B7 /* ProfileController.swift */,
+				D29FA1971A4B16890046A5BD /* PromDetailController.swift */,
+				D28DD0041A4F5BAE00B73582 /* PromSearchTable.swift */,
+				D2AC23231A4A257900E5EA19 /* MainTabController.swift */,
 				D2A475721963105B005C2502 /* SKAddDressViewController.h */,
 				D2A475731963105B005C2502 /* SKAddDressViewController.m */,
 				D21034571970AC710088484B /* SKAddPromViewController.h */,
@@ -432,7 +435,6 @@
 				D2A4756D196262F4005C2502 /* SKLoginViewController.m */,
 				D2A4757519631D15005C2502 /* SKMainTabViewController.h */,
 				D2A4757619631D15005C2502 /* SKMainTabViewController.m */,
-				D2AC23231A4A257900E5EA19 /* MainTabController.swift */,
 				D2A4756F19626ADF005C2502 /* SKProfileViewController.h */,
 				D2A4757019626ADF005C2502 /* SKProfileViewController.m */,
 				D2C6D1651980CE62008080CD /* SKPromDetailViewController.h */,
@@ -443,8 +445,6 @@
 				D2A475811963999E005C2502 /* SKPromFinderViewController.m */,
 				D211794B198EBDAF004D254F /* SKStoreEditorTableController.h */,
 				D211794C198EBDAF004D254F /* SKStoreEditorTableController.m */,
-				D29FA1971A4B16890046A5BD /* PromDetailController.swift */,
-				D28DD0041A4F5BAE00B73582 /* PromSearchTable.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
