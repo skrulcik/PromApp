@@ -18,5 +18,7 @@
 	<string>#C7C7CC</string>
 	<key>LatzPink</key>
 	<string>#ff7094</string>
+	<key>LatzPinkAdjusted</key>
+	<string>#ff86a5</string>
 </dict>
 </plist>
