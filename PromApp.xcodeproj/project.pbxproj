@@ -36,7 +36,7 @@
 		D286BA3F196E47EE00AFC9C0 /* SKDressListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D286BA3E196E47EE00AFC9C0 /* SKDressListViewController.m */; };
 		D28DD0031A4F141C00B73582 /* StandardAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28DD0021A4F141C00B73582 /* StandardAlerts.swift */; };
 		D28DD0051A4F5BAE00B73582 /* PromSearchTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28DD0041A4F5BAE00B73582 /* PromSearchTable.swift */; };
-		D29FA1981A4B16890046A5BD /* PromDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29FA1971A4B16890046A5BD /* PromDetailController.swift */; };
+		D29FA1981A4B16890046A5BD /* PromEditorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29FA1971A4B16890046A5BD /* PromEditorController.swift */; };
 		D2A382971A4279C300D3E3B7 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A382961A4279C300D3E3B7 /* ProfileController.swift */; };
 		D2A4751E1962198D005C2502 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2A4751D1962198D005C2502 /* Foundation.framework */; };
 		D2A475201962198D005C2502 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2A4751F1962198D005C2502 /* CoreGraphics.framework */; };
@@ -142,7 +142,7 @@
 		D286BA3E196E47EE00AFC9C0 /* SKDressListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKDressListViewController.m; sourceTree = "<group>"; };
 		D28DD0021A4F141C00B73582 /* StandardAlerts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = StandardAlerts.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		D28DD0041A4F5BAE00B73582 /* PromSearchTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PromSearchTable.swift; sourceTree = "<group>"; };
-		D29FA1971A4B16890046A5BD /* PromDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = PromDetailController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		D29FA1971A4B16890046A5BD /* PromEditorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = PromEditorController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		D2A382961A4279C300D3E3B7 /* ProfileController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 		D2A4751A1962198D005C2502 /* PromApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PromApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2A4751D1962198D005C2502 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -431,7 +431,7 @@
 			isa = PBXGroup;
 			children = (
 				D2A382961A4279C300D3E3B7 /* ProfileController.swift */,
-				D29FA1971A4B16890046A5BD /* PromDetailController.swift */,
+				D29FA1971A4B16890046A5BD /* PromEditorController.swift */,
 				D28DD0041A4F5BAE00B73582 /* PromSearchTable.swift */,
 				D2AC23231A4A257900E5EA19 /* MainTabController.swift */,
 				D2A475721963105B005C2502 /* SKAddDressViewController.h */,
@@ -671,7 +671,7 @@
 				D2A4757719631D15005C2502 /* SKMainTabViewController.m in Sources */,
 				D2A4757A19632DB8005C2502 /* SKDress.m in Sources */,
 				D2BB590C198C9D8700431759 /* SKStore.m in Sources */,
-				D29FA1981A4B16890046A5BD /* PromDetailController.swift in Sources */,
+				D29FA1981A4B16890046A5BD /* PromEditorController.swift in Sources */,
 				D22E03CC1A4DFF2600F81753 /* ImageManipulation.swift in Sources */,
 				D2C890DE19D6308400458094 /* ProfileCell.swift in Sources */,
 				D2A4757D19633462005C2502 /* MBProgressHUD.m in Sources */,
