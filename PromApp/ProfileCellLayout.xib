@@ -9,7 +9,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProfileCell" id="tEf-VF-vyq" customClass="ProfileCell" customModule="PromApp" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="190"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tEf-VF-vyq" id="qN8-Mm-MIL">
                 <autoresizingMask key="autoresizingMask"/>
@@ -22,35 +22,48 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FirstName LastName" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EoB-Fi-Rjl">
-                        <rect key="frame" x="43" y="121" width="234" height="24"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                        <rect key="frame" x="23" y="121" width="274" height="34"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="# Proms - # Dresses" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tUg-KI-U6J">
-                        <rect key="frame" x="43" y="151" width="234" height="18"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <rect key="frame" x="23" y="157" width="274" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="24" id="Wc0-yZ-6F1"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="tUg-KI-U6J" firstAttribute="top" secondItem="EoB-Fi-Rjl" secondAttribute="bottom" constant="2" id="FUg-LG-Otm"/>
                     <constraint firstAttribute="centerX" secondItem="td8-3n-aPa" secondAttribute="centerX" constant="-0.5" id="HTm-UG-DDF"/>
                     <constraint firstItem="td8-3n-aPa" firstAttribute="top" secondItem="qN8-Mm-MIL" secondAttribute="topMargin" id="MxJ-rN-wOS"/>
                     <constraint firstItem="EoB-Fi-Rjl" firstAttribute="width" secondItem="tUg-KI-U6J" secondAttribute="width" id="NIY-r6-x49"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="EoB-Fi-Rjl" secondAttribute="trailing" constant="35" id="cLz-sR-CGS"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="EoB-Fi-Rjl" secondAttribute="trailing" constant="15" id="cLz-sR-CGS"/>
                     <constraint firstItem="EoB-Fi-Rjl" firstAttribute="top" secondItem="td8-3n-aPa" secondAttribute="bottom" constant="8" id="ohq-mt-EL3"/>
                     <constraint firstItem="EoB-Fi-Rjl" firstAttribute="centerX" secondItem="tUg-KI-U6J" secondAttribute="centerX" id="pdA-P3-uz0"/>
-                    <constraint firstItem="EoB-Fi-Rjl" firstAttribute="leading" secondItem="qN8-Mm-MIL" secondAttribute="leadingMargin" constant="35" id="pvJ-1B-3zB"/>
+                    <constraint firstItem="EoB-Fi-Rjl" firstAttribute="leading" secondItem="qN8-Mm-MIL" secondAttribute="leadingMargin" constant="15" id="pvJ-1B-3zB"/>
                     <constraint firstItem="tUg-KI-U6J" firstAttribute="top" secondItem="EoB-Fi-Rjl" secondAttribute="bottom" constant="5.5" id="sb2-Gh-V8U"/>
+                    <constraint firstItem="tUg-KI-U6J" firstAttribute="leading" secondItem="qN8-Mm-MIL" secondAttribute="leadingMargin" constant="15" id="u3d-LW-ezO"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="tUg-KI-U6J" secondAttribute="trailing" constant="15" id="wKr-n7-s6B"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="NIY-r6-x49"/>
+                        <exclude reference="pdA-P3-uz0"/>
+                        <exclude reference="sb2-Gh-V8U"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
             <connections>
                 <outlet property="infoLabel" destination="tUg-KI-U6J" id="Sev-ED-WQi"/>
                 <outlet property="nameLabel" destination="EoB-Fi-Rjl" id="fOm-gH-jTV"/>
                 <outlet property="profPic" destination="td8-3n-aPa" id="tx2-3F-ShV"/>
             </connections>
-            <point key="canvasLocation" x="473" y="518"/>
+            <point key="canvasLocation" x="473" y="517"/>
         </tableViewCell>
     </objects>
     <resources>

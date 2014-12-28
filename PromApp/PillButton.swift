@@ -9,7 +9,7 @@
 import Foundation
 
 class PillButton: UIButton {
-    var fillColor:UIColor = SKColor.pink()
+    var fillColor:UIColor = SKColor.pillButton()
     override func drawRect(rect: CGRect) {
         let rounded = UIBezierPath(roundedRect: rect, cornerRadius: rect.height/2)
         fillColor.setFill()
@@ -35,6 +35,7 @@ class AddImagePill:PillButton {
     var stroke:Int = 3
     var foreground:UIColor = SKColor.white()
     override func drawRect(rect: CGRect) {
+        fillColor = SKColor.addImageButton()
         super.drawRect(rect)
         let tvert = CGRect(x: Int(rect.midX)-stroke/2, y: (Int(rect.minY)*1+Int(rect.midY))/2,
             width: stroke, height: Int(rect.height)-((Int(rect.minY)*1+Int(rect.midY))/2 * 2))
