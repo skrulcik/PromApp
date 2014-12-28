@@ -27,6 +27,22 @@ class Prom:PFObject, PFSubclassing{
     class func requiredKeys() -> Array<String>{
         return ["locationDescription","schoolName"]
     }
+    class func editableKeys() -> Array<String>{
+        return ["image",
+                "schoolName",
+                "address",
+                "locationDescription",
+                "theme",
+                "time"]
+    }
+    class func readableNamesForKeys() -> Dictionary<String, String>{
+        return ["image":"",
+                "schoolName":"School Name",
+                "address":"School Address",
+                "locationDescription":"Prom Venue",
+                "theme":"Theme",
+                "time":"Time"]
+    }
     
     //MARK: Dress Verification
     /* Checks with server to ensure this dress has not been registered for this prom yet */
