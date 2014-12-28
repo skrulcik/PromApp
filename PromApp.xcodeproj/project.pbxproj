@@ -80,6 +80,9 @@
 		D2C6D1671980CE62008080CD /* SKPromDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2C6D1661980CE62008080CD /* SKPromDetailViewController.m */; };
 		D2C890DE19D6308400458094 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C890DD19D6308400458094 /* ProfileCell.swift */; };
 		D2C890E119D68E7C00458094 /* ProfileCellLayout.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2C890E019D68E7C00458094 /* ProfileCellLayout.xib */; };
+		D2CD3E631A4FB9F100BF0359 /* Prom.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CD3E621A4FB9F100BF0359 /* Prom.swift */; };
+		D2CD3E651A4FBB6700BF0359 /* ArrayUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CD3E641A4FBB6700BF0359 /* ArrayUtil.swift */; };
+		D2CD3E671A4FCDE200BF0359 /* ColorProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CD3E661A4FCDE200BF0359 /* ColorProfile.swift */; };
 		D2DEBAA719B6D58E00BA0542 /* global.json in Resources */ = {isa = PBXBuildFile; fileRef = D2DEBAA319B6D58E00BA0542 /* global.json */; };
 		D2E8EB3F1A2E146500A153FA /* css in Resources */ = {isa = PBXBuildFile; fileRef = D2E8EB3B1A2E146500A153FA /* css */; };
 		D2E8EB401A2E146500A153FA /* images in Resources */ = {isa = PBXBuildFile; fileRef = D2E8EB3C1A2E146500A153FA /* images */; };
@@ -201,6 +204,9 @@
 		D2C890DD19D6308400458094 /* ProfileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
 		D2C890DF19D656F200458094 /* PromApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PromApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		D2C890E019D68E7C00458094 /* ProfileCellLayout.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileCellLayout.xib; sourceTree = "<group>"; };
+		D2CD3E621A4FB9F100BF0359 /* Prom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Prom.swift; sourceTree = "<group>"; };
+		D2CD3E641A4FBB6700BF0359 /* ArrayUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayUtil.swift; sourceTree = "<group>"; };
+		D2CD3E661A4FCDE200BF0359 /* ColorProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorProfile.swift; sourceTree = "<group>"; };
 		D2DEBAA119B6D58E00BA0542 /* main.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = main.js; sourceTree = "<group>"; };
 		D2DEBAA319B6D58E00BA0542 /* global.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = global.json; sourceTree = "<group>"; };
 		D2E8EB3B1A2E146500A153FA /* css */ = {isa = PBXFileReference; lastKnownFileType = folder; path = css; sourceTree = "<group>"; };
@@ -285,6 +291,8 @@
 				D22E03CB1A4DFF2600F81753 /* ImageManipulation.swift */,
 				D22E03CE1A4E862600F81753 /* StringManipulation.swift */,
 				D28DD0021A4F141C00B73582 /* StandardAlerts.swift */,
+				D2CD3E641A4FBB6700BF0359 /* ArrayUtil.swift */,
+				D2CD3E661A4FCDE200BF0359 /* ColorProfile.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -414,6 +422,7 @@
 				D2C6D15B1980600E008080CD /* SKPromAnnotation.m */,
 				D2BB590A198C9D8700431759 /* SKStore.h */,
 				D2BB590B198C9D8700431759 /* SKStore.m */,
+				D2CD3E621A4FB9F100BF0359 /* Prom.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -632,12 +641,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2C6D1671980CE62008080CD /* SKPromDetailViewController.m in Sources */,
+				D2CD3E671A4FCDE200BF0359 /* ColorProfile.swift in Sources */,
 				D286BA3F196E47EE00AFC9C0 /* SKDressListViewController.m in Sources */,
 				D2AC23241A4A257900E5EA19 /* MainTabController.swift in Sources */,
 				D2A4756E196262F4005C2502 /* SKLoginViewController.m in Sources */,
 				D25B4D751A490DAF00AB6B06 /* PillButton.swift in Sources */,
 				D211794D198EBDAF004D254F /* SKStoreEditorTableController.m in Sources */,
 				D2A382971A4279C300D3E3B7 /* ProfileController.swift in Sources */,
+				D2CD3E631A4FB9F100BF0359 /* Prom.swift in Sources */,
 				D23654FC19916DFF007277A6 /* SKPromQueryController.m in Sources */,
 				D2A4752E1962198D005C2502 /* SKAppDelegate.m in Sources */,
 				D2F1440E1970D24400046490 /* SKProm.m in Sources */,
@@ -645,6 +656,7 @@
 				D28DD0031A4F141C00B73582 /* StandardAlerts.swift in Sources */,
 				D2A475741963105B005C2502 /* SKAddDressViewController.m in Sources */,
 				D22E03CF1A4E862600F81753 /* StringManipulation.swift in Sources */,
+				D2CD3E651A4FBB6700BF0359 /* ArrayUtil.swift in Sources */,
 				D2A4757119626ADF005C2502 /* SKProfileViewController.m in Sources */,
 				D2C6D15C1980600E008080CD /* SKPromAnnotation.m in Sources */,
 				D2ED80FB1A2A7EB9002F4511 /* StoreAnnotation.swift in Sources */,
