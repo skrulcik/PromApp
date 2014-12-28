@@ -54,6 +54,9 @@
     self.map.delegate = self;
     self.map.showsUserLocation = YES;
     [self.map setUserTrackingMode:MKUserTrackingModeFollow animated:YES];
+    CLLocationCoordinate2D searchArea = self.locationManager.location.coordinate;
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(searchArea, 2000, 2000);
+    [self.map setRegion:[self.map regionThatFits:region] animated:YES];
 
 }
 
@@ -127,7 +130,7 @@
         } else {
             CLPlacemark *placemark = [placemarks lastObject];
             CLLocationCoordinate2D searchArea = CLLocationCoordinate2DMake(placemark.location.coordinate.latitude, placemark.location.coordinate.longitude);
-            MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(searchArea, 800, 800);
+            MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(searchArea, 2000, 2000);
             [self.map setRegion:[self.map regionThatFits:region] animated:YES];
             self.mapCenter = [[CLLocation alloc] initWithLatitude:searchArea.latitude longitude:searchArea.longitude];
             [self queryForAllPostsNearLocation:self.mapCenter withNearbyDistance:kCLLocationAccuracyBest];
