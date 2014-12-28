@@ -7,6 +7,7 @@
 //
 
 #import "SKAppDelegate.h"
+#import "PromApp-Swift.h"
 #import <Parse/Parse.h>
 #import <ParseFacebookUtils/PFFacebookUtils.h>
 
@@ -46,7 +47,7 @@
                                                             NSFontAttributeName: titlefont,
                                                             NSShadowAttributeName: shadow
                                                             }];
-    [[UITabBar appearance] setTintColor:navBarColor];
+    [[UITabBar appearance] setTintColor:[SKColor triadBlue]];
     [self.window setTintColor:navBarColor];
     return YES;
 }
