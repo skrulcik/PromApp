@@ -89,7 +89,7 @@ class SubscribedButton:RoundedRectButton{
         super.loadColors()
         fillColor = subscribed ? SKColor.SubscribedButtonSelected():SKColor.SubscribedButtonBackground()
         foreground = SKColor.SubscribedButtonForeground()
-        stroke = 4
+        stroke = 3
     }
     
     override func drawRect(rect: CGRect) {
