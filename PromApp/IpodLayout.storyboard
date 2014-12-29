@@ -312,7 +312,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="74N-3F-uzL" customClass="SubscribedButton" customModule="PromApp" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="74N-3F-uzL" userLabel="Subscription Button" customClass="SubscribedButton" customModule="PromApp" customModuleProvider="target">
                                 <rect key="frame" x="271" y="187" width="33" height="33"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="74N-3F-uzL" secondAttribute="height" multiplier="1:1" id="bXF-BT-DGP"/>

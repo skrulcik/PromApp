@@ -16,6 +16,8 @@ let dressCellNibName = "DressCell"
 let dressCellID = "DressCell"
 let profCellNibName = "ProfileCellLayout"
 let profCellID = "ProfileCell"
+let objectCellNibName = "ObjectCell"
+let objectCellID = "ObjectCell"
 
 //MARK: Keys
 let defaultName:String = "FirstName Last"
