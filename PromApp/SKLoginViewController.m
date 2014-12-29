@@ -7,7 +7,6 @@
 //
 
 #import "SKLoginViewController.h"
-#import "SKStoreEditorTableController.h"
 #import <Parse/Parse.h>
 #import <ParseFacebookUtils/PFFacebookUtils.h>
 
