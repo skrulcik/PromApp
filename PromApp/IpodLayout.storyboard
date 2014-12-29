@@ -2,8 +2,8 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C81f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="xrr-NT-o2p">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Login-->
@@ -249,6 +249,7 @@
         <scene sceneID="dF4-mE-7Dh">
             <objects>
                 <navigationController id="YaK-eG-ejD" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="aUJ-6s-Wdu"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="2gZ-Q0-tV2">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -281,7 +282,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="School Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XRf-bP-SLe">
-                                <rect key="frame" x="16" y="184" width="255" height="39"/>
+                                <rect key="frame" x="16" y="184" width="288" height="39"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="39" id="Cf6-yi-qKh"/>
                                 </constraints>
@@ -290,10 +291,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bmk-bF-n1z">
-                                <rect key="frame" x="16" y="236" width="288" height="167"/>
+                                <rect key="frame" x="16" y="236" width="288" height="150"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="167" id="fgL-hJ-TPN"/>
+                                    <constraint firstAttribute="height" constant="150" id="fgL-hJ-TPN"/>
                                 </constraints>
                                 <attributedString key="attributedText">
                                     <fragment content="Prom Information">
@@ -307,19 +308,18 @@
                                 <dataDetectorType key="dataDetectorTypes" link="YES" address="YES" calendarEvent="YES"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5a4-Lc-xTv" customClass="PillButton" customModule="PromApp" customModuleProvider="target">
-                                <rect key="frame" x="96" y="418" width="128" height="30"/>
-                                <state key="normal" title="Dresses">
+                                <rect key="frame" x="174" y="401" width="130" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="View Dresses">
                                     <color key="titleColor" red="1" green="0.99997437000274658" blue="0.99999129772186279" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="74N-3F-uzL" userLabel="Subscription Button" customClass="SubscribedButton" customModule="PromApp" customModuleProvider="target">
-                                <rect key="frame" x="271" y="187" width="33" height="33"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="74N-3F-uzL" secondAttribute="height" multiplier="1:1" id="bXF-BT-DGP"/>
-                                </constraints>
+                                <rect key="frame" x="16" y="401" width="130" height="34"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                 <state key="normal">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" red="1" green="0.99997437000274658" blue="0.99999129772186279" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="subscribePressed:" destination="QjP-nM-Wwt" eventType="touchUpInside" id="3p2-gl-SUo"/>
@@ -329,20 +329,21 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Bmk-bF-n1z" firstAttribute="trailing" secondItem="XGz-vU-iXw" secondAttribute="trailingMargin" id="3Ll-VZ-nkj"/>
-                            <constraint firstItem="5a4-Lc-xTv" firstAttribute="leading" secondItem="XGz-vU-iXw" secondAttribute="leadingMargin" constant="80" id="6Ig-ey-LxC"/>
-                            <constraint firstItem="74N-3F-uzL" firstAttribute="trailing" secondItem="XGz-vU-iXw" secondAttribute="trailingMargin" id="7gD-mD-08c"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="5a4-Lc-xTv" secondAttribute="trailing" constant="80" id="AvP-Ti-t5B"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="5a4-Lc-xTv" secondAttribute="trailing" id="AvP-Ti-t5B"/>
                             <constraint firstItem="XRf-bP-SLe" firstAttribute="leading" secondItem="XGz-vU-iXw" secondAttribute="leadingMargin" id="Cun-2S-Lp7"/>
+                            <constraint firstItem="5a4-Lc-xTv" firstAttribute="width" secondItem="XGz-vU-iXw" secondAttribute="width" multiplier="13/32" id="DXG-zs-U70"/>
                             <constraint firstAttribute="trailingMargin" secondItem="9DG-Lq-qQ4" secondAttribute="trailing" constant="-16" id="FPw-ZH-3sV"/>
+                            <constraint firstItem="74N-3F-uzL" firstAttribute="leading" secondItem="XGz-vU-iXw" secondAttribute="leadingMargin" id="FfC-qg-yWj"/>
                             <constraint firstItem="9DG-Lq-qQ4" firstAttribute="top" secondItem="eeA-Fk-V8i" secondAttribute="bottom" id="Gaz-44-uJj"/>
+                            <constraint firstItem="74N-3F-uzL" firstAttribute="top" secondItem="5a4-Lc-xTv" secondAttribute="top" id="J2r-sU-9f8"/>
                             <constraint firstItem="9DG-Lq-qQ4" firstAttribute="leading" secondItem="XGz-vU-iXw" secondAttribute="leadingMargin" constant="-16" id="Jme-R8-FWJ"/>
-                            <constraint firstItem="74N-3F-uzL" firstAttribute="leading" secondItem="XRf-bP-SLe" secondAttribute="trailing" id="MDL-j8-fPK"/>
                             <constraint firstItem="Bmk-bF-n1z" firstAttribute="leading" secondItem="XGz-vU-iXw" secondAttribute="leadingMargin" id="O7m-1w-d3b"/>
+                            <constraint firstItem="XRf-bP-SLe" firstAttribute="trailing" secondItem="XGz-vU-iXw" secondAttribute="trailingMargin" id="PY9-Q2-unK"/>
                             <constraint firstItem="Bmk-bF-n1z" firstAttribute="top" secondItem="9DG-Lq-qQ4" secondAttribute="bottom" constant="13" id="U8Q-md-WU5"/>
-                            <constraint firstItem="XRf-bP-SLe" firstAttribute="top" secondItem="74N-3F-uzL" secondAttribute="top" constant="-3" id="Wlg-Ik-5Gc"/>
                             <constraint firstItem="XRf-bP-SLe" firstAttribute="top" secondItem="eeA-Fk-V8i" secondAttribute="bottom" constant="120" id="ZYE-yl-sb7"/>
+                            <constraint firstItem="74N-3F-uzL" firstAttribute="bottom" secondItem="5a4-Lc-xTv" secondAttribute="bottom" id="pea-dV-1J4"/>
                             <constraint firstItem="5a4-Lc-xTv" firstAttribute="top" secondItem="Bmk-bF-n1z" secondAttribute="bottom" constant="15" id="qtz-w8-H2F"/>
-                            <constraint firstItem="XRf-bP-SLe" firstAttribute="bottom" secondItem="74N-3F-uzL" secondAttribute="bottom" constant="3" id="wBM-75-DRI"/>
+                            <constraint firstItem="5a4-Lc-xTv" firstAttribute="width" secondItem="74N-3F-uzL" secondAttribute="width" id="tGk-wj-nFc"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Prom Detail" id="5tY-ud-ihA"/>
@@ -356,7 +357,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ylC-AM-9HP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2675" y="660"/>
+            <point key="canvasLocation" x="2675" y="666"/>
         </scene>
         <!--PromApp-->
         <scene sceneID="7dg-yT-nOi">
