@@ -27,6 +27,7 @@
 		D23654F919916BF3007277A6 /* PromQueryTable.xib in Resources */ = {isa = PBXBuildFile; fileRef = D23654F819916BF3007277A6 /* PromQueryTable.xib */; };
 		D23654FC19916DFF007277A6 /* SKPromQueryController.m in Sources */ = {isa = PBXBuildFile; fileRef = D23654FB19916DFF007277A6 /* SKPromQueryController.m */; };
 		D246C39C1A50CA080046D95A /* UserExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = D246C39B1A50CA080046D95A /* UserExt.swift */; };
+		D246C39E1A51B5A30046D95A /* DressListForProm.swift in Sources */ = {isa = PBXBuildFile; fileRef = D246C39D1A51B5A30046D95A /* DressListForProm.swift */; };
 		D25B4D751A490DAF00AB6B06 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25B4D741A490DAF00AB6B06 /* Buttons.swift */; };
 		D2652159198E86E3000432BA /* StringEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2652158198E86E3000432BA /* StringEntryCell.xib */; };
 		D266D1621A47287B00A3C51C /* grand-hotel in Resources */ = {isa = PBXBuildFile; fileRef = D266D1601A47287B00A3C51C /* grand-hotel */; };
@@ -126,6 +127,7 @@
 		D23654FA19916DFF007277A6 /* SKPromQueryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKPromQueryController.h; sourceTree = "<group>"; };
 		D23654FB19916DFF007277A6 /* SKPromQueryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKPromQueryController.m; sourceTree = "<group>"; };
 		D246C39B1A50CA080046D95A /* UserExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserExt.swift; sourceTree = "<group>"; };
+		D246C39D1A51B5A30046D95A /* DressListForProm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DressListForProm.swift; sourceTree = "<group>"; };
 		D25B4D741A490DAF00AB6B06 /* Buttons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
 		D2652158198E86E3000432BA /* StringEntryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StringEntryCell.xib; sourceTree = "<group>"; };
 		D266D1601A47287B00A3C51C /* grand-hotel */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "grand-hotel"; sourceTree = "<group>"; };
@@ -416,6 +418,7 @@
 			isa = PBXGroup;
 			children = (
 				D2A382961A4279C300D3E3B7 /* ProfileController.swift */,
+				D246C39D1A51B5A30046D95A /* DressListForProm.swift */,
 				D29FA1971A4B16890046A5BD /* PromEditorController.swift */,
 				D2CD3E681A5062BA00BF0359 /* PromInfoController.swift */,
 				D28DD0041A4F5BAE00B73582 /* PromSearchTable.swift */,
@@ -627,6 +630,7 @@
 				D28DD0031A4F141C00B73582 /* StandardAlerts.swift in Sources */,
 				D2A475741963105B005C2502 /* SKAddDressViewController.m in Sources */,
 				D22E03CF1A4E862600F81753 /* StringManipulation.swift in Sources */,
+				D246C39E1A51B5A30046D95A /* DressListForProm.swift in Sources */,
 				D2CD3E651A4FBB6700BF0359 /* ArrayUtil.swift in Sources */,
 				D2C6D15C1980600E008080CD /* SKPromAnnotation.m in Sources */,
 				D2ED80FB1A2A7EB9002F4511 /* StoreAnnotation.swift in Sources */,

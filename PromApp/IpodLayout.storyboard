@@ -314,6 +314,9 @@
                                     <color key="titleColor" red="1" green="0.99997437000274658" blue="0.99999129772186279" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="viewDressesPresses:" destination="QjP-nM-Wwt" eventType="touchUpInside" id="pOa-C8-PJf"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="74N-3F-uzL" userLabel="Subscription Button" customClass="SubscribedButton" customModule="PromApp" customModuleProvider="target">
                                 <rect key="frame" x="16" y="401" width="130" height="34"/>
@@ -353,11 +356,31 @@
                         <outlet property="nameLabel" destination="XRf-bP-SLe" id="6IL-LE-kCJ"/>
                         <outlet property="promImage" destination="9DG-Lq-qQ4" id="Ejx-hn-aCQ"/>
                         <outlet property="subscribedButt" destination="74N-3F-uzL" id="JSC-38-5ld"/>
+                        <segue destination="fsK-VB-aYg" kind="push" identifier="ShowDressesFromProm" id="clV-bk-DOb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ylC-AM-9HP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2675" y="666"/>
+        </scene>
+        <!--Dresses-->
+        <scene sceneID="BJ2-Wu-FhL">
+            <objects>
+                <tableViewController id="fsK-VB-aYg" customClass="DressListForProm" customModule="PromApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="TFi-Jg-v8J">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <outlet property="dataSource" destination="fsK-VB-aYg" id="BJQ-bJ-Kly"/>
+                            <outlet property="delegate" destination="fsK-VB-aYg" id="eqT-a7-1qQ"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Dresses" id="D4F-Ty-jjp"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xly-nm-LKz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3122" y="666"/>
         </scene>
         <!--PromApp-->
         <scene sceneID="7dg-yT-nOi">

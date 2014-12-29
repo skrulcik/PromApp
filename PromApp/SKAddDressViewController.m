@@ -261,25 +261,26 @@ typedef void(^voidCompletion)(void);
         NSString *filename = [NSString stringWithFormat:@"%@%@Picture.jpg",dress.designer, dress.styleNumber];
         PFFile *imageFile = [PFFile fileWithName:filename data:imageData];
         dress.image = imageFile;
-        [dress.image save]; //Synchronously save dress before attempting to save dress
-        //self.dress.owner = current; //FIXME: causes recursion problems
-        
-        //If dress is not an existing dress, add it to the array
-        NSMutableArray *dresses = (NSMutableArray *)[current objectForKey:@"dresses"];
-        if(![dresses containsObject:dress]){
-            [current addObject:dress forKey:@"dresses"];
-        }
-        NSLog(@"Added dress %@ to user's list of dresses", dress);
-        [current saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
-            if(!error){
-                NSLog(@"Saved changes to dress list.");
-                block();
-            } else {
-                NSLog(@"Failed to save changes to dress list: %@", error);
-                UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"Could Not Save Dress" message:@"" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
-                [errorMessage show];
-            }
+        [dress.image saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
+            [dress saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
+                if(!error){
+                    NSLog(@"Saved changes to dress.");
+                    //If dress is not an existing dress, add it to the array
+                    NSMutableArray *dresses = (NSMutableArray *)[current objectForKey:@"dresses"];
+                    if(![dresses containsObject:dress]){
+                        [current addObject:dress forKey:@"dresses"];
+                        [current saveInBackgroundWithBlock:nil];
+                        NSLog(@"Added dress %@ to user's list of dresses", dress);
+                    }
+                    block();
+                } else {
+                    NSLog(@"Failed to save changes to dress list: %@", error);
+                    UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"Could Not Save Dress" message:@"" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+                    [errorMessage show];
+                }
+            }];
         }];
+        //self.dress.owner = current; //FIXME: causes recursion problems
     }else{
         UIAlertView *fail = [[UIAlertView alloc] initWithTitle:@"Missing Required Fields" message:@"You must enter a designer and style number." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
         [fail show];

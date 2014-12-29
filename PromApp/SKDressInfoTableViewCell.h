@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <ParseUI/ParseUI.h>
 
-@interface SKDressInfoTableViewCell : UITableViewCell
+@interface SKDressInfoTableViewCell : PFTableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *styleNumberLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *dressPicView;

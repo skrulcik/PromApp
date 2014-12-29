@@ -25,6 +25,7 @@
 - (void)awakeFromNib
 {
     // Initialization code
+    self.imageView.image = nil;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
