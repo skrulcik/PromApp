@@ -14,6 +14,7 @@ class PromSearchTable:UITableViewController, UISearchBarDelegate {
     var searchString:String?
     
     //MARK: Event Responders
+    @IBOutlet weak var search: UISearchBar!
     @IBAction func cancelPressed(sender:AnyObject){
         self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
     }
@@ -42,7 +43,11 @@ class PromSearchTable:UITableViewController, UISearchBarDelegate {
         //Redo search
         searchForProms()
     }
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidLoad() {
+        search.backgroundColor = SKColor.SearchBar()
+        tableView.backgroundColor = SKColor.TableBackground()
+    }
+    override func viewWillAppear(animated: Bool) {
         createRefreshControl()
     }
     func createRefreshControl() {

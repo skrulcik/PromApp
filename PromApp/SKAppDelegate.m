@@ -30,24 +30,19 @@
     
     //Navigation Bar
     // Set the global tint on the navigation bar
-    UIColor *navBarColor = UIColorFromRGB(0xFF7094); //UIColorFromRGB(0xFF8BE2);
-    UIColor *buttonColor = [UIColor whiteColor];
+    UIColor *navBarColor = [SKColor NavBar];//UIColorFromRGB(0xFF7094); //UIColorFromRGB(0xFF8BE2);
+    UIColor *buttonColor = [SKColor white];
 	[[UINavigationBar appearance] setTintColor:buttonColor];
     [[UINavigationBar appearance] setBarTintColor:navBarColor];
     [[UINavigationBar appearance] setTranslucent:NO];
-    //Uncomment for the script logo in the navbar
-	//[[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"PinkNav"] forBarMetrics:UIBarMetricsDefault];
-    //The following is used for custom titles (when not using image)
     NSShadow* shadow = [NSShadow new];
-    //shadow.shadowOffset = CGSizeMake(0.0f, 1.0f);
-    //shadow.shadowColor = [UIColor redColor];
     UIFont *titlefont = [UIFont fontWithName:@"Rochester" size:36.0f];
     [[UINavigationBar appearance] setTitleTextAttributes: @{
                                                             NSForegroundColorAttributeName: buttonColor,
                                                             NSFontAttributeName: titlefont,
                                                             NSShadowAttributeName: shadow
                                                             }];
-    [[UITabBar appearance] setTintColor:[SKColor triadBlue]];
+    [[UITabBar appearance] setTintColor:[SKColor TabBarHighlight]];
     [self.window setTintColor:navBarColor];
     return YES;
 }

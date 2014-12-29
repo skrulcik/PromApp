@@ -76,6 +76,7 @@ class PromEditor:UITableViewController, UITextFieldDelegate, UIImagePickerContro
         super.viewDidLoad()
         tableView.registerNib(UINib(nibName: "StringEntryCell", bundle: nil), forCellReuseIdentifier:"StringEntry")
         tableView.registerNib(UINib(nibName: "ImageEditorCell", bundle: nil), forCellReuseIdentifier:"ImageEditor")
+        tableView.backgroundColor = SKColor.GroupedTableBackground()
     }
     
     //MARK: Image Management

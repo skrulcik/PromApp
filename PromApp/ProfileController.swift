@@ -99,6 +99,7 @@ class ProfileController:UIViewController, NSURLConnectionDataDelegate, UITableVi
             self.clearData()
             self.showLoginScreen()
         }
+        self.listView.backgroundColor = SKColor.TableBackground()
     }
     override func viewWillAppear(animated: Bool) {
         updateListView()
@@ -205,9 +206,9 @@ class ProfileController:UIViewController, NSURLConnectionDataDelegate, UITableVi
         if (section == PROF_SECTION){
             return 1
         } else if (section == DRESS_SECTION){
-            return PFUser.currentUser().dresses.count
+            return PFUser.currentUser() != nil ? PFUser.currentUser().dresses.count:0
         } else if (section == PROM_SECTION){
-            return PFUser.currentUser().proms.count
+            return PFUser.currentUser() != nil ? PFUser.currentUser().proms.count:0
         }
         return 0
     }
@@ -225,7 +226,9 @@ class ProfileController:UIViewController, NSURLConnectionDataDelegate, UITableVi
                     // Display name
                     cell.nameLabel.text = profName
                     // Display data information
-                    cell.setInfoLabel(PFUser.currentUser().proms.count, dressCount: PFUser.currentUser().dresses.count)
+                    if let user = PFUser.currentUser() {
+                        cell.setInfoLabel(user.proms.count, dressCount: user.dresses.count)
+                    }
                     return cell
             }
             case DRESS_SECTION:
@@ -310,11 +313,13 @@ class ProfileController:UIViewController, NSURLConnectionDataDelegate, UITableVi
         if(segue.identifier == EditDressSegue){
             if let dressController = (segue.destinationViewController as? UINavigationController)?.childViewControllers[0] as? SKAddDressViewController {
                 if let indx = listView.indexPathForSelectedRow(){
-                    let dressList = PFUser.currentUser().dresses
-                    if(indx.row < dressList.count){
-                        self.listView.deselectRowAtIndexPath(indx, animated: true)
-                        let dress = dressList[indx.row]
-                        dressController.setupWithDress(dress)
+                    if PFUser.currentUser() != nil{
+                        let dressList = PFUser.currentUser().dresses
+                        if(indx.row < dressList.count){
+                            self.listView.deselectRowAtIndexPath(indx, animated: true)
+                            let dress = dressList[indx.row]
+                            dressController.setupWithDress(dress)
+                        }
                     }
                 }
             }

@@ -105,7 +105,7 @@
                         <subviews>
                             <searchBar contentMode="redraw" placeholder="Search By Location" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7kc-0S-Rcl">
                                 <rect key="frame" x="0.0" y="64" width="320" height="44"/>
-                                <color key="barTintColor" red="0.30588235289999999" green="0.67843137249999996" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="barTintColor" red="1" green="0.43921568630000002" blue="0.58039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dFT-MP-kXy">
@@ -141,7 +141,7 @@
                     <connections>
                         <outlet property="map" destination="wPC-T0-ofg" id="oQ8-Hx-sDe"/>
                         <outlet property="searchBar" destination="7kc-0S-Rcl" id="gp5-HK-8rB"/>
-                        <segue destination="QjP-nM-Wwt" kind="push" id="iqa-wj-pyQ"/>
+                        <segue destination="QjP-nM-Wwt" kind="push" identifier="ViewPromFromMap" id="iqa-wj-pyQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eCV-Pv-JsZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -159,7 +159,7 @@
                         <searchBar key="tableHeaderView" contentMode="redraw" text="" placeholder="Seach by Prom Name" translucent="NO" id="fVd-MC-RRv">
                             <rect key="frame" x="0.0" y="64" width="320" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <color key="barTintColor" red="0.30588235294117649" green="0.67843137254901964" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="barTintColor" red="1" green="0.4392156862745098" blue="0.58039215686274515" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <textInputTraits key="textInputTraits"/>
                             <connections>
                                 <outlet property="delegate" destination="AG1-YC-Jqg" id="BRH-dm-F2q"/>
@@ -185,6 +185,7 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="search" destination="fVd-MC-RRv" id="0PD-0E-u4d"/>
                         <segue destination="KZY-om-zlH" kind="modal" identifier="NewProm" id="2v2-gE-Mdm"/>
                         <segue destination="KZY-om-zlH" kind="modal" identifier="EditProm" id="wWb-Iu-D5E"/>
                         <segue destination="QjP-nM-Wwt" kind="push" identifier="ViewPromFromList" id="NX7-gU-RLT"/>
@@ -194,7 +195,7 @@
             </objects>
             <point key="canvasLocation" x="2675" y="-73"/>
         </scene>
-        <!--Edit-->
+        <!--New Prom-->
         <scene sceneID="k61-mx-yRK">
             <objects>
                 <tableViewController id="z3H-oy-8bo" customClass="PromEditor" customModule="PromApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -207,7 +208,7 @@
                             <outlet property="delegate" destination="z3H-oy-8bo" id="DZy-tz-2Hn"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Edit" id="C9N-L2-tsE">
+                    <navigationItem key="navigationItem" title="New Prom" id="C9N-L2-tsE">
                         <barButtonItem key="leftBarButtonItem" title="Item" systemItem="cancel" id="lCJ-1z-aXB">
                             <connections>
                                 <action selector="cancelPressed:" destination="z3H-oy-8bo" id="ovq-WR-q9c"/>
@@ -495,14 +496,6 @@
                                 <outlet property="delegate" destination="w1j-pf-Ogu" id="5U7-l6-9vh"/>
                             </connections>
                         </searchBar>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="f8b-DJ-768">
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="f8b-DJ-768" id="GbX-Zg-cJT">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="w1j-pf-Ogu" id="dck-2a-ac8"/>
                             <outlet property="delegate" destination="w1j-pf-Ogu" id="PuH-Or-IKO"/>
@@ -577,9 +570,9 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="lEq-ej-grH"/>
         <segue reference="wWb-Iu-D5E"/>
-        <segue reference="NX7-gU-RLT"/>
+        <segue reference="iqa-wj-pyQ"/>
+        <segue reference="62s-3m-7gd"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.25490197539329529" green="0.47843140363693237" blue="0.98823535442352295" alpha="1" colorSpace="deviceRGB"/>
 </document>

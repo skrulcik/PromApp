@@ -15,6 +15,7 @@
 #import "SKPromQueryController.h"
 #import "SKStore.h"
 #import "SKStringEntryCell.h"
+#import "PromApp-Swift.h"
 
 
 
@@ -85,6 +86,7 @@ static NSDictionary *readableNames;
     
     [self.tableView registerNib:[UINib nibWithNibName:@"StringEntryCell" bundle:nil] forCellReuseIdentifier:@"StringEntry"];
     [self.tableView registerNib:[UINib nibWithNibName:@"ImageEditorCell" bundle:nil] forCellReuseIdentifier:@"ImageEditor"];
+    [self.tableView setBackgroundColor:[SKColor GroupedTableBackground]];
 }
 
 - (void)didReceiveMemoryWarning

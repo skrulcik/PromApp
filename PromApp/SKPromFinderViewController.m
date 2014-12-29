@@ -49,6 +49,7 @@
     [self.locationManager startUpdatingLocation];
     //Set search bar delegate
     self.searchBar.delegate = self;
+    self.searchBar.backgroundColor = [SKColor SearchBar];
     //Set map to show location and to continuously track
     self.map.delegate = self;
     self.map.showsUserLocation = YES;
@@ -67,6 +68,7 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
     if(self.locationManager.location.coordinate.latitude !=0){
         self.mapCenter = self.locationManager.location;
     }
