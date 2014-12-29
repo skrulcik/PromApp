@@ -26,7 +26,6 @@ class PromInfoController:UIViewController {
     }
     
     @IBAction func subscribePressed(sender: AnyObject) {
-        NSLog("Subscribe Button Pressed")
         if promObject != nil {
             let user = PFUser.currentUser()
             if user.isFollowingProm(promObject!){
@@ -35,21 +34,27 @@ class PromInfoController:UIViewController {
                 let unfollow = UIAlertAction(title: "Un-follow", style: .Default, handler: {
                     (alertAction:UIAlertAction!) in
                     //User wants to unsubscribe
-                    if self.promObject != nil {
-                        user.removeObject(self.promObject!, forKey: "proms")
-                        self.updateButtonState()
-                        user.saveInBackgroundWithBlock(nil)
-                    }
+                    NSLog("User unsubscribing from prom. %@", self.promObject!.objectId)
+                    user.removeObject(self.promObject!, forKey: "proms")
+                    self.updateButtonState()
+                    user.saveInBackgroundWithBlock(nil)
                 })
                 askDialog.addAction(cancel)
                 askDialog.addAction(unfollow)
                 presentViewController(askDialog, animated: true, completion: nil)
             } else {
                 //User has not subscribed, so subscribe them
+                NSLog("User subscribing to prom. %@", self.promObject!.objectId)
                 user.addObject(self.promObject!, forKey: "proms")
                 user.saveInBackgroundWithBlock(nil)
                 updateButtonState()
             }
+        }
+    }
+    
+    @IBAction func viewDressesPresses(sender: AnyObject) {
+        if promObject != nil {
+            performSegueWithIdentifier(DressesFromPromID, sender: self)
         }
     }
     
@@ -88,5 +93,14 @@ class PromInfoController:UIViewController {
         infoLabel.text = infoString
         infoLabel.font = UIFont.systemFontOfSize(smallFontSize)
         updateButtonState()//check if user subscribed
+    }
+    
+    //MARK: Navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == DressesFromPromID{
+            if let dressListView = segue.destinationViewController as? DressListForProm{
+                dressListView.prom = self.promObject
+            }
+        }
     }
 }

@@ -19,7 +19,7 @@ let profCellID = "ProfileCell"
 let objectCellNibName = "ObjectCell"
 let objectCellID = "ObjectCell"
 
-//MARK: Keys
+//MARK: Keys - will be replaced when Swift model is implemented
 let defaultName:String = "FirstName Last"
 let dressKey:String = "dresses"
 let promKey:String = "proms"
@@ -27,6 +27,12 @@ let nameKey:NSString = NSString(string: "name")
 let userDataKey:String = "profile"
 let picURLKey:NSString = NSString(string:"pictureURL")
 let fbIDKey:String = "id"
+let Prom_dressKey = "dresses"
+let Dress_desingerKey = "designer"
+let Dress_styleNumKey = "styleNumber"
+let Dress_promKey = "prom"
+let Dress_colorKey = "color"
+let Dress_imageKey = "image"
 
 //MARK: Images
 let MAX_IMG_WIDTH = 400
@@ -43,4 +49,12 @@ let NewPromSegueID = "NewProm"
 let PromFromListSegueID = "ViewPromFromList"
 let PromFromMapSegueID = "ViewPromFromMap"
 let PromFromProfileID = "ViewPromFromProfile"
+let DressesFromPromID = "ShowDressesFromProm"
+
+//MARK: Queries
+let arbitraryHighLimit = 3000
+//Searchable tables will load a few, and incrementally more when user taps "load more"
+let searchLimit = 10
+let searchIncrement = 10
+let stdQueryLimit = 25
 
