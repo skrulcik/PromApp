@@ -24,6 +24,14 @@
     return @"Dress";
 }
 
+- (BOOL) isSimilar:(SKDress *)dress {
+    if(dress == nil){
+        return NO;
+    }
+    return [self.designer isEqualToString:dress.designer] &&
+            [self.styleNumber isEqualToString:dress.styleNumber];
+}
+
 /*- (id)init
 {
     return [super initWithClassName:self.parseClassName];
