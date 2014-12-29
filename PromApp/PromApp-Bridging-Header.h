@@ -12,7 +12,6 @@
 #import <Parse/Parse.h>
 #import "SKAddDressViewController.h"
 #import "SKDressListViewController.h"
-#import "SKPromTableViewCell.h"
 #import "SKImageEditorCell.h"
 #import "SKStringEntryCell.h"
 #import "SKDressInfoTableViewCell.h"

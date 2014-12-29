@@ -11,7 +11,6 @@
 #import "SKAddPromViewController.h"
 #import "SKImageEditorCell.h"
 #import "SKStringEntryCell.h"
-#import "SKMainTabViewController.h"
 #import "SKPromQueryController.h"
 
 
