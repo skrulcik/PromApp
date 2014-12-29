@@ -195,7 +195,19 @@ class ProfileController:UIViewController, NSURLConnectionDataDelegate, UITableVi
                     }
                 }
             }
+        } else if (indexPath.section == PROM_SECTION){
+            //Is a prom cell
+            if PFUser.currentUser() != nil{
+                let dresses = PFUser.currentUser().dresses
+                if(indexPath.row < dresses.count){
+                    performSegueWithIdentifier(PromFromProfileID, sender: self)
+                } else {
+                    println("Tried to edit non-existant Prom.")
+                }
+
+            }
         }
+        listView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
     //MARK: UITableViewDataSource
@@ -320,6 +332,15 @@ class ProfileController:UIViewController, NSURLConnectionDataDelegate, UITableVi
                             let dress = dressList[indx.row]
                             dressController.setupWithDress(dress)
                         }
+                    }
+                }
+            }
+        } else if(segue.identifier == PromFromProfileID){
+            if let promInfo = segue.destinationViewController as? PromInfoController {
+                if let indx = listView.indexPathForSelectedRow(){
+                    if(PFUser.currentUser() != nil &&
+                        indx.row < PFUser.currentUser().proms.count){
+                        promInfo.promObject = PFUser.currentUser().proms[indx.row]
                     }
                 }
             }

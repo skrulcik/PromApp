@@ -164,24 +164,19 @@
 			NSMutableArray *newProms = [[NSMutableArray alloc] initWithCapacity:QUERY_LIMIT];   //Proms that are not being displayed
 			NSMutableArray *allNewProms = [[NSMutableArray alloc] initWithCapacity:QUERY_LIMIT];//All proms returned by the query
 			for (PFObject *object in objects) {
-				SKProm *newProm = [[SKProm alloc] init];
-                newProm.schoolName = [object objectForKey:@"schoolName"];
-                newProm.address = [object objectForKey:@"address"];
-                newProm.locationDescription = [object objectForKey:@"locationDescription"];
-                newProm.time = [object objectForKey:@"time"];
-                newProm.theme = [object objectForKey:@"theme"];
-                newProm.preciseLocation = [object objectForKey:@"preciseLocation"];
-                //NSLog(@"Prom Info:%@",newProm.readableInfo);
-				[allNewProms addObject:newProm];
-				BOOL found = NO;
-				for (SKProm *existingProm in self.promsToDisplay) {
-					if ([newProm equalTo:existingProm]) {
-						found = YES;
-					}
-				}
-				if (!found) {
-					[newProms addObject:newProm];
-				}
+				SKProm *newProm = (SKProm *)object;
+                if([newProm objectForKey:@"schoolName"] != nil){
+                    [allNewProms addObject:newProm];
+                    BOOL found = NO;
+                    for (SKProm *existingProm in self.promsToDisplay) {
+                        if ([newProm equalTo:existingProm]) {
+                            found = YES;
+                        }
+                    }
+                    if (!found) {
+                        [newProms addObject:newProm];
+                    }
+                }
 			}
             
 			// 2. Find posts in promsToDisplay that didn't make the cut.

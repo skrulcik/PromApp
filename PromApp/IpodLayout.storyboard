@@ -433,6 +433,7 @@
                     <connections>
                         <outlet property="listView" destination="HQU-Ma-3YK" id="uyv-Jz-E6O"/>
                         <segue destination="LVU-Dx-8u5" kind="modal" identifier="EditDress" modalTransitionStyle="flipHorizontal" id="62s-3m-7gd"/>
+                        <segue destination="QjP-nM-Wwt" kind="push" identifier="ViewPromFromProfile" id="Oof-tK-LtR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Evx-Yx-TZo" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -571,9 +572,9 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="wWb-Iu-D5E"/>
-        <segue reference="iqa-wj-pyQ"/>
         <segue reference="62s-3m-7gd"/>
+        <segue reference="NX7-gU-RLT"/>
+        <segue reference="wWb-Iu-D5E"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.25490197539329529" green="0.47843140363693237" blue="0.98823535442352295" alpha="1" colorSpace="deviceRGB"/>
 </document>
