@@ -22,5 +22,6 @@
 @property PFFile *image;
 
 + (NSString *)parseClassName;
+- (BOOL) isSimilar:(SKDress *)dress;
 
 @end
