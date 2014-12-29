@@ -26,14 +26,7 @@ extension PFUser{
     
     
     func isFollowingProm(prom:SKProm)->Bool{
-        //return contains(proms as Array<PFObject>, prom as PFObject)
-        //FIXME: The following is a temporary patch until SKPromFinder is permanently replaced
-        for existing in proms{
-            if existing.equalTo(prom) {
-                return true
-            }
-        }
-        return false
+        return contains(proms as Array<PFObject>, prom as PFObject)
     }
     func hasSpecificDress(dress:SKDress)->Bool{
         let obj = dress as PFObject //PFObjects are definitely Equatable (necessary for contains)
