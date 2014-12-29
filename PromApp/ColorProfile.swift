@@ -58,4 +58,13 @@ class SKColor:UIColor
     class func searchBar()->UIColor{
         return triadBlue()
     }
+    class func SubscribedButtonBackground()->UIColor{
+        return UIColor.grayColor()
+    }
+    class func SubscribedButtonForeground()->UIColor{
+        return white()
+    }
+    class func SubscribedButtonSelected()->UIColor{
+        return pink()
+    }
 }
