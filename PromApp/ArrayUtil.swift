@@ -9,7 +9,11 @@
 extension PFObject {
     public override func isEqual(object: AnyObject?) -> Bool {
         if let pfobject = object as? PFObject{
-            return (self.objectId == pfobject.objectId)
+            //Ensure object is not null
+            if let pfobjectId = pfobject.objectId{
+                //objectId may be null if not yet saved
+                return (self.objectId != nil && self.objectId == pfobjectId)
+            }
         }
         return false
     }
