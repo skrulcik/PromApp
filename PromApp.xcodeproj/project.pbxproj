@@ -28,6 +28,12 @@
 		D23654FC19916DFF007277A6 /* SKPromQueryController.m in Sources */ = {isa = PBXBuildFile; fileRef = D23654FB19916DFF007277A6 /* SKPromQueryController.m */; };
 		D246C39C1A50CA080046D95A /* UserExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = D246C39B1A50CA080046D95A /* UserExt.swift */; };
 		D246C39E1A51B5A30046D95A /* DressListForProm.swift in Sources */ = {isa = PBXBuildFile; fileRef = D246C39D1A51B5A30046D95A /* DressListForProm.swift */; };
+		D246C3A31A51E0EB0046D95A /* css in Resources */ = {isa = PBXBuildFile; fileRef = D246C39F1A51E0EB0046D95A /* css */; };
+		D246C3A41A51E0EB0046D95A /* images in Resources */ = {isa = PBXBuildFile; fileRef = D246C3A01A51E0EB0046D95A /* images */; };
+		D246C3A51A51E0EB0046D95A /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = D246C3A11A51E0EB0046D95A /* index.html */; };
+		D246C3A61A51E0EB0046D95A /* js in Resources */ = {isa = PBXBuildFile; fileRef = D246C3A21A51E0EB0046D95A /* js */; };
+		D246C3AA1A51E60B0046D95A /* support.html in Resources */ = {isa = PBXBuildFile; fileRef = D246C3A91A51E60B0046D95A /* support.html */; };
+		D246C3AC1A51F56E0046D95A /* promapp.css in Resources */ = {isa = PBXBuildFile; fileRef = D246C3AB1A51F56E0046D95A /* promapp.css */; };
 		D25B4D751A490DAF00AB6B06 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25B4D741A490DAF00AB6B06 /* Buttons.swift */; };
 		D2652159198E86E3000432BA /* StringEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2652158198E86E3000432BA /* StringEntryCell.xib */; };
 		D266D1621A47287B00A3C51C /* grand-hotel in Resources */ = {isa = PBXBuildFile; fileRef = D266D1601A47287B00A3C51C /* grand-hotel */; };
@@ -81,10 +87,6 @@
 		D2CD3E6D1A50A93600BF0359 /* ObjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CD3E6C1A50A93600BF0359 /* ObjectCell.swift */; };
 		D2CD3E6F1A50A9D500BF0359 /* ObjectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2CD3E6E1A50A9D500BF0359 /* ObjectCell.xib */; };
 		D2DEBAA719B6D58E00BA0542 /* global.json in Resources */ = {isa = PBXBuildFile; fileRef = D2DEBAA319B6D58E00BA0542 /* global.json */; };
-		D2E8EB3F1A2E146500A153FA /* css in Resources */ = {isa = PBXBuildFile; fileRef = D2E8EB3B1A2E146500A153FA /* css */; };
-		D2E8EB401A2E146500A153FA /* images in Resources */ = {isa = PBXBuildFile; fileRef = D2E8EB3C1A2E146500A153FA /* images */; };
-		D2E8EB411A2E146500A153FA /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = D2E8EB3D1A2E146500A153FA /* index.html */; };
-		D2E8EB421A2E146500A153FA /* js in Resources */ = {isa = PBXBuildFile; fileRef = D2E8EB3E1A2E146500A153FA /* js */; };
 		D2ED80FB1A2A7EB9002F4511 /* StoreAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ED80FA1A2A7EB9002F4511 /* StoreAnnotation.swift */; };
 		D2EF94051A17D8F00093CD4C /* SignPainter.otf in Resources */ = {isa = PBXBuildFile; fileRef = D2EF94041A17D8F00093CD4C /* SignPainter.otf */; };
 		D2F1440E1970D24400046490 /* SKProm.m in Sources */ = {isa = PBXBuildFile; fileRef = D2F1440D1970D24400046490 /* SKProm.m */; };
@@ -128,6 +130,12 @@
 		D23654FB19916DFF007277A6 /* SKPromQueryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKPromQueryController.m; sourceTree = "<group>"; };
 		D246C39B1A50CA080046D95A /* UserExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserExt.swift; sourceTree = "<group>"; };
 		D246C39D1A51B5A30046D95A /* DressListForProm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DressListForProm.swift; sourceTree = "<group>"; };
+		D246C39F1A51E0EB0046D95A /* css */ = {isa = PBXFileReference; lastKnownFileType = folder; path = css; sourceTree = "<group>"; };
+		D246C3A01A51E0EB0046D95A /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = images; sourceTree = "<group>"; };
+		D246C3A11A51E0EB0046D95A /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
+		D246C3A21A51E0EB0046D95A /* js */ = {isa = PBXFileReference; lastKnownFileType = folder; path = js; sourceTree = "<group>"; };
+		D246C3A91A51E60B0046D95A /* support.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = support.html; sourceTree = "<group>"; };
+		D246C3AB1A51F56E0046D95A /* promapp.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = promapp.css; path = PromCloudCode/public/css/promapp.css; sourceTree = "<group>"; };
 		D25B4D741A490DAF00AB6B06 /* Buttons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
 		D2652158198E86E3000432BA /* StringEntryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StringEntryCell.xib; sourceTree = "<group>"; };
 		D266D1601A47287B00A3C51C /* grand-hotel */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "grand-hotel"; sourceTree = "<group>"; };
@@ -196,10 +204,6 @@
 		D2CD3E6E1A50A9D500BF0359 /* ObjectCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ObjectCell.xib; sourceTree = "<group>"; };
 		D2DEBAA119B6D58E00BA0542 /* main.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = main.js; sourceTree = "<group>"; };
 		D2DEBAA319B6D58E00BA0542 /* global.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = global.json; sourceTree = "<group>"; };
-		D2E8EB3B1A2E146500A153FA /* css */ = {isa = PBXFileReference; lastKnownFileType = folder; path = css; sourceTree = "<group>"; };
-		D2E8EB3C1A2E146500A153FA /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = images; sourceTree = "<group>"; };
-		D2E8EB3D1A2E146500A153FA /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
-		D2E8EB3E1A2E146500A153FA /* js */ = {isa = PBXFileReference; lastKnownFileType = folder; path = js; sourceTree = "<group>"; };
 		D2ED80FA1A2A7EB9002F4511 /* StoreAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreAnnotation.swift; sourceTree = "<group>"; };
 		D2EF94041A17D8F00093CD4C /* SignPainter.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SignPainter.otf; sourceTree = "<group>"; };
 		D2F1440C1970D24400046490 /* SKProm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKProm.h; sourceTree = "<group>"; };
@@ -295,6 +299,7 @@
 		D2A475111962198D005C2502 = {
 			isa = PBXGroup;
 			children = (
+				D246C3AB1A51F56E0046D95A /* promapp.css */,
 				D2F639B01A17ECA50026A3D8 /* LaunchScreen.xib */,
 				D2DEBA9F19B6D58E00BA0542 /* PromCloudCode */,
 				D2A475231962198D005C2502 /* PromApp */,
@@ -482,10 +487,11 @@
 		D2DEBAA419B6D58E00BA0542 /* public */ = {
 			isa = PBXGroup;
 			children = (
-				D2E8EB3B1A2E146500A153FA /* css */,
-				D2E8EB3C1A2E146500A153FA /* images */,
-				D2E8EB3D1A2E146500A153FA /* index.html */,
-				D2E8EB3E1A2E146500A153FA /* js */,
+				D246C3A91A51E60B0046D95A /* support.html */,
+				D246C39F1A51E0EB0046D95A /* css */,
+				D246C3A01A51E0EB0046D95A /* images */,
+				D246C3A11A51E0EB0046D95A /* index.html */,
+				D246C3A21A51E0EB0046D95A /* js */,
 			);
 			path = public;
 			sourceTree = "<group>";
@@ -574,29 +580,31 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2E8EB421A2E146500A153FA /* js in Resources */,
+				D246C3A61A51E0EB0046D95A /* js in Resources */,
 				D2A4754F19624264005C2502 /* IpodLayout.storyboard in Resources */,
 				D2BB590F198CA89600431759 /* EditStore.xib in Resources */,
 				D2CD3E6F1A50A9D500BF0359 /* ObjectCell.xib in Resources */,
 				D2A475281962198D005C2502 /* InfoPlist.strings in Resources */,
 				D20DA6B1198B537300C1B225 /* EditUser.xib in Resources */,
 				D2F639B11A17ECA50026A3D8 /* LaunchScreen.xib in Resources */,
-				D2E8EB3F1A2E146500A153FA /* css in Resources */,
+				D246C3AC1A51F56E0046D95A /* promapp.css in Resources */,
+				D246C3A31A51E0EB0046D95A /* css in Resources */,
 				D2DEBAA719B6D58E00BA0542 /* global.json in Resources */,
 				D2C890E119D68E7C00458094 /* ProfileCellLayout.xib in Resources */,
 				D2117951198EE1F0004D254F /* ImageEditorCell.xib in Resources */,
 				D2C2473D19F2CDA5007F2AF9 /* EditProm.xib in Resources */,
+				D246C3AA1A51E60B0046D95A /* support.html in Resources */,
 				D2A475301962198D005C2502 /* Images.xcassets in Resources */,
 				D2652159198E86E3000432BA /* StringEntryCell.xib in Resources */,
 				D2EF94051A17D8F00093CD4C /* SignPainter.otf in Resources */,
 				D2103456196F9EF70088484B /* DressCell.xib in Resources */,
 				D266D1621A47287B00A3C51C /* grand-hotel in Resources */,
-				D2E8EB401A2E146500A153FA /* images in Resources */,
 				D2074E3E198F3B5E0048E28E /* EditDress.xib in Resources */,
+				D246C3A41A51E0EB0046D95A /* images in Resources */,
 				D26C88C919C575C5002B52A8 /* Tester.xib in Resources */,
 				D2F639AF1A17E5FC0026A3D8 /* pinyon-script.ttf in Resources */,
-				D2E8EB411A2E146500A153FA /* index.html in Resources */,
 				D20DA6AF198B311200C1B225 /* ColorText.plist in Resources */,
+				D246C3A51A51E0EB0046D95A /* index.html in Resources */,
 				D266D1631A47287B00A3C51C /* rochester in Resources */,
 				D23654F919916BF3007277A6 /* PromQueryTable.xib in Resources */,
 			);

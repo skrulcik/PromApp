@@ -22,7 +22,8 @@ class SKColor:UIColor
         return white()
     }
     class func pink()->UIColor{
-        return hexColor("FF7B9E")
+        return hexColor("ff7094")
+        //hexColor("FF7B9E")
         //return UIColor(red: 1.0, green: 123.0/255.0, blue: 158.0/255.0, alpha: 1.0)
         //return UIColor(red: 1.0, green: 134.0/255.0, blue: 165.0/255.0, alpha: 1.0) //Old Pink
     }
@@ -72,7 +73,7 @@ class SKColor:UIColor
         return pink()
     }
     class func SearchBar()->UIColor{
-        return triadBlue()
+        return pink()
     }
     class func SubscribedButtonBackground()->UIColor{
         return UIColor.grayColor()

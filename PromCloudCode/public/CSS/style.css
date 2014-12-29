@@ -9,6 +9,7 @@ h1, h2, h3 {margin-top: 0;}
 ul, ol {margin: 0;}
 p {margin: 0;}
 html, body{
+   margin-top: 50px;
    font-family: 'Open Sans', sans-serif;
    font-size: 100%;
    background:#fff; 
@@ -19,6 +20,7 @@ body a{
 	-moz-transition:0.5s all;
 	-o-transition:0.5s all;
 	-ms-transition:0.5s all;
+    color: #45AACC;
 }
 .wrap{
 	width:70%;
@@ -1054,7 +1056,8 @@ a.tooltips span i h4 {
 /*--getin-ends-here--*/
 /*--footer-starts-here--*/
 .footer{
-	background:#33495E;
+    background: #ff7094;
+    color: #FFFFFF;
 	padding:2em 0px;
 	position:relative;
 	margin-top: 2em;
@@ -2124,4 +2127,5 @@ a.tooltips span i h4 {
 	font-size: 13px;
 	}
 }
+
 /*--media-quaries-ends-here--*/
