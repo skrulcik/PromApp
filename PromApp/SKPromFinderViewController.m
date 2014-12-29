@@ -10,7 +10,6 @@
 #import "SKPromFinderViewController.h"
 #import "SKProm.h"
 #import "SKPromAnnotation.h"
-#import "SKPromDetailViewController.h"
 
 @interface SKPromFinderViewController ()
 @property NSMutableArray *promsToDisplay;  //Nearby proms to pin onto map

@@ -28,6 +28,7 @@
 		D22E03CF1A4E862600F81753 /* StringManipulation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22E03CE1A4E862600F81753 /* StringManipulation.swift */; };
 		D23654F919916BF3007277A6 /* PromQueryTable.xib in Resources */ = {isa = PBXBuildFile; fileRef = D23654F819916BF3007277A6 /* PromQueryTable.xib */; };
 		D23654FC19916DFF007277A6 /* SKPromQueryController.m in Sources */ = {isa = PBXBuildFile; fileRef = D23654FB19916DFF007277A6 /* SKPromQueryController.m */; };
+		D246C39C1A50CA080046D95A /* UserExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = D246C39B1A50CA080046D95A /* UserExt.swift */; };
 		D25B4D751A490DAF00AB6B06 /* PillButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25B4D741A490DAF00AB6B06 /* PillButton.swift */; };
 		D2652159198E86E3000432BA /* StringEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2652158198E86E3000432BA /* StringEntryCell.xib */; };
 		D266D1621A47287B00A3C51C /* grand-hotel in Resources */ = {isa = PBXBuildFile; fileRef = D266D1601A47287B00A3C51C /* grand-hotel */; };
@@ -63,9 +64,7 @@
 		D2A47568196249BA005C2502 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2A4755D196249BA005C2502 /* StoreKit.framework */; };
 		D2A47569196249BA005C2502 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2A4755E196249BA005C2502 /* SystemConfiguration.framework */; };
 		D2A4756E196262F4005C2502 /* SKLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2A4756D196262F4005C2502 /* SKLoginViewController.m */; };
-		D2A4757119626ADF005C2502 /* SKProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2A4757019626ADF005C2502 /* SKProfileViewController.m */; };
 		D2A475741963105B005C2502 /* SKAddDressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2A475731963105B005C2502 /* SKAddDressViewController.m */; };
-		D2A4757719631D15005C2502 /* SKMainTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2A4757619631D15005C2502 /* SKMainTabViewController.m */; };
 		D2A4757A19632DB8005C2502 /* SKDress.m in Sources */ = {isa = PBXBuildFile; fileRef = D2A4757919632DB8005C2502 /* SKDress.m */; };
 		D2A4757D19633462005C2502 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = D2A4757C19633462005C2502 /* MBProgressHUD.m */; };
 		D2A475821963999E005C2502 /* SKPromFinderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2A475811963999E005C2502 /* SKPromFinderViewController.m */; };
@@ -75,15 +74,14 @@
 		D2BB5914198D655400431759 /* SKStringEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D2BB5913198D655400431759 /* SKStringEntryCell.m */; };
 		D2C2473D19F2CDA5007F2AF9 /* EditProm.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2C2473C19F2CDA5007F2AF9 /* EditProm.xib */; };
 		D2C6D15C1980600E008080CD /* SKPromAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = D2C6D15B1980600E008080CD /* SKPromAnnotation.m */; };
-		D2C6D1611980CA81008080CD /* PromCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2C6D1601980CA81008080CD /* PromCell.xib */; };
-		D2C6D1641980CAD6008080CD /* SKPromTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D2C6D1631980CAD6008080CD /* SKPromTableViewCell.m */; };
-		D2C6D1671980CE62008080CD /* SKPromDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2C6D1661980CE62008080CD /* SKPromDetailViewController.m */; };
 		D2C890DE19D6308400458094 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C890DD19D6308400458094 /* ProfileCell.swift */; };
 		D2C890E119D68E7C00458094 /* ProfileCellLayout.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2C890E019D68E7C00458094 /* ProfileCellLayout.xib */; };
 		D2CD3E631A4FB9F100BF0359 /* Prom.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CD3E621A4FB9F100BF0359 /* Prom.swift */; };
 		D2CD3E651A4FBB6700BF0359 /* ArrayUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CD3E641A4FBB6700BF0359 /* ArrayUtil.swift */; };
 		D2CD3E671A4FCDE200BF0359 /* ColorProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CD3E661A4FCDE200BF0359 /* ColorProfile.swift */; };
 		D2CD3E691A5062BA00BF0359 /* PromInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CD3E681A5062BA00BF0359 /* PromInfoController.swift */; };
+		D2CD3E6D1A50A93600BF0359 /* ObjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CD3E6C1A50A93600BF0359 /* ObjectCell.swift */; };
+		D2CD3E6F1A50A9D500BF0359 /* ObjectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2CD3E6E1A50A9D500BF0359 /* ObjectCell.xib */; };
 		D2DEBAA719B6D58E00BA0542 /* global.json in Resources */ = {isa = PBXBuildFile; fileRef = D2DEBAA319B6D58E00BA0542 /* global.json */; };
 		D2E8EB3F1A2E146500A153FA /* css in Resources */ = {isa = PBXBuildFile; fileRef = D2E8EB3B1A2E146500A153FA /* css */; };
 		D2E8EB401A2E146500A153FA /* images in Resources */ = {isa = PBXBuildFile; fileRef = D2E8EB3C1A2E146500A153FA /* images */; };
@@ -134,6 +132,7 @@
 		D23654F819916BF3007277A6 /* PromQueryTable.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PromQueryTable.xib; sourceTree = "<group>"; };
 		D23654FA19916DFF007277A6 /* SKPromQueryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKPromQueryController.h; sourceTree = "<group>"; };
 		D23654FB19916DFF007277A6 /* SKPromQueryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKPromQueryController.m; sourceTree = "<group>"; };
+		D246C39B1A50CA080046D95A /* UserExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserExt.swift; sourceTree = "<group>"; };
 		D25B4D741A490DAF00AB6B06 /* PillButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PillButton.swift; sourceTree = "<group>"; };
 		D2652158198E86E3000432BA /* StringEntryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StringEntryCell.xib; sourceTree = "<group>"; };
 		D266D1601A47287B00A3C51C /* grand-hotel */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "grand-hotel"; sourceTree = "<group>"; };
@@ -175,12 +174,8 @@
 		D2A4755E196249BA005C2502 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		D2A4756C196262F4005C2502 /* SKLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKLoginViewController.h; sourceTree = "<group>"; };
 		D2A4756D196262F4005C2502 /* SKLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKLoginViewController.m; sourceTree = "<group>"; };
-		D2A4756F19626ADF005C2502 /* SKProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKProfileViewController.h; sourceTree = "<group>"; };
-		D2A4757019626ADF005C2502 /* SKProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKProfileViewController.m; sourceTree = "<group>"; };
 		D2A475721963105B005C2502 /* SKAddDressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKAddDressViewController.h; sourceTree = "<group>"; };
 		D2A475731963105B005C2502 /* SKAddDressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKAddDressViewController.m; sourceTree = "<group>"; };
-		D2A4757519631D15005C2502 /* SKMainTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKMainTabViewController.h; sourceTree = "<group>"; };
-		D2A4757619631D15005C2502 /* SKMainTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKMainTabViewController.m; sourceTree = "<group>"; };
 		D2A4757819632DB8005C2502 /* SKDress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKDress.h; sourceTree = "<group>"; };
 		D2A4757919632DB8005C2502 /* SKDress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKDress.m; sourceTree = "<group>"; };
 		D2A4757B19633462005C2502 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
@@ -197,11 +192,6 @@
 		D2C6D15A1980600E008080CD /* SKPromAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKPromAnnotation.h; sourceTree = "<group>"; };
 		D2C6D15B1980600E008080CD /* SKPromAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKPromAnnotation.m; sourceTree = "<group>"; };
 		D2C6D15D1980A7BA008080CD /* Saratoga.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Saratoga.gpx; sourceTree = "<group>"; };
-		D2C6D1601980CA81008080CD /* PromCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PromCell.xib; sourceTree = "<group>"; };
-		D2C6D1621980CAD6008080CD /* SKPromTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKPromTableViewCell.h; sourceTree = "<group>"; };
-		D2C6D1631980CAD6008080CD /* SKPromTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKPromTableViewCell.m; sourceTree = "<group>"; };
-		D2C6D1651980CE62008080CD /* SKPromDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKPromDetailViewController.h; sourceTree = "<group>"; };
-		D2C6D1661980CE62008080CD /* SKPromDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKPromDetailViewController.m; sourceTree = "<group>"; };
 		D2C890DD19D6308400458094 /* ProfileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
 		D2C890DF19D656F200458094 /* PromApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PromApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		D2C890E019D68E7C00458094 /* ProfileCellLayout.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileCellLayout.xib; sourceTree = "<group>"; };
@@ -209,6 +199,8 @@
 		D2CD3E641A4FBB6700BF0359 /* ArrayUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayUtil.swift; sourceTree = "<group>"; };
 		D2CD3E661A4FCDE200BF0359 /* ColorProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorProfile.swift; sourceTree = "<group>"; };
 		D2CD3E681A5062BA00BF0359 /* PromInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PromInfoController.swift; sourceTree = "<group>"; };
+		D2CD3E6C1A50A93600BF0359 /* ObjectCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectCell.swift; sourceTree = "<group>"; };
+		D2CD3E6E1A50A9D500BF0359 /* ObjectCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ObjectCell.xib; sourceTree = "<group>"; };
 		D2DEBAA119B6D58E00BA0542 /* main.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = main.js; sourceTree = "<group>"; };
 		D2DEBAA319B6D58E00BA0542 /* global.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = global.json; sourceTree = "<group>"; };
 		D2E8EB3B1A2E146500A153FA /* css */ = {isa = PBXFileReference; lastKnownFileType = folder; path = css; sourceTree = "<group>"; };
@@ -278,10 +270,9 @@
 				D22299361965054000B747BA /* SKDressInfoTableViewCell.m */,
 				D2117952198F0888004D254F /* SKImageEditorCell.h */,
 				D2117953198F0888004D254F /* SKImageEditorCell.m */,
-				D2C6D1621980CAD6008080CD /* SKPromTableViewCell.h */,
-				D2C6D1631980CAD6008080CD /* SKPromTableViewCell.m */,
 				D2BB5912198D655400431759 /* SKStringEntryCell.h */,
 				D2BB5913198D655400431759 /* SKStringEntryCell.m */,
+				D2CD3E6C1A50A93600BF0359 /* ObjectCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -415,6 +406,7 @@
 		D2A4757E19633484005C2502 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D246C39B1A50CA080046D95A /* UserExt.swift */,
 				D2A4757819632DB8005C2502 /* SKDress.h */,
 				D2A4757919632DB8005C2502 /* SKDress.m */,
 				D2F1440C1970D24400046490 /* SKProm.h */,
@@ -445,12 +437,6 @@
 				D286BA3E196E47EE00AFC9C0 /* SKDressListViewController.m */,
 				D2A4756C196262F4005C2502 /* SKLoginViewController.h */,
 				D2A4756D196262F4005C2502 /* SKLoginViewController.m */,
-				D2A4757519631D15005C2502 /* SKMainTabViewController.h */,
-				D2A4757619631D15005C2502 /* SKMainTabViewController.m */,
-				D2A4756F19626ADF005C2502 /* SKProfileViewController.h */,
-				D2A4757019626ADF005C2502 /* SKProfileViewController.m */,
-				D2C6D1651980CE62008080CD /* SKPromDetailViewController.h */,
-				D2C6D1661980CE62008080CD /* SKPromDetailViewController.m */,
 				D23654FA19916DFF007277A6 /* SKPromQueryController.h */,
 				D23654FB19916DFF007277A6 /* SKPromQueryController.m */,
 				D2A475801963999E005C2502 /* SKPromFinderViewController.h */,
@@ -470,10 +456,10 @@
 				D2BB590E198CA89600431759 /* EditStore.xib */,
 				D20DA6B0198B537300C1B225 /* EditUser.xib */,
 				D2117950198EE1F0004D254F /* ImageEditorCell.xib */,
+				D2CD3E6E1A50A9D500BF0359 /* ObjectCell.xib */,
 				D2C890E019D68E7C00458094 /* ProfileCellLayout.xib */,
-				D2C6D1601980CA81008080CD /* PromCell.xib */,
-				D2652158198E86E3000432BA /* StringEntryCell.xib */,
 				D23654F819916BF3007277A6 /* PromQueryTable.xib */,
+				D2652158198E86E3000432BA /* StringEntryCell.xib */,
 				D26C88C819C575C5002B52A8 /* Tester.xib */,
 			);
 			name = "Layout Nibs";
@@ -603,6 +589,7 @@
 				D2E8EB421A2E146500A153FA /* js in Resources */,
 				D2A4754F19624264005C2502 /* IpodLayout.storyboard in Resources */,
 				D2BB590F198CA89600431759 /* EditStore.xib in Resources */,
+				D2CD3E6F1A50A9D500BF0359 /* ObjectCell.xib in Resources */,
 				D2A475281962198D005C2502 /* InfoPlist.strings in Resources */,
 				D20DA6B1198B537300C1B225 /* EditUser.xib in Resources */,
 				D2F639B11A17ECA50026A3D8 /* LaunchScreen.xib in Resources */,
@@ -613,7 +600,6 @@
 				D2C2473D19F2CDA5007F2AF9 /* EditProm.xib in Resources */,
 				D2A475301962198D005C2502 /* Images.xcassets in Resources */,
 				D2652159198E86E3000432BA /* StringEntryCell.xib in Resources */,
-				D2C6D1611980CA81008080CD /* PromCell.xib in Resources */,
 				D2EF94051A17D8F00093CD4C /* SignPainter.otf in Resources */,
 				D2103456196F9EF70088484B /* DressCell.xib in Resources */,
 				D266D1621A47287B00A3C51C /* grand-hotel in Resources */,
@@ -643,7 +629,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2C6D1671980CE62008080CD /* SKPromDetailViewController.m in Sources */,
 				D2CD3E671A4FCDE200BF0359 /* ColorProfile.swift in Sources */,
 				D286BA3F196E47EE00AFC9C0 /* SKDressListViewController.m in Sources */,
 				D2AC23241A4A257900E5EA19 /* MainTabController.swift in Sources */,
@@ -660,7 +645,6 @@
 				D2A475741963105B005C2502 /* SKAddDressViewController.m in Sources */,
 				D22E03CF1A4E862600F81753 /* StringManipulation.swift in Sources */,
 				D2CD3E651A4FBB6700BF0359 /* ArrayUtil.swift in Sources */,
-				D2A4757119626ADF005C2502 /* SKProfileViewController.m in Sources */,
 				D2C6D15C1980600E008080CD /* SKPromAnnotation.m in Sources */,
 				D2ED80FB1A2A7EB9002F4511 /* StoreAnnotation.swift in Sources */,
 				D28DD0051A4F5BAE00B73582 /* PromSearchTable.swift in Sources */,
@@ -669,17 +653,17 @@
 				D2BB5914198D655400431759 /* SKStringEntryCell.m in Sources */,
 				D2A475821963999E005C2502 /* SKPromFinderViewController.m in Sources */,
 				D2A4752A1962198D005C2502 /* main.m in Sources */,
+				D246C39C1A50CA080046D95A /* UserExt.swift in Sources */,
+				D2CD3E6D1A50A93600BF0359 /* ObjectCell.swift in Sources */,
 				D2CD3E691A5062BA00BF0359 /* PromInfoController.swift in Sources */,
 				D22B2B811A42B0AE0085F54E /* GlobalConstants.swift in Sources */,
 				D21034591970AC710088484B /* SKAddPromViewController.m in Sources */,
-				D2A4757719631D15005C2502 /* SKMainTabViewController.m in Sources */,
 				D2A4757A19632DB8005C2502 /* SKDress.m in Sources */,
 				D2BB590C198C9D8700431759 /* SKStore.m in Sources */,
 				D29FA1981A4B16890046A5BD /* PromEditorController.swift in Sources */,
 				D22E03CC1A4DFF2600F81753 /* ImageManipulation.swift in Sources */,
 				D2C890DE19D6308400458094 /* ProfileCell.swift in Sources */,
 				D2A4757D19633462005C2502 /* MBProgressHUD.m in Sources */,
-				D2C6D1641980CAD6008080CD /* SKPromTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

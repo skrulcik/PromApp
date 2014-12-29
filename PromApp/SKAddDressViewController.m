@@ -12,7 +12,6 @@
 
 #import "SKAddDressViewController.h"
 #import "SKImageEditorCell.h"
-#import "SKMainTabViewController.h"
 #import "SKPromQueryController.h"
 #import "SKStore.h"
 #import "SKStringEntryCell.h"
