@@ -42,6 +42,7 @@
 -(void) viewDidAppear:(BOOL)animated{
     // Do stuff like reload the tableview data...
     [self loadDressInfo];
+    [super viewDidAppear:animated];
 }
 
 -(void) loadDressInfo

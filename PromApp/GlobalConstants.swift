@@ -41,4 +41,5 @@ let EditDressSegue = "EditDress"
 let EditPromSegueID = "EditProm"
 let NewPromSegueID = "NewProm"
 let PromFromListSegueID = "ViewPromFromList"
+let PromFromMapSegueID = "ViewPromFromMap"
 

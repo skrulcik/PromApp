@@ -37,7 +37,7 @@ class RoundedRectButton: TwoToneButton {
 class PillButton: RoundedRectButton {
     override func loadColors(){
         super.loadColors()
-        fillColor = SKColor.pillButton()
+        fillColor = SKColor.PillButton()
     }
     
     override func drawRect(rect: CGRect) {
@@ -63,7 +63,7 @@ class LogoutPill:PillButton {
 
 class AddImagePill:PillButton {
     override func loadColors() {
-        fillColor = SKColor.addImageButton()
+        fillColor = SKColor.AddImageButton()
     }
     
     override func drawRect(rect: CGRect) {

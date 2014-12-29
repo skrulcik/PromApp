@@ -7,6 +7,7 @@
 //
 #import "SKPromQueryController.h"
 #import "SKAddDressViewController.h"
+#import "PRomapp-Swift.h"
 
 @interface SKPromQueryController ()
 @property NSString *className;
@@ -86,6 +87,8 @@
     self.locationManager.delegate = self;
     [self.locationManager requestAlwaysAuthorization];
     [self.locationManager startUpdatingLocation];
+    
+    [self.tableView setBackgroundColor:[SKColor TableBackground]];
 }
 
 
