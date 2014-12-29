@@ -60,8 +60,8 @@
     [q whereKey:@"prom" equalTo:self];
     [q whereKey:@"designer" containsString:designer];
     [q whereKey:@"styleNumber" equalTo:styleNumber];
-    int num_matches = [q countObjects];
-    NSLog(@"Found %d matches for %@ %@. \n", num_matches, designer, styleNumber);
+    long num_matches = [q countObjects];
+    NSLog(@"Found %ld matches for %@ %@. \n", num_matches, designer, styleNumber);
     return num_matches == 0;
 }
 
