@@ -8,29 +8,21 @@
 
 import Foundation
 
-class TwoToneButton: UIButton{
+class RoundedRectButton: UIButton{
     var foreground:UIColor = SKColor.white()
     var fillColor:UIColor = SKColor.pink()
     var stroke:CGFloat = 3.0
+    var radius:CGFloat = 0
     func loadColors(){
         //for subclasses to load custom colors if needed
     }
-    override func drawRect(rect: CGRect) {
-        loadColors()
-        fillColor.setFill()
-        let path = UIBezierPath(rect: rect)
-        path.fill()
-    }
-}
-
-class RoundedRectButton: TwoToneButton {
-    var radius:CGFloat = 0
     
     override func drawRect(rect: CGRect) {
         loadColors()
         let rounded = UIBezierPath(roundedRect: rect, cornerRadius: radius)
         fillColor.setFill()
         rounded.fill()
+        super.drawRect(rect)
     }
 }
 
@@ -82,7 +74,7 @@ class AddImagePill:PillButton {
     }
 }
 
-class SubscribedButton:RoundedRectButton{
+class SubscribedButton:PillButton{
     var subscribed = false
     
     override func loadColors() {
@@ -91,7 +83,10 @@ class SubscribedButton:RoundedRectButton{
         foreground = SKColor.SubscribedButtonForeground()
         stroke = 3
     }
-    
+}
+
+
+class RSSButton:SubscribedButton{
     override func drawRect(rect: CGRect) {
         //Set stroke
         let currentContext = UIGraphicsGetCurrentContext()
@@ -109,10 +104,11 @@ class SubscribedButton:RoundedRectButton{
         let r3 = (rect.width*3)/4
         for r in [r1, r2, r3]{
             let circ = UIBezierPath(arcCenter: CGPoint(x: rect.width/8, y: (rect.height*7)/8),
-                                    radius: r, startAngle: 0, endAngle: 4.71, clockwise: false)
+                radius: r, startAngle: 0, endAngle: 4.71, clockwise: false)
             CGContextBeginPath(currentContext);
             CGContextAddPath(currentContext, circ.CGPath);
             CGContextDrawPath(currentContext, kCGPathStroke);
         }
     }
 }
+

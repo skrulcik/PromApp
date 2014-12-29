@@ -19,7 +19,7 @@ class PromInfoController:UIViewController {
         super.init(coder: aDecoder)
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewWillAppear(animated: Bool) {
         if promObject != nil {
             reloadData(promObject!)
         }
@@ -58,6 +58,12 @@ class PromInfoController:UIViewController {
             //Check if user is subscribed to prom
             subscribedButt.subscribed = PFUser.currentUser().isFollowingProm(promObject!)
             //Force redraw if state changed
+            if subscribedButt.subscribed {
+                subscribedButt.setTitle("Following 👍", forState:.Normal)
+                
+            } else {
+                subscribedButt.setTitle("Subscribe", forState:.Normal)
+            }
             subscribedButt.setNeedsDisplay()
         }
     }

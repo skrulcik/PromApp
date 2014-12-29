@@ -93,7 +93,7 @@
         view.enabled = YES;
         view.canShowCallout = YES;
         view.pinColor = MKPinAnnotationColorPurple;
-        view.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+        //view.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
         return view;
     }
     return nil;
@@ -105,13 +105,12 @@
         if([[view annotation] isKindOfClass:[SKPromAnnotation class]]){
             SKPromAnnotation *promNote = (SKPromAnnotation *) [view annotation];
             self.currentProm = promNote.prom;
-            //NSLog(@"%@", [promNote.prom readableInfo]);
-            [self performSegueWithIdentifier:@"showPromDetail" sender:self ];
+            [self performSegueWithIdentifier:@"ViewPromFromMap" sender:self ];
         } else if([[view annotation] isKindOfClass:[StoreAnnotation class]]){
             StoreAnnotation *storeNote = (StoreAnnotation *) [view annotation];
             self.currentStore = (SKStore *)storeNote.store;
             //NSLog(@"%@", [promNote.prom readableInfo]);
-            [self performSegueWithIdentifier:@"showPromDetail" sender:self ];
+            //[self performSegueWithIdentifier:@"showPromDetail" sender:self ];
         }
     }
 }
@@ -288,11 +287,11 @@
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{/*
-    if([segue.identifier isEqualToString:@"showPromDetail"]){
-        PromDetailController *detail = (PromDetailController *) [[segue destinationViewController] viewControllers][0];
-        detail.prom = currentProm;
-    }*/
+{
+    if([segue.identifier isEqualToString:@"ViewPromFromMap"]){
+        PromInfoController *detail = (PromInfoController *) [segue destinationViewController];
+        detail.promObject = currentProm;
+    }
 }
 
 
