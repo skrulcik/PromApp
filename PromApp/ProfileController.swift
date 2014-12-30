@@ -148,9 +148,13 @@ class ProfileController:UIViewController, NSURLConnectionDataDelegate, UITableVi
     }
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if section == PROM_SECTION {
-            return headerHeight
+            if let user = PFUser.currentUser(){
+                return user.proms.count > 0 ? headerHeight:0
+            }
         } else if section == DRESS_SECTION {
-            return headerHeight
+            if let user = PFUser.currentUser(){
+                return user.dresses.count > 0 ? headerHeight:0
+            }
         }
         return 0
     }
@@ -195,7 +199,6 @@ class ProfileController:UIViewController, NSURLConnectionDataDelegate, UITableVi
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if(indexPath.section == PROF_SECTION && indexPath.row == 0){
             //Is the profile cell
-            println("Would have edited user cell")
         } else if (indexPath.section == DRESS_SECTION){
             //Is a dress cell
             if let user:PFUser = PFUser.currentUser(){
@@ -203,18 +206,18 @@ class ProfileController:UIViewController, NSURLConnectionDataDelegate, UITableVi
                     if(indexPath.row < dresses.count){
                         performSegueWithIdentifier(EditDressSegue, sender: self)
                     } else {
-                        println("Tried to edit non-existant dress")
+                        NSLog("Tried to edit non-existant dress.")
                     }
                 }
             }
         } else if (indexPath.section == PROM_SECTION){
             //Is a prom cell
             if PFUser.currentUser() != nil{
-                let dresses = PFUser.currentUser().dresses
-                if(indexPath.row < dresses.count){
+                let proms = PFUser.currentUser().proms
+                if(indexPath.row < proms.count){
                     performSegueWithIdentifier(PromFromProfileID, sender: self)
                 } else {
-                    println("Tried to edit non-existant Prom.")
+                    NSLog("Tried to edit non-existant Prom.")
                 }
 
             }

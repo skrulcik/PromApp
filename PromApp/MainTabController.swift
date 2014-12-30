@@ -14,7 +14,7 @@ class MainTabController:UITabBarController {
     @IBAction func showAddOptionPane(sender:AnyObject){
         let view = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
         //Button for adding dresses
-        let addDressAction = UIAlertAction(title: "Add Dress",
+        let addDressAction = UIAlertAction(title: "Register Dress",
             style: .Default, handler: {
                 (action:UIAlertAction!) in
                 view.dismissViewControllerAnimated(true, completion: nil)

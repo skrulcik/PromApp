@@ -17,7 +17,7 @@ func validImageDimensions(width:Int!, height:Int!)->Bool{
 *   greater than 0
 *   Ensures result image has width and height equal to those that are
 *   given. */
-func scale(image:UIImage!, toFitWidth width:Int!, Height height:Int!)->UIImage!
+func scale(image:UIImage, toFitWidth width:Int, Height height:Int)->UIImage!
 {
     assert(validImageDimensions(width, height), "Error: Invalid image dimensions.")
     var goal_w:Int = width
