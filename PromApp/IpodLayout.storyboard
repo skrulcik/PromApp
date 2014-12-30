@@ -10,7 +10,7 @@
         <!--Login-->
         <scene sceneID="iCM-x2-Tc2">
             <objects>
-                <viewController storyboardIdentifier="Login" title="Login" id="gmQ-3J-jBv" customClass="SKLoginViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Login" id="gmQ-3J-jBv" customClass="SKLoginViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8d2-Fn-4hy"/>
                         <viewControllerLayoutGuide type="bottom" id="b4W-vK-LDH"/>
@@ -19,10 +19,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PromSplash" translatesAutoresizingMaskIntoConstraints="NO" id="5gW-Gx-HRF">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PromSplash" translatesAutoresizingMaskIntoConstraints="NO" id="5gW-Gx-HRF">
                                 <rect key="frame" x="0.0" y="-4" width="320" height="572"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rLv-Zk-eLb" customClass="PillButton" customModule="PromApp" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rLv-Zk-eLb" customClass="PillButton" customModule="PromApp" customModuleProvider="target">
                                 <rect key="frame" x="59" y="465" width="202" height="52"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="52" id="sLe-w8-kwY"/>
@@ -52,7 +52,7 @@
                             <constraint firstAttribute="trailing" secondItem="rLv-Zk-eLb" secondAttribute="trailing" constant="59" id="aks-Vy-ZUy"/>
                             <constraint firstItem="rLv-Zk-eLb" firstAttribute="leading" secondItem="7pJ-ha-S0p" secondAttribute="leading" constant="59" id="e8a-9H-LPB"/>
                             <constraint firstItem="fkZ-iM-dOn" firstAttribute="top" secondItem="8d2-Fn-4hy" secondAttribute="bottom" constant="-35" id="gev-VW-1Ee"/>
-                            <constraint firstItem="b4W-vK-LDH" firstAttribute="top" secondItem="rLv-Zk-eLb" secondAttribute="bottom" constant="65" id="oEk-5V-Q4f"/>
+                            <constraint firstItem="b4W-vK-LDH" firstAttribute="top" secondItem="rLv-Zk-eLb" secondAttribute="bottom" constant="51" id="oEk-5V-Q4f"/>
                             <constraint firstItem="5gW-Gx-HRF" firstAttribute="leading" secondItem="7pJ-ha-S0p" secondAttribute="leading" id="z36-rM-3Wp"/>
                         </constraints>
                     </view>
@@ -181,7 +181,7 @@
                     <connections>
                         <outlet property="search" destination="fVd-MC-RRv" id="0PD-0E-u4d"/>
                         <segue destination="KZY-om-zlH" kind="modal" identifier="NewProm" id="2v2-gE-Mdm"/>
-                        <segue destination="KZY-om-zlH" kind="modal" identifier="EditProm" id="wWb-Iu-D5E"/>
+                        <segue destination="KZY-om-zlH" kind="modal" identifier="" id="wWb-Iu-D5E"/>
                         <segue destination="QjP-nM-Wwt" kind="push" identifier="ViewPromFromList" id="NX7-gU-RLT"/>
                     </connections>
                 </tableViewController>
@@ -189,7 +189,7 @@
             </objects>
             <point key="canvasLocation" x="2675" y="-73"/>
         </scene>
-        <!--New Prom-->
+        <!--Prom Editor-->
         <scene sceneID="k61-mx-yRK">
             <objects>
                 <tableViewController id="z3H-oy-8bo" customClass="PromEditor" customModule="PromApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -202,7 +202,7 @@
                             <outlet property="delegate" destination="z3H-oy-8bo" id="DZy-tz-2Hn"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="New Prom" id="C9N-L2-tsE">
+                    <navigationItem key="navigationItem" id="C9N-L2-tsE">
                         <barButtonItem key="leftBarButtonItem" title="Item" systemItem="cancel" id="lCJ-1z-aXB">
                             <connections>
                                 <action selector="cancelPressed:" destination="z3H-oy-8bo" id="ovq-WR-q9c"/>
@@ -351,6 +351,7 @@
                         <outlet property="promImage" destination="9DG-Lq-qQ4" id="Ejx-hn-aCQ"/>
                         <outlet property="subscribedButt" destination="74N-3F-uzL" id="JSC-38-5ld"/>
                         <segue destination="fsK-VB-aYg" kind="push" identifier="ShowDressesFromProm" id="clV-bk-DOb"/>
+                        <segue destination="z3H-oy-8bo" kind="push" identifier="EditProm" id="gM8-2F-ALA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ylC-AM-9HP" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -589,8 +590,9 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="62s-3m-7gd"/>
-        <segue reference="iqa-wj-pyQ"/>
         <segue reference="wWb-Iu-D5E"/>
+        <segue reference="iqa-wj-pyQ"/>
+        <segue reference="gM8-2F-ALA"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.25490197539329529" green="0.47843140363693237" blue="0.98823535442352295" alpha="1" colorSpace="deviceRGB"/>
 </document>

@@ -20,7 +20,7 @@
 @dynamic preciseLocation;
 
 + (NSArray *)requiredKeys{
-    return @[@"locationDescription",@"schoolName"];
+    return @[@"locationDescription",@"schoolName",@"address"];
 }
 + (NSString *)parseClassName
 {

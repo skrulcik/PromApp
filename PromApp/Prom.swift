@@ -25,7 +25,7 @@ class Prom:PFObject, PFSubclassing{
         return "Prom"
     }
     class func requiredKeys() -> Array<String>{
-        return ["locationDescription","schoolName"]
+        return ["locationDescription","schoolName", "address"]
     }
     class func editableKeys() -> Array<String>{
         return ["image",

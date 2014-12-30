@@ -65,7 +65,7 @@
              if (!error) {
                  if(user != NULL){
                      [parseUser setObject:user forKey:@"profile"];
-                     [parseUser saveEventually];
+                     [parseUser save]; //Save synchronously
                  }
              } else {
                  NSLog(@"Error retrieving facebook data: %@", error);
@@ -74,6 +74,20 @@
          }];
     } else {
         NSLog(@"no active session");
+    }
+}
+
+- (void) setAppPermissionsForUser:(PFUser *)user {
+    if(user != NULL){
+#pragma mark - Security
+        NSLog(@"Setting default ACL for user %@.", user.objectId);
+        PFACL *acl = [PFACL ACL];
+        [acl setPublicReadAccess:YES];
+        [acl setPublicWriteAccess:NO];
+        [acl setWriteAccess:true forUser:user];
+        [PFACL setDefaultACL:acl withAccessForCurrentUser:YES];
+    } else {
+        NSLog(@"Attempted to set ACL for non-existant user.");
     }
 }
 
@@ -86,10 +100,14 @@
         } else if (user.isNew) {
             NSLog(@"User signed up and logged in through Facebook.");
             //TODO: open account creation screen
-            [self performSegueWithIdentifier:@"finishLogin" sender:self];
+            [self setAppPermissionsForUser:user];
+            [self updateFacebookProfile:user withBlock:^{
+                [self performSegueWithIdentifier:@"finishLogin" sender:self];
+            }];
         } else {
             NSLog(@"User logged in through Facebook.");
             if([PFUser currentUser] != NULL){
+                [self setAppPermissionsForUser:[PFUser currentUser]];
                 [self updateFacebookProfile:[PFUser currentUser] withBlock:^{
                     [self performSegueWithIdentifier:@"finishLogin" sender:self];
                 }];
