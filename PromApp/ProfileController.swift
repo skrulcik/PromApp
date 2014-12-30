@@ -146,6 +146,14 @@ class ProfileController:UIViewController, NSURLConnectionDataDelegate, UITableVi
             return CGFloat(dressCellHeight)
         }
     }
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section == PROM_SECTION {
+            return headerHeight
+        } else if section == DRESS_SECTION {
+            return headerHeight
+        }
+        return 0
+    }
     func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         if(section == max(PROM_SECTION, DRESS_SECTION, PROF_SECTION)){
             //Max allows us to change order without changing this method
@@ -158,19 +166,23 @@ class ProfileController:UIViewController, NSURLConnectionDataDelegate, UITableVi
         //TODO: Potentially replace floating button with UIView Subclass
         return UIView() //Override default grey color for better look
     }
-    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if(section == PROF_SECTION){
-            //Profile
-            return nil
-        } else if (section == DRESS_SECTION){
-            //Dresses
-            return nil//"My Dresses"
-        } else if (section == PROM_SECTION){
-            //Proms
-            return nil;//"My Proms"
-        } else {
-            return nil;
+    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if section != PROF_SECTION {
+            var nibViews = NSBundle.mainBundle().loadNibNamed("TableHeader", owner: self, options: nil)
+            if let head = nibViews[0] as? TableHeader{
+                head.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: headerHeight)
+                head.loadColors()
+                let label = head.textLabel
+                if section == PROM_SECTION {
+                    label.text = "Proms:"
+                } else if section == DRESS_SECTION {
+                    label.text = "Dresses:"
+                }
+                head.addSubview(label)
+                return head
+            }
         }
+        return nil
     }
     func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
         if(indexPath.section == 0){
@@ -314,6 +326,10 @@ class ProfileController:UIViewController, NSURLConnectionDataDelegate, UITableVi
                             NSLog("Error retrieving image data from dress. PFFile:%@ Error:%@", promPicFile, error)
                         }
                     })
+                } else {
+                    //Prom does not have image saved
+                    promImageView.backgroundColor = SKColor.ImageBackground()
+                    promImageView.image = UIImage(named: "BigP") //Logo overlay
                 }
             }
         })
