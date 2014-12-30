@@ -9,8 +9,8 @@
 import Foundation
 
 class RoundedRectButton: UIButton{
-    var foreground:UIColor = SKColor.white()
-    var fillColor:UIColor = SKColor.pink()
+    var foreground:UIColor = SKColor.RoundedRectFore()
+    var fillColor:UIColor = SKColor.RoundedRect()
     var stroke:CGFloat = 3.0
     var radius:CGFloat = 0
     func loadColors(){

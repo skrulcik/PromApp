@@ -287,12 +287,11 @@ class PromEditor:UITableViewController, UITextFieldDelegate, UIImagePickerContro
                                     if let user = PFUser.currentUser(){
                                         if !user.isFollowingProm(self.prom!){
                                             user.addObject(self.prom!, forKey: "proms")
+                                            user.saveInBackgroundWithBlock(nil)
                                         }
                                     }
                                     if block != nil {
                                         block!()
-                                    } else {
-                                        println("Block was nil")
                                     }
                                 } else {
                                     NSLog("Failed to save prom \(self.prom!.objectId)")
@@ -355,8 +354,6 @@ class PromEditor:UITableViewController, UITextFieldDelegate, UIImagePickerContro
                     }
                     if cell.field.text == "" {
                         cell.field.placeholder = readableNames[key]
-                    } else {
-                        println("didn't set placeholder, had text: \(cell.field.text)")
                     }
                     return cell
                 }
