@@ -269,9 +269,14 @@ typedef void(^voidCompletion)(void);
                     NSMutableArray *dresses = (NSMutableArray *)[current objectForKey:@"dresses"];
                     if(![dresses containsObject:dress]){
                         [current addObject:dress forKey:@"dresses"];
-                        [current saveInBackgroundWithBlock:nil];
                         NSLog(@"Added dress %@ to user's list of dresses", dress);
                     }
+                    NSMutableArray *proms = (NSMutableArray *)[current objectForKey:@"proms"];
+                    if(dress.prom != nil && proms!= nil && ![proms containsObject:dress.prom]){
+                        [current addObject:dress.prom forKey:@"proms"];
+                        NSLog(@"Added prom %@ to user's list of followed proms.", dress.prom);
+                    }
+                    [current saveInBackgroundWithBlock:nil];
                     block();
                 } else {
                     NSLog(@"Failed to save changes to dress list: %@", error);

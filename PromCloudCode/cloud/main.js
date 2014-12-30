@@ -6,7 +6,7 @@ var MAX_W = 80.0
 var MAX_H = 120.0
 
 Parse.Cloud.beforeSave("Dress", function(request, response) {
-                       
+                    Parse.Cloud.useMasterKey();//Enable superuser superpowers
                     var dress = request.object;
                     
                     if (!dress.get("image")) {

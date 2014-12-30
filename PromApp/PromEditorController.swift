@@ -66,6 +66,9 @@ class PromEditor:UITableViewController, UITextFieldDelegate, UIImagePickerContro
         prom = promObject
         for key in keyForRowIndex{
             if let val:AnyObject = prom?.objectForKey(key){
+                if key == "image" {
+                    _imageChanged = true
+                }
                 promData.updateValue(val, forKey: key)
             }
         }
@@ -77,6 +80,11 @@ class PromEditor:UITableViewController, UITextFieldDelegate, UIImagePickerContro
         tableView.registerNib(UINib(nibName: "StringEntryCell", bundle: nil), forCellReuseIdentifier:"StringEntry")
         tableView.registerNib(UINib(nibName: "ImageEditorCell", bundle: nil), forCellReuseIdentifier:"ImageEditor")
         tableView.backgroundColor = SKColor.GroupedTableBackground()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        tableView.reloadData()
     }
     
     //MARK: Image Management
@@ -136,6 +144,7 @@ class PromEditor:UITableViewController, UITextFieldDelegate, UIImagePickerContro
             NSLog("Successfully picked image for prom.")
             if promImageView != nil{
                 NSLog("Updated image view to show image for prom.")
+                _imageChanged = true
                 promImageView!.image = image
             }
         } else {
@@ -152,6 +161,15 @@ class PromEditor:UITableViewController, UITextFieldDelegate, UIImagePickerContro
         textField.resignFirstResponder()
         return true
     }
+     func textFieldDidEndEditing(textField: UITextField) {
+        if let keyCell = textField.superview?.superview as? SKStringEntryCell {
+            if textField.text != "" {
+                promData[keyCell.key] = textField.text
+            }
+        } else {
+            NSLog("Failed to cast textField's superview \(textField.superview?.superview) as String editor cell.")
+        }
+    }
     //Not part of delegate, but used to make edits stop:
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
         self.view.endEditing(true)
@@ -159,10 +177,12 @@ class PromEditor:UITableViewController, UITextFieldDelegate, UIImagePickerContro
     
     //MARK: Button Presses
     @IBAction func savePressed(sender:AnyObject){
-        NSLog("Saving prom...")
+        NSLog("Save dress pressed...")
+        self.view.endEditing(true) //End editing of any text fields
         saveProm(self.prom, withCompletion: {
-            self.performSegueWithIdentifier("finishedAddingProm", sender: self)
-            //self.performSegueWithIdentifier("SaveProm", sender: self)
+            if let parent = self.presentingViewController {
+                parent.dismissViewControllerAnimated(true, completion: nil)
+            }
         })
     }
     @IBAction func cancelPressed(sender:AnyObject){
@@ -178,26 +198,16 @@ class PromEditor:UITableViewController, UITextFieldDelegate, UIImagePickerContro
     *   the prom object. If saved, we attempt to use values
     *   from this dictionary to overwrite the dress data. */
     func updateTempData(prom:SKProm){
-        for i in 0..<promData.count {
-            if "image" == keyForRowIndex[i]{
+        for i in 0..<keyForRowIndex.count {
+            if "image" == keyForRowIndex[i] && _imageChanged{
                 //accessing image cell
-                if let cell:SKImageEditorCell = tableView(tableView, cellForRowAtIndexPath: NSIndexPath(forRow: 0,inSection: i)) as? SKImageEditorCell{
+                if let cell:SKImageEditorCell = tableView(tableView, cellForRowAtIndexPath: NSIndexPath(forRow: i,inSection: 0)) as? SKImageEditorCell{
                     if let currentPic = cell.basicImage.image {
                         promData.updateValue(currentPic, forKey: keyForRowIndex[i])
                     }
                 }
-            } else {
-                //accessing text entry cell
-                if let cell:SKStringEntryCell = tableView(tableView, cellForRowAtIndexPath: NSIndexPath(forRow: 0,inSection: i)) as? SKStringEntryCell{
-                    if cell.field.text == nil || cell.field.text == "" {
-                        //No value for key
-                        //TODO: fill in fields with old data
-                    } else {
-                        //Cell has data
-                        promData.updateValue(cell.field.text, forKey: keyForRowIndex[i])
-                    }
-                }
             }
+            //TODO: Fill in existing prom data
         }
     }
     
@@ -207,7 +217,7 @@ class PromEditor:UITableViewController, UITextFieldDelegate, UIImagePickerContro
                 if promData.indexForKey(req_key) == nil{
                     throwAlert(fromPresenter: self,
                         ofType: .MissingRequiredField,
-                        withArg: req_key)
+                        withArg: readableNames[req_key])
                     return false
                 }
             }
@@ -215,7 +225,7 @@ class PromEditor:UITableViewController, UITextFieldDelegate, UIImagePickerContro
         return true
     }
     
-    func saveProm(prom:SKProm!, withCompletion block:()->Void){
+    func saveProm(prom:SKProm!, withCompletion block:(() -> Void)?){
         updateTempData(prom)
         if dataHasRequiredFields() {
             //Required fields are filled out, so try to save dress
@@ -225,7 +235,8 @@ class PromEditor:UITableViewController, UITextFieldDelegate, UIImagePickerContro
                 if key == "image"{
                     //Image key requires compression and conversion to file
                     NSLog("Compressing image for dress prior to save.")
-                    if let constrained:UIImage = scale(promImageView?.image?, toFitWidth: MAX_IMG_WIDTH, Height: MAX_IMG_HEIGHT) {
+                    if let originalImage = promImageView?.image {
+                        let constrained:UIImage = scale(originalImage, toFitWidth: MAX_IMG_WIDTH, Height: MAX_IMG_HEIGHT)
                         let imageData:NSData = UIImageJPEGRepresentation(constrained, 0.7)
                         let nospaces = removeAllWhiteSpace(prom.schoolName)
                         let filename = String(format: "%@%@Picture.jpg", prom.schoolName)
@@ -234,8 +245,6 @@ class PromEditor:UITableViewController, UITextFieldDelegate, UIImagePickerContro
                         NSLog("Saving image file for prom.")
                         //Save image file synchronously, cannot save prom with pointer to unsaved image
                         prom.image.save()
-                    } else {
-                        NSLog("Error compressing dress for prom prior to save.")
                     }
                 } else if key != "address"{
                     //Address will be used to generate precise location later, which is asynchronous
@@ -253,14 +262,28 @@ class PromEditor:UITableViewController, UITextFieldDelegate, UIImagePickerContro
                         NSLog("Error parsing address for prom \(prom?.objectId). Address:\(addr) Error: \(error.description)")
                         throwAlert(fromPresenter: self, ofType: .FailedSave, withArg: "Could not parse address: \(error)")
                     } else if let placemark:CLPlacemark = placeMarks.last as? CLPlacemark{
-                        NSLog("Resolved address [%@] to location: ", addr, placemark.description)
+                        NSLog("Resolved address [%@] to location: ", addr, placemark)
                         let promPoint = PFGeoPoint(location: placemark.location)
-                        self.prom!.setObject(promPoint, forKey: "address")
+                        self.prom!.setObject(addr, forKey: "address")
+                        self.prom!.setObject(promPoint, forKey: "preciseLocation")
+                        if self._isNewProm {
+                            NSLog("About to register new prom with server.")
+                            let acl = PFACL(user: PFUser.currentUser())
+                            acl.setPublicReadAccess(true)
+                            self.prom?.ACL = acl
+                        }
                         prom.saveInBackgroundWithBlock({
                             (succeeded:Bool!, error:NSError!) in
                             if((succeeded) != nil && succeeded!){
                                 NSLog("Succeeded in saving prom \(self.prom?.objectId)")
-                                block()
+                                if let user = PFUser.currentUser(){
+                                    if !user.isFollowingProm(prom){
+                                        user.addObject(prom, forKey: "proms")
+                                    }
+                                }
+                                if block != nil {
+                                    block!()
+                                }
                             } else {
                                 NSLog("Failed to save prom \(self.prom?.objectId)")
                                 throwAlert(fromPresenter: self, ofType: .FailedSave, withArg: "Server error: \(error)")
@@ -301,6 +324,7 @@ class PromEditor:UITableViewController, UITextFieldDelegate, UIImagePickerContro
                     }
                     return cell
                 }
+                return SKImageEditorCell()
             } else {
                 //key for cell corresponds to a string editor
                 if let cell = tableView.dequeueReusableCellWithIdentifier("StringEntry") as? SKStringEntryCell{
@@ -321,6 +345,7 @@ class PromEditor:UITableViewController, UITextFieldDelegate, UIImagePickerContro
                     }
                     return cell
                 }
+                return SKStringEntryCell()
             }
         }
         return UITableViewCell()

@@ -74,6 +74,14 @@ class PromInfoController:UIViewController {
     }
     
     func reloadData(prom:SKProm){
+        //If the user has write access, allow them to edit
+        if let acl = prom.ACL {
+            if acl.getWriteAccessForUser(PFUser.currentUser()) {
+                //Add edit button to navigation bar
+                let editButton = UIBarButtonItem(barButtonSystemItem: .Edit, target: self, action: "editProm")
+                self.navigationItem.rightBarButtonItem = editButton
+            }
+        }
         //Fill in title and image view first, then other data in loop
         if prom.schoolName != ""{
             nameLabel.text = prom.schoolName
@@ -95,11 +103,24 @@ class PromInfoController:UIViewController {
         updateButtonState()//check if user subscribed
     }
     
+    func editProm(){
+        //Edit button was pressed
+        //Double check the user is allowed to edit the prom
+        if promObject != nil &&
+                promObject!.ACL.getWriteAccessForUser(PFUser.currentUser()) {
+            self.performSegueWithIdentifier(EditPromSegueID, sender: self)
+        }
+    }
+    
     //MARK: Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == DressesFromPromID{
             if let dressListView = segue.destinationViewController as? DressListForProm{
                 dressListView.prom = self.promObject
+            }
+        } else if segue.identifier == EditPromSegueID && promObject != nil {
+            if let promEditController = segue.destinationViewController as? PromEditor{
+                promEditController.setupWithProm(self.promObject!)
             }
         }
     }
