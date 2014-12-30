@@ -25,7 +25,11 @@ func throwAlert(fromPresenter presenter:UIViewController, ofType type:StandardAl
     switch type{
         case .MissingRequiredField:
             title = titleForAlert[.MissingRequiredField]
-            message = "\(str) is a required field."
+            if str != nil {
+                message = "\(str!) is a required field."
+            } else {
+                message = "Missing a required field"
+        }
         case .FailedSave:
             title = titleForAlert[.FailedSave]
             message = str

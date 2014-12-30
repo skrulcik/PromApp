@@ -32,7 +32,6 @@ class ProfileCell: UITableViewCell
     
     func setName(newName:String){
         self.nameLabel.text = newName
-        println("Set name")
     }
     
     func setInfoLabel(promCount:Int, dressCount:Int){
