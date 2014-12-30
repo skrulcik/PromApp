@@ -36,7 +36,7 @@
     [[UINavigationBar appearance] setBarTintColor:navBarColor];
     [[UINavigationBar appearance] setTranslucent:NO];
     NSShadow* shadow = [NSShadow new];
-    UIFont *titlefont = [UIFont fontWithName:@"Rochester" size:36.0f];
+    UIFont *titlefont = [UIFont fontWithName:@"Rochester" size:32.0f];
     [[UINavigationBar appearance] setTitleTextAttributes: @{
                                                             NSForegroundColorAttributeName: buttonColor,
                                                             NSFontAttributeName: titlefont,

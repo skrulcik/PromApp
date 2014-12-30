@@ -124,4 +124,7 @@ class PromInfoController:UIViewController {
             }
         }
     }
+    @IBAction func unwindFromEditProm(segue: UIStoryboardSegue){
+        NSLog("Unwound from edit dress.")
+    }
 }

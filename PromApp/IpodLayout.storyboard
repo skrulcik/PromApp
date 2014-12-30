@@ -180,9 +180,8 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="search" destination="fVd-MC-RRv" id="0PD-0E-u4d"/>
-                        <segue destination="KZY-om-zlH" kind="modal" identifier="NewProm" id="2v2-gE-Mdm"/>
-                        <segue destination="KZY-om-zlH" kind="modal" identifier="" id="wWb-Iu-D5E"/>
                         <segue destination="QjP-nM-Wwt" kind="push" identifier="ViewPromFromList" id="NX7-gU-RLT"/>
+                        <segue destination="z3H-oy-8bo" kind="push" identifier="NewProm" id="SxK-bC-vo3"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="II1-Ei-3Oo" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -203,11 +202,6 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="C9N-L2-tsE">
-                        <barButtonItem key="leftBarButtonItem" title="Item" systemItem="cancel" id="lCJ-1z-aXB">
-                            <connections>
-                                <action selector="cancelPressed:" destination="z3H-oy-8bo" id="ovq-WR-q9c"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="22q-XN-z8Q">
                             <connections>
                                 <action selector="savePressed:" destination="z3H-oy-8bo" id="GbC-N3-N2L"/>
@@ -215,29 +209,15 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="cancelButton" destination="lCJ-1z-aXB" id="tDN-Vh-Byv"/>
                         <outlet property="doneButton" destination="22q-XN-z8Q" id="SY9-6H-89O"/>
+                        <segue destination="mmH-aO-lhi" kind="unwind" identifier="EditPromUnwind" unwindAction="unwindFromEditProm:" id="Cq6-7s-w38"/>
+                        <segue destination="mmH-aO-lhi" kind="unwind" identifier="NewPromUnwind" unwindAction="unwindFromNewProm:" id="I7g-Iz-zfL"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xAX-e2-4Qz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="mmH-aO-lhi" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3637" y="-73"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="sG8-2T-abl">
-            <objects>
-                <navigationController id="KZY-om-zlH" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="KVX-IZ-JPK">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="z3H-oy-8bo" kind="relationship" relationship="rootViewController" id="y2S-cY-vRN"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qgY-Dd-azo" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3097" y="-73"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="dF4-mE-7Dh">
@@ -590,9 +570,8 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="62s-3m-7gd"/>
-        <segue reference="wWb-Iu-D5E"/>
-        <segue reference="iqa-wj-pyQ"/>
-        <segue reference="gM8-2F-ALA"/>
+        <segue reference="NX7-gU-RLT"/>
+        <segue reference="SxK-bC-vo3"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.25490197539329529" green="0.47843140363693237" blue="0.98823535442352295" alpha="1" colorSpace="deviceRGB"/>
 </document>

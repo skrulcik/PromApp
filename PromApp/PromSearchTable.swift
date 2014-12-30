@@ -168,7 +168,15 @@ class PromSearchTable:UITableViewController, UISearchBarDelegate {
                     }
                 }
             }
+        } else if segue.identifier == NewPromSegueID {
+            if let promEdit = segue.destinationViewController as? PromEditor {
+                promEdit.title = "Create Prom"
+            }
         }
+    }
+    
+    @IBAction func unwindFromNewProm(segue:UIStoryboardSegue){
+        NSLog("Finished unwinding from new prom.")
     }
     
     

@@ -8,7 +8,11 @@
 
 import Foundation
 
-func removeAllWhiteSpace(str:String!)->String{
-    let len = countElements(str)
-    return (str as NSString).stringByReplacingOccurrencesOfString("\\s", withString: "", options: .RegularExpressionSearch, range:NSRange(location: 0, length: len)) as String
+func removeAllWhiteSpace(str:String?)->String{
+    if str != nil {
+        let len = countElements(str!)
+        return (str! as NSString).stringByReplacingOccurrencesOfString("\\s", withString: "", options: .RegularExpressionSearch, range:NSRange(location: 0, length: len)) as String
+    } else {
+        return "" //Non-optional return type
+    }
 }

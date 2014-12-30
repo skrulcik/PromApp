@@ -26,13 +26,13 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="41" id="aqX-6K-the"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="26"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YYX-Vo-c4K">
                         <rect key="frame" x="92" y="48" width="208" height="24"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>

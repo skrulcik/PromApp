@@ -7,6 +7,7 @@
 //
 
 #import "SKDressInfoTableViewCell.h"
+#import "PromApp-Swift.h"
 
 @implementation SKDressInfoTableViewCell
 @synthesize designerLabel;
@@ -26,6 +27,10 @@
 {
     // Initialization code
     self.imageView.image = nil;
+    self.designerLabel.font = [UIFont systemFontOfSize:26];
+    self.designerLabel.textColor = [SKColor LargeCellText];
+    self.styleNumberLabel.font = [UIFont systemFontOfSize:16];
+    self.styleNumberLabel.textColor = [SKColor SmallCellText];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated

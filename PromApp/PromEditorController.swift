@@ -16,7 +16,7 @@ class PromEditor:UITableViewController, UITextFieldDelegate, UIImagePickerContro
     var promImageView:UIImageView? {
         get {
             if let cell:SKImageEditorCell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0)) as? SKImageEditorCell {
-                return cell.imageView
+                return cell.basicImage
             } else {
                 NSLog("Invalid attempt to access image editor cell of the prom editor.")
                 return nil
@@ -150,6 +150,7 @@ class PromEditor:UITableViewController, UITextFieldDelegate, UIImagePickerContro
         } else {
             throwAlert(fromPresenter: self, ofType: .Default, withArg: "Invalid image selection.")
         }
+        dismissViewControllerAnimated(true, completion: nil)
     }
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         NSLog("Image picker was cancelled.")
@@ -177,17 +178,23 @@ class PromEditor:UITableViewController, UITextFieldDelegate, UIImagePickerContro
     
     //MARK: Button Presses
     @IBAction func savePressed(sender:AnyObject){
-        NSLog("Save dress pressed...")
+        NSLog("Save dress pressed.")
         self.view.endEditing(true) //End editing of any text fields
-        saveProm(self.prom, withCompletion: {
-            if let parent = self.presentingViewController {
-                parent.dismissViewControllerAnimated(true, completion: nil)
+        saveProm(completion: {
+            if self._isNewProm {
+                self.performSegueWithIdentifier(NewPromUnwindID, sender: self)
+            } else {
+                self.performSegueWithIdentifier(EditPromUnwindID, sender: self)
             }
         })
     }
     @IBAction func cancelPressed(sender:AnyObject){
         NSLog("Canceling prom editor.")
-        self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
+        if self._isNewProm {
+            self.performSegueWithIdentifier(NewPromUnwindID, sender: self)
+        } else {
+            self.performSegueWithIdentifier(EditPromUnwindID, sender: self)
+        }
     }
     
     //MARK: Saving
@@ -225,81 +232,87 @@ class PromEditor:UITableViewController, UITextFieldDelegate, UIImagePickerContro
         return true
     }
     
-    func saveProm(prom:SKProm!, withCompletion block:(() -> Void)?){
-        updateTempData(prom)
-        if dataHasRequiredFields() {
-            //Required fields are filled out, so try to save dress
-            //First load basic objects from data into
-            for (key,value) in promData{
-                NSLog("Parsing \(key)...")
-                if key == "image"{
-                    //Image key requires compression and conversion to file
-                    NSLog("Compressing image for dress prior to save.")
-                    if let originalImage = promImageView?.image {
-                        let constrained:UIImage = scale(originalImage, toFitWidth: MAX_IMG_WIDTH, Height: MAX_IMG_HEIGHT)
-                        let imageData:NSData = UIImageJPEGRepresentation(constrained, 0.7)
-                        let nospaces = removeAllWhiteSpace(prom.schoolName)
-                        let filename = String(format: "%@%@Picture.jpg", prom.schoolName)
-                        let imageFile = PFFile(name: filename, data: imageData)
-                        prom.image = imageFile
-                        NSLog("Saving image file for prom.")
-                        //Save image file synchronously, cannot save prom with pointer to unsaved image
-                        prom.image.save()
+    func saveProm(completion block:(() -> Void)?){
+        if prom != nil {
+            updateTempData(prom!)
+            if dataHasRequiredFields() {
+                //Required fields are filled out, so try to save dress
+                //First load basic objects from data into
+                for (key,value) in promData{
+                    NSLog("Parsing \(key)...")
+                    if key == "image"{
+                        //Image key requires compression and conversion to file
+                        NSLog("Compressing image for dress prior to save.")
+                        if let originalImage = promImageView?.image {
+                            let constrained:UIImage = scale(originalImage, toFitWidth: MAX_IMG_WIDTH, Height: MAX_IMG_HEIGHT)
+                            let imageData:NSData = UIImageJPEGRepresentation(constrained, 0.7)
+                            let nospaces = removeAllWhiteSpace(prom!.schoolName)
+                            let filename = String(format: "%@Picture.jpg", nospaces)
+                            let imageFile = PFFile(name: filename, data: imageData)
+                            prom!.image = imageFile
+                            NSLog("Saving image file for prom.")
+                            //Save image file synchronously, cannot save prom with pointer to unsaved image
+                            prom!.image.save()
+                        }
+                    } else if key != "address"{
+                        //Address will be used to generate precise location later, which is asynchronous
+                        //All non-image, non-address fields are values that don't require processing
+                        NSLog("Setting \(value) for \(key) for prom \(prom!.objectId).")
+                        prom!.setObject(value, forKey: key)
                     }
-                } else if key != "address"{
-                    //Address will be used to generate precise location later, which is asynchronous
-                    //All non-image, non-address fields are values that don't require processing
-                    NSLog("Setting \(value) for \(key) for prom \(prom.objectId).")
-                    prom.setObject(value, forKey: key)
+                }
+                if let addr = promData["address"] as? String {
+                    let gcoder = CLGeocoder()
+                    gcoder.geocodeAddressString(addr, completionHandler: {
+                        (placeMarks:Array!, error:NSError!) in
+                        if error != nil {
+                            //Could not attemp to parse address
+                            NSLog("Error parsing address for prom \(self.prom!.objectId). Address:\(addr) Error: \(error.description)")
+                            throwAlert(fromPresenter: self, ofType: .FailedSave, withArg: "Could not parse address: \(error)")
+                        } else if let placemark:CLPlacemark = placeMarks.last as? CLPlacemark{
+                            NSLog("Resolved address [%@] to location: ", addr, placemark)
+                            let promPoint = PFGeoPoint(location: placemark.location)
+                            self.prom!.setObject(addr, forKey: "address")
+                            self.prom!.setObject(promPoint, forKey: "preciseLocation")
+                            if self._isNewProm {
+                                NSLog("About to register new prom with server.")
+                                let acl = PFACL(user: PFUser.currentUser())
+                                acl.setPublicReadAccess(true)
+                                self.prom?.ACL = acl
+                            }
+                            self.prom!.saveInBackgroundWithBlock({
+                                (succeeded:Bool!, error:NSError!) in
+                                if((succeeded) != nil && succeeded!){
+                                    NSLog("Succeeded in saving prom \(self.prom!.objectId)")
+                                    if let user = PFUser.currentUser(){
+                                        if !user.isFollowingProm(self.prom!){
+                                            user.addObject(self.prom!, forKey: "proms")
+                                        }
+                                    }
+                                    if block != nil {
+                                        block!()
+                                    } else {
+                                        println("Block was nil")
+                                    }
+                                } else {
+                                    NSLog("Failed to save prom \(self.prom!.objectId)")
+                                    throwAlert(fromPresenter: self, ofType: .FailedSave, withArg: "Server error: \(error)")
+                                }
+                            })
+                        } else {
+                            //Address parsed, but no results found
+                            //If placemarks has no elements, above if let will fail when last property is nil
+                            NSLog("No location results for prom \(self.prom!.objectId) with address:\(addr)")
+                            throwAlert(fromPresenter: self, ofType: .FailedSave, withArg: "Could not create location from address.")
+                        }
+                    })
+                } else {
+                    NSLog("Failed to save prom \(self.prom!.objectId)")
+                    throwAlert(fromPresenter: self, ofType: .FailedSave, withArg: "Error converting address.")
                 }
             }
-            if let addr = promData["address"] as? String {
-                let gcoder = CLGeocoder()
-                gcoder.geocodeAddressString(addr, completionHandler: {
-                    (placeMarks:Array!, error:NSError!) in
-                    if error != nil {
-                        //Could not attemp to parse address
-                        NSLog("Error parsing address for prom \(prom?.objectId). Address:\(addr) Error: \(error.description)")
-                        throwAlert(fromPresenter: self, ofType: .FailedSave, withArg: "Could not parse address: \(error)")
-                    } else if let placemark:CLPlacemark = placeMarks.last as? CLPlacemark{
-                        NSLog("Resolved address [%@] to location: ", addr, placemark)
-                        let promPoint = PFGeoPoint(location: placemark.location)
-                        self.prom!.setObject(addr, forKey: "address")
-                        self.prom!.setObject(promPoint, forKey: "preciseLocation")
-                        if self._isNewProm {
-                            NSLog("About to register new prom with server.")
-                            let acl = PFACL(user: PFUser.currentUser())
-                            acl.setPublicReadAccess(true)
-                            self.prom?.ACL = acl
-                        }
-                        prom.saveInBackgroundWithBlock({
-                            (succeeded:Bool!, error:NSError!) in
-                            if((succeeded) != nil && succeeded!){
-                                NSLog("Succeeded in saving prom \(self.prom?.objectId)")
-                                if let user = PFUser.currentUser(){
-                                    if !user.isFollowingProm(prom){
-                                        user.addObject(prom, forKey: "proms")
-                                    }
-                                }
-                                if block != nil {
-                                    block!()
-                                }
-                            } else {
-                                NSLog("Failed to save prom \(self.prom?.objectId)")
-                                throwAlert(fromPresenter: self, ofType: .FailedSave, withArg: "Server error: \(error)")
-                            }
-                        })
-                    } else {
-                        //Address parsed, but no results found
-                        //If placemarks has no elements, above if let will fail when last property is nil
-                        NSLog("No location results for prom \(prom?.objectId) with address:\(addr)")
-                        throwAlert(fromPresenter: self, ofType: .FailedSave, withArg: "Could not create location from address.")
-                    }
-                })
-            } else {
-                NSLog("Failed to save prom \(self.prom?.objectId)")
-                throwAlert(fromPresenter: self, ofType: .FailedSave, withArg: "Error converting address.")
-            }
+        } else {
+            NSLog("Attempted to save a 'nil' prom.")
         }
     }
     
@@ -315,7 +328,6 @@ class PromEditor:UITableViewController, UITextFieldDelegate, UIImagePickerContro
                     //The following attaches cell's edit image button to PromEditor's addImage event
                     cell.editButton.addTarget(self, action:Selector("addImage:"), forControlEvents: .TouchUpInside)
                     cell.key = key
-                    cell.basicImage.image = UIImage(named: "placeholder") //Should be default image anyways
                     if(!_isNewProm && self.prom?.image != nil){
                         if let pfview:PFImageView = cell.basicImage as? PFImageView{
                             pfview.file = self.prom?.image
@@ -332,8 +344,6 @@ class PromEditor:UITableViewController, UITextFieldDelegate, UIImagePickerContro
                     cell.key = key
                     
                     //Fill in generic information first
-                    cell.field.text = ""
-                    cell.field.placeholder = readableNames[key]
                     if(!_isNewProm){
                         //Don't fill in fields with any default info
                         if let currentVal = prom?.objectForKey(key) as? String {
@@ -342,6 +352,11 @@ class PromEditor:UITableViewController, UITextFieldDelegate, UIImagePickerContro
                                 cell.field.text = currentVal
                             }
                         }
+                    }
+                    if cell.field.text == "" {
+                        cell.field.placeholder = readableNames[key]
+                    } else {
+                        println("didn't set placeholder, had text: \(cell.field.text)")
                     }
                     return cell
                 }
@@ -354,7 +369,6 @@ class PromEditor:UITableViewController, UITextFieldDelegate, UIImagePickerContro
         return 1;
     }
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        NSLog("This many cells %d for section \(section)", keyForRowIndex.count)
         if(section == 0){
             return keyForRowIndex.count
         }
