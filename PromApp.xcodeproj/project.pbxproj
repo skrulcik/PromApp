@@ -35,11 +35,11 @@
 		D246C3AA1A51E60B0046D95A /* support.html in Resources */ = {isa = PBXBuildFile; fileRef = D246C3A91A51E60B0046D95A /* support.html */; };
 		D246C3AE1A5216CA0046D95A /* privacy.html in Resources */ = {isa = PBXBuildFile; fileRef = D246C3AD1A5216CA0046D95A /* privacy.html */; };
 		D246C3B21A5217320046D95A /* PolicyPDF.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D246C3B11A5217320046D95A /* PolicyPDF.pdf */; };
+		D25A4C461A5234C700AED4AD /* TableHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = D25A4C451A5234C700AED4AD /* TableHeader.xib */; };
+		D25A4C481A52355600AED4AD /* TableHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25A4C471A52355600AED4AD /* TableHeader.swift */; };
 		D25B4D751A490DAF00AB6B06 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25B4D741A490DAF00AB6B06 /* Buttons.swift */; };
 		D2652159198E86E3000432BA /* StringEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2652158198E86E3000432BA /* StringEntryCell.xib */; };
-		D266D1621A47287B00A3C51C /* grand-hotel in Resources */ = {isa = PBXBuildFile; fileRef = D266D1601A47287B00A3C51C /* grand-hotel */; };
 		D266D1631A47287B00A3C51C /* rochester in Resources */ = {isa = PBXBuildFile; fileRef = D266D1611A47287B00A3C51C /* rochester */; };
-		D26C88C919C575C5002B52A8 /* Tester.xib in Resources */ = {isa = PBXBuildFile; fileRef = D26C88C819C575C5002B52A8 /* Tester.xib */; };
 		D28DD0031A4F141C00B73582 /* StandardAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28DD0021A4F141C00B73582 /* StandardAlerts.swift */; };
 		D28DD0051A4F5BAE00B73582 /* PromSearchTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28DD0041A4F5BAE00B73582 /* PromSearchTable.swift */; };
 		D29FA1981A4B16890046A5BD /* PromEditorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29FA1971A4B16890046A5BD /* PromEditorController.swift */; };
@@ -138,11 +138,11 @@
 		D246C3A91A51E60B0046D95A /* support.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = support.html; sourceTree = "<group>"; };
 		D246C3AD1A5216CA0046D95A /* privacy.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = privacy.html; sourceTree = "<group>"; };
 		D246C3B11A5217320046D95A /* PolicyPDF.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = PolicyPDF.pdf; sourceTree = "<group>"; };
+		D25A4C451A5234C700AED4AD /* TableHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableHeader.xib; sourceTree = "<group>"; };
+		D25A4C471A52355600AED4AD /* TableHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableHeader.swift; sourceTree = "<group>"; };
 		D25B4D741A490DAF00AB6B06 /* Buttons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
 		D2652158198E86E3000432BA /* StringEntryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StringEntryCell.xib; sourceTree = "<group>"; };
-		D266D1601A47287B00A3C51C /* grand-hotel */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "grand-hotel"; sourceTree = "<group>"; };
 		D266D1611A47287B00A3C51C /* rochester */ = {isa = PBXFileReference; lastKnownFileType = folder; path = rochester; sourceTree = "<group>"; };
-		D26C88C819C575C5002B52A8 /* Tester.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Tester.xib; sourceTree = "<group>"; };
 		D28DD0021A4F141C00B73582 /* StandardAlerts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = StandardAlerts.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		D28DD0041A4F5BAE00B73582 /* PromSearchTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PromSearchTable.swift; sourceTree = "<group>"; };
 		D29FA1971A4B16890046A5BD /* PromEditorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = PromEditorController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -272,6 +272,7 @@
 				D2BB5912198D655400431759 /* SKStringEntryCell.h */,
 				D2BB5913198D655400431759 /* SKStringEntryCell.m */,
 				D2CD3E6C1A50A93600BF0359 /* ObjectCell.swift */,
+				D25A4C471A52355600AED4AD /* TableHeader.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -368,7 +369,6 @@
 		D2A475241962198D005C2502 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				D266D1601A47287B00A3C51C /* grand-hotel */,
 				D266D1611A47287B00A3C51C /* rochester */,
 				D2EF94041A17D8F00093CD4C /* SignPainter.otf */,
 				D2C6D15D1980A7BA008080CD /* Saratoga.gpx */,
@@ -454,7 +454,7 @@
 				D2C890E019D68E7C00458094 /* ProfileCellLayout.xib */,
 				D23654F819916BF3007277A6 /* PromQueryTable.xib */,
 				D2652158198E86E3000432BA /* StringEntryCell.xib */,
-				D26C88C819C575C5002B52A8 /* Tester.xib */,
+				D25A4C451A5234C700AED4AD /* TableHeader.xib */,
 			);
 			name = "Layout Nibs";
 			sourceTree = "<group>";
@@ -592,6 +592,7 @@
 				D2F639B11A17ECA50026A3D8 /* LaunchScreen.xib in Resources */,
 				D246C3A31A51E0EB0046D95A /* css in Resources */,
 				D2DEBAA719B6D58E00BA0542 /* global.json in Resources */,
+				D25A4C461A5234C700AED4AD /* TableHeader.xib in Resources */,
 				D2C890E119D68E7C00458094 /* ProfileCellLayout.xib in Resources */,
 				D246C3AE1A5216CA0046D95A /* privacy.html in Resources */,
 				D2117951198EE1F0004D254F /* ImageEditorCell.xib in Resources */,
@@ -601,11 +602,9 @@
 				D2652159198E86E3000432BA /* StringEntryCell.xib in Resources */,
 				D2EF94051A17D8F00093CD4C /* SignPainter.otf in Resources */,
 				D2103456196F9EF70088484B /* DressCell.xib in Resources */,
-				D266D1621A47287B00A3C51C /* grand-hotel in Resources */,
 				D2074E3E198F3B5E0048E28E /* EditDress.xib in Resources */,
 				D246C3B21A5217320046D95A /* PolicyPDF.pdf in Resources */,
 				D246C3A41A51E0EB0046D95A /* images in Resources */,
-				D26C88C919C575C5002B52A8 /* Tester.xib in Resources */,
 				D2F639AF1A17E5FC0026A3D8 /* pinyon-script.ttf in Resources */,
 				D20DA6AF198B311200C1B225 /* ColorText.plist in Resources */,
 				D246C3A51A51E0EB0046D95A /* index.html in Resources */,
@@ -638,6 +637,7 @@
 				D23654FC19916DFF007277A6 /* SKPromQueryController.m in Sources */,
 				D2A4752E1962198D005C2502 /* SKAppDelegate.m in Sources */,
 				D2F1440E1970D24400046490 /* SKProm.m in Sources */,
+				D25A4C481A52355600AED4AD /* TableHeader.swift in Sources */,
 				D2117954198F0888004D254F /* SKImageEditorCell.m in Sources */,
 				D28DD0031A4F141C00B73582 /* StandardAlerts.swift in Sources */,
 				D2A475741963105B005C2502 /* SKAddDressViewController.m in Sources */,

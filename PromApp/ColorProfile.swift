@@ -84,4 +84,13 @@ class SKColor:UIColor
     class func SubscribedButtonSelected()->UIColor{
         return pink()
     }
+    class func ImageBackground()->UIColor{
+        return triadBlue()
+    }
+    class func TableHeader()->UIColor{
+        return pink()
+    }
+    class func TableHeaderText()->UIColor{
+        return white()
+    }
 }
