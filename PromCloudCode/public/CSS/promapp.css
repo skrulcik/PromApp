@@ -1,0 +1,42 @@
+
+/* Scott stuff */
+
+#toolbar {
+    position: fixed;
+    width: 100%;
+    height: 50px;
+    top: 0;
+    left: 0;
+    background: #ff7094;
+    border-bottom: 1px solid #D7D7D7;
+    text-align: center;
+    color: #FFFFFF
+}
+
+
+.FAQ {
+    
+}
+.question {
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+
+.answer {
+    padding-bottom: 20px;
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 10px;
+    font-size: 0.75em;
+}
+
+.address {
+    white-space: pre;
+}
+
+.email {
+    color: #FFFFFF;
+    text-decoration: underline;
+}
