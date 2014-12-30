@@ -22,29 +22,26 @@ class SKColor:UIColor
         return white()
     }
     class func pink()->UIColor{
-        return hexColor("ff7094")
+        return hexColor("FF7094")
         //hexColor("FF7B9E")
-        //return UIColor(red: 1.0, green: 123.0/255.0, blue: 158.0/255.0, alpha: 1.0)
-        //return UIColor(red: 1.0, green: 134.0/255.0, blue: 165.0/255.0, alpha: 1.0) //Old Pink
     }
-    class func adjPinkForNavBar()->UIColor{
-        //ff7094 according to screenshot
-        return UIColor(red: 1.0, green: 112.0/255.0, blue: 148.0/255.0, alpha: 1.0)
+    class func pinkLightCompliment()->UIColor{
+        return hexColor("ff89a7")
+    }
+    class func neutralCompoundBrown()->UIColor{
+        return hexColor("998680")//665955")
+    }
+    class func triadBlue()->UIColor{
+        return hexColor("45AACC")
+    }
+    class func triadBlueLight()->UIColor{
+        return hexColor("5CCDF2")
+    }
+    class func triadYellow()->UIColor{
+        return hexColor("B23D5A")
     }
     class func white()->UIColor{
         return UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-    }
-    class func triadBlue()->UIColor{
-        //45AACC
-        return UIColor(red:69.0/255.0, green: 170.0/255.0, blue: 204.0/255.0, alpha: 1.0)
-    }
-    class func triadBlueLight()->UIColor{
-        //5CCDF2
-        return UIColor(red: 92.0/255.0, green: 205.0/255.0, blue: 240.0/255.0, alpha: 1.0)
-    }
-    class func triadYellow()->UIColor{
-        //B23D5A
-        return UIColor(red: 178.0/255.0, green: 61.0/255.0, blue: 90.0/255.0, alpha: 1.0)
     }
     
     //MARK: Specifics
@@ -55,7 +52,7 @@ class SKColor:UIColor
         return pink()
     }
     class func NavBar()->UIColor{
-        return adjPinkForNavBar()
+        return pink()
     }
     class func TableBackground()->UIColor{
         return white()
@@ -67,7 +64,7 @@ class SKColor:UIColor
         return UIColor.blackColor()
     }
     class func SmallCellText()->UIColor{
-        return UIColor.darkGrayColor()
+        return neutralCompoundBrown()//UIColor.darkGrayColor()
     }
     class func TabBarHighlight()->UIColor{
         return pink()
@@ -91,6 +88,12 @@ class SKColor:UIColor
         return pink()
     }
     class func TableHeaderText()->UIColor{
+        return white()
+    }
+    class func RoundedRect()->UIColor{
+        return pink()
+    }
+    class func RoundedRectFore()->UIColor{
         return white()
     }
 }
