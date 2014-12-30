@@ -9,9 +9,9 @@
 import Foundation
 
 //MARK: Cells
-let profileCellHeight:Double = 190.0
+let profileCellHeight:Double = 185.0
 let dressCellHeight:Double = 80.0
-let headerHeight:CGFloat = 20.0
+let headerHeight:CGFloat = 24.0
 
 let dressCellNibName = "DressCell"
 let dressCellID = "DressCell"
@@ -41,12 +41,14 @@ let MAX_IMG_HEIGHT = 600
 
 //MARK: Fonts
 let smallFontSize:CGFloat = 16.0
-let largeFontSize:CGFloat = 28.0
+let largeFontSize:CGFloat = 26.0
 
 //MARK: Segues
 let EditDressSegue = "EditDress"
 let EditPromSegueID = "EditProm"
+let EditPromUnwindID = "EditPromUnwind"
 let NewPromSegueID = "NewProm"
+let NewPromUnwindID = "NewPromUnwind"
 let PromFromListSegueID = "ViewPromFromList"
 let PromFromMapSegueID = "ViewPromFromMap"
 let PromFromProfileID = "ViewPromFromProfile"

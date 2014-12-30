@@ -31,10 +31,14 @@ class ProfileCell: UITableViewCell
     }
     
     func setName(newName:String){
+        self.nameLabel.textColor = SKColor.LargeCellText()
+        self.nameLabel.font = UIFont.systemFontOfSize(largeFontSize)
         self.nameLabel.text = newName
     }
     
     func setInfoLabel(promCount:Int, dressCount:Int){
+        infoLabel.textColor = SKColor.SmallCellText()
+        infoLabel.font = UIFont.systemFontOfSize(smallFontSize)
         infoLabel.text = NSString(format: "%d Prom%@ | %d Dress%@", promCount,
                                     (promCount==1 ? "":"s"), dressCount,
                                     (dressCount==1 ? "":"es"))

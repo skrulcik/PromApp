@@ -202,10 +202,12 @@ static NSDictionary *readableNames;
     for (int i=0; i<[cells count]; i++){
         if([@"image" isEqualToString:[SKAddDressViewController keyForRowIndex:i]]){
             //Is image cell
-            SKImageEditorCell *imgCell = cells[i];
-            UIImage *currentPic = imgCell.basicImage.image;
-            if(currentPic){
-                [dressData setObject:currentPic forKey:[SKAddDressViewController keyForRowIndex:i]];
+            if(_imageChanged){
+                SKImageEditorCell *imgCell = cells[i];
+                UIImage *currentPic = imgCell.basicImage.image;
+                if(currentPic){
+                    [dressData setObject:currentPic forKey:[SKAddDressViewController keyForRowIndex:i]];
+                }
             }
         }else if(![@"prom" isEqualToString:[SKAddDressViewController keyForRowIndex:i]]){
             //Is text entry cell
@@ -232,8 +234,8 @@ static NSDictionary *readableNames;
         goal_h = (int)((float)height/(float)width * goal_w);
     }
     assert(goal_w<=width && goal_h <= height);
-    UIGraphicsBeginImageContextWithOptions(CGSizeMake(goal_w, goal_h), NO, 0.0);
-    CGRect scaledImageRect = CGRectMake(0.0, 0.0, goal_w, goal_h);
+    UIGraphicsBeginImageContextWithOptions(CGSizeMake(width, height), NO, 0.0);
+    CGRect scaledImageRect = CGRectMake((CGFloat)((width-goal_w)/2), (CGFloat)((height-goal_h)/2), (CGFloat)(goal_w), (CGFloat)(goal_h));
     [image drawInRect:scaledImageRect];
     UIImage* constrainedImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
@@ -255,35 +257,36 @@ typedef void(^voidCompletion)(void);
                 }
             }
         }
-        //Save Image of dress as PFFile
-        UIImage *constrained = [self constrainedCopyOf:self.dressImageView.image withWidth:MAX_IMG_WIDTH height:MAX_IMG_HEIGHT];
-        NSData *imageData = UIImageJPEGRepresentation(constrained, 0.6); //Compress to save space
-        NSString *filename = [NSString stringWithFormat:@"%@%@Picture.jpg",dress.designer, dress.styleNumber];
-        PFFile *imageFile = [PFFile fileWithName:filename data:imageData];
-        dress.image = imageFile;
-        [dress.image saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
-            [dress saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
-                if(!error){
-                    NSLog(@"Saved changes to dress.");
-                    //If dress is not an existing dress, add it to the array
-                    NSMutableArray *dresses = (NSMutableArray *)[current objectForKey:@"dresses"];
-                    if(![dresses containsObject:dress]){
-                        [current addObject:dress forKey:@"dresses"];
-                        NSLog(@"Added dress %@ to user's list of dresses", dress);
-                    }
-                    NSMutableArray *proms = (NSMutableArray *)[current objectForKey:@"proms"];
-                    if(dress.prom != nil && proms!= nil && ![proms containsObject:dress.prom]){
-                        [current addObject:dress.prom forKey:@"proms"];
-                        NSLog(@"Added prom %@ to user's list of followed proms.", dress.prom);
-                    }
-                    [current saveInBackgroundWithBlock:nil];
-                    block();
-                } else {
-                    NSLog(@"Failed to save changes to dress list: %@", error);
-                    UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"Could Not Save Dress" message:@"" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
-                    [errorMessage show];
+        if(_imageChanged){
+            //Save Image of dress as PFFile
+            UIImage *constrained = [self constrainedCopyOf:self.dressImageView.image withWidth:MAX_IMG_WIDTH height:MAX_IMG_HEIGHT];
+            NSData *imageData = UIImageJPEGRepresentation(constrained, 0.6); //Compress to save space
+            NSString *filename = [NSString stringWithFormat:@"%@%@Picture.jpg",dress.designer, dress.styleNumber];
+            PFFile *imageFile = [PFFile fileWithName:filename data:imageData];
+            dress.image = imageFile;
+            [dress.image save]; //Synchromous file save
+        }
+        [dress saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
+            if(!error){
+                NSLog(@"Saved changes to dress.");
+                //If dress is not an existing dress, add it to the array
+                NSMutableArray *dresses = (NSMutableArray *)[current objectForKey:@"dresses"];
+                if(![dresses containsObject:dress]){
+                    [current addObject:dress forKey:@"dresses"];
+                    NSLog(@"Added dress %@ to user's list of dresses", dress);
                 }
-            }];
+                NSMutableArray *proms = (NSMutableArray *)[current objectForKey:@"proms"];
+                if(dress.prom != nil && proms!= nil && ![proms containsObject:dress.prom]){
+                    [current addObject:dress.prom forKey:@"proms"];
+                    NSLog(@"Added prom %@ to user's list of followed proms.", dress.prom);
+                }
+                [current saveInBackgroundWithBlock:nil];
+                block();
+            } else {
+                NSLog(@"Failed to save changes to dress list: %@", error);
+                UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"Could Not Save Dress" message:@"" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+                [errorMessage show];
+            }
         }];
         //self.dress.owner = current; //FIXME: causes recursion problems
     }else{
@@ -368,7 +371,6 @@ typedef void(^voidCompletion)(void);
         }
         [cell.editButton addTarget:self action:@selector(addImage:) forControlEvents:UIControlEventTouchUpInside];
         cell.key = key;
-        cell.basicImage.image = [UIImage imageNamed:@"placeholder"];//placeholder (should already be there anyways)
         self.dress.image = [self.dress objectForKey:@"image"];
         if(!_isNewDress && self.dress.image != nil){
             [(PFImageView *)cell.basicImage setFile:self.dress.image];
