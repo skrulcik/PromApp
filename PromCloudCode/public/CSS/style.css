@@ -9,7 +9,6 @@ h1, h2, h3 {margin-top: 0;}
 ul, ol {margin: 0;}
 p {margin: 0;}
 html, body{
-   margin-top: 50px;
    font-family: 'Open Sans', sans-serif;
    font-size: 100%;
    background:#fff; 
@@ -51,16 +50,15 @@ body a{
 	-ms-transition: 0.5s all;
 }
 .menu{
-	 float:right;
+	float:right;
 	width:55%;
 	margin-top: 0.7em;
 }
 .menu li{
 	display:inline-block;
+	float: right;
 }
- .menu li:first-child{
-   	margin-left:0;
-}
+
 .header {
 	padding-top: 1.2em;
 }
@@ -83,7 +81,7 @@ body a{
 	transition: all 0.3s ease;
 }
 .menu li a:hover{
-	color:#09AADC;
+	color:#FF7094;
 } 
 .toggleMenu {
 	display:  none;
@@ -187,7 +185,7 @@ ul.nav{
 	text-align: right;
 }
 .banner-bottom-right h1 {
-	color: #09AADC;
+	color: #FF7094;
 	font-family: 'Play', sans-serif;
 	font-size: 2.5em;
 	font-weight: 700;
@@ -197,7 +195,7 @@ ul.nav{
 	margin-top: 10%;
 }
 .banner-bottom-right h3 {
-	color: #09AADC;
+	color: #FF7094;
 	font-size: 1.8em;
 	font-weight: 400;
 	margin: 20px 0px 10px 0px;
@@ -220,9 +218,9 @@ ul.nav{
 	padding:0px;
 }
 .banner-bottom-right ul li a:hover,.banner-bottom-right ul li a.active {
-	background: #09AADC;
+	background: #FF7094;
 	text-decoration: none;
-	border: 2px solid #09AADC;
+	border: 2px solid #FF7094;
 	transition: 0.5s all;
 	-webkit-transition: 0.5s all;
 	-moz-transition: 0.5s all;
