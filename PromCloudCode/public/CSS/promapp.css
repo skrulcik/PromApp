@@ -12,6 +12,9 @@
     text-align: center;
     color: #FFFFFF
 }
+#toolbar a {
+    color: #FFFFFF;
+}
 
 
 .FAQ {
@@ -39,4 +42,21 @@
 .email {
     color: #FFFFFF;
     text-decoration: underline;
+}
+
+.header-right {
+    float: right;
+}
+
+.screenshot {
+}
+
+.screenshot img{
+    width: 222px;
+    height: 450px;
+}
+
+.screenshotsmall img{
+    width: 111px;
+    height: 225px;
 }

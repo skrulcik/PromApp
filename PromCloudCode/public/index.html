@@ -58,19 +58,18 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<div class="header-left">
 					<a href="index.html"><img src="images/logos/Prom-toolbar.png" alt=""></a>
 				</div>
-				<div class="menu">
-                                     <a class="toggleMenu" href="#"><img src="images/menu-icon.png" alt="" /> </a>
-
+				<div class="menu header-right">
 					<ul class="nav" id="nav">
-					<li><a href="#home" class="scroll">HOME</a></li>
-					<li><a href="#about" class="scroll">ABOUT</a></li>
-					<li><a href="#features" class="scroll">FEATURES</a></li>
-					<li><a href="#screens" class="scroll">SCREENS</a></li>
-					<li><a href="#reviews" class="scroll">REVIEWS</a></li>
-					<li><a href="#contact" class="scroll">CONTACT</a></li>
+						<!-- Reverse order because of right-align -->
+						<li><a href="support.html" class="">FAQ</a></li>
+						<li><a href="privacy.html" class="">PRIVACY</a></li>
+						<li><a href="#contact" class="scroll">CONTACT</a></li>
+						<li><a href="#about" class="scroll">ABOUT</a></li>
+						<li><a href="#home" class="scroll">HOME</a></li>
 					</ul>
-                                  <!----start-top-nav-script---->
-		                      <script type="text/javascript" src="js/responsive-nav.js"></script>
+
+                    <!----start-top-nav-script---->
+                    <script type="text/javascript" src="js/responsive-nav.js"></script>
 
 					<script type="text/javascript">
 					jQuery(document).ready(function($) {
@@ -80,23 +79,20 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						});
 					});
 					</script>
-
-
-		<!----//End-top-nav-script---->
-
+					<!----//End-top-nav-script---->
 				</div>
-				<div class="clearfix"> </div>
+				<!--<div class="clearfix"> </div>-->
 			</div>
 			<div class="banner-bottom">
 				<div class="col-md-6">
-					<div class="banner-bottom-left">
-						<img src="images/phone.png" alt="">
+					<div class="banner-bottom-left screenshot">
+						<img class="screenshot" src="images/screenshots/profile.png" alt="">
 					</div>
 				</div>
 				<div class="col-md-6">
 					<div class="banner-bottom-right">
-						<h1>BezelShop</h1>
-						<h3>Simple, Beautiful and Amazing</h3>
+						<img src="images/logos/Prom-home.png" />
+						<h3>Nice descriptive thing here</h3>
 						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enimcidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim</p>
 						<ul>
 							<li><a class="active" href="#">Download</a></li>
@@ -111,29 +107,38 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<div class="welcome" id="about">
 		<div class="container">
 			<div class="welcome-top">
-				<h3>Welcome to BezalShop</h3>
-				<img src="images/border.png" alt="">
+				<h3>Welcome to PromApp</h3>
+				<!-- <img src="images/border.png" alt=""> -->
 				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enimcidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim</p>
 			</div>
 			<div class="welcome-bottom">
 				<div class="col-md-4">
 					<div class="welcome-bottom-one">
-						<span class="w-fst"> </span>
-						<h4>Responsive Layout</h4>
+						<!-- <span class="w-fst"> </span> -->
+						<div class="screenshotsmall">
+							<img src="images/screenshots/profile.png" />
+						</div>
+						<h4>Pofile</h4>
 						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </p>
 					</div>
 				</div>
 				<div class="col-md-4">
 					<div class="welcome-bottom-one">
-						<span class="w-snd"> </span>
-						<h4>Beautiful Design</h4>
+						<!-- <span class="w-snd"> </span> -->
+						<div class="screenshotsmall">
+							<img src="images/screenshots/register.png" />
+						</div>
+						<h4>Registration</h4>
 						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </p>
 					</div>
 				</div>
 				<div class="col-md-4">
 					<div class="welcome-bottom-one">
-						<span class="w-tre"> </span>
-						<h4>Easy to Use</h4>
+						<!-- <span class="w-tre"> </span> -->
+						<div class="screenshotsmall">
+							<img src="images/screenshots/find.png"/>
+						</div>
+						<h4>Near You</h4>
 						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </p>
 					</div>
 				</div>
@@ -141,141 +146,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			</div>		
 		</div>
 	</div>
-	<div class="features" id="features">
-		<div class="container">
-			<div class="features-main">
-				<div class="col-md-6">
-					<div class="features-left">
-						<img src="images/phone-1.png" alt="">
-					</div>
-				</div>
-				<div class="col-md-6">
-					<div class="features-right">
-						<h3>Excellent Features</h3>
-						<img src="images/border.png" alt="">
-						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh </p>
-						<ul>
-							<li><span class="one"> </span><p>Responsive Design</p></li>
-							<li><span class="tw"> </span><p>Redina Display</p></li>
-							<li><span class="tr"> </span><p>Bootstrap 3.1</p></li>
-							<li><span class="fr"> </span><p>Cross Browser</p></li>
-							<li><span class="fv"> </span><p>700+ Fonts</p></li>
-						</ul>
-					</div>
-				</div>
-				<div class="clearfix"> </div>
-			</div>
-		</div>
-	</div>
-	<div class="news">
-		<div class="container">
-			<div class="news-main">
-				<div class="col-md-4">
-					<div class="news-left">
-						<h4>Newsletter Sign Up</h4>
-					</div>
-				</div>
-				<div class="col-md-8">
-					<div class="news-right">
-						<span>
-							<input type="text"  value="Your email address" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Your email address';}">
-							<input type="submit" value="SUBSCRIBE">
-						</span>
-					</div>
-				</div>
-				<div class="clearfix"> </div>
-			</div>
-		</div>
-	</div>
-	<!--start-divice-scree-slider-->
-		<!--start-divice-scree-slider-->
-		<div class="app" id="screens">
-		<div class="wrap">									
-				<div class="img-cursual">
-						<div id="owl-demo" class="owl-carousel">
-			                <div class="item"><img class="lazyOwl" data-src="images/mob-1.png" alt="Lazy Owl Image"></div>
-			                <div class="item"><img class="lazyOwl" data-src="images/mob-7.png" alt="Lazy Owl Image"></div>
-			                <div class="item"><img class="lazyOwl" data-src="images/mob-3.png" alt="Lazy Owl Image"></div>
-			                <div class="item"><img class="lazyOwl" data-src="images/mob-1.png" alt="Lazy Owl Image"></div>
-			                <div class="item"><img class="lazyOwl" data-src="images/mob-7.png" alt="Lazy Owl Image"></div>
-			                <div class="item"><img class="lazyOwl" data-src="images/mob-3.png" alt="Lazy Owl Image"></div>
-			                <div class="item"><img class="lazyOwl" data-src="images/mob-1.png" alt="Lazy Owl Image"></div>
-			                <div class="item"><img class="lazyOwl" data-src="images/mob-7.png" alt="Lazy Owl Image"></div>
-			                <div class="item"><img class="lazyOwl" data-src="images/mob-3.png" alt="Lazy Owl Image"></div>
-			                <div class="item"><img class="lazyOwl" data-src="images/mob-1.png" alt="Lazy Owl Image"></div>
-			                <div class="item"><img class="lazyOwl" data-src="images/mob-7.png" alt="Lazy Owl Image"></div>
-			                <div class="item"><img class="lazyOwl" data-src="images/mob-3.png" alt="Lazy Owl Image"></div>
-			                <div class="item"><img class="lazyOwl" data-src="images/mob-1.png" alt="Lazy Owl Image"></div>
-			                <div class="item"><img class="lazyOwl" data-src="images/mob-7.png" alt="Lazy Owl Image"></div>
-			                <div class="item"><img class="lazyOwl" data-src="images/mob-3.png" alt="Lazy Owl Image"></div>
-		               </div>
-				</div>	
-			</div>
-			</div>
-			<!--End-divice-scree-slider-->	
-			<!--app-review-starts-here-->
-			<div class="app-review" id="reviews">
-				<div class="container">
-					<div class="app-review-main">
-						<div class="col-md-8">
-							<div class="app-review-left">
-								<h3>App Reviews</h3>
-								<img src="images/border.png" alt="">
-								<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh </p>
-								 <div  id="top" class="callbacks_container">
-			      					<ul class="rslides" id="slider4">
-			       					 <li>
-										<div class="app-review-left-one">
-											<div class="tool">
-												<a class="tooltips" href="#">
-													<span><i><h4>Great to work with, did work to acceptable standards and would use again. Always listened and built upon feedback. Excellent</h4></i></span></a>
-												</div>
-												<i><img src="images/men-1.png" alt=""></i>
-													<div class="app-review-bottom">
-														<h4>Anthony DiPrizio</h4>
-														<small>CEO</small>
-													</div>
-										</div>
-									</li>
-									<li>
-										<div class="app-review-left-one">
-											<div class="tool">
-												<a class="tooltips" href="#">
-													<span><i><h4>Great to work with, did work to acceptable standards and would use again. Always listened and built upon feedback.</h4></i></span></a>
-												</div>
-											<i><img src="images/men-1.png" alt=""></i>
-												<div class="app-review-bottom">
-													<h4>Anthony</h4>
-													<small>CEO</small>
-												</div>
-										</div>
-									</li>
-									<li>
-										<div class="app-review-left-one">
-											<div class="tool">
-												<a class="tooltips" href="#">
-													<span><i><h4>Great to work with, did work to acceptable standards and would use again. Always listened and built.</h4></i></span></a>
-												</div>
-											<i><img src="images/men-1.png" alt=""></i>
-												<div class="app-review-bottom">
-													<h4>DiPrizio</h4>
-													<small>CEO</small>
-												</div>
-										</div>
-									</li>
-									</ul>
-									</div>
-							</div>
-						</div>
-						<div class="col-md-4">
-							<div class="app-review-right">
-								<img src="images/app-1.png" alt="">
-							</div>
-						</div>
-						<div class="clearfix"> </div>
-					</div>
-				</div>
-			</div>   
+	
 			<!--- banner Slider starts Here --->
 	  			<script src="js/responsiveslides.min.js"></script>
 			 <script>
@@ -304,8 +175,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<div class="download">
 		<div class="container">
 			<div class="download-top">
-				<h3>Download BezalShop Now</h3>
-				<img src="images/border.png" alt="">
+				<h3>Download PromApp Now</h3>
+				<!-- <img src="images/border.png" alt=""> -->
 				<p class="lorem">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh</p>
 				<ul>
 					<li><a href="#">
@@ -316,76 +187,29 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						</div>
 					</a>
 					</li>
-					<li><a href="#">
-						<span class="d"> </span>
-						<div class="d-1">
-							<p class="g">Get it on</p>
-							<h6 class="google">GOOGLE PLAY</h6>
-						</div>
-					</a>
-					</li>
-					<li><a href="#">
-						<span class="b"> </span>
-						<div class="d-1">
-							<p class="w">Available for</p>
-							<h6 class="window">Windows Phone</h6>
-						</div>
-					</a>
-					</li>
 				</ul>
-			</div>
-		</div>
-	</div>
-	<!--download-Ends-Here-->
-	<!--getin-starts-Here-->
-	<div class="getin" id="contact">
-		<div class="container">
-			<div class="getin-top">
-				<h3>Get In Touch</h3>
-				<img src="images/border.png" alt="">
-				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh</p>
-			</div>
-			<div class="getin-bottom">
-				<div class="col-md-5">
-					<div class="getin-left">
-						<h4>Contact Details :-</h4>
-						<ul>
-							<li><span class="get-ph"> </span><p>(804) 747-5204</p></li>
-							<li><span class="get-cl"> </span><p>(804) 747-4771</p></li>
-							<li><span class="get-msg"> </span><p><a href="mailto:example@email.com">jaaj@bejal.com</a></p></li>
-							<li><span class="get-dp"> </span><p>3951 Westerre Parkway, suite 350 Richmond, VA 23233</p></li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-md-7">
-					<div class="getin-right">
-						<h4>Contact Us :-</h4>
-						<form> 
-					     <input type="text" class="text" value="Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}">
-						 <input type="text" class="text" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}">
-						<input type="text" class="text" value="Subject" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Subject';}">
-						<textarea value="Message" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message';}">Message</textarea>
-						 <div class="clear"> </div>
-						<div class="sub-button">
-							<input name="submit" type="submit" value="SEND">
-						</div>
-					</form>
-					</div>
-				</div>
-				<div class="clearfix"> </div>
 			</div>
 		</div>
 	</div>
 	<!--getin-ends-Here-->
 	<!--footer-starts-Here-->
 	<div class="footer">
-		<div class="container">
-			<div class="footer-main">
-				<a href="#home" class="scroll"><img src="images/top-arw.png" alt=""></a>
-				<h3>Back to Top</h3>
-			</div>
-		</div>
-	</div>
+            <div class="container">
+                <h3> Contact Us </h3>
+                <div class="col-md-4">
+                    <h4> Address: </h4>
+                    <p class="address">370 Broadway
+Saratoga Springs, NY 12866</p>
+                </div>
+                <div class="col-md-4">
+                    <h4> Email: </h4>
+                    <p><a class="email" href="mailto:customerservice.promapp@gmail.com">customerservice.promapp@gmail.com</a></p>
+                </div>
+            </div>
+            <div id="contact" class="container">
+                <div class="copyright">&copy; PromApp LLC 2014</div>
+            </div>
+        </div>
 	<!--footer-ends-Here-->
 </body>
 </html>
