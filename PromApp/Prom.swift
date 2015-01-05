@@ -5,7 +5,6 @@
 //  Created by Scott Krulcik on 12/27/14.
 //  Copyright (c) 2014 Scott Krulcik. All rights reserved.
 //
-import Parse
 
 class Prom:PFObject, PFSubclassing{
     var schoolName = ""

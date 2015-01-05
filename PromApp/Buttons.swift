@@ -6,9 +6,6 @@
 //  Copyright (c) 2014 Scott Krulcik. All rights reserved.
 //
 
-import Foundation
-import UIKit
-
 class RoundedRectButton: UIButton{
     var foreground:UIColor = SKColor.RoundedRectFore()
     var fillColor:UIColor = SKColor.RoundedRect()
