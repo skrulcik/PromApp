@@ -5,6 +5,7 @@
 //  Created by Scott Krulcik on 12/29/14.
 //  Copyright (c) 2014 Scott Krulcik. All rights reserved.
 //
+import UIKit
 
 class TableHeader:UIView {
     @IBOutlet var textLabel:UILabel!

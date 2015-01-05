@@ -5,6 +5,7 @@
 //  Created by Scott Krulcik on 12/28/14.
 //  Copyright (c) 2014 Scott Krulcik. All rights reserved.
 //
+import UIKit
 
 class ObjectCell:UITableViewCell {
     @IBOutlet weak var picView: UIImageView!

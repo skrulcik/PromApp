@@ -5,9 +5,10 @@
 //  Created by Scott Krulcik on 6/24/14.
 //  Copyright (c) 2014 Scott Krulcik. All rights reserved.
 //
-#import <PromApp-Swift.h>
+//#import <PromApp-Swift.h>
 #import <Bolts/Bolts.h>
 #import "SKPromFinderViewController.h"
+#import "PromApp-Swift.h"
 #import "SKProm.h"
 #import "SKPromAnnotation.h"
 
@@ -49,7 +50,7 @@
     [self.locationManager startUpdatingLocation];
     //Set search bar delegate
     self.searchBar.delegate = self;
-    self.searchBar.backgroundColor = [SKColor SearchBar];
+//    self.searchBar.backgroundColor = [SKColor SearchBar];
     //Set map to show location and to continuously track
     self.map.delegate = self;
     self.map.showsUserLocation = YES;

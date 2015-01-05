@@ -7,7 +7,10 @@
 //
 
 #import "SKAppDelegate.h"
-#import "PromApp-Swift.h"
+#import "SKDress.h"
+#import "SKProm.h"
+#import "SKStore.h"
+//#import "PromApp-Swift.h"
 #import <Parse/Parse.h>
 #import <ParseFacebookUtils/PFFacebookUtils.h>
 
@@ -30,20 +33,20 @@
     
     //Navigation Bar
     // Set the global tint on the navigation bar
-    UIColor *navBarColor = [SKColor NavBar];//UIColorFromRGB(0xFF7094); //UIColorFromRGB(0xFF8BE2);
-    UIColor *buttonColor = [SKColor white];
-	[[UINavigationBar appearance] setTintColor:buttonColor];
-    [[UINavigationBar appearance] setBarTintColor:navBarColor];
-    [[UINavigationBar appearance] setTranslucent:NO];
-    NSShadow* shadow = [NSShadow new];
-    UIFont *titlefont = [UIFont fontWithName:@"Rochester" size:32.0f];
-    [[UINavigationBar appearance] setTitleTextAttributes: @{
-                                                            NSForegroundColorAttributeName: buttonColor,
-                                                            NSFontAttributeName: titlefont,
-                                                            NSShadowAttributeName: shadow
-                                                            }];
-    [[UITabBar appearance] setTintColor:[SKColor TabBarHighlight]];
-    [self.window setTintColor:navBarColor];
+//    UIColor *navBarColor = [SKColor NavBar];//UIColorFromRGB(0xFF7094); //UIColorFromRGB(0xFF8BE2);
+//    UIColor *buttonColor = [SKColor white];
+//	[[UINavigationBar appearance] setTintColor:buttonColor];
+//    [[UINavigationBar appearance] setBarTintColor:navBarColor];
+//    [[UINavigationBar appearance] setTranslucent:NO];
+//    NSShadow* shadow = [NSShadow new];
+//    UIFont *titlefont = [UIFont fontWithName:@"Rochester" size:32.0f];
+//    [[UINavigationBar appearance] setTitleTextAttributes: @{
+//                                                            NSForegroundColorAttributeName: buttonColor,
+//                                                            NSFontAttributeName: titlefont,
+//                                                            NSShadowAttributeName: shadow
+//                                                            }];
+//    [[UITabBar appearance] setTintColor:[SKColor TabBarHighlight]];
+//    [self.window setTintColor:navBarColor];
     return YES;
 }
 

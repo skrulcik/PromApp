@@ -10,6 +10,7 @@
 #define PromApp_PromApp_Bridging_Header_h
 
 #import <Parse/Parse.h>
+#import <ParseUI/ParseUI.h>
 #import "SKAddDressViewController.h"
 #import "SKImageEditorCell.h"
 #import "SKStringEntryCell.h"

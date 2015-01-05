@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class RoundedRectButton: UIButton{
     var foreground:UIColor = SKColor.RoundedRectFore()
