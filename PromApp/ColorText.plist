@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Light Blue</key>
+	<string>#8bc2ff</string>
+	<key>Standard Blue</key>
+	<string>#007AFF</string>
+	<key>Standard Blue Darkened</key>
+	<string>#0055D7</string>
+	<key>Standard White</key>
+	<string>#F7F7F7</string>
+	<key>Standard Pink</key>
+	<string>#FF8BE2</string>
+	<key>Dark Pink</key>
+	<string>#DE23AF</string>
+	<key>Standard White Darkened</key>
+	<string>#C7C7CC</string>
+	<key>LatzPink</key>
+	<string>#ff7094</string>
+	<key>LatzPinkAdjusted</key>
+	<string>#ff86a5</string>
+</dict>
+</plist>

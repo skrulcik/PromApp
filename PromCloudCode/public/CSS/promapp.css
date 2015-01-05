@@ -1,0 +1,60 @@
+
+/* Scott stuff */
+
+/*for toolbar*/
+body { padding-top: 50px; } 
+
+#toolbar {
+    background: #ff7094;
+    text-align: center;
+    color: #FFFFFF;
+    border-bottom: 0px;
+}
+#toolbar a {
+    color: #FFFFFF;
+}
+
+
+.FAQ {
+    
+}
+.question {
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+
+.answer {
+    padding-bottom: 20px;
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 10px;
+    font-size: 0.75em;
+}
+
+.address {
+    white-space: pre;
+}
+
+.email {
+    color: #FFFFFF;
+    text-decoration: underline;
+}
+
+.buffer {
+    height: 10px;
+}
+
+.screenshot {
+}
+
+.screenshot img{
+    width: 222px;
+    height: 450px;
+}
+
+.screenshotsmall img{
+    width: 111px;
+    height: 225px;
+}

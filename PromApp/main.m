@@ -2,15 +2,17 @@
 //  main.m
 //  PromApp
 //
-//  Created by Scott Krulcik on 1/4/15.
-//  Copyright (c) 2015 Scott Krulcik. All rights reserved.
+//  Created by Scott Krulcik on 6/30/14.
+//  Copyright (c) 2014 ___FULLUSERNAME___. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-#import "AppDelegate.h"
 
-int main(int argc, char * argv[]) {
+#import "SKAppDelegate.h"
+
+int main(int argc, char * argv[])
+{
     @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
+        return UIApplicationMain(argc, argv, nil, NSStringFromClass([SKAppDelegate class]));
     }
 }

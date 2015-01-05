@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C81f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner">
+            <connections>
+                <outlet property="cancelButton" destination="ZO4-Oc-Uu9" id="42V-7i-gVQ"/>
+                <outlet property="doneButton" destination="mfu-QK-1Zx" id="KnH-xs-mjb"/>
+                <outlet property="tableView" destination="bEF-E0-Qty" id="FV9-Bq-gJ3"/>
+                <outlet property="view" destination="W1B-rG-dOD" id="9fl-00-jjv"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="W1B-rG-dOD">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zWu-GQ-1x9">
+                    <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                    <items>
+                        <navigationItem id="00i-UB-RJB">
+                            <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="ZO4-Oc-Uu9">
+                                <connections>
+                                    <action selector="cancelPressed:" destination="-1" id="oyy-hW-9aB"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem key="rightBarButtonItem" systemItem="save" id="mfu-QK-1Zx">
+                                <connections>
+                                    <action selector="savePressed:" destination="-1" id="lns-DA-ttu"/>
+                                </connections>
+                            </barButtonItem>
+                        </navigationItem>
+                    </items>
+                </navigationBar>
+                <tableView opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="bEF-E0-Qty">
+                    <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="gwv-VZ-sxs"/>
+                        <outlet property="delegate" destination="-1" id="OPm-bY-pRJ"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="bEF-E0-Qty" secondAttribute="bottom" id="2BU-Sn-CTj"/>
+                <constraint firstItem="bEF-E0-Qty" firstAttribute="leading" secondItem="W1B-rG-dOD" secondAttribute="leading" id="D3r-wB-6nj"/>
+                <constraint firstAttribute="trailing" secondItem="zWu-GQ-1x9" secondAttribute="trailing" id="S9h-lo-eSX"/>
+                <constraint firstItem="zWu-GQ-1x9" firstAttribute="leading" secondItem="W1B-rG-dOD" secondAttribute="leading" id="cOV-iQ-4Da"/>
+                <constraint firstAttribute="trailing" secondItem="bEF-E0-Qty" secondAttribute="trailing" id="kFs-ef-W9e"/>
+                <constraint firstItem="bEF-E0-Qty" firstAttribute="top" secondItem="zWu-GQ-1x9" secondAttribute="bottom" id="mdo-H3-yLA"/>
+                <constraint firstItem="zWu-GQ-1x9" firstAttribute="top" secondItem="W1B-rG-dOD" secondAttribute="top" constant="20" id="o3c-IE-k18"/>
+            </constraints>
+        </view>
+    </objects>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

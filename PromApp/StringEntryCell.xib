@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="pdR-Rz-0uM" customClass="SKStringEntryCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pdR-Rz-0uM" id="Amo-ks-j0D">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BBB-Xg-ghm">
+                        <rect key="frame" x="5" y="0.0" width="315" height="43"/>
+                        <nil key="textColor"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                    </textField>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="BBB-Xg-ghm" firstAttribute="top" secondItem="Amo-ks-j0D" secondAttribute="top" id="9xM-qM-tY8"/>
+                    <constraint firstAttribute="bottom" secondItem="BBB-Xg-ghm" secondAttribute="bottom" id="C3s-EH-S0T"/>
+                    <constraint firstItem="BBB-Xg-ghm" firstAttribute="leading" secondItem="Amo-ks-j0D" secondAttribute="leading" constant="5" id="ZHa-Qs-JtH"/>
+                    <constraint firstAttribute="trailing" secondItem="BBB-Xg-ghm" secondAttribute="trailing" id="mlu-X6-EEz"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="field" destination="BBB-Xg-ghm" id="SPM-op-PLc"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

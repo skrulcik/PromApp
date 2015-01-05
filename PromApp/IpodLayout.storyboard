@@ -1,0 +1,577 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C81f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="xrr-NT-o2p">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <scenes>
+        <!--Login-->
+        <scene sceneID="iCM-x2-Tc2">
+            <objects>
+                <viewController storyboardIdentifier="Login" id="gmQ-3J-jBv" customClass="SKLoginViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8d2-Fn-4hy"/>
+                        <viewControllerLayoutGuide type="bottom" id="b4W-vK-LDH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7pJ-ha-S0p">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PromSplash" translatesAutoresizingMaskIntoConstraints="NO" id="5gW-Gx-HRF">
+                                <rect key="frame" x="0.0" y="-4" width="320" height="572"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rLv-Zk-eLb" customClass="PillButton" customModule="PromApp" customModuleProvider="target">
+                                <rect key="frame" x="59" y="465" width="202" height="52"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="52" id="sLe-w8-kwY"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <state key="normal" title="Facebook Login">
+                                    <color key="titleColor" red="1" green="0.99997437000274658" blue="0.99999129772186279" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="fBookLoginPressed:" destination="gmQ-3J-jBv" eventType="touchUpInside" id="Yvi-FR-NGX"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LogoWithSlogan" translatesAutoresizingMaskIntoConstraints="NO" id="fkZ-iM-dOn">
+                                <rect key="frame" x="135" y="-15" width="179" height="179"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="fkZ-iM-dOn" secondAttribute="height" multiplier="1:1" id="aej-vc-RVs"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="fkZ-iM-dOn" firstAttribute="leading" secondItem="7pJ-ha-S0p" secondAttribute="leadingMargin" constant="119" id="0nl-sT-I8k"/>
+                            <constraint firstAttribute="trailing" secondItem="5gW-Gx-HRF" secondAttribute="trailing" id="EhJ-Hx-5tL"/>
+                            <constraint firstItem="b4W-vK-LDH" firstAttribute="top" secondItem="5gW-Gx-HRF" secondAttribute="bottom" id="Grs-bV-wRf"/>
+                            <constraint firstItem="5gW-Gx-HRF" firstAttribute="top" secondItem="8d2-Fn-4hy" secondAttribute="bottom" constant="-24" id="Lpm-6l-oXd"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="fkZ-iM-dOn" secondAttribute="trailing" constant="-10" id="O8N-JS-aQJ"/>
+                            <constraint firstAttribute="trailing" secondItem="rLv-Zk-eLb" secondAttribute="trailing" constant="59" id="aks-Vy-ZUy"/>
+                            <constraint firstItem="rLv-Zk-eLb" firstAttribute="leading" secondItem="7pJ-ha-S0p" secondAttribute="leading" constant="59" id="e8a-9H-LPB"/>
+                            <constraint firstItem="fkZ-iM-dOn" firstAttribute="top" secondItem="8d2-Fn-4hy" secondAttribute="bottom" constant="-35" id="gev-VW-1Ee"/>
+                            <constraint firstItem="b4W-vK-LDH" firstAttribute="top" secondItem="rLv-Zk-eLb" secondAttribute="bottom" constant="51" id="oEk-5V-Q4f"/>
+                            <constraint firstItem="5gW-Gx-HRF" firstAttribute="leading" secondItem="7pJ-ha-S0p" secondAttribute="leading" id="z36-rM-3Wp"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Login" id="86v-XH-wuI"/>
+                    <connections>
+                        <segue destination="P8W-CJ-ayo" kind="unwind" identifier="finishLogin" unwindAction="unwindFromLogin:" id="ora-OG-pK7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PCF-25-GJS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="P8W-CJ-ayo" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1172" y="1441"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="y06-PK-COl">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="xrr-NT-o2p" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleAspectFit" id="W10-cz-z8Q">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="SRa-NP-9mE">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.25490197539329529" green="0.47843140363693237" blue="0.98823535442352295" alpha="1" colorSpace="deviceRGB"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="OLu-Iz-8hF" kind="relationship" relationship="rootViewController" id="Suj-AW-MEL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c48-MX-Vm4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="985" y="666"/>
+        </scene>
+        <!--Near You-->
+        <scene sceneID="1Td-S3-r05">
+            <objects>
+                <viewController id="lA3-QL-eB2" customClass="SKPromFinderViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="CGf-Vk-Uv1"/>
+                        <viewControllerLayoutGuide type="bottom" id="Wod-nP-Lcj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cr9-Ml-BWf">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" placeholder="Search By Location" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7kc-0S-Rcl">
+                                <rect key="frame" x="0.0" y="64" width="320" height="44"/>
+                                <color key="barTintColor" red="1" green="0.43921568630000002" blue="0.58039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dFT-MP-kXy">
+                                <rect key="frame" x="0.0" y="519" width="320" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="sH8-pd-EL1"/>
+                                </constraints>
+                            </view>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" pitchEnabled="NO" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wPC-T0-ofg">
+                                <rect key="frame" x="0.0" y="108" width="320" height="411"/>
+                                <connections>
+                                    <outlet property="delegate" destination="lA3-QL-eB2" id="L5V-OQ-fHW"/>
+                                </connections>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="dFT-MP-kXy" firstAttribute="leading" secondItem="cr9-Ml-BWf" secondAttribute="leading" id="1Vh-8c-mbI"/>
+                            <constraint firstItem="7kc-0S-Rcl" firstAttribute="leading" secondItem="cr9-Ml-BWf" secondAttribute="leading" id="71t-bb-hhY"/>
+                            <constraint firstItem="Wod-nP-Lcj" firstAttribute="top" secondItem="dFT-MP-kXy" secondAttribute="bottom" constant="-50" id="Aue-Ad-B5G"/>
+                            <constraint firstAttribute="trailing" secondItem="dFT-MP-kXy" secondAttribute="trailing" id="Eez-wY-T4y"/>
+                            <constraint firstItem="Wod-nP-Lcj" firstAttribute="top" secondItem="wPC-T0-ofg" secondAttribute="bottom" id="JSW-pD-A27"/>
+                            <constraint firstItem="wPC-T0-ofg" firstAttribute="top" secondItem="7kc-0S-Rcl" secondAttribute="bottom" id="ZnJ-Ei-VBX"/>
+                            <constraint firstItem="7kc-0S-Rcl" firstAttribute="top" secondItem="CGf-Vk-Uv1" secondAttribute="bottom" id="nZS-lw-XB3"/>
+                            <constraint firstAttribute="centerX" secondItem="wPC-T0-ofg" secondAttribute="centerX" id="uKs-rC-MpD"/>
+                            <constraint firstAttribute="trailing" secondItem="7kc-0S-Rcl" secondAttribute="trailing" id="vgZ-oJ-TyQ"/>
+                            <constraint firstAttribute="width" secondItem="wPC-T0-ofg" secondAttribute="width" id="z6r-aR-Uci"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Near You" image="LocationIconSelected" id="gDU-p7-kPi"/>
+                    <navigationItem key="navigationItem" id="Uvj-za-fWK"/>
+                    <connections>
+                        <outlet property="map" destination="wPC-T0-ofg" id="oQ8-Hx-sDe"/>
+                        <outlet property="searchBar" destination="7kc-0S-Rcl" id="gp5-HK-8rB"/>
+                        <segue destination="QjP-nM-Wwt" kind="push" identifier="ViewPromFromMap" id="iqa-wj-pyQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eCV-Pv-JsZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2252" y="666"/>
+        </scene>
+        <!--Proms-->
+        <scene sceneID="wNw-aQ-yC4">
+            <objects>
+                <tableViewController id="AG1-YC-Jqg" customClass="PromSearchTable" customModule="PromApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="eSL-SX-iLN">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" text="" placeholder="Seach by Prom Name" translucent="NO" id="fVd-MC-RRv">
+                            <rect key="frame" x="0.0" y="64" width="320" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <color key="barTintColor" red="1" green="0.4392156862745098" blue="0.58039215686274515" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="AG1-YC-Jqg" id="BRH-dm-F2q"/>
+                            </connections>
+                        </searchBar>
+                        <connections>
+                            <outlet property="dataSource" destination="AG1-YC-Jqg" id="bUA-4V-7Y9"/>
+                            <outlet property="delegate" destination="AG1-YC-Jqg" id="3WU-k7-d7S"/>
+                        </connections>
+                    </tableView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Proms" id="V4o-mF-qT7">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="aWd-ln-gXo">
+                            <connections>
+                                <action selector="cancelPressed:" destination="AG1-YC-Jqg" id="Kgr-eJ-Kp9"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="New" id="qGj-un-Gc9">
+                            <connections>
+                                <action selector="newPressed:" destination="AG1-YC-Jqg" id="h6W-tJ-gcv"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="search" destination="fVd-MC-RRv" id="0PD-0E-u4d"/>
+                        <segue destination="QjP-nM-Wwt" kind="push" identifier="ViewPromFromList" id="NX7-gU-RLT"/>
+                        <segue destination="z3H-oy-8bo" kind="push" identifier="NewProm" id="SxK-bC-vo3"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="II1-Ei-3Oo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2675" y="-73"/>
+        </scene>
+        <!--Prom Editor-->
+        <scene sceneID="k61-mx-yRK">
+            <objects>
+                <tableViewController id="z3H-oy-8bo" customClass="PromEditor" customModule="PromApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="VEa-xL-hyZ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <connections>
+                            <outlet property="dataSource" destination="z3H-oy-8bo" id="xTE-au-1kK"/>
+                            <outlet property="delegate" destination="z3H-oy-8bo" id="DZy-tz-2Hn"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="C9N-L2-tsE">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="22q-XN-z8Q">
+                            <connections>
+                                <action selector="savePressed:" destination="z3H-oy-8bo" id="GbC-N3-N2L"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="doneButton" destination="22q-XN-z8Q" id="SY9-6H-89O"/>
+                        <segue destination="mmH-aO-lhi" kind="unwind" identifier="EditPromUnwind" unwindAction="unwindFromEditProm:" id="Cq6-7s-w38"/>
+                        <segue destination="mmH-aO-lhi" kind="unwind" identifier="NewPromUnwind" unwindAction="unwindFromNewProm:" id="I7g-Iz-zfL"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xAX-e2-4Qz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="mmH-aO-lhi" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="3637" y="-73"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="dF4-mE-7Dh">
+            <objects>
+                <navigationController id="YaK-eG-ejD" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="aUJ-6s-Wdu"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2gZ-Q0-tV2">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="AG1-YC-Jqg" kind="relationship" relationship="rootViewController" id="qXv-Lh-AQa"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HgD-F9-PNy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2252" y="-73"/>
+        </scene>
+        <!--Prom Detail-->
+        <scene sceneID="u2f-5k-dHc">
+            <objects>
+                <viewController id="QjP-nM-Wwt" customClass="PromInfoController" customModule="PromApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="eeA-Fk-V8i"/>
+                        <viewControllerLayoutGuide type="bottom" id="sJB-io-BoA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="XGz-vU-iXw">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9DG-Lq-qQ4" customClass="PFImageView">
+                                <rect key="frame" x="0.0" y="64" width="320" height="159"/>
+                                <color key="backgroundColor" red="0.30588235294117649" green="0.67843137254901964" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="159" id="YMF-S3-96v"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="School Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XRf-bP-SLe">
+                                <rect key="frame" x="16" y="184" width="288" height="39"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="39" id="Cf6-yi-qKh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <color key="textColor" red="1" green="0.99997437" blue="0.99999129769999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bmk-bF-n1z">
+                                <rect key="frame" x="16" y="236" width="288" height="150"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="fgL-hJ-TPN"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="Prom Information">
+                                        <attributes>
+                                            <font key="NSFont" size="18" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" link="YES" address="YES" calendarEvent="YES"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5a4-Lc-xTv" customClass="PillButton" customModule="PromApp" customModuleProvider="target">
+                                <rect key="frame" x="174" y="401" width="130" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="View Dresses">
+                                    <color key="titleColor" red="1" green="0.99997437000274658" blue="0.99999129772186279" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="viewDressesPresses:" destination="QjP-nM-Wwt" eventType="touchUpInside" id="pOa-C8-PJf"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="74N-3F-uzL" userLabel="Subscription Button" customClass="SubscribedButton" customModule="PromApp" customModuleProvider="target">
+                                <rect key="frame" x="16" y="401" width="130" height="34"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="1" green="0.99997437000274658" blue="0.99999129772186279" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="subscribePressed:" destination="QjP-nM-Wwt" eventType="touchUpInside" id="3p2-gl-SUo"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Bmk-bF-n1z" firstAttribute="trailing" secondItem="XGz-vU-iXw" secondAttribute="trailingMargin" id="3Ll-VZ-nkj"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="5a4-Lc-xTv" secondAttribute="trailing" id="AvP-Ti-t5B"/>
+                            <constraint firstItem="XRf-bP-SLe" firstAttribute="leading" secondItem="XGz-vU-iXw" secondAttribute="leadingMargin" id="Cun-2S-Lp7"/>
+                            <constraint firstItem="5a4-Lc-xTv" firstAttribute="width" secondItem="XGz-vU-iXw" secondAttribute="width" multiplier="13/32" id="DXG-zs-U70"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="9DG-Lq-qQ4" secondAttribute="trailing" constant="-16" id="FPw-ZH-3sV"/>
+                            <constraint firstItem="74N-3F-uzL" firstAttribute="leading" secondItem="XGz-vU-iXw" secondAttribute="leadingMargin" id="FfC-qg-yWj"/>
+                            <constraint firstItem="9DG-Lq-qQ4" firstAttribute="top" secondItem="eeA-Fk-V8i" secondAttribute="bottom" id="Gaz-44-uJj"/>
+                            <constraint firstItem="74N-3F-uzL" firstAttribute="top" secondItem="5a4-Lc-xTv" secondAttribute="top" id="J2r-sU-9f8"/>
+                            <constraint firstItem="9DG-Lq-qQ4" firstAttribute="leading" secondItem="XGz-vU-iXw" secondAttribute="leadingMargin" constant="-16" id="Jme-R8-FWJ"/>
+                            <constraint firstItem="Bmk-bF-n1z" firstAttribute="leading" secondItem="XGz-vU-iXw" secondAttribute="leadingMargin" id="O7m-1w-d3b"/>
+                            <constraint firstItem="XRf-bP-SLe" firstAttribute="trailing" secondItem="XGz-vU-iXw" secondAttribute="trailingMargin" id="PY9-Q2-unK"/>
+                            <constraint firstItem="Bmk-bF-n1z" firstAttribute="top" secondItem="9DG-Lq-qQ4" secondAttribute="bottom" constant="13" id="U8Q-md-WU5"/>
+                            <constraint firstItem="XRf-bP-SLe" firstAttribute="top" secondItem="eeA-Fk-V8i" secondAttribute="bottom" constant="120" id="ZYE-yl-sb7"/>
+                            <constraint firstItem="74N-3F-uzL" firstAttribute="bottom" secondItem="5a4-Lc-xTv" secondAttribute="bottom" id="pea-dV-1J4"/>
+                            <constraint firstItem="5a4-Lc-xTv" firstAttribute="top" secondItem="Bmk-bF-n1z" secondAttribute="bottom" constant="15" id="qtz-w8-H2F"/>
+                            <constraint firstItem="5a4-Lc-xTv" firstAttribute="width" secondItem="74N-3F-uzL" secondAttribute="width" id="tGk-wj-nFc"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Prom Detail" id="5tY-ud-ihA"/>
+                    <connections>
+                        <outlet property="dressButton" destination="5a4-Lc-xTv" id="mfj-EX-3f5"/>
+                        <outlet property="infoLabel" destination="Bmk-bF-n1z" id="Qw0-LX-4uU"/>
+                        <outlet property="nameLabel" destination="XRf-bP-SLe" id="6IL-LE-kCJ"/>
+                        <outlet property="promImage" destination="9DG-Lq-qQ4" id="Ejx-hn-aCQ"/>
+                        <outlet property="subscribedButt" destination="74N-3F-uzL" id="JSC-38-5ld"/>
+                        <segue destination="fsK-VB-aYg" kind="push" identifier="ShowDressesFromProm" id="clV-bk-DOb"/>
+                        <segue destination="z3H-oy-8bo" kind="push" identifier="EditProm" id="gM8-2F-ALA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ylC-AM-9HP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2675" y="666"/>
+        </scene>
+        <!--Dresses-->
+        <scene sceneID="BJ2-Wu-FhL">
+            <objects>
+                <tableViewController id="fsK-VB-aYg" customClass="DressListForProm" customModule="PromApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="TFi-Jg-v8J">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <outlet property="dataSource" destination="fsK-VB-aYg" id="BJQ-bJ-Kly"/>
+                            <outlet property="delegate" destination="fsK-VB-aYg" id="eqT-a7-1qQ"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Dresses" id="D4F-Ty-jjp"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xly-nm-LKz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3122" y="666"/>
+        </scene>
+        <!--PromApp-->
+        <scene sceneID="7dg-yT-nOi">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="OLu-Iz-8hF" customClass="MainTabController" customModule="PromApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="PromApp" id="7Rm-g1-QU7">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Kil-VU-B6D">
+                            <connections>
+                                <action selector="showAddOptionPane:" destination="OLu-Iz-8hF" id="sqX-FP-3zv"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="Sb6-5l-tUr">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="EIX-mn-ePP" kind="relationship" relationship="viewControllers" id="wb7-OK-kQY"/>
+                        <segue destination="lA3-QL-eB2" kind="relationship" relationship="viewControllers" id="yMY-vI-VKd"/>
+                        <segue destination="gmQ-3J-jBv" kind="modal" identifier="showLogin" id="hka-we-5Pj"/>
+                        <segue destination="LVU-Dx-8u5" kind="modal" identifier="NewDress" id="lEq-ej-grH"/>
+                        <segue destination="YaK-eG-ejD" kind="modal" identifier="FindProm" id="mo2-fy-sIo"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ldr-8P-S1r" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1574" y="666"/>
+        </scene>
+        <!--Profile-->
+        <scene sceneID="57o-mH-pLX">
+            <objects>
+                <viewController id="EIX-mn-ePP" customClass="ProfileController" customModule="PromApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pse-BP-ABk"/>
+                        <viewControllerLayoutGuide type="bottom" id="I6z-Zs-Ush"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="sJE-0K-8QX">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="HQU-Ma-3YK">
+                                <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="iDH-8V-ppg" customClass="LogoutPill" customModule="PromApp" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="174" width="320" height="40"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                    <state key="normal" title="Logout">
+                                        <color key="titleColor" red="1" green="0.99997437000274658" blue="0.99999129772186279" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="logoutUser" destination="EIX-mn-ePP" eventType="touchUpInside" id="4Hn-je-kqN"/>
+                                    </connections>
+                                </button>
+                                <connections>
+                                    <outlet property="dataSource" destination="EIX-mn-ePP" id="TLs-w9-NfR"/>
+                                    <outlet property="delegate" destination="EIX-mn-ePP" id="AOo-nr-4Y8"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="HQU-Ma-3YK" firstAttribute="leading" secondItem="sJE-0K-8QX" secondAttribute="leading" id="Dt2-TW-fs9"/>
+                            <constraint firstItem="I6z-Zs-Ush" firstAttribute="top" secondItem="HQU-Ma-3YK" secondAttribute="bottom" id="Ha2-ky-dkR"/>
+                            <constraint firstItem="HQU-Ma-3YK" firstAttribute="top" secondItem="pse-BP-ABk" secondAttribute="bottom" id="ayf-0w-ayW"/>
+                            <constraint firstAttribute="trailing" secondItem="HQU-Ma-3YK" secondAttribute="trailing" id="e3H-mu-TvY"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Profile" image="ProfileIconSelected" id="SGz-Gx-0ND"/>
+                    <connections>
+                        <outlet property="listView" destination="HQU-Ma-3YK" id="uyv-Jz-E6O"/>
+                        <segue destination="LVU-Dx-8u5" kind="modal" identifier="EditDress" modalTransitionStyle="flipHorizontal" id="62s-3m-7gd"/>
+                        <segue destination="QjP-nM-Wwt" kind="push" identifier="ViewPromFromProfile" id="Oof-tK-LtR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Evx-Yx-TZo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1574" y="1462"/>
+        </scene>
+        <!--Add Dress View Controller-->
+        <scene sceneID="V2G-2R-bCo">
+            <objects>
+                <tableViewController id="Sbo-G7-eXo" customClass="SKAddDressViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="6A1-hE-fV9">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="Sbo-G7-eXo" id="ms6-hv-7fJ"/>
+                            <outlet property="delegate" destination="Sbo-G7-eXo" id="X5C-YY-md7"/>
+                        </connections>
+                    </tableView>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="Kly-dX-3C6">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="OAX-mU-g6g">
+                            <connections>
+                                <segue destination="UZh-5H-2L0" kind="unwind" unwindAction="unwindToProfileCancel:" id="HD3-tb-HFC"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="dyk-Bp-dBT">
+                            <connections>
+                                <action selector="savePressed:" destination="Sbo-G7-eXo" id="GWq-ND-Bxq"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="cancelButton" destination="OAX-mU-g6g" id="Fia-0p-LMj"/>
+                        <outlet property="doneButton" destination="dyk-Bp-dBT" id="54F-Ed-L7R"/>
+                        <segue destination="Vdc-Ub-hBW" kind="modal" identifier="SelectProm" id="HJv-bO-7Eo"/>
+                        <segue destination="UZh-5H-2L0" kind="unwind" identifier="SaveDress" unwindAction="unwindFromSaveDress:" id="2kr-Q2-JoA"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZRa-3k-Fru" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="UZh-5H-2L0" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2373" y="1462"/>
+        </scene>
+        <!--Prom Query Controller-->
+        <scene sceneID="WHj-SE-vls">
+            <objects>
+                <tableViewController id="w1j-pf-Ogu" customClass="SKPromQueryController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="dek-iE-7Gu">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" translucent="NO" id="iq1-yr-eFF">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <color key="barTintColor" red="1" green="0.4823529412" blue="0.61960784310000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="w1j-pf-Ogu" id="5U7-l6-9vh"/>
+                            </connections>
+                        </searchBar>
+                        <connections>
+                            <outlet property="dataSource" destination="w1j-pf-Ogu" id="dck-2a-ac8"/>
+                            <outlet property="delegate" destination="w1j-pf-Ogu" id="PuH-Or-IKO"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="6Q4-nd-8JL">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="VEd-B3-ZxR">
+                            <connections>
+                                <segue destination="v8J-VL-Y5e" kind="unwind" unwindAction="unwindFromSelectPromCancel:" id="MjF-Mq-mhk"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="xFq-E7-F2U">
+                            <connections>
+                                <segue destination="v8J-VL-Y5e" kind="unwind" unwindAction="unwindFromSelectProm:" id="htn-F7-YM7"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="searchBar" destination="iq1-yr-eFF" id="EM2-uL-K6K"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9Em-m9-QjV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="v8J-VL-Y5e" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="3122" y="1465"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="wef-ua-uyH">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="LVU-Dx-8u5" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="lGU-mH-nuc">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Sbo-G7-eXo" kind="relationship" relationship="rootViewController" id="a54-6A-gQe"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lOE-3p-Zia" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2016" y="1462"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Q04-uI-8Ih">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Vdc-Ub-hBW" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="NpB-A7-jfh">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="w1j-pf-Ogu" kind="relationship" relationship="rootViewController" id="5AQ-xN-nsn"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="F0v-eE-XgX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2768" y="1465"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="LocationIconSelected" width="25" height="25"/>
+        <image name="LogoWithSlogan" width="300" height="300"/>
+        <image name="ProfileIconSelected" width="25" height="25"/>
+        <image name="PromSplash" width="642" height="1140"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="62s-3m-7gd"/>
+        <segue reference="NX7-gU-RLT"/>
+        <segue reference="SxK-bC-vo3"/>
+    </inferredMetricsTieBreakers>
+    <color key="tintColor" red="0.25490197539329529" green="0.47843140363693237" blue="0.98823535442352295" alpha="1" colorSpace="deviceRGB"/>
+</document>

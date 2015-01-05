@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C81f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LogoWithSlogan" translatesAutoresizingMaskIntoConstraints="NO" id="uHP-9H-TCX">
+                    <rect key="frame" x="90" y="75" width="300" height="300"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="uHP-9H-TCX" secondAttribute="height" multiplier="1:1" id="PDx-0A-mVW"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Copyright (c) 2014 Scott Krulcik &amp; PromApp LLC. All rights reserved." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RRW-Wf-3Xr">
+                    <rect key="frame" x="46" y="433" width="388" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="O7F-4t-aBM"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="italicSystem" pointSize="12"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="0.52549019610000003" blue="0.64705882349999999" alpha="1" colorSpace="deviceRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="RRW-Wf-3Xr" secondAttribute="trailing" constant="46" id="O9E-IE-YXL"/>
+                <constraint firstAttribute="centerX" secondItem="uHP-9H-TCX" secondAttribute="centerX" id="S9k-oO-oXu"/>
+                <constraint firstAttribute="bottom" secondItem="RRW-Wf-3Xr" secondAttribute="bottom" constant="26" id="URS-ge-Wxh"/>
+                <constraint firstItem="RRW-Wf-3Xr" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="46" id="gEU-MT-Jsj"/>
+                <constraint firstAttribute="centerX" secondItem="RRW-Wf-3Xr" secondAttribute="centerX" id="sCP-ND-eg8"/>
+                <constraint firstItem="uHP-9H-TCX" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="75" id="zwL-VC-YXw"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="404" y="445"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="LogoWithSlogan" width="300" height="300"/>
+    </resources>
+</document>
