@@ -3,3 +3,6 @@ PromApp.xcodeproj/xcuserdata/Scott.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptl
 
 PromApp.xcodeproj/project.xcworkspace/xcuserdata/Scott.xcuserdatad/WorkspaceSettings.xcsettings
 PromCloudCode/public/indexmodel.html
+
+*.framework
+PromApp.xcodeproj/project.xcworkspace/xcuserdata/Scott.xcuserdatad/UserInterfaceState.xcuserstate
