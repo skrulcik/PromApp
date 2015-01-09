@@ -2,7 +2,7 @@
 /* Scott stuff */
 
 /*for toolbar*/
-body { padding-top: 50px; } 
+body { padding-top: 50px; }
 
 #toolbar {
     background: #ff7094;
@@ -37,9 +37,17 @@ body { padding-top: 50px; }
     white-space: pre;
 }
 
+.slogan {
+    font-family: 'Droid Serif', serif;
+    font-style: italic;
+}
+
 .email {
     color: #FFFFFF;
     text-decoration: underline;
+}
+.detail {
+    color: #666666;
 }
 
 .buffer {
@@ -58,3 +66,86 @@ body { padding-top: 50px; }
     width: 111px;
     height: 225px;
 }
+
+.vertical-align {
+    display: flex;
+    align-items: center;
+}
+
+.main-content {
+    /*separate from toolbar*/
+    padding-top: 2em; 
+    /*separate from footer*/
+    padding-bottom: 1em;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #ff7094;
+  border-color: #ff7094;
+}
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+.open .dropdown-toggle.btn-primary {
+  color: #fff;
+  background-color: #CC5A76;
+  border-color: #CC5A76;
+}
+.btn-primary:active,
+.btn-primary.active,
+.open .dropdown-toggle.btn-primary {
+  background-image: none;
+}
+.btn-primary .badge {
+  color: #ff7094;
+  background-color: #ffffff;
+}
+
+.btn-transparent{
+    background-color: transparent;
+    color: #FFFFFF;
+    border: solid 2px #FFFFFF;
+}
+.btn-facebook{
+    background-color: #3b5998;
+    color: #FFFFFF;
+}
+
+.dress{
+}
+.dress img{
+    border-radius: 10px;
+}
+
+.circular {
+}
+
+.circular img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    background-size: cover;
+}
+
+.border-left {
+    border-left: solid 1px #666666;
+}
+
+hr {
+    color: #000;
+}
+
+.sidebar-nav a{
+    background-color: #ffffff;
+    color: #ff7094; 
+}
+.sidebar-nav a:active,
+.sidebar-nav a.active {
+    background-color: #ff7094;
+    color: #ffffff;
+}
+

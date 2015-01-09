@@ -1,0 +1,107 @@
+<html>
+
+<head>
+	<title>PromApp | Login</title>
+    <link rel="SHORTCUT ICON" HREF="images/favicon.ico">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel='stylesheet' type='text/css'>
+	<link href="http://fonts.googleapis.com/css?family=Play:400,700" rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<link href="CSS/style.css" rel='stylesheet' type='text/css' />
+	<link href="CSS/promapp.css" rel='stylesheet' type='text/css' />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	<script src="js/promapp_signup.js"></script>
+</head>
+
+<body>
+<div class="navbar navbar-default navbar-fixed-top" id="toolbar">
+        <a href="index.html"><img src="images/logos/Prom-toolbar.png" alt=""></a>
+</div>
+<div class="main-content">
+	<div class="container">
+		<div class="panel-group col-xl-6" id="accordion">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						  <a data-toggle="collapse" data-parent="#accordion" href="#facebook-signin">Log In With Facebook</a>
+					</h4>
+				</div>
+				<div id="facebook-signin" class="panel-collapse collapse in">
+					<div class="panel-body">
+						<form id="form-facebook-login" role="form" onsubmit="onfacebooklogin(this)">
+							<button type="submit" class="btn btn-facebook">Facebook Login</button>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						  <a data-toggle="collapse" data-parent="#accordion" href="#signin">Sign In</a>
+					</h4>
+				</div>
+				<div id="signin" class="panel-collapse collapse">
+					<div class="panel-body">
+						<form id="form-login" role="form" onsubmit="onlogin(this)">
+							<div class="form-group">
+								<label for="email">Email address:</label>
+								<input type="email" class="form-control" id="login-email">
+							</div>
+							<div class="form-group">
+								<label for="pwd">Password:</label>
+								<input type="password" class="form-control" id="login-pwd">
+							</div>
+							<button type="submit" class="btn btn-default">Submit</button>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion" href="#signup">Create Account</a>
+					</h4>
+				</div>
+				<div id="signup" class="panel-collapse collapse">
+					<div class="panel-body">
+						<form id="form-signup" role="form" onsubmit="onsignup(this)">
+							<div class="form-group">
+								<label for="email">Email address:</label>
+								<input type="email" class="form-control" id="signup-email">
+							</div>
+							<div class="form-group">
+								<label for="pwd">Password:</label>
+								<input type="password" class="form-control" id="signup-pwd">
+							</div>
+							<div class="form-group">
+								<label for="pwd">Verify Password:</label>
+								<input type="password" class="form-control" id="signup-verify-pwd">
+							</div>
+							<button type="submit" class="btn btn-default">Submit</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div> 
+<div class="footer">
+      <div class="container">
+          <h3> Contact Us </h3>
+          <div class="col-md-4">
+              <h4> Address: </h4>
+              <p class="address">370 Broadway
+Saratoga Springs, NY 12866</p>
+          </div>
+          <div class="col-md-4">
+              <h4> Email: </h4>
+              <p><a class="email" href="mailto:customerservice.promapp@gmail.com">customerservice.promapp@gmail.com</a></p>
+          </div>
+      </div>
+      <div id="contact" class="container">
+          <div class="copyright">&copy; PromApp LLC 2014</div>
+      </div>
+  </div>
+</body>
+</html>

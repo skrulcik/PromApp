@@ -9,7 +9,7 @@ h1, h2, h3 {margin-top: 0;}
 ul, ol {margin: 0;}
 p {margin: 0;}
 html, body{
-   font-family: 'Open Sans', sans-serif;
+   font-family: 'Lato', sans-serif;
    font-size: 100%;
    background:#fff; 
 }
@@ -187,7 +187,7 @@ ul.nav{
 }
 .banner-bottom-right h1 {
 	color: #FF7094;
-	font-family: 'Play', sans-serif;
+	font-family: 'Droid Serif', serif;
 	font-size: 2.5em;
 	font-weight: 700;
 	margin: 0px;
@@ -254,7 +254,7 @@ ul.nav{
 	color: #444646;
 	font-size: 1.8em;
 	font-weight: 600;
-	font-family: 'Play', sans-serif;
+	font-family: 'Droid Serif', serif;
 	margin: 0;
 }
 .welcome-top p {
@@ -272,7 +272,7 @@ ul.nav{
 	color:#444646;
 	font-size:1.5em;
 	font-weight:600;
-	font-family: 'Play', sans-serif;
+	font-family: 'Droid Serif', serif;
 	margin: 6px 0px 0px 0px;
 }
 .welcome-bottom-one p{
@@ -352,7 +352,7 @@ ul.nav{
 	color: #fff;
 	font-size: 1.8em;
 	font-weight: 400;
-	font-family: 'Play', sans-serif;
+	font-family: 'Droid Serif', serif;
 	margin: 0px;
 }
 .features-right{
@@ -396,7 +396,7 @@ ul.nav{
 	border-right: 0px;
 	-webkit-appearance: none;
 	background:#F6F4F5;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Lato', sans-serif;
 	font-size:1.7em;
 	color:#B8B6B7;
 	font-weight:200;
@@ -409,7 +409,7 @@ ul.nav{
 	outline: none;
 	-webkit-appearance: none;
 	cursor: pointer;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Lato', sans-serif;
 	font-size:1.7em;
 	border: 2px solid #E5E5E5;
 }
@@ -729,7 +729,7 @@ ul.social-slide li i.mac{
 	display: inline-block;
 }
 .app-review-left h3{
-	font-family: 'Play', sans-serif;
+	font-family: 'Droid Serif', serif;
 	color:#444646;
 	font-size:1.6em;
 	font-weight:600;
@@ -743,7 +743,7 @@ ul.social-slide li i.mac{
 	margin-top: 1em;
 }
 .app-review-bottom{
-	font-family: 'Play', sans-serif;
+	font-family: 'Droid Serif', serif;
 	margin-left: 12px;
 	margin-top: 11em;
 }
@@ -834,7 +834,7 @@ a.tooltips span i h4 {
 	font-size:1.8em;
 	font-weight:600;
 	margin:0px;
-	font-family: 'Play', sans-serif;
+	font-family: 'Droid Serif', serif;
 }
 .download-top p.lorem{
 	color:#CCCACA;
@@ -918,7 +918,7 @@ a.tooltips span i h4 {
 	text-align:center;
 }
 .getin-top h3{
-	font-family: 'Play', sans-serif;
+	font-family: 'Droid Serif', serif;
 	color: #444646;
 	font-size:1.7em;
 	font-weight:600;
@@ -988,7 +988,7 @@ a.tooltips span i h4 {
 	background: #F6F4F5;
 	-webkit-appearance: none;
 	outline: none;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Lato', sans-serif;
 	font-weight: 400;
 	border-radius: 3px;
 	-webkit-border-radius: 3px;
@@ -1001,7 +1001,7 @@ a.tooltips span i h4 {
 	resize: none;
 	width: 83%;
 	font-size: 18px;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Lato', sans-serif;
 	font-weight: 400;
 	-webkit-appearance: none;
 	margin: 8px 0px;
@@ -1030,7 +1030,7 @@ a.tooltips span i h4 {
 	border: none;
 	outline: none;
 	cursor: pointer;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Lato', sans-serif;
 	background: #00C6FF;
 	width: 30%;
 	border-radius: 1px;
@@ -1088,7 +1088,7 @@ a.tooltips span i h4 {
 .footer-main h3{
 	font-size:2.1em;
 	color:#fff;
-	font-family: 'Play', sans-serif;
+	font-family: 'Droid Serif', serif;
 	margin:0px;
 }
 .footer-main ul{
