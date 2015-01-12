@@ -1,3 +1,6 @@
+$(function() {
+
+//Temporary before users are available
 var dresses = [{designer:"Faviana", styleNumber:"fe456"},{designer:"Jovani", styleNumber:"JV-967"}];
 
 function loadDresses(){
@@ -8,7 +11,7 @@ function loadDresses(){
 		var dressInfo_thumb = document.createElement('div');
 		dressInfo_thumb.setAttribute("class", "thumbnail dress");
 		var dressInfo_thumb_img = document.createElement('img');
-		//dressInfo_thumb_img.setAttribute("data-src", "holder.js/200x300");
+		dressInfo_thumb_img.setAttribute("data-src", "holder.js/200x300");
 		//TODO: fill in dress with real data
 		var dressInfo_thumb_caption = document.createElement('div');
 		dressInfo_thumb_caption.setAttribute('class', 'caption');
@@ -26,16 +29,8 @@ function loadDresses(){
 	});
 }
 
-
-$( document ).ready(function() {
-  loadDresses();
+loadDresses();
 });
-
-$( 'sidebar-nav a' ).click(function() {
-	alert("hey there");
-	$(this).toggleClass('active');
-});
-
 
 
 

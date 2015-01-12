@@ -13,6 +13,8 @@
 		D2103456196F9EF70088484B /* DressCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2103455196F9EF70088484B /* DressCell.xib */; };
 		D2117951198EE1F0004D254F /* ImageEditorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2117950198EE1F0004D254F /* ImageEditorCell.xib */; };
 		D2117954198F0888004D254F /* SKImageEditorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D2117953198F0888004D254F /* SKImageEditorCell.m */; };
+		D212423F1A641843006A9867 /* profile.html in Resources */ = {isa = PBXBuildFile; fileRef = D212423D1A641843006A9867 /* profile.html */; };
+		D21242401A641843006A9867 /* signin.html in Resources */ = {isa = PBXBuildFile; fileRef = D212423E1A641843006A9867 /* signin.html */; };
 		D22299371965054000B747BA /* SKDressInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D22299361965054000B747BA /* SKDressInfoTableViewCell.m */; };
 		D22B2B771A4295DC0085F54E /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D22B2B6D1A42950B0085F54E /* Bolts.framework */; };
 		D22B2B781A4295DC0085F54E /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D22B2B6E1A42950B0085F54E /* Parse.framework */; };
@@ -114,6 +116,8 @@
 		D2117950198EE1F0004D254F /* ImageEditorCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageEditorCell.xib; sourceTree = "<group>"; };
 		D2117952198F0888004D254F /* SKImageEditorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKImageEditorCell.h; sourceTree = "<group>"; };
 		D2117953198F0888004D254F /* SKImageEditorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKImageEditorCell.m; sourceTree = "<group>"; };
+		D212423D1A641843006A9867 /* profile.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = profile.html; sourceTree = "<group>"; };
+		D212423E1A641843006A9867 /* signin.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = signin.html; sourceTree = "<group>"; };
 		D22299351965054000B747BA /* SKDressInfoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKDressInfoTableViewCell.h; sourceTree = "<group>"; };
 		D22299361965054000B747BA /* SKDressInfoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKDressInfoTableViewCell.m; sourceTree = "<group>"; };
 		D22B2B6D1A42950B0085F54E /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
@@ -494,6 +498,8 @@
 				D246C39F1A51E0EB0046D95A /* css */,
 				D246C3A01A51E0EB0046D95A /* images */,
 				D246C3A11A51E0EB0046D95A /* index.html */,
+				D212423D1A641843006A9867 /* profile.html */,
+				D212423E1A641843006A9867 /* signin.html */,
 				D246C3A21A51E0EB0046D95A /* js */,
 			);
 			path = public;
@@ -583,6 +589,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D212423F1A641843006A9867 /* profile.html in Resources */,
 				D246C3A61A51E0EB0046D95A /* js in Resources */,
 				D2A4754F19624264005C2502 /* IpodLayout.storyboard in Resources */,
 				D2BB590F198CA89600431759 /* EditStore.xib in Resources */,
@@ -602,6 +609,7 @@
 				D2652159198E86E3000432BA /* StringEntryCell.xib in Resources */,
 				D2EF94051A17D8F00093CD4C /* SignPainter.otf in Resources */,
 				D2103456196F9EF70088484B /* DressCell.xib in Resources */,
+				D21242401A641843006A9867 /* signin.html in Resources */,
 				D2074E3E198F3B5E0048E28E /* EditDress.xib in Resources */,
 				D246C3B21A5217320046D95A /* PolicyPDF.pdf in Resources */,
 				D246C3A41A51E0EB0046D95A /* images in Resources */,

@@ -1,45 +1,107 @@
-function makeBadStatus(elem){
-	elem.style.background = "#F55"
-}
-function onfacebooklogin(elem){
-	alert("Facebook login successful.");
-}
-function onlogin(elem){
-	var email = document.getElementById("login-email");
-	var password = document.getElementById("login-pwd");
-	if(login(email.value, password.value)){
-		alert("Login successful.");
-	} else {
-		//Incorrect username and password
-		alert("Please enter a valid email address.");
-		makeBadStatus(email);
-		makeBadStatus(password);
+
+$(function(){
+
+	Parse.$ = jQuery;
+
+	Parse.initialize("PJq63qVW5giu8JBkupPxHADBgSpMEEX87QlZjDlg", "QDNCcyQqQRlCjMSIrXanH37MioTb2IJoPIuD5d1C");
+
+	  window.fbAsyncInit = function() {
+	    Parse.FacebookUtils.init({ // this line replaces FB.init({
+	      appId      : '487852221345366', // Facebook App ID
+	      status     : true,  // check Facebook Login status
+	      cookie     : true,  // enable cookies to allow Parse to access the session
+	      xfbml      : true,  // initialize Facebook social plugins on the page
+	      version    : 'v2.2' // point to the latest Facebook Graph API version
+	    });
+	 
+	    // Run code after the Facebook SDK is loaded.
+	  };
+	 
+	  (function(d, s, id){
+	    var js, fjs = d.getElementsByTagName(s)[0];
+	    if (d.getElementById(id)) {return;}
+	    js = d.createElement(s); js.id = id;
+	    js.src = "http://connect.facebook.net/en_US/sdk.js";
+	    fjs.parentNode.insertBefore(js, fjs);
+	  }(document, 'script', 'facebook-jssdk'));
+
+	function facebookLogin(){
+		Parse.FacebookUtils.init();
+		Parse.FacebookUtils.logIn(null, {
+		  success: function(user) {
+		  	alert("Successful PromApp Login!");
+		    if (!user.existed()) {
+		      window.location = 'profile.html';
+		    } else {
+		      window.location = 'profile.html';
+		    }
+		  },
+		  error: function(user, error) {
+		    alert("You must sign in to use PromApp. If you do not want to login with facebook, please sign up with using your email below.");
+		  }
+		});
 	}
-}
-function onsignup(elem){
-	var email = document.getElementById("signup-email");
-	var password = document.getElementById("signup-pwd");
-	var password2 = document.getElementById("signup-verify-pwd");
-	if(password.value != password2.value){
-		alert("Sorry, passwords do not match.");
-		return;
+	function signIn(){
+	    var userEmail = $("#login-email").val();
+	    var userPass = $("#login-password").val();
+	    if(!userEmail){
+	    	$("#login-status").removeClass("hidden");
+	    	$("#login-status").html("Please enter an email address.");
+	    	return;
+	    }
+	    if(!userPass){
+	    	$("#login-status").removeClass("hidden");
+	    	$("#login-status").html("Please enter a password.");
+	    	return;
+	    }
+
+	    Parse.User.logIn(userEmail, userPass, {
+	       success: function(user) {
+	            // Do stuff after successful login.
+	            window.location = 'profile.html';
+	        },
+	        error: function(user, error) {
+		        $("#login-status").removeClass("hidden");
+	        	if(error.code == 100){
+	        		$("#login-status").html("Failed login, could not connect to sign-on server.");
+	        	} else if(error.code == 101){
+	        		$("#login-status").html("Failed login, email and password did not match existing user.");
+	        	} else {
+	        		$("#login-status").html(error.error);
+	        	}
+	        }
+	    });
 	}
-	if(areValidCredentials(email.value, password.value)){
-		alert("You've been signed up!");
-	} else {
-		//Incorrect username and password
-		alert("Please enter a valid email address.");
-		makeBadStatus(email);
-		makeBadStatus(password);
-		makeBadStatus(password2);
+
+	function signUp(){
+		var email = $("#signup-email").val();
+		var password = $("#signup-password").val();
+		var password2 = $("#signup-password2").val();
+		if(password != password2){
+	        $("#signup-status").removeClass("hidden");
+			$("#signup-status").html("Passwords must match.");
+			return;
+		}
+		Parse.User.signUp(email, password, {}, {
+	       success: function(user) {
+	            // Do stuff after successful login.
+	            window.location = 'profile.html'
+	        },
+	        error: function(user, error) {
+		        $("#signup-status").removeClass("hidden");
+	        	if(error.code == 100){
+	        		$("#signup-status").html("Failed login, could not connect to sign-on server.");
+	        	} else if(error.code == 101){
+	        		$("#signup-status").html("Failed login, email and password did not match existing user.");
+	        	} else {
+	        		$("#signup-status").html(error.error);
+	        	}
+	        }
+	    });
 	}
-}
-function areValidCredentials(email, password){
-	if(email == "" || password == "") {
-		return false
-	}
-	return true;
-}
-function login(email, password){
-	return areValidCredentials(email, password);
-}
+
+	$("#sign-in-submit").click(function(){ signIn();});
+	$("#sign-up-submit").click(function(){ signUp();});
+	$("#facebook-button").click(function(){ facebookLogin();});
+
+});

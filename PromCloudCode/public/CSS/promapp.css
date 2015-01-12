@@ -43,11 +43,15 @@ body { padding-top: 50px; }
 }
 
 .email {
-    color: #FFFFFF;
+    color: #fff;
     text-decoration: underline;
 }
 .detail {
     color: #666666;
+}
+
+.section-header {
+    padding-top: 1em;
 }
 
 .buffer {
@@ -100,17 +104,24 @@ body { padding-top: 50px; }
 }
 .btn-primary .badge {
   color: #ff7094;
-  background-color: #ffffff;
+  background-color: #fff;
 }
 
 .btn-transparent{
     background-color: transparent;
-    color: #FFFFFF;
-    border: solid 2px #FFFFFF;
+    color: #fff;
+    border: solid 2px #fff;
 }
 .btn-facebook{
     background-color: #3b5998;
-    color: #FFFFFF;
+    color: #fff;
+}
+.btn-facebook:hover,
+.btn-facebook:active,
+.btn-facebook:focus,
+.btn-facebook.active{
+    background-color: #273B65;
+    color: #ccc;
 }
 
 .dress{
@@ -139,13 +150,4 @@ hr {
     color: #000;
 }
 
-.sidebar-nav a{
-    background-color: #ffffff;
-    color: #ff7094; 
-}
-.sidebar-nav a:active,
-.sidebar-nav a.active {
-    background-color: #ff7094;
-    color: #ffffff;
-}
 
