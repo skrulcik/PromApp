@@ -65,6 +65,8 @@
              if (!error) {
                  if(user != NULL){
                      [parseUser setObject:user forKey:@"profile"];
+                     [parseUser setObject:user[@"email"] forKey:@"email"];
+                     [parseUser setObject:user[@"email"] forKey:@"username"];
                      [parseUser save]; //Save synchronously
                  }
              } else {
