@@ -18,6 +18,11 @@ Thanks to https://www.bootply.com/idWWJSmrKD# for sidebar layout on this page
 	<link rel="stylesheet" href="CSS/bootstrap.css"/>
 	<link href="CSS/style.css" rel='stylesheet' type='text/css' />
 	<link href="CSS/promapp.css" rel='stylesheet' type='text/css' />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/holder/2.4.1/holder.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://www.parsecdn.com/js/parse-1.2.13.min.js"></script>
+    <script src="js/promapp_profile.js"></script>
 	<script type="application/x-javascript">
 		addEventListener("load", function() {
 			setTimeout(hideURLbar, 0);
@@ -35,34 +40,29 @@ Thanks to https://www.bootply.com/idWWJSmrKD# for sidebar layout on this page
         <div class="container">
             <div class="row vertical-align sidebar-centered" id="profile">
                 <div class="col-md-6 col-lg-6">
-                    <div class="pull-right circular">
-                        <img src="images/Rainnnnnn.jpeg"></img>
+                    <div class="pull-right profile-pic">
+                        <img src="images/profile-placeholder.png" class="img-circle"></img>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-6 border-left">
                     <div class="pull-left">
-                        <h4>User Name</h4>
-                        <h5 class="detail"># Dresses</h5>
-                        <h5 class="detail"># Proms</h5>
+                        <h4 id="username">User Name</h4>
+                        <h5 id="dressNumber" class="detail"># Dresses</h5>
+                        <h5 id="promNumber" class="detail"># Proms</h5>
                     </div>
                 </div>
             </div>
-
+        </div>
+        <div class="container">
             <div id="dresses">
                 <div class="section-header">
-                    <h3>Dresses</h3>
-                    <hr></hr>
+                    <hr>
+                    <h3>Dresses:</h3>
                 </div>
                 <div id="dresslist" class="row">
                 </div>
             </div>
         </div>
     </div>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/holder/2.4.1/holder.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    <script src="https://www.parsecdn.com/js/parse-1.2.13.min.js"></script>
-	<script src="js/promapp_profile.js"></script>
 </body>
 </html>
