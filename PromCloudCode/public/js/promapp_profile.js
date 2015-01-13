@@ -16,7 +16,7 @@ $(function() {
         var current = Parse.User.current();
         var profile = current.get("profile");
         if(profile){
-            var fullName = profile["first_name"] + " " + profile["last_name"];
+            var fullName = profile["name"];
             $("#username").html(fullName);
         }
         loadProfImage(current);
@@ -76,7 +76,7 @@ $(function() {
             });
             //Add children to parent elements
             dressInfo_thumb_caption.appendChild(caption_designer);
-            dressInfo_thumb_caption.appendChild(caption_styleNumber);
+            dressInfo_thumb_caption.appendChild(capt8ion_styleNumber);
             dressInfo_thumb.appendChild(dressInfo_thumb_img);
             dressInfo_thumb.appendChild(dressInfo_thumb_caption);
             dressInfo.appendChild(dressInfo_thumb);
