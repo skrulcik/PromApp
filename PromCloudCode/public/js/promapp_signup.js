@@ -100,7 +100,7 @@ $(function(){
 			return;
 		}
 		if(!name){
-			showError("#singup-status", "Please enter your full name.");
+			showError("#signup-status", "Please enter a name.");
 			return;
 		}
 		Parse.User.signUp(email, password, {}, {
