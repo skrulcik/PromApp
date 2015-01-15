@@ -8,11 +8,6 @@ var MAX_H = 120.0
 Parse.Cloud.beforeSave("Dress", function(request, response) {
                     Parse.Cloud.useMasterKey();//Enable superuser superpowers
                     var dress = request.object;
-                    
-                    if (!dress.get("image")) {
-                        response.error("Cannot save dress without providing an image.");
-                        return;
-                    }
 
                     if (!dress.dirty("image")) {
                         // The profile photo isn't being modified.
