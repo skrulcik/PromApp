@@ -4,6 +4,17 @@ $(function() {
     Parse.initialize("PJq63qVW5giu8JBkupPxHADBgSpMEEX87QlZjDlg",
                         "QDNCcyQqQRlCjMSIrXanH37MioTb2IJoPIuD5d1C");
 
+   /* Given the id of an error alert div, it will display the appropriate \
+    * color and given text
+    */
+    function showError(errorid, message){
+        $(errorid).removeClass("hidden");
+        $(errorid).html(message);
+    }
+    function clearError(errorid){
+        $(errorid).addClass('hidden');
+    }
+
     function optional_s(num){
         return (num == 1) ? "":"s";
     }
@@ -25,9 +36,7 @@ $(function() {
         if(dresses){
             numDresses = dresses.length;
         }
-        if(numDresses == 0){
-            $("#dresses").hide();
-        } else {
+        if(numDresses != 0){
             displayDresses(dresses);
         }
         var numProms = 0;
@@ -35,9 +44,7 @@ $(function() {
         if(proms){
             numProms = proms.length;
         }
-        if(numProms == 0){
-            $("#proms").hide();
-        } else {
+        if(numProms != 0){
             displayProms(proms);
         }
         var numStores = 0;
@@ -195,10 +202,163 @@ $(function() {
             if(image && image.url() != ""){
                 $('#profile img').attr("src", image.url());
             }
-        }
-        
+        }   
     }
+
+    function cancelNewDress(){
+        $('#editdress').remove();
+        // If there are no dresses, this would show the placeholder again
+        // If there are dresses, placeholder would be removed -> no effect
+        $('#dress-placeholder').show();
+    }
+    function saveNewDress(){
+        var designer = $('#editdress-designer').val();
+        var styleNumber = $('#editdress-styleNumber').val();
+        var color = $('#edidress-color').val();
+        var imgInput = $('#editdress-image')[0];
+        var imgfile;
+        // If image exists, load it into the image spot
+        if(imgInput && imgInput.files && imgInput.files.length > 0){
+            imgfile = imgInput.files[0];
+        }
+        if(!designer){
+            showError("#editdress-status", "Designer is a required field.");
+            return;
+        }
+        if(!styleNumber){
+            showError("#editdress-status", "Style number is a required field.");
+            return;
+        }
+        if(!imgfile){
+            showError("#editdress-status", "Please provide an image.");
+            return;
+        } 
+        var filetype = "";
+        var name = designer + styleNumber;
+        var len = imgfile.name.length;
+        if(len > 4){
+            filetype = imgfile.name.substring(len-4, len);
+        }
+        switch (filetype.toLowerCase()) {
+            case ".png":
+                name += '.png'
+                break;
+            case ".jpg":
+            case "jpeg":
+                name += '.jpg'
+                break;
+            default:
+                showError("#editdress-status",
+                            "Please upload a PNG, JPG, or JPEG image.");
+                return;
+        }
+
+        // Fill dress object with data
+        var Dress = Parse.Object.extend("Dress"); // Create Dress class
+        var newDress = new Dress(); // Instantiate blank dress
+        // Must save image file before association
+        var dressImage = new Parse.File(name, imgfile);
+
+        dressImage.save().then(function() {
+            // Image saved successfully:
+            newDress.set('dressImage', dressImage);
+            // Set default fields (designer, style no.)
+            newDress.set('designer', designer);
+            newDress.set('styleNumber', styleNumber);
+            // Set optional fields (color, prom-in future implementation)
+            if(color){
+                newDress.set('dressColor', color);
+            }
+            return newDress.save();
+        }).then(function(){
+            Parse.User.current().addUnique('dresses', newDress);
+            $('#editdress').remove(); // Remove vestigal editing box
+            displayDresses(Parse.User.current().get('dresses'));
+        }, function(error) {
+          // Well...damn, it didn't save
+          showError("#editdress-status",
+                        "Dress could not be saved: error " + error.code);
+        });
+    }
+
+    /* Utility methods to create similar DOM elements */
+    function ContainerFormGroup(obj){
+        var grp = document.createElement('div');
+        grp.setAttribute('class', 'form-group');
+        grp.appendChild(obj);
+        return grp;
+    }
+    function TextInput(id, placeholder){
+        var field = document.createElement('input');
+        field.setAttribute('id', id);
+        field.setAttribute('type', 'text');
+        field.setAttribute('placeholder', placeholder);
+        field.setAttribute('class', 'form-control');
+        return field;
+    }
+
+    /* Creates an editable dress info object */
+    function newDressForm(){
+        $('#dress-placeholder').hide(); // If empty area, clear the placeholder
+        clearError('#editdress-status'); // Remove error if it's there
+        // Prevent user from adding multiple dresses at once:
+        if (!$('#editdress').length){
+            // Create a container for dress information, then subviews
+            var dressInfo = document.createElement('div');
+            dressInfo.setAttribute("id", "editdress");
+            dressInfo.setAttribute("class", "col-sm-8 col-md-3");
+            var dressInfo_thumb = document.createElement('div');
+            dressInfo_thumb.setAttribute("class", "thumbnail object-display");
+            var dressInfo_thumb_img = document.createElement('input');
+            dressInfo_thumb_img.setAttribute('type', 'file');
+            dressInfo_thumb_img.setAttribute('id', 'editdress-image');
+            var dressInfo_thumb_caption = document.createElement('div');
+            dressInfo_thumb_caption.setAttribute('class', 'caption');
+            var designer_field = TextInput('editdress-designer',
+                                                'Designer Name');
+            var styleNumber_field = TextInput('editdress-styleNumber',
+                                                'Style Number');
+            var color_field = TextInput('editdress-color',
+                                                'Color');
+
+            // Create hidden alert area to show info after failures
+            var status = document.createElement('div');
+            status.setAttribute('id', 'editdress-status');
+            status.setAttribute('class','form-group alert alert-danger hidden');
+            status.setAttribute('role', 'alert');
+            
+            //Add buttons to bottom area
+            var button_area = document.createElement('p');
+            var cancel_button = document.createElement('a');
+            var save_button = document.createElement('a');
+            cancel_button.setAttribute('class', 'btn btn-default');
+            cancel_button.setAttribute('role', 'button');
+            cancel_button.innerHTML = 'cancel';
+            cancel_button.onclick = cancelNewDress;
+            save_button.setAttribute('class', 'btn btn-primary pull-right');
+            save_button.setAttribute('role', 'button');
+            save_button.innerHTML = 'save';
+            save_button.onclick = saveNewDress;
+
+            //Add children to parent elements
+            button_area.appendChild(cancel_button);
+            button_area.appendChild(save_button);
+            dressInfo_thumb_caption.appendChild(ContainerFormGroup(status));
+            dressInfo_thumb_caption.appendChild(ContainerFormGroup(dressInfo_thumb_img));
+            dressInfo_thumb_caption.appendChild(ContainerFormGroup(designer_field));
+            dressInfo_thumb_caption.appendChild(ContainerFormGroup(styleNumber_field));
+            dressInfo_thumb_caption.appendChild(ContainerFormGroup(color_field));
+            dressInfo_thumb_caption.appendChild(ContainerFormGroup(button_area));
+            dressInfo_thumb.appendChild(dressInfo_thumb_caption);
+            dressInfo.appendChild(dressInfo_thumb);
+
+            //Append the view for the dress into the list section
+            $('#dresslist').append(dressInfo);
+        }
+    }
+
     loadProfile();
+    $('#add_dress').click(function(){newDressForm();});
 });
 
 
