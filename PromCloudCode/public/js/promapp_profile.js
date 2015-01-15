@@ -1,3 +1,14 @@
+// goto function from:
+// http://stackoverflow.com/questions/4801655/how-to-go-to-a-specific-element-on-page
+(function($) {
+    $.fn.goTo = function() {
+        $('html, body').animate({
+            scrollTop: $(this).offset().top + 'px'
+        }, 'fast');
+        return this; // for chaining...
+    }
+})(jQuery);
+
 $(function() {
     //Verify page with Parse
     Parse.$ = jQuery;
@@ -25,6 +36,23 @@ $(function() {
         //Get common name of user from Parse (stored in profile attribute to
         //maintain consistency with FB)
         var current = Parse.User.current();
+        if(current){
+            current.fetch().then(function(){
+                displayProfile(current);
+            }, function(error){
+                //Error fetching user, try once more
+                current.fetch().then(function(){
+                    displayProfile(current);
+                }, function(error){
+                    alert("User could not be loaded, please check your internet connection.");
+                });
+            });   
+        } else {
+            alert("You must be signed in to go to this page.");
+            window.location = "https://www.prom-app.com";
+        }
+    }
+    function displayProfile(current){
         var profile = current.get("profile");
         if(profile){
             var fullName = profile["name"];
@@ -261,7 +289,7 @@ $(function() {
 
         dressImage.save().then(function() {
             // Image saved successfully:
-            newDress.set('dressImage', dressImage);
+            newDress.set('image', dressImage);
             // Set default fields (designer, style no.)
             newDress.set('designer', designer);
             newDress.set('styleNumber', styleNumber);
@@ -272,11 +300,13 @@ $(function() {
             return newDress.save();
         }).then(function(){
             Parse.User.current().addUnique('dresses', newDress);
+            return Parse.User.current().save();
+        }).then(function(){
             $('#editdress').remove(); // Remove vestigal editing box
-            displayDresses(Parse.User.current().get('dresses'));
+            loadProfile();
         }, function(error) {
           // Well...damn, it didn't save
-          showError("#editdress-status",
+            showError("#editdress-status",
                         "Dress could not be saved: error " + error.code);
         });
     }
@@ -307,6 +337,8 @@ $(function() {
             var dressInfo = document.createElement('div');
             dressInfo.setAttribute("id", "editdress");
             dressInfo.setAttribute("class", "col-sm-8 col-md-3");
+            var dressInfoTitle = document.createElement('h4');
+            dressInfoTitle.innerHTML = "New Dress";
             var dressInfo_thumb = document.createElement('div');
             dressInfo_thumb.setAttribute("class", "thumbnail object-display");
             var dressInfo_thumb_img = document.createElement('input');
@@ -333,16 +365,17 @@ $(function() {
             var save_button = document.createElement('a');
             cancel_button.setAttribute('class', 'btn btn-default');
             cancel_button.setAttribute('role', 'button');
-            cancel_button.innerHTML = 'cancel';
+            cancel_button.innerHTML = 'Cancel';
             cancel_button.onclick = cancelNewDress;
             save_button.setAttribute('class', 'btn btn-primary pull-right');
             save_button.setAttribute('role', 'button');
-            save_button.innerHTML = 'save';
+            save_button.innerHTML = 'Save';
             save_button.onclick = saveNewDress;
 
             //Add children to parent elements
             button_area.appendChild(cancel_button);
             button_area.appendChild(save_button);
+            dressInfo_thumb_caption.appendChild(ContainerFormGroup(dressInfoTitle));
             dressInfo_thumb_caption.appendChild(ContainerFormGroup(status));
             dressInfo_thumb_caption.appendChild(ContainerFormGroup(dressInfo_thumb_img));
             dressInfo_thumb_caption.appendChild(ContainerFormGroup(designer_field));
@@ -355,6 +388,10 @@ $(function() {
             //Append the view for the dress into the list section
             $('#dresslist').append(dressInfo);
         }
+        
+        $('html, body').animate({
+                scrollTop: $("#editdress").offset().top
+            }, 500);
     }
 
     loadProfile();
