@@ -26,10 +26,10 @@ $(function(){
 	    fjs.parentNode.insertBefore(js, fjs);
 	  }(document, 'script', 'facebook-jssdk'));
 
+  	/* Given the id of an error alert div, it will display the appropriate \
+	* color and given text
+	*/
 	function showError(errorid, message){
-		/* Given the id of an error alert div, it will display the appropriate \
-		* color and given text
-		*/
 		$(errorid).removeClass("hidden");
 		$(errorid).html(message);
 	}
