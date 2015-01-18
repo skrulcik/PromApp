@@ -85,3 +85,44 @@ Parse.Cloud.beforeSave("Dress", function(request, response) {
                             response.error(error);
                         });
                     });
+
+
+Parse.Cloud.job("emailSetup", function(request, status) {
+                // Set up to modify user data
+                Parse.Cloud.useMasterKey();
+                var counter = 0;
+                var numUpdated = 0;
+                var errors = "";
+                // Query for all users
+                var query = new Parse.Query(Parse.User);
+                query.each(function(user) {
+                    var userEmail = user.get("email");
+                     if(userEmail && userEmail != ""){
+                         user.set("username", userEmail);
+                         numUpdated += 1;
+                     } else {
+                         var profile = user.get("profile");
+                         if(profile){
+                             var profEmail = profile["email"];
+                             if(profEmail && profEmail != ""){
+                                 user.set("email", profEmail);
+                                 user.set("username", profEmail);
+                                 numUpdated += 1;
+                             } else {
+                                 errors += "\nUser "+ user.get("username") + " did not have an email in their profile.";
+                             }
+                         } else {
+                             errors += "\nUser "+ user.get("username") + " did not have profile.";
+                         }
+                     }
+                    status.message(counter + " users processed.");
+                    counter += 1;
+                    return user.save();
+                }).then(function() {
+                  // Set the job's success status
+                  status.success("Updated email addresses for "+numUpdated+" users.");
+                }, function(error) {
+                  // Set the job's error status
+                  status.error("Found errors: \n"+errors);
+                });
+                });

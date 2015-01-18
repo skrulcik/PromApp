@@ -4,6 +4,10 @@
             "applicationId": "PJq63qVW5giu8JBkupPxHADBgSpMEEX87QlZjDlg", 
             "masterKey": "uGleM5QFBtHyYdxGyU3s4rI4yPjN82Cs0oRr3efz"
         }, 
+        "PromAppDev": {
+            "applicationId": "WZpF6mGVGQ5kMGUEJyKE4DqRIS7de3tBUKIXPw2c", 
+            "masterKey": "LI2dl9gkP88W5gvv3Zv8jXQjxE3MeNIdqlYtRzEo"
+        }, 
         "_default": {
             "link": "PromApp"
         }
