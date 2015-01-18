@@ -11,6 +11,12 @@
 #import "SKProm.h"
 #import "SKPromAnnotation.h"
 
+static uint8_t locationSearch = 0; //Scope bar index
+static uint8_t nameSearch = 1; //Scope bar indices
+static NSString *searchPlaceholderBase = @"Search By: ";
+static NSString *locationPlaceholder = @"Location";
+static NSString *namePlaceholder = @"Prom Name";
+
 @interface SKPromFinderViewController ()
 @property NSMutableArray *promsToDisplay;  //Nearby proms to pin onto map
 @property NSMutableArray *storesToDisplay;
@@ -136,6 +142,19 @@
             [self queryForAllPostsNearLocation:self.mapCenter withNearbyDistance:kCLLocationAccuracyBest];
         }
     }];
+}
+
+- (void)searchBar:(UISearchBar *)searchBar
+selectedScopeButtonIndexDidChange:(NSInteger)selectedScope
+{
+    if(selectedScope == locationSearch){
+        // Show user map and prompt to search by location
+        // Put proper placeholder in the searchbar
+        self.searchBar.placeholder = [searchPlaceholderBase stringByAppendingString:locationPlaceholder];
+    } else {
+        self.searchBar.placeholder = [searchPlaceholderBase stringByAppendingString:namePlaceholder];
+    }
+    
 }
 
 #pragma mark - Query for nearby proms

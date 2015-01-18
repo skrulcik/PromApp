@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C81f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="xrr-NT-o2p">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C99d" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="xrr-NT-o2p">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -97,10 +97,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" placeholder="Search By Location" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7kc-0S-Rcl">
-                                <rect key="frame" x="0.0" y="64" width="320" height="44"/>
+                            <searchBar contentMode="redraw" misplaced="YES" placeholder="Search By: Location" translucent="NO" showsScopeBar="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7kc-0S-Rcl">
+                                <rect key="frame" x="0.0" y="64" width="320" height="88"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="barTintColor" red="1" green="0.43921568630000002" blue="0.58039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                <scopeButtonTitles>
+                                    <string>Location</string>
+                                    <string>Name</string>
+                                </scopeButtonTitles>
                             </searchBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dFT-MP-kXy">
                                 <rect key="frame" x="0.0" y="519" width="320" height="50"/>
@@ -110,9 +115,9 @@
                                 </constraints>
                             </view>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" pitchEnabled="NO" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wPC-T0-ofg">
-                                <rect key="frame" x="0.0" y="108" width="320" height="411"/>
+                                <rect key="frame" x="0.0" y="152" width="320" height="367"/>
                                 <connections>
-                                    <outlet property="delegate" destination="lA3-QL-eB2" id="L5V-OQ-fHW"/>
+                                    <outlet property="delegate" destination="lA3-QL-eB2" id="lEk-lC-taw"/>
                                 </connections>
                             </mapView>
                         </subviews>
@@ -133,8 +138,8 @@
                     <tabBarItem key="tabBarItem" title="Near You" image="LocationIconSelected" id="gDU-p7-kPi"/>
                     <navigationItem key="navigationItem" id="Uvj-za-fWK"/>
                     <connections>
-                        <outlet property="map" destination="wPC-T0-ofg" id="oQ8-Hx-sDe"/>
-                        <outlet property="searchBar" destination="7kc-0S-Rcl" id="gp5-HK-8rB"/>
+                        <outlet property="map" destination="wPC-T0-ofg" id="mge-Q6-dMG"/>
+                        <outlet property="searchBar" destination="7kc-0S-Rcl" id="zrC-go-oby"/>
                         <segue destination="QjP-nM-Wwt" kind="push" identifier="ViewPromFromMap" id="iqa-wj-pyQ"/>
                     </connections>
                 </viewController>
@@ -570,8 +575,8 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="62s-3m-7gd"/>
-        <segue reference="NX7-gU-RLT"/>
         <segue reference="SxK-bC-vo3"/>
+        <segue reference="iqa-wj-pyQ"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.25490197539329529" green="0.47843140363693237" blue="0.98823535442352295" alpha="1" colorSpace="deviceRGB"/>
 </document>
