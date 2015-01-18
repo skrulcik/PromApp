@@ -38,8 +38,7 @@ body { padding-top: 50px; }
 }
 
 .slogan {
-    font-family: 'Droid Serif', serif;
-    font-style: italic;
+    font-family: 'Lato', sans-serif;
 }
 
 .email {
@@ -144,4 +143,18 @@ hr {
     border-top: 1px solid #ddd;
 }
 
+.static-linkbar {
+    clear: both;
+    padding-bottom: 30px;
+    text-align: center;
+}
+.static-linkbar a {
+    display: inline-block;
+    padding: 0 12px 0 10px;
+    color: #aeaeae;
+    font-size: 1.167em;
+}
+.static-linkbar a:hover {
+    text-decoration: underline;
+}
 
