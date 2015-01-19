@@ -88,13 +88,13 @@
         <!--Near You-->
         <scene sceneID="1Td-S3-r05">
             <objects>
-                <viewController id="lA3-QL-eB2" customClass="SKPromFinderViewController" sceneMemberID="viewController">
+                <viewController id="lA3-QL-eB2" customClass="NearYouController" customModule="PromApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="CGf-Vk-Uv1"/>
                         <viewControllerLayoutGuide type="bottom" id="Wod-nP-Lcj"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="cr9-Ml-BWf">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" misplaced="YES" placeholder="Search By: Location" translucent="NO" showsScopeBar="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7kc-0S-Rcl">
@@ -114,12 +114,6 @@
                                     <constraint firstAttribute="height" constant="50" id="sH8-pd-EL1"/>
                                 </constraints>
                             </view>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" pitchEnabled="NO" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wPC-T0-ofg">
-                                <rect key="frame" x="0.0" y="152" width="320" height="367"/>
-                                <connections>
-                                    <outlet property="delegate" destination="lA3-QL-eB2" id="lEk-lC-taw"/>
-                                </connections>
-                            </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -127,18 +121,13 @@
                             <constraint firstItem="7kc-0S-Rcl" firstAttribute="leading" secondItem="cr9-Ml-BWf" secondAttribute="leading" id="71t-bb-hhY"/>
                             <constraint firstItem="Wod-nP-Lcj" firstAttribute="top" secondItem="dFT-MP-kXy" secondAttribute="bottom" constant="-50" id="Aue-Ad-B5G"/>
                             <constraint firstAttribute="trailing" secondItem="dFT-MP-kXy" secondAttribute="trailing" id="Eez-wY-T4y"/>
-                            <constraint firstItem="Wod-nP-Lcj" firstAttribute="top" secondItem="wPC-T0-ofg" secondAttribute="bottom" id="JSW-pD-A27"/>
-                            <constraint firstItem="wPC-T0-ofg" firstAttribute="top" secondItem="7kc-0S-Rcl" secondAttribute="bottom" id="ZnJ-Ei-VBX"/>
                             <constraint firstItem="7kc-0S-Rcl" firstAttribute="top" secondItem="CGf-Vk-Uv1" secondAttribute="bottom" id="nZS-lw-XB3"/>
-                            <constraint firstAttribute="centerX" secondItem="wPC-T0-ofg" secondAttribute="centerX" id="uKs-rC-MpD"/>
                             <constraint firstAttribute="trailing" secondItem="7kc-0S-Rcl" secondAttribute="trailing" id="vgZ-oJ-TyQ"/>
-                            <constraint firstAttribute="width" secondItem="wPC-T0-ofg" secondAttribute="width" id="z6r-aR-Uci"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Near You" image="LocationIconSelected" id="gDU-p7-kPi"/>
                     <navigationItem key="navigationItem" id="Uvj-za-fWK"/>
                     <connections>
-                        <outlet property="map" destination="wPC-T0-ofg" id="mge-Q6-dMG"/>
                         <outlet property="searchBar" destination="7kc-0S-Rcl" id="zrC-go-oby"/>
                         <segue destination="QjP-nM-Wwt" kind="push" identifier="ViewPromFromMap" id="iqa-wj-pyQ"/>
                     </connections>
@@ -224,6 +213,57 @@
             </objects>
             <point key="canvasLocation" x="3637" y="-73"/>
         </scene>
+        <!--NewTest-->
+        <scene sceneID="rBD-tc-wMj">
+            <objects>
+                <viewController id="5l0-I4-A6y" customClass="NearYouController" customModule="PromApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ZZH-94-kqR"/>
+                        <viewControllerLayoutGuide type="bottom" id="Kej-Lj-rxf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xv4-dF-KCJ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" misplaced="YES" translucent="NO" showsScopeBar="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wpH-uL-G9Q">
+                                <rect key="frame" x="0.0" y="64" width="320" height="88"/>
+                                <color key="tintColor" red="1" green="0.99997437000274658" blue="0.99999129772186279" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="barTintColor" red="1" green="0.4392156862745098" blue="0.58039215686274515" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <scopeButtonTitles>
+                                    <string>Location</string>
+                                    <string>Prom Name</string>
+                                </scopeButtonTitles>
+                                <connections>
+                                    <outlet property="delegate" destination="5l0-I4-A6y" id="Ed3-jn-gft"/>
+                                </connections>
+                            </searchBar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ytM-dn-TEo" customClass="DynamicResult" customModule="PromApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="152" width="320" height="367"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="wpH-uL-G9Q" secondAttribute="trailing" id="9vB-cY-qnc"/>
+                            <constraint firstItem="wpH-uL-G9Q" firstAttribute="leading" secondItem="xv4-dF-KCJ" secondAttribute="leading" id="Fbb-hn-kuB"/>
+                            <constraint firstItem="ytM-dn-TEo" firstAttribute="top" secondItem="wpH-uL-G9Q" secondAttribute="bottom" id="KsS-hO-pAo"/>
+                            <constraint firstItem="ytM-dn-TEo" firstAttribute="leading" secondItem="xv4-dF-KCJ" secondAttribute="leadingMargin" constant="-16" id="Oul-D2-zAV"/>
+                            <constraint firstItem="wpH-uL-G9Q" firstAttribute="top" secondItem="ZZH-94-kqR" secondAttribute="bottom" id="Xvc-i9-QUh"/>
+                            <constraint firstItem="Kej-Lj-rxf" firstAttribute="top" secondItem="ytM-dn-TEo" secondAttribute="bottom" id="sDC-ya-eZ4"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ytM-dn-TEo" secondAttribute="trailing" constant="-16" id="y8K-5Z-Kns"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="NewTest" image="LocationIcon" selectedImage="LocationIconSelected" id="Wrr-0w-KHl"/>
+                    <connections>
+                        <outlet property="dynamicResults" destination="ytM-dn-TEo" id="kOD-iI-0r8"/>
+                        <outlet property="searchBar" destination="wpH-uL-G9Q" id="KcQ-7n-JSL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XQb-mJ-PsD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1574" y="11"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="dF4-mE-7Dh">
             <objects>
@@ -250,7 +290,7 @@
                         <viewControllerLayoutGuide type="bottom" id="sJB-io-BoA"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="XGz-vU-iXw">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9DG-Lq-qQ4" customClass="PFImageView">
@@ -348,7 +388,7 @@
             <objects>
                 <tableViewController id="fsK-VB-aYg" customClass="DressListForProm" customModule="PromApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="TFi-Jg-v8J">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <connections>
@@ -375,7 +415,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="Sb6-5l-tUr">
+                    <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="Sb6-5l-tUr">
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
@@ -385,6 +425,7 @@
                         <segue destination="gmQ-3J-jBv" kind="modal" identifier="showLogin" id="hka-we-5Pj"/>
                         <segue destination="LVU-Dx-8u5" kind="modal" identifier="NewDress" id="lEq-ej-grH"/>
                         <segue destination="YaK-eG-ejD" kind="modal" identifier="FindProm" id="mo2-fy-sIo"/>
+                        <segue destination="5l0-I4-A6y" kind="relationship" relationship="viewControllers" id="Rqz-tF-IJp"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ldr-8P-S1r" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -400,7 +441,7 @@
                         <viewControllerLayoutGuide type="bottom" id="I6z-Zs-Ush"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="sJE-0K-8QX">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="HQU-Ma-3YK">
@@ -563,6 +604,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="LocationIcon" width="25" height="25"/>
         <image name="LocationIconSelected" width="25" height="25"/>
         <image name="LogoWithSlogan" width="300" height="300"/>
         <image name="ProfileIconSelected" width="25" height="25"/>
@@ -574,7 +616,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="62s-3m-7gd"/>
+        <segue reference="lEq-ej-grH"/>
         <segue reference="SxK-bC-vo3"/>
         <segue reference="iqa-wj-pyQ"/>
     </inferredMetricsTieBreakers>

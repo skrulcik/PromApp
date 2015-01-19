@@ -89,12 +89,14 @@
 		D2CD3E691A5062BA00BF0359 /* PromInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CD3E681A5062BA00BF0359 /* PromInfoController.swift */; };
 		D2CD3E6D1A50A93600BF0359 /* ObjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CD3E6C1A50A93600BF0359 /* ObjectCell.swift */; };
 		D2CD3E6F1A50A9D500BF0359 /* ObjectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2CD3E6E1A50A9D500BF0359 /* ObjectCell.xib */; };
+		D2D4F0321A6B668B0020DD9A /* NearYouController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D4F0311A6B668B0020DD9A /* NearYouController.swift */; };
 		D2DEBAA719B6D58E00BA0542 /* global.json in Resources */ = {isa = PBXBuildFile; fileRef = D2DEBAA319B6D58E00BA0542 /* global.json */; };
 		D2ED80FB1A2A7EB9002F4511 /* StoreAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ED80FA1A2A7EB9002F4511 /* StoreAnnotation.swift */; };
 		D2EF94051A17D8F00093CD4C /* SignPainter.otf in Resources */ = {isa = PBXBuildFile; fileRef = D2EF94041A17D8F00093CD4C /* SignPainter.otf */; };
 		D2F1440E1970D24400046490 /* SKProm.m in Sources */ = {isa = PBXBuildFile; fileRef = D2F1440D1970D24400046490 /* SKProm.m */; };
 		D2F639AF1A17E5FC0026A3D8 /* pinyon-script.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D2F639AE1A17E5FC0026A3D8 /* pinyon-script.ttf */; };
 		D2F639B11A17ECA50026A3D8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2F639B01A17ECA50026A3D8 /* LaunchScreen.xib */; };
+		D2F846EA1A6CA9E1007CD841 /* DynamicResultController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F846E91A6CA9E1007CD841 /* DynamicResultController.swift */; };
 		D2FB986A196CFAE1003BFCEE /* SKAppearanceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D2FB9869196CFAE1003BFCEE /* SKAppearanceManager.m */; };
 /* End PBXBuildFile section */
 
@@ -208,6 +210,7 @@
 		D2CD3E681A5062BA00BF0359 /* PromInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PromInfoController.swift; sourceTree = "<group>"; };
 		D2CD3E6C1A50A93600BF0359 /* ObjectCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectCell.swift; sourceTree = "<group>"; };
 		D2CD3E6E1A50A9D500BF0359 /* ObjectCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ObjectCell.xib; sourceTree = "<group>"; };
+		D2D4F0311A6B668B0020DD9A /* NearYouController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearYouController.swift; sourceTree = "<group>"; };
 		D2DEBAA119B6D58E00BA0542 /* main.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = main.js; sourceTree = "<group>"; };
 		D2DEBAA319B6D58E00BA0542 /* global.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = global.json; sourceTree = "<group>"; };
 		D2ED80FA1A2A7EB9002F4511 /* StoreAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreAnnotation.swift; sourceTree = "<group>"; };
@@ -216,6 +219,7 @@
 		D2F1440D1970D24400046490 /* SKProm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKProm.m; sourceTree = "<group>"; };
 		D2F639AE1A17E5FC0026A3D8 /* pinyon-script.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "pinyon-script.ttf"; sourceTree = "<group>"; };
 		D2F639B01A17ECA50026A3D8 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LaunchScreen.xib; path = PromApp/LaunchScreen.xib; sourceTree = "<group>"; };
+		D2F846E91A6CA9E1007CD841 /* DynamicResultController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicResultController.swift; sourceTree = "<group>"; };
 		D2FB9868196CFAE1003BFCEE /* SKAppearanceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKAppearanceManager.h; sourceTree = "<group>"; };
 		D2FB9869196CFAE1003BFCEE /* SKAppearanceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKAppearanceManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -441,6 +445,8 @@
 				D23654FB19916DFF007277A6 /* SKPromQueryController.m */,
 				D2A475801963999E005C2502 /* SKPromFinderViewController.h */,
 				D2A475811963999E005C2502 /* SKPromFinderViewController.m */,
+				D2D4F0311A6B668B0020DD9A /* NearYouController.swift */,
+				D2F846E91A6CA9E1007CD841 /* DynamicResultController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -643,6 +649,7 @@
 				D2A382971A4279C300D3E3B7 /* ProfileController.swift in Sources */,
 				D2CD3E631A4FB9F100BF0359 /* Prom.swift in Sources */,
 				D23654FC19916DFF007277A6 /* SKPromQueryController.m in Sources */,
+				D2D4F0321A6B668B0020DD9A /* NearYouController.swift in Sources */,
 				D2A4752E1962198D005C2502 /* SKAppDelegate.m in Sources */,
 				D2F1440E1970D24400046490 /* SKProm.m in Sources */,
 				D25A4C481A52355600AED4AD /* TableHeader.swift in Sources */,
@@ -650,6 +657,7 @@
 				D28DD0031A4F141C00B73582 /* StandardAlerts.swift in Sources */,
 				D2A475741963105B005C2502 /* SKAddDressViewController.m in Sources */,
 				D22E03CF1A4E862600F81753 /* StringManipulation.swift in Sources */,
+				D2F846EA1A6CA9E1007CD841 /* DynamicResultController.swift in Sources */,
 				D246C39E1A51B5A30046D95A /* DressListForProm.swift in Sources */,
 				D2CD3E651A4FBB6700BF0359 /* ArrayUtil.swift in Sources */,
 				D2C6D15C1980600E008080CD /* SKPromAnnotation.m in Sources */,
