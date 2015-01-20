@@ -12,7 +12,7 @@ Parse.Cloud.beforeSave("Prom", function(request, response){
                        var schoolName = prom.get("schoolName")
                        var lowName = schoolName.toLowerCase()
                        prom.set("searchName", lowName)
-                       prom.save()
+                       response.success()
                        })
 
 /* Compresses image and creates thumbnail for faster retrieval. */
