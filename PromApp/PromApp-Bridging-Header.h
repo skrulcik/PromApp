@@ -17,5 +17,6 @@
 #import "SKDressInfoTableViewCell.h"
 #import "SKDress.h"
 #import "SKLoginViewController.h"
+#import "SKPromAnnotation.h"
 
 #endif

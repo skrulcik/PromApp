@@ -62,4 +62,4 @@ let arbitraryHighLimit = 3000
 let searchLimit = 10
 let searchIncrement = 10
 let stdQueryLimit = 25
-let searchRadius = 30
+let searchRadius:Double = 30
