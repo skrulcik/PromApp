@@ -5,6 +5,17 @@ var Image = require("parse-image");
 var MAX_W = 80.0
 var MAX_H = 120.0
 
+/* Adds a lowercase search name for case-insensitive searches */
+Parse.Cloud.beforeSave("Prom", function(request, response){
+                       Parse.Cloud.useMasterKey();//Enable superuser superpowers
+                       var prom = request.object;
+                       var schoolName = prom.get("schoolName")
+                       var lowName = schoolName.toLowerCase()
+                       prom.set("searchName", lowName)
+                       prom.save()
+                       })
+
+/* Compresses image and creates thumbnail for faster retrieval. */
 Parse.Cloud.beforeSave("Dress", function(request, response) {
                     Parse.Cloud.useMasterKey();//Enable superuser superpowers
                     var dress = request.object;
