@@ -136,58 +136,12 @@
             </objects>
             <point key="canvasLocation" x="2252" y="666"/>
         </scene>
-        <!--Proms-->
-        <scene sceneID="wNw-aQ-yC4">
-            <objects>
-                <tableViewController id="AG1-YC-Jqg" customClass="PromSearchTable" customModule="PromApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="eSL-SX-iLN">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" text="" placeholder="Seach by Prom Name" translucent="NO" id="fVd-MC-RRv">
-                            <rect key="frame" x="0.0" y="64" width="320" height="44"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <color key="barTintColor" red="1" green="0.4392156862745098" blue="0.58039215686274515" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <textInputTraits key="textInputTraits"/>
-                            <connections>
-                                <outlet property="delegate" destination="AG1-YC-Jqg" id="BRH-dm-F2q"/>
-                            </connections>
-                        </searchBar>
-                        <connections>
-                            <outlet property="dataSource" destination="AG1-YC-Jqg" id="bUA-4V-7Y9"/>
-                            <outlet property="delegate" destination="AG1-YC-Jqg" id="3WU-k7-d7S"/>
-                        </connections>
-                    </tableView>
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Proms" id="V4o-mF-qT7">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="aWd-ln-gXo">
-                            <connections>
-                                <action selector="cancelPressed:" destination="AG1-YC-Jqg" id="Kgr-eJ-Kp9"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="New" id="qGj-un-Gc9">
-                            <connections>
-                                <action selector="newPressed:" destination="AG1-YC-Jqg" id="h6W-tJ-gcv"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <outlet property="search" destination="fVd-MC-RRv" id="0PD-0E-u4d"/>
-                        <segue destination="QjP-nM-Wwt" kind="push" identifier="ViewPromFromList" id="NX7-gU-RLT"/>
-                        <segue destination="z3H-oy-8bo" kind="push" identifier="NewProm" id="SxK-bC-vo3"/>
-                    </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="II1-Ei-3Oo" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2675" y="-73"/>
-        </scene>
         <!--Prom Editor-->
         <scene sceneID="k61-mx-yRK">
             <objects>
                 <tableViewController id="z3H-oy-8bo" customClass="PromEditor" customModule="PromApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="VEa-xL-hyZ">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <connections>
@@ -205,13 +159,13 @@
                     <connections>
                         <outlet property="doneButton" destination="22q-XN-z8Q" id="SY9-6H-89O"/>
                         <segue destination="mmH-aO-lhi" kind="unwind" identifier="EditPromUnwind" unwindAction="unwindFromEditProm:" id="Cq6-7s-w38"/>
-                        <segue destination="mmH-aO-lhi" kind="unwind" identifier="NewPromUnwind" unwindAction="unwindFromNewProm:" id="I7g-Iz-zfL"/>
+                        <segue destination="mmH-aO-lhi" kind="unwind" identifier="NewPromUnwind" unwindAction="unwindFromNewProm:" id="Ssa-xL-0bn"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xAX-e2-4Qz" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="mmH-aO-lhi" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3637" y="-73"/>
+            <point key="canvasLocation" x="2252" y="-73"/>
         </scene>
         <!--NewTest-->
         <scene sceneID="rBD-tc-wMj">
@@ -258,28 +212,12 @@
                     <connections>
                         <outlet property="dynamicResults" destination="ytM-dn-TEo" id="kOD-iI-0r8"/>
                         <outlet property="searchBar" destination="wpH-uL-G9Q" id="KcQ-7n-JSL"/>
+                        <segue destination="QjP-nM-Wwt" kind="push" identifier="ViewPromFromMap" id="t8d-8f-h4T"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XQb-mJ-PsD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1574" y="11"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="dF4-mE-7Dh">
-            <objects>
-                <navigationController id="YaK-eG-ejD" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="aUJ-6s-Wdu"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2gZ-Q0-tV2">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="AG1-YC-Jqg" kind="relationship" relationship="rootViewController" id="qXv-Lh-AQa"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HgD-F9-PNy" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2252" y="-73"/>
         </scene>
         <!--Prom Detail-->
         <scene sceneID="u2f-5k-dHc">
@@ -424,8 +362,8 @@
                         <segue destination="lA3-QL-eB2" kind="relationship" relationship="viewControllers" id="yMY-vI-VKd"/>
                         <segue destination="gmQ-3J-jBv" kind="modal" identifier="showLogin" id="hka-we-5Pj"/>
                         <segue destination="LVU-Dx-8u5" kind="modal" identifier="NewDress" id="lEq-ej-grH"/>
-                        <segue destination="YaK-eG-ejD" kind="modal" identifier="FindProm" id="mo2-fy-sIo"/>
                         <segue destination="5l0-I4-A6y" kind="relationship" relationship="viewControllers" id="Rqz-tF-IJp"/>
+                        <segue destination="z3H-oy-8bo" kind="push" identifier="NewProm" id="DFc-h5-kNU"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ldr-8P-S1r" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -617,8 +555,8 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="lEq-ej-grH"/>
-        <segue reference="SxK-bC-vo3"/>
-        <segue reference="iqa-wj-pyQ"/>
+        <segue reference="DFc-h5-kNU"/>
+        <segue reference="t8d-8f-h4T"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.25490197539329529" green="0.47843140363693237" blue="0.98823535442352295" alpha="1" colorSpace="deviceRGB"/>
 </document>

@@ -48,6 +48,7 @@ let smallFontSize:CGFloat = 16.0
 let largeFontSize:CGFloat = 26.0
 
 //MARK: Segues
+let NewDressSegueID = "NewDress"
 let EditDressSegue = "EditDress"
 let EditPromSegueID = "EditProm"
 let EditPromUnwindID = "EditPromUnwind"

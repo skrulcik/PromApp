@@ -154,6 +154,8 @@ class NearYouController : UIViewController, UISearchBarDelegate,
             // Place pins for proms
             if let tbl = dynamicResults.subviews[0] as? UITableView {
                 tbl.reloadData()
+            } else {
+                NSLog("Result and search scope out of sync. Cast UITableView failed.")
             }
             // For now, don't search for stores
         }
@@ -181,7 +183,7 @@ class NearYouController : UIViewController, UISearchBarDelegate,
         // Create Parse Query object to make request to server
         let query = PFQuery(className: SKProm.parseClassName())
         // Convert location into Parse GeoPoint
-        query.whereKey(Prom_searchKey, containsString: search)
+        query.whereKey(Prom_searchKey, containsString: search.lowercaseString)
         
         // Restrict query to relatively close areas
         let place = PFGeoPoint(location: locationManager.location)
@@ -189,9 +191,12 @@ class NearYouController : UIViewController, UISearchBarDelegate,
         
         query.limit = stdQueryLimit
         if let proms = query.findObjects() as? [SKProm]{
+            NSLog("Found %d proms matching string %@.", proms.count, search.lowercaseString)
             for prom in proms {
                 promsToDisplay.append(prom) // Collect all new proms
             }
+        } else {
+            NSLog("Failed to parse results of prom name query.")
         }
         return promsToDisplay
     }
@@ -229,7 +234,7 @@ class NearYouController : UIViewController, UISearchBarDelegate,
             // Create Parse Query object to make request to server
             let query = PFQuery(className: className)
             // Convert location into Parse GeoPoint
-            query.whereKey(searchKey, containsString: search)
+            query.whereKey(searchKey, containsString: search.lowercaseString)
             
             // Restrict query to relatively close areas
             let place = PFGeoPoint(location: locationManager.location)
@@ -308,13 +313,14 @@ class NearYouController : UIViewController, UISearchBarDelegate,
         return 1
     }
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 1 {
+        if section == 0 {
             // Results section
             return promResults.count
         }
         return 0
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        print("Attempted to fill cell")
         if let cell = tableView.dequeueReusableCellWithIdentifier(objectCellID) as? ObjectCell{
             let proms = promResults
             if indexPath.row < proms.count {
@@ -334,6 +340,23 @@ class NearYouController : UIViewController, UISearchBarDelegate,
         }else{
             return 0
         }
+    }
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if (indexPath.section == 0){
+            //Is a prom cell
+            if PFUser.currentUser() != nil{
+                let proms = promResults
+                if indexPath.row < proms.count {
+                    //Ensure valid array access
+                    currentProm = proms[indexPath.row]
+                    performSegueWithIdentifier("ViewPromFromMap", sender: self)
+                } else {
+                    NSLog("Tried to view non-existant prom.")
+                }
+                
+            }
+        }
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
     // MARK: Cell Management
@@ -362,5 +385,14 @@ class NearYouController : UIViewController, UISearchBarDelegate,
                 }
             }
         })
+    }
+    
+    // MARK: Navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "ViewPromFromMap" {
+            if let detail = segue.destinationViewController as? PromInfoController {
+                detail.promObject = currentProm
+            }
+        }
     }
 }
