@@ -75,6 +75,8 @@ class NearYouController : UIViewController, UISearchBarDelegate,
             map.setRegion(region, animated: false)
             let proms = queryForPromsNearLocation(location: locationManager.location)
             placePinsForPromsInMap(proms, map: map)
+            let stores = queryForStoresNearLocation(location: locationManager.location)
+            placePinsForStoresInMap(stores, map: map)
         }
         
         dynamicResults.setChild(childView: map)
@@ -84,9 +86,16 @@ class NearYouController : UIViewController, UISearchBarDelegate,
         var searchHeight:CGFloat = searchBar.frame.height
         var newFrame = CGRect(x: frm.minX, y: frm.minY-searchHeight,
             width: frm.width, height:frm.height)
-        var res = UIView(frame: newFrame)
-        res.backgroundColor = UIColor(red: 0.3, green: 0.3, blue: 0.9, alpha: 1.0)
-        dynamicResults.setChild(childView: res)
+        var tbl = UITableView(frame: newFrame, style: .Plain)
+        tbl.delegate = self
+        tbl.dataSource = self
+        tbl.registerNib(UINib(nibName: objectCellNibName, bundle:nil), forCellReuseIdentifier: objectCellID)
+        
+        if promResults.count != 0 {
+            tbl.reloadData()
+        }
+        
+        dynamicResults.setChild(childView: tbl)
     }
     
     
@@ -109,23 +118,6 @@ class NearYouController : UIViewController, UISearchBarDelegate,
         
         var searchLocation:CLLocation?
         
-        let geocoder = CLGeocoder()
-        geocoder.geocodeAddressString(search, completionHandler: {
-            (placemarks:[AnyObject]!, error:NSError!) in
-            if let place = placemarks.last as? CLPlacemark {
-                searchLocation = place.location
-                let searchCenter = CLLocationCoordinate2DMake(place.location.coordinate.latitude,
-                    place.location.coordinate.longitude)
-                let searchRegion = MKCoordinateRegionMakeWithDistance(searchCenter,
-                    Constants.mapRadius, Constants.mapRadius)
-                if let map = self.dynamicResults.subviews.last as? MKMapView {
-                    map.setRegion(map.regionThatFits(searchRegion), animated: true)
-                } else {
-                    NSLog("Could not load result view as map.");
-                }
-            }
-        })
-        
         // Determine search type
         if(self.searchMode == Constants.locationSelector){
             // Search by location, should have a map view
@@ -133,21 +125,36 @@ class NearYouController : UIViewController, UISearchBarDelegate,
             if views.count != 1 {
                 NSLog("Error with results view, %d active subvies.", views.count)
             } else if let mapview = views[0] as? MKMapView {
-                if searchLocation != nil {
-                    // Search for local POIs and place pins
-                    var proms = queryForPromsNearLocation(location: searchLocation!)
-                    // Place pins for all proms
-                    placePinsForPromsInMap(proms, map: mapview)
-                    var stores = queryForStoresNearLocation(location: searchLocation!)
-                    // Place different pins for stores
-                }
+                let geocoder = CLGeocoder()
+                geocoder.geocodeAddressString(search, completionHandler: {
+                    (placemarks:[AnyObject]!, error:NSError!) in
+                    if let place = placemarks.last as? CLPlacemark {
+                        searchLocation = place.location
+                        let searchCenter = CLLocationCoordinate2DMake(place.location.coordinate.latitude,
+                            place.location.coordinate.longitude)
+                        let searchRegion = MKCoordinateRegionMakeWithDistance(searchCenter,
+                            Constants.mapRadius, Constants.mapRadius)
+                        mapview.setRegion(mapview.regionThatFits(searchRegion), animated: true)
+                        
+                        // Search for local POIs and place pins
+                        var proms = self.queryForPromsNearLocation(location: searchLocation!)
+                        // Place pins for all proms
+                        self.placePinsForPromsInMap(proms, map: mapview)
+                        var stores = self.queryForStoresNearLocation(location: searchLocation!)
+                        self.placePinsForStoresInMap(stores, map: mapview)
+                        // Place different pins for stores
+                    }
+                })
             } else {
                 NSLog("Result and search scope out of sync. Cast MapView failed.")
             }
         } else if searchMode == Constants.nameSelector {
             // Search based on peom name
-            var proms = queryForPromsWithString(searchString: searchBar.text)
+            promResults = queryForPromsWithString(searchString: searchBar.text)
             // Place pins for proms
+            if let tbl = dynamicResults.subviews[0] as? UITableView {
+                tbl.reloadData()
+            }
             // For now, don't search for stores
         }
     }
@@ -170,7 +177,23 @@ class NearYouController : UIViewController, UISearchBarDelegate,
         return promsToDisplay
     }
     func queryForPromsWithString(searchString search:String) -> [SKProm] {
-        return [SKProm]()
+        var promsToDisplay = [SKProm]() // Holds Prom objects to be shown on map
+        // Create Parse Query object to make request to server
+        let query = PFQuery(className: SKProm.parseClassName())
+        // Convert location into Parse GeoPoint
+        query.whereKey(Prom_searchKey, containsString: search)
+        
+        // Restrict query to relatively close areas
+        let place = PFGeoPoint(location: locationManager.location)
+        query.whereKey(Prom_locationKey, nearGeoPoint: place, withinMiles: maxSearchRadius)
+        
+        query.limit = stdQueryLimit
+        if let proms = query.findObjects() as? [SKProm]{
+            for prom in proms {
+                promsToDisplay.append(prom) // Collect all new proms
+            }
+        }
+        return promsToDisplay
     }
     
     // MARK: Store Queries
@@ -178,18 +201,47 @@ class NearYouController : UIViewController, UISearchBarDelegate,
         return queryForObjectsNearLocation(location: loc, className: "Store", locationKey: Store_locationKey)
     }
     func queryForStoresWithString(searchString search:String) -> [PFObject] {
-        return queryForObjectsWithString(searchString: search, className: "Store", nameKey: "name")
+        return queryForObjectsWithString(searchString: search, className: "Store", searchKey: Store_searchKey, locationKey: Store_locationKey)
     }
 
     
     // MARK: Generic Queries
     func queryForObjectsNearLocation(location loc:CLLocation,
                         className:String, locationKey:String) -> [PFObject] {
-        return [PFObject]()
+        var objsToDisplay = [PFObject]() // Holds Prom objects to be shown on map
+        // Create Parse Query object to make request to server
+        let query = PFQuery(className: className)
+        // Convert location into Parse GeoPoint
+        let point = PFGeoPoint(latitude: loc.coordinate.latitude, longitude: loc.coordinate.longitude)
+        NSLog("Searching for Proms near Lat: %f Long: %f")
+        query.whereKey(locationKey, nearGeoPoint: point, withinMiles: searchRadius)
+        query.limit = stdQueryLimit
+        if let objs = query.findObjects() as? [PFObject]{
+            for obj in objs {
+                objsToDisplay.append(obj) // Collect all new proms
+            }
+        }
+        return objsToDisplay
     }
     func queryForObjectsWithString(searchString search:String,
-                        className:String, nameKey:String) -> [PFObject] {
-        return [PFObject]()
+        className:String, searchKey:String, locationKey:String) -> [PFObject] {
+            var objsToDisplay = [PFObject]() // Holds Prom objects to be shown on map
+            // Create Parse Query object to make request to server
+            let query = PFQuery(className: className)
+            // Convert location into Parse GeoPoint
+            query.whereKey(searchKey, containsString: search)
+            
+            // Restrict query to relatively close areas
+            let place = PFGeoPoint(location: locationManager.location)
+            query.whereKey(locationKey, nearGeoPoint: place, withinMiles: maxSearchRadius)
+            
+            query.limit = stdQueryLimit
+            if let objs = query.findObjects() as? [PFObject]{
+                for obj in objs {
+                    objsToDisplay.append(obj) // Collect all new proms
+                }
+            }
+            return objsToDisplay
     }
     
     // MARK: MKMapViewDelegate
@@ -211,6 +263,7 @@ class NearYouController : UIViewController, UISearchBarDelegate,
             let annote = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "StoreAnnotation")
             annote.enabled = true
             annote.canShowCallout = true
+            annote.pinColor = .Purple
             return annote
         }
         return nil
@@ -239,15 +292,75 @@ class NearYouController : UIViewController, UISearchBarDelegate,
             map.addAnnotation(promPoint)
         }
     }
+    func placePinsForStoresInMap(stores:[PFObject], map:MKMapView){
+        for store in stores {
+            if let loc = store.objectForKey(Store_locationKey) as? PFGeoPoint {
+                let coord = CLLocationCoordinate2D(latitude: loc.latitude, longitude: loc.longitude)
+                let storePoint = StoreAnnotation(coordinate: coord, store: store)
+                storePoint.store = store
+                map.addAnnotation(storePoint)
+            }
+        }
+    }
     
     // MARK: UITableViewDataSource
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 0
+        return 1
     }
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section == 1 {
+            // Results section
+            return promResults.count
+        }
         return 0
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCellWithIdentifier(objectCellID) as? ObjectCell{
+            let proms = promResults
+            if indexPath.row < proms.count {
+                //Ensure valid array access
+                fillPromCell(cell, withProm: proms[indexPath.row])
+            }
+            return cell
+        }
+        // Don't make a fuss over errors, just return empty cell
         return UITableViewCell()
+    }
+    // MARK: UITableViewDelegate
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
+    {
+        if (indexPath.section == 0) {
+            return CGFloat(dressCellHeight)
+        }else{
+            return 0
+        }
+    }
+    
+    // MARK: Cell Management
+    func fillPromCell(cell:ObjectCell, withProm promPointer:SKProm){
+        promPointer.fetchIfNeededInBackgroundWithBlock({
+            (promObj:PFObject!, error:NSError!) in
+            if let prom = promObj as? SKProm {
+                cell.bigLabel.text = prom.schoolName
+                cell.littleLabel.text = prom.locationDescription
+                // Fill in dress picture over time
+                let promImageView = cell.picView
+                if let promPicFile = prom.objectForKey("image") as? PFFile{
+                    promPicFile.getDataInBackgroundWithBlock({
+                        (imageData:NSData!, error:NSError!) in
+                        if(imageData != nil){
+                            let promImage = UIImage(data: imageData!)!
+                            promImageView!.image = promImage
+                        } else{
+                            NSLog("Error retrieving image data from dress. PFFile:%@ Error:%@", promPicFile, error)
+                        }
+                    })
+                } else {
+                    //Prom does not have image saved
+                    promImageView.backgroundColor = SKColor.ImageBackground()
+                    promImageView.image = UIImage(named: "BigP") //Logo overlay
+                }
+            }
+        })
     }
 }

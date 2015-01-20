@@ -235,7 +235,7 @@
                                     <string>Prom Name</string>
                                 </scopeButtonTitles>
                                 <connections>
-                                    <outlet property="delegate" destination="5l0-I4-A6y" id="Ed3-jn-gft"/>
+                                    <outlet property="delegate" destination="5l0-I4-A6y" id="gld-9H-QfH"/>
                                 </connections>
                             </searchBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ytM-dn-TEo" customClass="DynamicResult" customModule="PromApp" customModuleProvider="target">
