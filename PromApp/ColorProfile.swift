@@ -70,7 +70,7 @@ class SKColor:UIColor
         return pink()
     }
     class func SearchBar()->UIColor{
-        return pink()
+        return pinkLightCompliment()//pink()
     }
     class func SubscribedButtonBackground()->UIColor{
         return UIColor.grayColor()

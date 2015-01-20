@@ -46,6 +46,13 @@ class NearYouController : UIViewController, UISearchBarDelegate,
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.delegate = self
         locationManager.startUpdatingLocation()
+        
+        // Fix tab bar highlight issue
+        view.tintColor = SKColor.pink()
+        
+        // Configure search bar
+        searchBar.backgroundColor = SKColor.SearchBar()
+        searchBar.placeholder = Constants.placeholderString + Constants.locationString
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -104,9 +111,11 @@ class NearYouController : UIViewController, UISearchBarDelegate,
         searchMode = selectedScope
         if(selectedScope == Constants.nameSelector){
             // Search by name
+            searchBar.placeholder = Constants.placeholderString + Constants.nameString
             configureTable()
         } else {
             // Search by location
+            searchBar.placeholder = Constants.placeholderString + Constants.locationString
             configureMap()
         }
     }

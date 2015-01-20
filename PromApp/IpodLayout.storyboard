@@ -85,57 +85,6 @@
             </objects>
             <point key="canvasLocation" x="985" y="666"/>
         </scene>
-        <!--Near You-->
-        <scene sceneID="1Td-S3-r05">
-            <objects>
-                <viewController id="lA3-QL-eB2" customClass="NearYouController" customModule="PromApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="CGf-Vk-Uv1"/>
-                        <viewControllerLayoutGuide type="bottom" id="Wod-nP-Lcj"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="cr9-Ml-BWf">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <searchBar contentMode="redraw" misplaced="YES" placeholder="Search By: Location" translucent="NO" showsScopeBar="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7kc-0S-Rcl">
-                                <rect key="frame" x="0.0" y="64" width="320" height="88"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="barTintColor" red="1" green="0.43921568630000002" blue="0.58039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
-                                <scopeButtonTitles>
-                                    <string>Location</string>
-                                    <string>Name</string>
-                                </scopeButtonTitles>
-                            </searchBar>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dFT-MP-kXy">
-                                <rect key="frame" x="0.0" y="519" width="320" height="50"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="sH8-pd-EL1"/>
-                                </constraints>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="dFT-MP-kXy" firstAttribute="leading" secondItem="cr9-Ml-BWf" secondAttribute="leading" id="1Vh-8c-mbI"/>
-                            <constraint firstItem="7kc-0S-Rcl" firstAttribute="leading" secondItem="cr9-Ml-BWf" secondAttribute="leading" id="71t-bb-hhY"/>
-                            <constraint firstItem="Wod-nP-Lcj" firstAttribute="top" secondItem="dFT-MP-kXy" secondAttribute="bottom" constant="-50" id="Aue-Ad-B5G"/>
-                            <constraint firstAttribute="trailing" secondItem="dFT-MP-kXy" secondAttribute="trailing" id="Eez-wY-T4y"/>
-                            <constraint firstItem="7kc-0S-Rcl" firstAttribute="top" secondItem="CGf-Vk-Uv1" secondAttribute="bottom" id="nZS-lw-XB3"/>
-                            <constraint firstAttribute="trailing" secondItem="7kc-0S-Rcl" secondAttribute="trailing" id="vgZ-oJ-TyQ"/>
-                        </constraints>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Near You" image="LocationIconSelected" id="gDU-p7-kPi"/>
-                    <navigationItem key="navigationItem" id="Uvj-za-fWK"/>
-                    <connections>
-                        <outlet property="searchBar" destination="7kc-0S-Rcl" id="zrC-go-oby"/>
-                        <segue destination="QjP-nM-Wwt" kind="push" identifier="ViewPromFromMap" id="iqa-wj-pyQ"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="eCV-Pv-JsZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2252" y="666"/>
-        </scene>
         <!--Prom Editor-->
         <scene sceneID="k61-mx-yRK">
             <objects>
@@ -165,9 +114,9 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xAX-e2-4Qz" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="mmH-aO-lhi" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2252" y="-73"/>
+            <point key="canvasLocation" x="2675" y="-65"/>
         </scene>
-        <!--NewTest-->
+        <!--Near You-->
         <scene sceneID="rBD-tc-wMj">
             <objects>
                 <viewController id="5l0-I4-A6y" customClass="NearYouController" customModule="PromApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -181,8 +130,8 @@
                         <subviews>
                             <searchBar contentMode="redraw" misplaced="YES" translucent="NO" showsScopeBar="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wpH-uL-G9Q">
                                 <rect key="frame" x="0.0" y="64" width="320" height="88"/>
-                                <color key="tintColor" red="1" green="0.99997437000274658" blue="0.99999129772186279" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="barTintColor" red="1" green="0.4392156862745098" blue="0.58039215686274515" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="1" green="0.99997437" blue="0.99999129769999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="barTintColor" red="1" green="0.53725490196078429" blue="0.65490196078431373" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <scopeButtonTitles>
                                     <string>Location</string>
@@ -198,6 +147,7 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="wpH-uL-G9Q" secondAttribute="trailing" id="9vB-cY-qnc"/>
                             <constraint firstItem="wpH-uL-G9Q" firstAttribute="leading" secondItem="xv4-dF-KCJ" secondAttribute="leading" id="Fbb-hn-kuB"/>
@@ -208,7 +158,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="ytM-dn-TEo" secondAttribute="trailing" constant="-16" id="y8K-5Z-Kns"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="NewTest" image="LocationIcon" selectedImage="LocationIconSelected" id="Wrr-0w-KHl"/>
+                    <tabBarItem key="tabBarItem" title="Near You" image="LocationIconSelected" selectedImage="LocationIconSelected" id="Wrr-0w-KHl"/>
                     <connections>
                         <outlet property="dynamicResults" destination="ytM-dn-TEo" id="kOD-iI-0r8"/>
                         <outlet property="searchBar" destination="wpH-uL-G9Q" id="KcQ-7n-JSL"/>
@@ -217,7 +167,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XQb-mJ-PsD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1574" y="11"/>
+            <point key="canvasLocation" x="2134" y="666"/>
         </scene>
         <!--Prom Detail-->
         <scene sceneID="u2f-5k-dHc">
@@ -359,7 +309,6 @@
                     </tabBar>
                     <connections>
                         <segue destination="EIX-mn-ePP" kind="relationship" relationship="viewControllers" id="wb7-OK-kQY"/>
-                        <segue destination="lA3-QL-eB2" kind="relationship" relationship="viewControllers" id="yMY-vI-VKd"/>
                         <segue destination="gmQ-3J-jBv" kind="modal" identifier="showLogin" id="hka-we-5Pj"/>
                         <segue destination="LVU-Dx-8u5" kind="modal" identifier="NewDress" id="lEq-ej-grH"/>
                         <segue destination="5l0-I4-A6y" kind="relationship" relationship="viewControllers" id="Rqz-tF-IJp"/>
@@ -542,7 +491,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="LocationIcon" width="25" height="25"/>
         <image name="LocationIconSelected" width="25" height="25"/>
         <image name="LogoWithSlogan" width="300" height="300"/>
         <image name="ProfileIconSelected" width="25" height="25"/>
@@ -554,8 +502,8 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="lEq-ej-grH"/>
         <segue reference="DFc-h5-kNU"/>
+        <segue reference="lEq-ej-grH"/>
         <segue reference="t8d-8f-h4T"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.25490197539329529" green="0.47843140363693237" blue="0.98823535442352295" alpha="1" colorSpace="deviceRGB"/>

@@ -10,6 +10,18 @@ import Foundation
 
 class MainTabController:UITabBarController {
     
+    override func viewDidLoad() {
+        // The following fixes a bug where the second tab icon would disappear when selected
+        // TODO: Fix this in storyboard or something
+        tabBar.tintColor = SKColor.pink()
+        if let items = tabBar.items as? [UITabBarItem] {
+            if items.count > 1 {
+                let item = items[1]
+                item.selectedImage = UIImage(named: "LocationIconSelected")?
+            }
+        }
+    }
+    
     /* Presents dialog for adding dresses and proms */
     @IBAction func showAddOptionPane(sender:AnyObject){
         let view = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
