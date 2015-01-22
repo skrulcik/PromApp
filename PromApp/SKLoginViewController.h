@@ -20,5 +20,6 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *createStoreButt;
 
 - (IBAction)fBookLoginPressed:(id)sender;
+- (IBAction)emailLoginPressed:(id)sender;
 
 @end

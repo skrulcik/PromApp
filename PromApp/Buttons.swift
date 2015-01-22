@@ -13,6 +13,7 @@ class RoundedRectButton: UIButton{
     var radius:CGFloat = 0
     func loadColors(){
         //for subclasses to load custom colors if needed
+        tintColor = foreground
     }
     
     override func drawRect(rect: CGRect) {
@@ -48,6 +49,14 @@ class LogoutPill:PillButton {
         let top_y = Int(rect.minY) + top_buff
         let base = CGRect(x: left_x, y: top_y, width: width, height: height)
         super.drawRect(base)
+    }
+}
+
+class LoginPill:PillButton {
+    override func loadColors() {
+        fillColor = SKColor.LoginButton()
+        foreground = SKColor.LoginForeground()
+        tintColor = foreground
     }
 }
 

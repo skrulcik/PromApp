@@ -48,6 +48,12 @@ class SKColor:UIColor
     class func PillButton()->UIColor{
         return pink()
     }
+    class func LoginButton()->UIColor{
+        return white()
+    }
+    class func LoginForeground()->UIColor{
+        return pink()
+    }
     class func AddImageButton()->UIColor{
         return pink()
     }

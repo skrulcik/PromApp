@@ -22,42 +22,70 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PromSplash" translatesAutoresizingMaskIntoConstraints="NO" id="5gW-Gx-HRF">
                                 <rect key="frame" x="0.0" y="-4" width="320" height="572"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rLv-Zk-eLb" customClass="PillButton" customModule="PromApp" customModuleProvider="target">
-                                <rect key="frame" x="59" y="465" width="202" height="52"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jxX-Di-rWI">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rLv-Zk-eLb" customClass="LoginPill" customModule="PromApp" customModuleProvider="target">
+                                        <rect key="frame" x="59" y="362" width="202" height="52"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="52" id="sLe-w8-kwY"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                        <state key="normal" title="Facebook Login">
+                                            <color key="titleColor" red="1" green="0.4392156862745098" blue="0.58039215686274515" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="fBookLoginPressed:" destination="gmQ-3J-jBv" eventType="touchUpInside" id="Yvi-FR-NGX"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ivD-dN-59j" customClass="LoginPill" customModule="PromApp" customModuleProvider="target">
+                                        <rect key="frame" x="59" y="439" width="202" height="52"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="52" id="n1s-rH-JRC"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                        <state key="normal" title="Sign In With Email">
+                                            <color key="titleColor" red="1" green="0.43921568630000002" blue="0.58039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="emailLoginPressed:" destination="gmQ-3J-jBv" eventType="touchUpInside" id="EIy-uT-n3x"/>
+                                        </connections>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="LogoWithSlogan" translatesAutoresizingMaskIntoConstraints="NO" id="fkZ-iM-dOn">
+                                        <rect key="frame" x="67" y="33" width="187" height="187"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="fkZ-iM-dOn" secondAttribute="height" multiplier="1:1" id="aej-vc-RVs"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.4392156862745098" blue="0.58039215686274515" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="52" id="sLe-w8-kwY"/>
+                                    <constraint firstItem="ivD-dN-59j" firstAttribute="leading" secondItem="rLv-Zk-eLb" secondAttribute="leading" id="Awb-ru-xBk"/>
+                                    <constraint firstAttribute="centerX" secondItem="fkZ-iM-dOn" secondAttribute="centerX" id="N1h-op-kV3"/>
+                                    <constraint firstItem="ivD-dN-59j" firstAttribute="top" secondItem="rLv-Zk-eLb" secondAttribute="bottom" constant="25" id="Tbp-Mk-dFv"/>
+                                    <constraint firstAttribute="trailing" secondItem="rLv-Zk-eLb" secondAttribute="trailing" constant="59" id="WIr-YC-K5h"/>
+                                    <constraint firstAttribute="bottom" secondItem="rLv-Zk-eLb" secondAttribute="bottom" constant="154" id="cVR-K5-Ire"/>
+                                    <constraint firstItem="rLv-Zk-eLb" firstAttribute="leading" secondItem="jxX-Di-rWI" secondAttribute="leading" constant="59" id="jCK-Nv-PGj"/>
+                                    <constraint firstItem="ivD-dN-59j" firstAttribute="trailing" secondItem="rLv-Zk-eLb" secondAttribute="trailing" id="o9y-Ir-Ka8"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                <state key="normal" title="Facebook Login">
-                                    <color key="titleColor" red="1" green="0.99997437000274658" blue="0.99999129772186279" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="fBookLoginPressed:" destination="gmQ-3J-jBv" eventType="touchUpInside" id="Yvi-FR-NGX"/>
-                                </connections>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LogoWithSlogan" translatesAutoresizingMaskIntoConstraints="NO" id="fkZ-iM-dOn">
-                                <rect key="frame" x="135" y="-15" width="179" height="179"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="fkZ-iM-dOn" secondAttribute="height" multiplier="1:1" id="aej-vc-RVs"/>
-                                </constraints>
-                            </imageView>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="fkZ-iM-dOn" firstAttribute="leading" secondItem="7pJ-ha-S0p" secondAttribute="leadingMargin" constant="119" id="0nl-sT-I8k"/>
+                            <constraint firstItem="jxX-Di-rWI" firstAttribute="trailing" secondItem="5gW-Gx-HRF" secondAttribute="trailing" id="4Hv-BV-6DO"/>
                             <constraint firstAttribute="trailing" secondItem="5gW-Gx-HRF" secondAttribute="trailing" id="EhJ-Hx-5tL"/>
                             <constraint firstItem="b4W-vK-LDH" firstAttribute="top" secondItem="5gW-Gx-HRF" secondAttribute="bottom" id="Grs-bV-wRf"/>
+                            <constraint firstItem="jxX-Di-rWI" firstAttribute="leading" secondItem="5gW-Gx-HRF" secondAttribute="leading" id="KEB-RX-WD6"/>
                             <constraint firstItem="5gW-Gx-HRF" firstAttribute="top" secondItem="8d2-Fn-4hy" secondAttribute="bottom" constant="-24" id="Lpm-6l-oXd"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="fkZ-iM-dOn" secondAttribute="trailing" constant="-10" id="O8N-JS-aQJ"/>
-                            <constraint firstAttribute="trailing" secondItem="rLv-Zk-eLb" secondAttribute="trailing" constant="59" id="aks-Vy-ZUy"/>
-                            <constraint firstItem="rLv-Zk-eLb" firstAttribute="leading" secondItem="7pJ-ha-S0p" secondAttribute="leading" constant="59" id="e8a-9H-LPB"/>
-                            <constraint firstItem="fkZ-iM-dOn" firstAttribute="top" secondItem="8d2-Fn-4hy" secondAttribute="bottom" constant="-35" id="gev-VW-1Ee"/>
-                            <constraint firstItem="b4W-vK-LDH" firstAttribute="top" secondItem="rLv-Zk-eLb" secondAttribute="bottom" constant="51" id="oEk-5V-Q4f"/>
+                            <constraint firstItem="jxX-Di-rWI" firstAttribute="top" secondItem="7pJ-ha-S0p" secondAttribute="top" id="rkl-QR-8X8"/>
+                            <constraint firstItem="jxX-Di-rWI" firstAttribute="bottom" secondItem="b4W-vK-LDH" secondAttribute="top" id="uzn-vC-PCb"/>
                             <constraint firstItem="5gW-Gx-HRF" firstAttribute="leading" secondItem="7pJ-ha-S0p" secondAttribute="leading" id="z36-rM-3Wp"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Login" id="86v-XH-wuI"/>
                     <connections>
+                        <outlet property="fBookButton" destination="rLv-Zk-eLb" id="Y3K-Cq-xrN"/>
+                        <outlet property="loginButt" destination="ivD-dN-59j" id="G4z-Q1-5uW"/>
                         <segue destination="P8W-CJ-ayo" kind="unwind" identifier="finishLogin" unwindAction="unwindFromLogin:" id="ora-OG-pK7"/>
                     </connections>
                 </viewController>
