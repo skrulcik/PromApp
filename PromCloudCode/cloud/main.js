@@ -20,6 +20,17 @@ Parse.Cloud.beforeSave("Dress", function(request, response) {
                     Parse.Cloud.useMasterKey();//Enable superuser superpowers
                     var dress = request.object;
 
+                    if(dress.get("designer") && dress.get("styleNumber")){
+                       var designer = dress.get("designer").replace(/ /g, '');
+                       designer = designer.toLowerCase();
+                       var styleNo = dress.get("styleNumber").replace(/ /g, '');
+                       styleNo = styleNo.toLowerCase();
+                       dress.set("designerSearch", designer);
+                       dress.set("styleNumberSearch", styleNo);
+                    } else {
+                       response.error("Missing required fields.");
+                    }
+                       
                     if (!dress.dirty("image")) {
                         // The profile photo isn't being modified.
                         response.success();
@@ -70,6 +81,7 @@ Parse.Cloud.beforeSave("Dress", function(request, response) {
                                                       error: function(error) {
                                                       // The image could not be cropped.
                                                       console.log("Error cropping " + error);
+                                                      response.error(error);
                                                       }
                                                       });
                                 } else{

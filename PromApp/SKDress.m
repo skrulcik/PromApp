@@ -28,8 +28,8 @@
     if(dress == nil){
         return NO;
     }
-    return [self.designer isEqualToString:dress.designer] &&
-            [self.styleNumber isEqualToString:dress.styleNumber];
+    return [self.designer containsString:dress.designer] &&
+            [self.styleNumber containsString:dress.styleNumber];
 }
 
 /*- (id)init

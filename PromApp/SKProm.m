@@ -56,10 +56,12 @@
 }
 
 - (BOOL) verifyDesigner:(NSString *)designer withStyle:(NSString *)styleNumber{
+    // Query against for similar dresses in this prom
     PFQuery *q = [[PFQuery alloc] initWithClassName:[SKDress parseClassName]];
     [q whereKey:@"prom" equalTo:self];
-    [q whereKey:@"designer" containsString:designer];
-    [q whereKey:@"styleNumber" equalTo:styleNumber];
+    // Use search optimized strings for designer and styleNo
+    [q whereKey:@"designerSearch" containsString:designer];
+    [q whereKey:@"styleNumberSearch" equalTo:styleNumber];
     long num_matches = [q countObjects];
     NSLog(@"Found %ld matches for %@ %@. \n", num_matches, designer, styleNumber);
     return num_matches == 0;

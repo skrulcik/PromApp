@@ -38,6 +38,8 @@ let Dress_styleNumKey = "styleNumber"
 let Dress_promKey = "prom"
 let Dress_colorKey = "color"
 let Dress_imageKey = "image"
+let Dress_designSearch = "designerSearch" // search optimized, (lowercase, no space)
+let Dress_styleSearch = "styleNumber" // search optimized, (lowercase, no spaces)
 
 //MARK: Images
 let MAX_IMG_WIDTH = 400

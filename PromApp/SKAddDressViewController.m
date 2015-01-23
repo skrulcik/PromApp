@@ -170,13 +170,27 @@ static NSDictionary *readableNames;
 
 - (void) performPromAssociation:(SKProm *) prom
 {
+    // Refresh Dict data (use dict data b/c dress may not have saved yet)
     [self updateTempData:self.dress];
+    
+    // Create search optimized strings, lowercase with no whitespace
     NSString *designer = [dressData objectForKey:@"designer"];
+    designer = [designer lowercaseString];
+    designer = [designer stringByReplacingOccurrencesOfString:@" " withString:@""];
     NSString *styleNumber = [dressData objectForKey:@"styleNumber"];
+    styleNumber = [styleNumber lowercaseString];
+    styleNumber = [styleNumber stringByReplacingOccurrencesOfString:@" " withString:@""];
+    
+    // Ensure the user has actually entered valid dress information
     if(designer == NULL || styleNumber == NULL){
-        //Put up some alert
+        // Alert user prom has not been associated with dress
+        UIAlertController *errMessage = [UIAlertController alertControllerWithTitle:@"Dress Not Reserved" message:@"Must enter designer and style number before association" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
+        [errMessage addAction:cancel];
+        [self presentViewController:errMessage animated:YES completion:nil];
         return;
     }
+    // Use SKProm's verification utility to make sure it doesn't already have that dress
     BOOL is_available = [prom verifyDesigner:designer withStyle:styleNumber];
     if(is_available){
         [dressData setObject:prom forKey:@"prom"];
