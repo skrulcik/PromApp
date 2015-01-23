@@ -184,7 +184,9 @@ static NSDictionary *readableNames;
     // Ensure the user has actually entered valid dress information
     if(designer == NULL || styleNumber == NULL){
         // Alert user prom has not been associated with dress
-        UIAlertController *errMessage = [UIAlertController alertControllerWithTitle:@"Dress Not Reserved" message:@"Must enter designer and style number before association" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertController *errMessage = [UIAlertController alertControllerWithTitle:@"Dress Not Reserved"
+                                                                            message:@"Must enter designer and style number before association"
+                                                                     preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
         [errMessage addAction:cancel];
         [self presentViewController:errMessage animated:YES completion:nil];
@@ -247,7 +249,6 @@ static NSDictionary *readableNames;
         //Picture is landscape
         goal_h = (int)((float)height/(float)width * goal_w);
     }
-    assert(goal_w<=width && goal_h <= height);
     UIGraphicsBeginImageContextWithOptions(CGSizeMake(width, height), NO, 0.0);
     CGRect scaledImageRect = CGRectMake((CGFloat)((width-goal_w)/2), (CGFloat)((height-goal_h)/2), (CGFloat)(goal_w), (CGFloat)(goal_h));
     [image drawInRect:scaledImageRect];

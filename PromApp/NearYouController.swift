@@ -35,6 +35,7 @@ class NearYouController : UIViewController, UISearchBarDelegate,
     var currentProm:SKProm?
     var currentStore:PFObject?
     
+    // MARK: UIView
     required init(coder aDecoder: NSCoder) {
         locationManager = CLLocationManager()
         super.init(coder: aDecoder)
@@ -59,6 +60,11 @@ class NearYouController : UIViewController, UISearchBarDelegate,
     override func viewWillAppear(animated: Bool) {
         configureMap()
         super.viewWillAppear(animated)
+    }
+    
+    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+        // Dismiss keyboard when user clicks on screen
+        searchBar.resignFirstResponder()
     }
     
     // MARK: Result view creation
@@ -228,7 +234,7 @@ class NearYouController : UIViewController, UISearchBarDelegate,
         let query = PFQuery(className: className)
         // Convert location into Parse GeoPoint
         let point = PFGeoPoint(latitude: loc.coordinate.latitude, longitude: loc.coordinate.longitude)
-        NSLog("Searching for Proms near Lat: %f Long: %f", loc.coordinate.latitude, loc.coordinate.longitude)
+        NSLog("Searching for %@s near Lat: %f Long: %f", className, loc.coordinate.latitude, loc.coordinate.longitude)
         query.whereKey(locationKey, nearGeoPoint: point, withinMiles: searchRadius)
         query.limit = stdQueryLimit
         if let objs = query.findObjects() as? [PFObject]{

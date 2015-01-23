@@ -19,67 +19,51 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PromSplash" translatesAutoresizingMaskIntoConstraints="NO" id="5gW-Gx-HRF">
-                                <rect key="frame" x="0.0" y="-4" width="320" height="572"/>
-                            </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jxX-Di-rWI">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rLv-Zk-eLb" customClass="LoginPill" customModule="PromApp" customModuleProvider="target">
-                                        <rect key="frame" x="59" y="362" width="202" height="52"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="52" id="sLe-w8-kwY"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                        <state key="normal" title="Facebook Login">
-                                            <color key="titleColor" red="1" green="0.4392156862745098" blue="0.58039215686274515" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="fBookLoginPressed:" destination="gmQ-3J-jBv" eventType="touchUpInside" id="Yvi-FR-NGX"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ivD-dN-59j" customClass="LoginPill" customModule="PromApp" customModuleProvider="target">
-                                        <rect key="frame" x="59" y="439" width="202" height="52"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="52" id="n1s-rH-JRC"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                        <state key="normal" title="Sign In With Email">
-                                            <color key="titleColor" red="1" green="0.43921568630000002" blue="0.58039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="emailLoginPressed:" destination="gmQ-3J-jBv" eventType="touchUpInside" id="EIy-uT-n3x"/>
-                                        </connections>
-                                    </button>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="LogoWithSlogan" translatesAutoresizingMaskIntoConstraints="NO" id="fkZ-iM-dOn">
-                                        <rect key="frame" x="67" y="33" width="187" height="187"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="fkZ-iM-dOn" secondAttribute="height" multiplier="1:1" id="aej-vc-RVs"/>
-                                        </constraints>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" red="1" green="0.4392156862745098" blue="0.58039215686274515" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LogoWithSlogan" translatesAutoresizingMaskIntoConstraints="NO" id="fkZ-iM-dOn">
+                                <rect key="frame" x="59" y="40" width="202" height="202"/>
                                 <constraints>
-                                    <constraint firstItem="ivD-dN-59j" firstAttribute="leading" secondItem="rLv-Zk-eLb" secondAttribute="leading" id="Awb-ru-xBk"/>
-                                    <constraint firstAttribute="centerX" secondItem="fkZ-iM-dOn" secondAttribute="centerX" id="N1h-op-kV3"/>
-                                    <constraint firstItem="ivD-dN-59j" firstAttribute="top" secondItem="rLv-Zk-eLb" secondAttribute="bottom" constant="25" id="Tbp-Mk-dFv"/>
-                                    <constraint firstAttribute="trailing" secondItem="rLv-Zk-eLb" secondAttribute="trailing" constant="59" id="WIr-YC-K5h"/>
-                                    <constraint firstAttribute="bottom" secondItem="rLv-Zk-eLb" secondAttribute="bottom" constant="154" id="cVR-K5-Ire"/>
-                                    <constraint firstItem="rLv-Zk-eLb" firstAttribute="leading" secondItem="jxX-Di-rWI" secondAttribute="leading" constant="59" id="jCK-Nv-PGj"/>
-                                    <constraint firstItem="ivD-dN-59j" firstAttribute="trailing" secondItem="rLv-Zk-eLb" secondAttribute="trailing" id="o9y-Ir-Ka8"/>
+                                    <constraint firstAttribute="width" secondItem="fkZ-iM-dOn" secondAttribute="height" multiplier="1:1" id="aej-vc-RVs"/>
                                 </constraints>
-                            </view>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rLv-Zk-eLb" customClass="LoginPill" customModule="PromApp" customModuleProvider="target">
+                                <rect key="frame" x="59" y="364" width="202" height="52"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="52" id="sLe-w8-kwY"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <state key="normal" title="Facebook Login">
+                                    <color key="titleColor" red="1" green="0.53725490200000003" blue="0.65490196079999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="fBookLoginPressed:" destination="gmQ-3J-jBv" eventType="touchUpInside" id="Yvi-FR-NGX"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ivD-dN-59j" customClass="LoginPill" customModule="PromApp" customModuleProvider="target">
+                                <rect key="frame" x="59" y="441" width="202" height="52"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="52" id="n1s-rH-JRC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <state key="normal" title="Sign In With Email">
+                                    <color key="titleColor" red="1" green="0.53725490200000003" blue="0.65490196079999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="emailLoginPressed:" destination="gmQ-3J-jBv" eventType="touchUpInside" id="EIy-uT-n3x"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="0.53725490196078429" blue="0.65490196078431373" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="jxX-Di-rWI" firstAttribute="trailing" secondItem="5gW-Gx-HRF" secondAttribute="trailing" id="4Hv-BV-6DO"/>
-                            <constraint firstAttribute="trailing" secondItem="5gW-Gx-HRF" secondAttribute="trailing" id="EhJ-Hx-5tL"/>
-                            <constraint firstItem="b4W-vK-LDH" firstAttribute="top" secondItem="5gW-Gx-HRF" secondAttribute="bottom" id="Grs-bV-wRf"/>
-                            <constraint firstItem="jxX-Di-rWI" firstAttribute="leading" secondItem="5gW-Gx-HRF" secondAttribute="leading" id="KEB-RX-WD6"/>
-                            <constraint firstItem="5gW-Gx-HRF" firstAttribute="top" secondItem="8d2-Fn-4hy" secondAttribute="bottom" constant="-24" id="Lpm-6l-oXd"/>
-                            <constraint firstItem="jxX-Di-rWI" firstAttribute="top" secondItem="7pJ-ha-S0p" secondAttribute="top" id="rkl-QR-8X8"/>
-                            <constraint firstItem="jxX-Di-rWI" firstAttribute="bottom" secondItem="b4W-vK-LDH" secondAttribute="top" id="uzn-vC-PCb"/>
-                            <constraint firstItem="5gW-Gx-HRF" firstAttribute="leading" secondItem="7pJ-ha-S0p" secondAttribute="leading" id="z36-rM-3Wp"/>
+                            <constraint firstAttribute="centerX" secondItem="fkZ-iM-dOn" secondAttribute="centerX" id="ABL-TZ-ZPy"/>
+                            <constraint firstItem="rLv-Zk-eLb" firstAttribute="trailing" secondItem="ivD-dN-59j" secondAttribute="trailing" id="Alo-uT-l9j"/>
+                            <constraint firstItem="b4W-vK-LDH" firstAttribute="top" secondItem="rLv-Zk-eLb" secondAttribute="bottom" constant="152" id="VA4-iG-1eV"/>
+                            <constraint firstItem="rLv-Zk-eLb" firstAttribute="leading" secondItem="7pJ-ha-S0p" secondAttribute="leadingMargin" constant="43" id="VHo-8u-5hK"/>
+                            <constraint firstItem="fkZ-iM-dOn" firstAttribute="top" secondItem="8d2-Fn-4hy" secondAttribute="bottom" constant="20" id="aBG-YS-ycn"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="rLv-Zk-eLb" secondAttribute="trailing" constant="43" id="aii-mw-HlV"/>
+                            <constraint firstItem="ivD-dN-59j" firstAttribute="top" secondItem="rLv-Zk-eLb" secondAttribute="bottom" constant="25" id="e8V-Pu-D8I"/>
+                            <constraint firstItem="rLv-Zk-eLb" firstAttribute="leading" secondItem="ivD-dN-59j" secondAttribute="leading" id="rIp-TE-iNn"/>
+                            <constraint firstItem="fkZ-iM-dOn" firstAttribute="leading" secondItem="7pJ-ha-S0p" secondAttribute="leadingMargin" constant="43" id="u4h-sd-ddf"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Login" id="86v-XH-wuI"/>
@@ -399,7 +383,7 @@
             </objects>
             <point key="canvasLocation" x="1574" y="1462"/>
         </scene>
-        <!--Add Dress View Controller-->
+        <!--Edit Dress-->
         <scene sceneID="V2G-2R-bCo">
             <objects>
                 <tableViewController id="Sbo-G7-eXo" customClass="SKAddDressViewController" sceneMemberID="viewController">
@@ -415,7 +399,7 @@
                     </tableView>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="Kly-dX-3C6">
+                    <navigationItem key="navigationItem" title="Edit Dress" id="Kly-dX-3C6">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="OAX-mU-g6g">
                             <connections>
                                 <segue destination="UZh-5H-2L0" kind="unwind" unwindAction="unwindToProfileCancel:" id="HD3-tb-HFC"/>
@@ -522,7 +506,6 @@
         <image name="LocationIconSelected" width="25" height="25"/>
         <image name="LogoWithSlogan" width="300" height="300"/>
         <image name="ProfileIconSelected" width="25" height="25"/>
-        <image name="PromSplash" width="642" height="1140"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
@@ -534,5 +517,5 @@
         <segue reference="lEq-ej-grH"/>
         <segue reference="t8d-8f-h4T"/>
     </inferredMetricsTieBreakers>
-    <color key="tintColor" red="0.25490197539329529" green="0.47843140363693237" blue="0.98823535442352295" alpha="1" colorSpace="deviceRGB"/>
+    <color key="tintColor" red="1" green="0.4392156862745098" blue="0.58039215686274515" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

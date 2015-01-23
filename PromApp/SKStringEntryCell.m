@@ -23,7 +23,7 @@
 
 - (void)awakeFromNib
 {
-    // Initialization code
+    self.field.autocapitalizationType = UITextAutocapitalizationTypeWords;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated

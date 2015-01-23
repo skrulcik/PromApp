@@ -39,6 +39,8 @@
         // The number of objects to show per page
         self.objectsPerPage = QUERY_LIMIT;
         selectedPath = nil;
+        
+        self.locationManager = [[CLLocationManager alloc] init];
     }
     return self;
 }
@@ -66,6 +68,8 @@
         // The number of objects to show per page
         self.objectsPerPage = QUERY_LIMIT;
         selectedPath = nil;
+        
+        self.locationManager = [[CLLocationManager alloc] init];
     }
     return self;
 }
@@ -80,12 +84,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    self.locationManager = [[CLLocationManager alloc] init];
-    [self.locationManager startUpdatingLocation];
+    
+    [self.locationManager requestAlwaysAuthorization];
     self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     self.locationManager.delegate = self;
-    [self.locationManager requestAlwaysAuthorization];
     [self.locationManager startUpdatingLocation];
     
     [self.tableView setBackgroundColor:[SKColor TableBackground]];
@@ -118,8 +120,6 @@
 // Override to customize what kind of query to perform on the class. The default is to query for
 // all objects ordered by createdAt descending.
 - (PFQuery *)queryForTable {
-    //CLLocation *searchLocation = [locationManager location];
-    //return [self queryForTableWithLocation:searchLocation];
     NSString* searchString = self.searchBar.text;
     if([searchString isEqualToString:@""]){
         return [self queryForTableWithLocation:[self.locationManager location]];
@@ -131,7 +131,6 @@
 {
     if(searchLocation.coordinate.latitude != 0.0 || searchLocation.coordinate.longitude != 0.0){
         PFQuery *query = [PFQuery queryWithClassName:[SKProm parseClassName]];
-        [query fromLocalDatastore];
         query.limit = QUERY_LIMIT;
         // Query for posts sort of kind of near our current location.
         NSLog(@"Querying for prom list near lat:%f long: %f", searchLocation.coordinate.latitude, searchLocation.coordinate.longitude);
@@ -147,6 +146,7 @@
 
 - (PFQuery *)queryForTableWithString: (NSString *)searchString
 {
+    NSLog(@"Querying for proms with string %@.", searchString);
     PFQuery *query = [PFQuery queryWithClassName:[SKProm parseClassName]];
     [query whereKey:@"schoolName" containsString:searchString];
     //[query whereKey:PROM_LOCATION_KEY nearGeoPoint:point withinKilometers:SEARCH_RADIUS];
