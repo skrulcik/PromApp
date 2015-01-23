@@ -8,17 +8,17 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
+            <rect key="frame" x="0.0" y="0.0" width="302" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LogoWithSlogan" translatesAutoresizingMaskIntoConstraints="NO" id="uHP-9H-TCX">
-                    <rect key="frame" x="90" y="75" width="300" height="300"/>
+                    <rect key="frame" x="58" y="40" width="186" height="186"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="uHP-9H-TCX" secondAttribute="height" multiplier="1:1" id="PDx-0A-mVW"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Copyright (c) 2014 Scott Krulcik &amp; PromApp LLC. All rights reserved." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RRW-Wf-3Xr">
-                    <rect key="frame" x="46" y="433" width="388" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  (c) 2014 Scott Krulcik, PromApp LLC" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RRW-Wf-3Xr">
+                    <rect key="frame" x="46" y="433" width="210" height="21"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="O7F-4t-aBM"/>
                     </constraints>
@@ -29,16 +29,17 @@
             </subviews>
             <color key="backgroundColor" red="1" green="0.53725490196078429" blue="0.65490196078431373" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="uHP-9H-TCX" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="58" id="FZB-wN-v0w"/>
                 <constraint firstAttribute="trailing" secondItem="RRW-Wf-3Xr" secondAttribute="trailing" constant="46" id="O9E-IE-YXL"/>
                 <constraint firstAttribute="centerX" secondItem="uHP-9H-TCX" secondAttribute="centerX" id="S9k-oO-oXu"/>
                 <constraint firstAttribute="bottom" secondItem="RRW-Wf-3Xr" secondAttribute="bottom" constant="26" id="URS-ge-Wxh"/>
                 <constraint firstItem="RRW-Wf-3Xr" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="46" id="gEU-MT-Jsj"/>
                 <constraint firstAttribute="centerX" secondItem="RRW-Wf-3Xr" secondAttribute="centerX" id="sCP-ND-eg8"/>
-                <constraint firstItem="uHP-9H-TCX" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="75" id="zwL-VC-YXw"/>
+                <constraint firstItem="uHP-9H-TCX" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="40" id="zwL-VC-YXw"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="404" y="445"/>
+            <point key="canvasLocation" x="493" y="445"/>
         </view>
     </objects>
     <resources>

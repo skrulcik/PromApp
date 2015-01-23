@@ -1,6 +1,7 @@
 
 //Use image library
 var Image = require("parse-image");
+var _ = require('underscore');
 
 var MAX_W = 80.0
 var MAX_H = 120.0
@@ -109,6 +110,36 @@ Parse.Cloud.beforeSave("Dress", function(request, response) {
                         });
                     });
 
+// Remove references to a prom before it is deleted
+Parse.Cloud.beforeDelete('Prom', function(request, response) {
+                         // First remove from User objects
+                         // Dealing with users we need master key
+                         Parse.Cloud.useMasterKey();
+                         
+                         // Get prom object from request
+                         var prom = request.object;
+                         
+                         // Query for all dresses with a reference to this prom
+                         var query = new Parse.Query("Dress")
+                         query.equalTo("prom", prom);
+                         query.include("prom");
+                         query.each(function(dress){
+                                    dress.unset("prom");
+                                    dress.save();
+                                    });
+                         // Query for all users with a reference to this prom
+                         var query = new Parse.Query("_User");
+                         query.equalTo("proms", request.object);
+                         query.include("proms");
+                         query.each(function (user) {
+                                    user.remove("proms", prom);
+                                    user.save();
+                                    }).then(function() {
+                                            response.success();
+                                            }, function(error) {
+                                            response.error(error);
+                                            });
+})
 
 Parse.Cloud.job("emailSetup", function(request, status) {
                 // Set up to modify user data

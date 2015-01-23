@@ -224,6 +224,92 @@ class ProfileController:UIViewController, NSURLConnectionDataDelegate, UITableVi
         }
         listView.deselectRowAtIndexPath(indexPath, animated: true)
     }
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        if indexPath.section == DRESS_SECTION {
+            return true
+        } else if indexPath.section == PROM_SECTION {
+            // First get proper prom object
+            if let user:PFUser = PFUser.currentUser(){
+                let proms:Array<SKProm> = user.proms
+                if(indexPath.row < proms.count){
+                    // Get prom associated with row
+                    let prom = proms[indexPath.row]
+                    prom.fetchIfNeeded()
+                    if let acl = prom.ACL {
+                        if acl.getWriteAccessForUser(PFUser.currentUser()) {
+                            // User created prom, may edit
+                            return true
+                        }
+                    }
+                }
+            }
+        }
+        return false
+    }
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if (editingStyle == .Delete){
+            if (indexPath.section == DRESS_SECTION){
+                //Is a dress cell
+                if let user:PFUser = PFUser.currentUser(){
+                    let dresses:Array<SKDress> = user.dresses
+                    if(indexPath.row < dresses.count){
+                        let dress = dresses[indexPath.row]
+                        user.removeObject(dress, forKey: "dresses")
+                        user.saveInBackgroundWithBlock(nil)
+                        dress.deleteInBackgroundWithBlock({
+                            (success:Bool!, error:NSError!) in
+                            if(error != nil){
+                                NSLog("Failed to delete dress for user %@.", user.objectId)
+                            } else {
+                                NSLog("Successfully deleted dress for user %@.", user.objectId)
+                            }
+                            tableView.reloadData()
+                        })
+                    } else {
+                        NSLog("Tried to delete dress at non-existant index.")
+                    }
+                }
+            } else if (indexPath.section == PROM_SECTION){
+                //Is a dress cell
+                if let user:PFUser = PFUser.currentUser(){
+                    let proms:Array<SKProm> = user.proms
+                    if(indexPath.row < proms.count){
+                        // Get prom associated with row
+                        let prom = proms[indexPath.row]
+                        // Warn the user their deletions are permanent
+                        let askUser = UIAlertController(title: "Are you sure?",
+                            message: "Once a prom is deleted, all of its data will be lost forever.",
+                            preferredStyle: .Alert)
+                        let cancel = UIAlertAction(title: "Cancel",
+                            style: .Cancel,
+                            handler: nil)
+                        let confirm = UIAlertAction(title: "Confirm", style: .Default, handler:{
+                            (action:UIAlertAction!) in
+                            // Remove from local User's reference
+                            user.removeObject(prom, forKey: "proms")
+                            user.saveInBackgroundWithBlock(nil)
+                            // Note: Will be removed from user and dress references
+                            //          in a cloud code operation upon delete
+                            prom.deleteInBackgroundWithBlock({
+                                (success:Bool!, error:NSError!) in
+                                if(error != nil){
+                                    NSLog("Failed to delete prom for user %@.", user.objectId)
+                                } else {
+                                    NSLog("Successfully deleted prom for user %@.", user.objectId)
+                                }
+                                tableView.reloadData()
+                            })
+                        })
+                        askUser.addAction(cancel)
+                        askUser.addAction(confirm)
+                        presentViewController(askUser, animated: true, completion: nil)
+                    } else {
+                        NSLog("Tried to delete prom at non-existant index.")
+                    }
+                }
+            }
+        }
+    }
     
     //MARK: UITableViewDataSource
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -349,6 +435,7 @@ class ProfileController:UIViewController, NSURLConnectionDataDelegate, UITableVi
                         if(indx.row < dressList.count){
                             self.listView.deselectRowAtIndexPath(indx, animated: true)
                             let dress = dressList[indx.row]
+                            dress.fetchIfNeeded()
                             dressController.setupWithDress(dress)
                         }
                     }
@@ -359,7 +446,9 @@ class ProfileController:UIViewController, NSURLConnectionDataDelegate, UITableVi
                 if let indx = listView.indexPathForSelectedRow(){
                     if(PFUser.currentUser() != nil &&
                         indx.row < PFUser.currentUser().proms.count){
-                        promInfo.promObject = PFUser.currentUser().proms[indx.row]
+                        let prom = PFUser.currentUser().proms[indx.row]
+                        prom.fetchIfNeeded()
+                        promInfo.promObject = prom
                     }
                 }
             }
