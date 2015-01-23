@@ -288,12 +288,12 @@
 		D22E03CD1A4DFF2A00F81753 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				D2CD3E641A4FBB6700BF0359 /* ArrayUtil.swift */,
+				D2CD3E661A4FCDE200BF0359 /* ColorProfile.swift */,
 				D22B2B801A42B0AE0085F54E /* GlobalConstants.swift */,
 				D22E03CB1A4DFF2600F81753 /* ImageManipulation.swift */,
 				D22E03CE1A4E862600F81753 /* StringManipulation.swift */,
 				D28DD0021A4F141C00B73582 /* StandardAlerts.swift */,
-				D2CD3E641A4FBB6700BF0359 /* ArrayUtil.swift */,
-				D2CD3E661A4FCDE200BF0359 /* ColorProfile.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -431,8 +431,10 @@
 		D2A4757F19633494005C2502 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				D2A382961A4279C300D3E3B7 /* ProfileController.swift */,
 				D246C39D1A51B5A30046D95A /* DressListForProm.swift */,
+				D2F846E91A6CA9E1007CD841 /* DynamicResultController.swift */,
+				D2D4F0311A6B668B0020DD9A /* NearYouController.swift */,
+				D2A382961A4279C300D3E3B7 /* ProfileController.swift */,
 				D29FA1971A4B16890046A5BD /* PromEditorController.swift */,
 				D2CD3E681A5062BA00BF0359 /* PromInfoController.swift */,
 				D28DD0041A4F5BAE00B73582 /* PromSearchTable.swift */,
@@ -445,8 +447,6 @@
 				D23654FB19916DFF007277A6 /* SKPromQueryController.m */,
 				D2A475801963999E005C2502 /* SKPromFinderViewController.h */,
 				D2A475811963999E005C2502 /* SKPromFinderViewController.m */,
-				D2D4F0311A6B668B0020DD9A /* NearYouController.swift */,
-				D2F846E91A6CA9E1007CD841 /* DynamicResultController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";

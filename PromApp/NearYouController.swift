@@ -48,10 +48,11 @@ class NearYouController : UIViewController, UISearchBarDelegate,
         locationManager.startUpdatingLocation()
         
         // Fix tab bar highlight issue
-        view.tintColor = SKColor.pink()
+        view.tintColor = SKColor.triadBlueLight()
         
         // Configure search bar
         searchBar.backgroundColor = SKColor.SearchBar()
+        searchBar.tintColor = SKColor.white()
         searchBar.placeholder = Constants.placeholderString + Constants.locationString
     }
     
@@ -177,7 +178,7 @@ class NearYouController : UIViewController, UISearchBarDelegate,
         let query = PFQuery(className: SKProm.parseClassName())
         // Convert location into Parse GeoPoint
         let point = PFGeoPoint(latitude: loc.coordinate.latitude, longitude: loc.coordinate.longitude)
-        NSLog("Searching for Proms near Lat: %f Long: %f")
+        NSLog("Searching for Proms near Lat: %f Long: %f", loc.coordinate.latitude, loc.coordinate.longitude)
         query.whereKey(Prom_locationKey, nearGeoPoint: point, withinMiles: searchRadius)
         query.limit = stdQueryLimit
         if let proms = query.findObjects() as? [SKProm]{
@@ -227,7 +228,7 @@ class NearYouController : UIViewController, UISearchBarDelegate,
         let query = PFQuery(className: className)
         // Convert location into Parse GeoPoint
         let point = PFGeoPoint(latitude: loc.coordinate.latitude, longitude: loc.coordinate.longitude)
-        NSLog("Searching for Proms near Lat: %f Long: %f")
+        NSLog("Searching for Proms near Lat: %f Long: %f", loc.coordinate.latitude, loc.coordinate.longitude)
         query.whereKey(locationKey, nearGeoPoint: point, withinMiles: searchRadius)
         query.limit = stdQueryLimit
         if let objs = query.findObjects() as? [PFObject]{

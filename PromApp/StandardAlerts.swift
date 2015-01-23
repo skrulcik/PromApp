@@ -11,30 +11,32 @@ enum StandardAlertType{
     case MissingRequiredField
     case FailedSave
     case Default
+    case LoginError
 }
 
 let titleForAlert:Dictionary<StandardAlertType, String!> = [
                         .MissingRequiredField:"Missing Required Field",
                         .FailedSave:"Could not save changes.",
-                        .Default:"Alert"
+                        .Default:"Alert",
+                        .LoginError:"Login Error"
                     ]
+let defaultMessage = "Something went wrong."
 
-func throwAlert(fromPresenter presenter:UIViewController, ofType type:StandardAlertType, withArg str:String?){
+func throwAlert(fromPresenter presenter:UIViewController,
+                    ofType type:StandardAlertType,
+                    withArg str:String = defaultMessage){
     var title:String?
     var message:String?
     switch type{
         case .MissingRequiredField:
             title = titleForAlert[.MissingRequiredField]
-            if str != nil {
-                message = "\(str!) is a required field."
+            if str != defaultMessage {
+                message = "\(str) is a required field."
             } else {
                 message = "Missing a required field"
         }
-        case .FailedSave:
-            title = titleForAlert[.FailedSave]
-            message = str
         default:
-            title = titleForAlert[.Default]
+            title = titleForAlert[type]
             message = "Something went wrong."
     }
     

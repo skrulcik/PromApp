@@ -224,7 +224,7 @@ class PromEditor:UITableViewController, UITextFieldDelegate, UIImagePickerContro
                 if promData.indexForKey(req_key) == nil{
                     throwAlert(fromPresenter: self,
                         ofType: .MissingRequiredField,
-                        withArg: readableNames[req_key])
+                        withArg: readableNames[req_key]!)
                     return false
                 }
             }
