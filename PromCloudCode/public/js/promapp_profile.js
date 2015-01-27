@@ -248,11 +248,24 @@ $(function() {
                 newProm.set('image', promImage);
                 // Set default fields
                 newProm.set('schoolName', schoolName);
-                newProm.set('address', address);
                 newProm.set('locationDescription', locationDescription);
                 // Set optional fields
                 if(theme){
                     newProm.set('theme', theme);
+                }
+                if(address){
+                    newProm.set('address', address);
+                    // Geocode address with google api
+                    var geocoder = new google.maps.Geocoder();
+                    geocoder.geocode( { 'address': address}, function(results, status) {
+                      if (status == google.maps.GeocoderStatus.OK) {
+                        var loc_lat = results[0].geometry.location.lat();
+                        var loc_long = results[0].geometry.location.lng();
+                        var location = new Parse.GeoPoint({latitude: loc_lat, longitude: loc_long});
+                        newProm.set('preciseLocation', location);
+                        newProm.save(); // Save again, asynch, so may not be set for initial save
+                      } 
+                    });
                 }
                 return newProm.save();
             }).then(function(){
@@ -349,9 +362,6 @@ $(function() {
                 newStore.set('image', storeImage);
                 newStore.set('name', name);
                 // Set optional fields (We know at least one contact field should be filled)
-                if(address){
-                    newStore.set('address', address);
-                }
                 if(phone){
                     newStore.set('phone', phone);
                 }
@@ -360,6 +370,20 @@ $(function() {
                 }
                 if(hours){
                     newStore.set('hours', hours);
+                }
+                if(address){
+                    newStore.set('address', address);
+                    // Geocode address with google api
+                    var geocoder = new google.maps.Geocoder();
+                    geocoder.geocode( { 'address': address}, function(results, status) {
+                      if (status == google.maps.GeocoderStatus.OK) {
+                        var loc_lat = results[0].geometry.location.lat();
+                        var loc_long = results[0].geometry.location.lng();
+                        var location = new Parse.GeoPoint({latitude: loc_lat, longitude: loc_long});
+                        newStore.set('location', location);
+                        newStore.save(); // Save again, asynch, so may not be set for initial save
+                      } 
+                    });
                 }
                 return newStore.save();
             }).then(function(){
