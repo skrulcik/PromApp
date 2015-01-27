@@ -105,11 +105,7 @@ $(function() {
         var styleNumber = $('#editdress-styleNumber').val();
         var color = $('#edidress-color').val();
         var imgInput = $('#editdress-image')[0];
-        var imgfile;
-        // If image exists, load it into the image spot
-        if(imgInput && imgInput.files && imgInput.files.length > 0){
-            imgfile = imgInput.files[0];
-        }
+        // Ensure required fields are filled out
         if(!designer){
             showError("#editdress-status", "Designer is a required field.");
             return;
@@ -118,39 +114,61 @@ $(function() {
             showError("#editdress-status", "Style number is a required field.");
             return;
         }
-        if(!imgfile){
-            showError("#editdress-status", "Please provide an image.");
-            return;
-        } 
-        var filetype = "";
-        var name = designer + styleNumber;
-        var len = imgfile.name.length;
-        if(len > 4){
-            filetype = imgfile.name.substring(len-4, len);
-        }
-        switch (filetype.toLowerCase()) {
-            case ".png":
-                name += '.png'
-                break;
-            case ".jpg":
-            case "jpeg":
-                name += '.jpg'
-                break;
-            default:
-                showError("#editdress-status",
-                            "Please upload a PNG, JPG, or JPEG image.");
-                return;
-        }
 
         // Fill dress object with data
-        var Dress = Parse.Object.extend("Dress"); // Create Dress class
         var newDress = new Dress(); // Instantiate blank dress
-        // Must save image file before association
-        var dressImage = new Parse.File(name, imgfile);
 
-        dressImage.save().then(function() {
-            // Image saved successfully:
-            newDress.set('image', dressImage);
+        // If image exists, save it before saving the dress
+        if(imgInput && imgInput.files && imgInput.files.length > 0){
+            // Retrieve image file from file input
+            var imgfile = imgInput.files[0];
+            // Ensure image file is of an acceptable type
+            var filetype = "";
+            var name = designer + styleNumber;
+            var len = imgfile.name.length;
+            if(len > 4){
+                filetype = imgfile.name.substring(len-4, len);
+            }
+            switch (filetype.toLowerCase()) {
+                case ".png":
+                    name += '.png'
+                    break;
+                case ".jpg":
+                case "jpeg":
+                    name += '.jpg'
+                    break;
+                default:
+                    showError("#editdress-status",
+                                "Please upload a PNG, JPG, or JPEG image.");
+                    return;
+            }
+
+            // Must save image file before association
+            var dressImage = new Parse.File(name, imgfile);
+
+            dressImage.save().then(function() {
+                // Image saved successfully:
+                newDress.set('image', dressImage);
+                // Set default fields (designer, style no.)
+                newDress.set('designer', designer);
+                newDress.set('styleNumber', styleNumber);
+                // Set optional fields (color, prom-in future implementation)
+                if(color){
+                    newDress.set('dressColor', color);
+                }
+                return newDress.save();
+            }).then(function(){
+                Parse.User.current().addUnique('dresses', newDress);
+                return Parse.User.current().save();
+            }).then(function(){
+                $('#editdress').remove(); // Remove vestigal editing box
+                loadProfile();
+            }, function(error) {
+              // Well...damn, it didn't save
+                showError("#editdress-status",
+                            "Dress could not be saved: error " + error.code);
+            });
+        } else {
             // Set default fields (designer, style no.)
             newDress.set('designer', designer);
             newDress.set('styleNumber', styleNumber);
@@ -158,18 +176,18 @@ $(function() {
             if(color){
                 newDress.set('dressColor', color);
             }
-            return newDress.save();
-        }).then(function(){
-            Parse.User.current().addUnique('dresses', newDress);
-            return Parse.User.current().save();
-        }).then(function(){
-            $('#editdress').remove(); // Remove vestigal editing box
-            loadProfile();
-        }, function(error) {
-          // Well...damn, it didn't save
-            showError("#editdress-status",
-                        "Dress could not be saved: error " + error.code);
-        });
+            newDress.save().then(function(){
+                Parse.User.current().addUnique('dresses', newDress);
+                return Parse.User.current().save();
+            }).then(function(){
+                $('#editdress').remove(); // Remove vestigal editing box
+                loadProfile();
+            }, function(error) {
+              // Well...damn, it didn't save
+                showError("#editdress-status",
+                            "Dress could not be saved: error " + error.code);
+            });
+        }
     }
     // Cancel and save for prom creation
     function cancelNewProm(){
@@ -184,11 +202,6 @@ $(function() {
         var locationDescription = $('#editprom-locationdescription').val();
         var theme = $('#editprom-theme').val();
         var imgInput = $('#editprom-image')[0];
-        var imgfile;
-        // If image exists, load it into the image spot
-        if(imgInput && imgInput.files && imgInput.files.length > 0){
-            imgfile = imgInput.files[0];
-        }
         if(!schoolName){
             showError("#editprom-status", "School Name is a required field.");
             return;
@@ -201,34 +214,59 @@ $(function() {
             showError("#editprom-status", "Please provide a description of the venue.");
             return;
         } 
-        var filetype = "";
-        var name = "prom-image";
-        var len = imgfile.name.length;
-        if(len > 4){
-            filetype = imgfile.name.substring(len-4, len);
-        }
-        switch (filetype.toLowerCase()) {
-            case ".png":
-                name += '.png'
-                break;
-            case ".jpg":
-            case "jpeg":
-                name += '.jpg'
-                break;
-            default:
-                showError("#editprom-status",
-                            "Please upload a PNG, JPG, or JPEG image.");
-                return;
-        }
 
         // Fill dress object with data
-        var newProm = new Prom(); // Instantiate blank dress
-        // Must save image file before association
-        var promImage = new Parse.File(name, imgfile);
+        var newProm = new Prom(); // Instantiate blank prom object
+        
+        // If image exists, save image first then prom
+        if(imgInput && imgInput.files && imgInput.files.length > 0){
+            var imgfile = imgInput.files[0];
+            var filetype = "";
+            var name = "prom-image";
+            var len = imgfile.name.length;
+            if(len > 4){
+                filetype = imgfile.name.substring(len-4, len);
+            }
+            switch (filetype.toLowerCase()) {
+                case ".png":
+                    name += '.png'
+                    break;
+                case ".jpg":
+                case "jpeg":
+                    name += '.jpg'
+                    break;
+                default:
+                    showError("#editprom-status",
+                                "Please upload a PNG, JPG, or JPEG image.");
+                    return;
+            }
+            // Must save image file before association
+            var promImage = new Parse.File(name, imgfile);
 
-        promImage.save().then(function() {
-            // Image saved successfully:
-            newProm.set('image', promImage);
+            promImage.save().then(function() {
+                // Image saved successfully:
+                newProm.set('image', promImage);
+                // Set default fields
+                newProm.set('schoolName', schoolName);
+                newProm.set('address', address);
+                newProm.set('locationDescription', locationDescription);
+                // Set optional fields
+                if(theme){
+                    newProm.set('theme', theme);
+                }
+                return newProm.save();
+            }).then(function(){
+                Parse.User.current().addUnique('proms', newProm);
+                return Parse.User.current().save();
+            }).then(function(){
+                $('#editprom').remove(); // Remove vestigal editing box
+                loadProfile();
+            }, function(error) {
+              // Well...damn, it didn't save
+                showError("#editprom-status",
+                            "Prom could not be saved: error " + error.code);
+            });
+        } else {
             // Set default fields
             newProm.set('schoolName', schoolName);
             newProm.set('address', address);
@@ -237,18 +275,18 @@ $(function() {
             if(theme){
                 newProm.set('theme', theme);
             }
-            return newProm.save();
-        }).then(function(){
-            Parse.User.current().addUnique('proms', newProm);
-            return Parse.User.current().save();
-        }).then(function(){
-            $('#editprom').remove(); // Remove vestigal editing box
-            loadProfile();
-        }, function(error) {
-          // Well...damn, it didn't save
-            showError("#editprom-status",
-                        "Prom could not be saved: error " + error.code);
-        });
+            newProm.save().then(function(){
+                Parse.User.current().addUnique('proms', newProm);
+                return Parse.User.current().save();
+            }).then(function(){
+                $('#editprom').remove(); // Remove vestigal editing box
+                loadProfile();
+            }, function(error) {
+              // Well...damn, it didn't save
+                showError("#editprom-status",
+                            "Prom could not be saved: error " + error.code);
+            });
+        }
     }
     // Cancel and save for store creation
     function cancelNewStore(){
@@ -264,11 +302,6 @@ $(function() {
         var website = $('#editstore-website').val();
         var hours = $('#editstore-hours').val();
         var imgInput = $('#editstore-image')[0];
-        var imgfile;
-        // If image exists, load it into the image spot
-        if(imgInput && imgInput.files && imgInput.files.length > 0){
-            imgfile = imgInput.files[0];
-        }
         if(!name){
             showError("#editstore-status", "You must provide a store name.");
             return;
@@ -277,33 +310,72 @@ $(function() {
             showError("#editstore-status", "Please provide address, phone number or website for contact.");
             return;
         }
-        var filetype = "";
-        var name = "store-image";
-        var len = imgfile.name.length;
-        if(len > 4){
-            filetype = imgfile.name.substring(len-4, len);
-        }
-        switch (filetype.toLowerCase()) {
-            case ".png":
-                name += '.png'
-                break;
-            case ".jpg":
-            case "jpeg":
-                name += '.jpg'
-                break;
-            default:
-                showError("#editstore-status",
-                            "Please upload a PNG, JPG, or JPEG image.");
-                return;
-        }
 
         // Fill dress object with data
         var newStore = new Store(); // Instantiate blank dress
-        // Must save image file before association
-        var storeImage = new Parse.File(name, imgfile);
 
-        storeImage.save().then(function() {
-            // Image saved successfully:
+        // If image exists, save it before store
+        if(imgInput && imgInput.files && imgInput.files.length > 0){
+            // Retrieve image from file
+            var imgfile = imgInput.files[0];
+
+            // Create file name for image
+            var filetype = "";
+            var name = "store-image";
+            var len = imgfile.name.length;
+            if(len > 4){
+                filetype = imgfile.name.substring(len-4, len);
+            }
+            // Ensure file is of accepted type
+            switch (filetype.toLowerCase()) {
+                case ".png":
+                    name += '.png'
+                    break;
+                case ".jpg":
+                case "jpeg":
+                    name += '.jpg'
+                    break;
+                default:
+                    showError("#editstore-status",
+                                "Please upload a PNG, JPG, or JPEG image.");
+                    return;
+            }
+
+            // Must save image file before association
+            var storeImage = new Parse.File(name, imgfile);
+
+            storeImage.save().then(function() {
+                // Image saved successfully:
+                newStore.set('image', storeImage);
+                newStore.set('name', name);
+                // Set optional fields (We know at least one contact field should be filled)
+                if(address){
+                    newStore.set('address', address);
+                }
+                if(phone){
+                    newStore.set('phone', phone);
+                }
+                if(website){
+                    newStore.set('website', website);
+                }
+                if(hours){
+                    newStore.set('hours', hours);
+                }
+                return newStore.save();
+            }).then(function(){
+                Parse.User.current().addUnique('stores', newStore);
+                return Parse.User.current().save();
+            }).then(function(){
+                $('#editstore').remove(); // Remove vestigal editing box
+                loadProfile();
+            }, function(error) {
+              // Well...damn, it didn't save
+                showError("#editstore-status",
+                            "Store could not be saved: error " + error.code);
+            });
+        } else {
+            // There is no image to save
+            // Set required fields
             newStore.set('name', name);
             // Set optional fields (We know at least one contact field should be filled)
             if(address){
@@ -318,18 +390,18 @@ $(function() {
             if(hours){
                 newStore.set('hours', hours);
             }
-            return newStore.save();
-        }).then(function(){
-            Parse.User.current().addUnique('stores', newStore);
-            return Parse.User.current().save();
-        }).then(function(){
-            $('#editstore').remove(); // Remove vestigal editing box
-            loadProfile();
-        }, function(error) {
-          // Well...damn, it didn't save
-            showError("#editstore-status",
-                        "Store could not be saved: error " + error.code);
-        });
+            newStore.save().then(function(){
+                Parse.User.current().addUnique('stores', newStore);
+                return Parse.User.current().save();
+            }).then(function(){
+                $('#editstore').remove(); // Remove vestigal editing box
+                loadProfile();
+            }, function(error) {
+              // Well...damn, it didn't save
+                showError("#editstore-status",
+                            "Store could not be saved: error " + error.code);
+            });
+        }
     }
 
     // Organize event handlers for access with keys
