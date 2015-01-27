@@ -12,16 +12,48 @@ Thanks to https://www.bootply.com/idWWJSmrKD# for sidebar layout on this page
 	<title>PromApp | Profile</title>
     <link rel="icon" href="images/big-favicon.ico">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link href='https://fonts.googleapis.com/css?family=Lato:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-	<link href='https://fonts.googleapis.com/css?family=Droid+Serif:700,700italic,400italic' rel='stylesheet' type='text/css'>
+	<link href="https://fonts.googleapis.com/css?family=Lato:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel='stylesheet' type='text/css'>
+	<link href="https://fonts.googleapis.com/css?family=Droid+Serif:700,700italic,400italic" rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-	<link rel="stylesheet" href="CSS/bootstrap.css"/>
 	<link href="CSS/style.css" rel='stylesheet' type='text/css' />
 	<link href="CSS/promapp.css" rel='stylesheet' type='text/css' />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/holder/2.4.1/holder.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script src="https://www.parsecdn.com/js/parse-1.2.13.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
+    <!-- BEGIN: Underscore Template Definition. -->
+
+    <script type="text/template" class="editor_template">
+        <div id="<%= data.id %>" class='col-sm-8 col-md-3'>
+            <div class="thumbnail object-display">
+                <div class="caption">
+                    <div class="form-group">
+                        <h4><%= data.title %></h4>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-group alert alert-danger hidden" role="alert" id="<%= data.id %>-status">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="file" id="<%=data.id%>-image"></input>
+                    </div>
+                    <% _.each( data.textInputs, function( textInfo ){ %>
+                        <div class="form-group">
+                            <input id="<%= textInfo.id %>" class="form-control" type="text" placeholder="<%= textInfo.placeholder %>" />
+                        </div>
+                    <% }); %>
+                    <div class="form-group">
+                        <p>
+                            <button id="<%= data.id %>-cancel" class="btn btn-default btn-cancel" type="button">Cancel</button>
+                            <button id="<%= data.id %>-save" class="btn btn-primary btn-save pull-right" type="button">Save</button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
+    <!-- END: Underscore Template Definition. -->
     <script src="js/promapp_profile.js"></script>
 	<script type="application/x-javascript">
 		addEventListener("load", function() {
@@ -49,6 +81,23 @@ Thanks to https://www.bootply.com/idWWJSmrKD# for sidebar layout on this page
                         <h4 id="username">User Name</h4>
                         <h5 id="dressNumber" class="detail"># Dresses</h5>
                         <h5 id="promNumber" class="detail"># Proms</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div id="stores">
+                <div class="section-header">
+                    <h3>Stores:   <button id="add_store" type="button" class="btn btn-default">
+                            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                            <span class="sr-only">Add</span>
+                        </button>
+                    </h3>
+                    <hr>
+                </div>
+                <div id="storelist" class="row">
+                    <div id="store-placeholder">
+                        <h3 class="text-center"><small>No Stores</small></h3>
                     </div>
                 </div>
             </div>
@@ -84,16 +133,6 @@ Thanks to https://www.bootply.com/idWWJSmrKD# for sidebar layout on this page
                     <div id="prom-placeholder">
                         <h3 class="text-center"><small>No Proms</small></h3>
                     </div>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div id="stores">
-                <div class="section-header">
-                    <hr>
-                    <h3>Stores:</h3>
-                </div>
-                <div id="storelist" class="row">
                 </div>
             </div>
         </div>

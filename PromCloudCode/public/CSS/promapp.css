@@ -123,6 +123,13 @@ body { padding-top: 50px; }
     color: #ccc;
 }
 
+.btn-save {
+
+}
+.btn-cancel {
+    
+}
+
 .object-display{
     border-radius: 10px;
 }
