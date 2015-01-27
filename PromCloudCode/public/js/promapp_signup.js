@@ -87,6 +87,7 @@ $(function(){
 		var password = $("#signup-password").val();
 		var password2 = $("#signup-password2").val();
 		var name = $("#signup-name").val();
+		var isStore = $('input[name="accountType"]:checked').val();
 		if(!email){
 			showError("#signup-status", "Please enter an email address.");
 			return;
@@ -107,6 +108,9 @@ $(function(){
 	       success: function(user) {
 	            //Set name data in "profile" dictionary to maintain consistency with FB
 		        user.set("profile", {name: name, email: email});
+		        if(isStore){
+		        	user.set("stores", []);
+		        }
 		        user.save().then(function(user) {
 					// The save was successful.
 		            window.location = 'profile.html';
