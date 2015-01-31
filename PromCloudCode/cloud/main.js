@@ -14,7 +14,21 @@ Parse.Cloud.beforeSave("Prom", function(request, response){
                        var lowName = schoolName.toLowerCase()
                        prom.set("searchName", lowName)
                        response.success()
-                       })
+                       });
+
+/* Ensures website is a valid address for href */
+Parse.Cloud.beforeSave("Store", function(request, response){
+                       Parse.Cloud.useMasterKey();//Enable superuser superpowers
+                       var store = request.object;
+                       var website = store.get('website');
+                       if(website){
+                        if(website.indexOf("www") == -1 && website.indexOf("http") == -1){
+                          website = "http://" + website;
+                          store.set('website', website);
+                        }
+                       }
+                       response.success();
+                       });
 
 /* Compresses image and creates thumbnail for faster retrieval. */
 Parse.Cloud.beforeSave("Dress", function(request, response) {
