@@ -331,13 +331,13 @@ $(function() {
         $('#store-placeholder').show();
     }
     function saveNewStore(){
-        var name = $('#editstore-name').val();
+        var storename = $('#editstore-name').val();
         var address = $('#editstore-address').val();
         var phone = $('#editstore-phone').val();
         var website = $('#editstore-website').val();
         var hours = $('#editstore-hours').val();
         var imgInput = $('#editstore-image')[0];
-        if(!name){
+        if(!storename){
             showError("#editstore-status", "You must provide a store name.");
             return;
         }
@@ -382,7 +382,7 @@ $(function() {
             storeImage.save().then(function() {
                 // Image saved successfully:
                 newStore.set('image', storeImage);
-                newStore.set('name', name);
+                newStore.set('name', storename);
                 // Set optional fields (We know at least one contact field should be filled)
                 if(phone){
                     newStore.set('phone', phone);
@@ -425,7 +425,7 @@ $(function() {
         } else {
             // There is no image to save
             // Set required fields
-            newStore.set('name', name);
+            newStore.set('name', storename);
             // Set optional fields (We know at least one contact field should be filled)
             if(phone){
                 newStore.set('phone', phone);

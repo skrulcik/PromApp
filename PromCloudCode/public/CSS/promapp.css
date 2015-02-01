@@ -10,8 +10,21 @@ body { padding-top: 50px; }
     color: #FFFFFF;
     border-bottom: 0px;
 }
+
 #toolbar a {
     color: #FFFFFF;
+    font-weight: 500;
+    font-style: normal; /* Remove link formatting */
+    font-size: 240%; /* Increase to proper logo size */
+    font-family: 'Rochester', cursive;
+}
+
+.logo h1{
+    color: #FFFFFF;
+    font-weight: 500;
+    font-style: normal; /* Remove link formatting */
+    font-size: 400%;  /*Increase to proper logo size */
+    font-family: 'Rochester', cursive;
 }
 
 
