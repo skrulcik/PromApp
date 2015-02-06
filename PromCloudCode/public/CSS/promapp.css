@@ -10,11 +10,12 @@ body { padding-top: 50px; }
     color: #FFFFFF;
     border-bottom: 0px;
 }
-
-#toolbar a {
+#toolbar a{
     color: #FFFFFF;
     font-weight: 500;
     font-style: normal; /* Remove link formatting */
+}
+.logo a {
     font-size: 240%; /* Increase to proper logo size */
     font-family: 'Rochester', cursive;
 }
@@ -51,7 +52,8 @@ body { padding-top: 50px; }
 }
 
 .slogan {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-style: italic;
 }
 
 .email {
@@ -66,23 +68,31 @@ body { padding-top: 50px; }
     padding-top: 1em;
 }
 
-.buffer {
-    height: 10px;
-}
-
 .screenshot {
 }
-
 .screenshot img{
-    width: 222px;
+    width: 217px;
     height: 450px;
+    margin-bottom: 10px;
 }
-
 .screenshotsmall img{
-    width: 111px;
+    width: 109px;
     height: 225px;
+    margin-bottom: 10px;
 }
-
+.screenshot-web img{
+    width: 800px;
+    margin-bottom: 10px;
+}
+.screenshotsmall-web img{
+    width: 400px;
+    margin-bottom: 10px;
+}
+@media (max-width: 400px) {
+  .screenshotsmall-web img{
+    width: 250px;
+  }
+}
 .vertical-align {
     display: flex;
     align-items: center;
@@ -93,6 +103,26 @@ body { padding-top: 50px; }
     padding-top: 2em; 
     /*separate from footer*/
     padding-bottom: 1em;
+}
+
+.inverse-color {
+    padding-top: 1em;
+    padding-bottom: 1em;
+    color: #FFFFFF;
+    background-color: #45AACC;
+}
+.inverse-color h3,
+.inverse-color h4,
+.inverse-color p
+{
+    color: #FFFFFF;
+    background-color: #45AACC;
+}
+
+.inverse-color a {
+    color: #FFFFFF;
+    font-weight: bold;
+    text-decoration: underline;
 }
 
 .btn-primary {
