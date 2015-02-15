@@ -194,3 +194,46 @@ Parse.Cloud.job("emailSetup", function(request, status) {
                   status.error("Found errors: \n"+errors);
                 });
                 });
+Parse.Cloud.job("addDesignerRelation", function(request, status){
+    Parse.Cloud.useMasterKey();
+
+    var Designer = Parse.Object.extend("Designer");
+    var Store = Parse.Object.extend("Store");
+    
+    var query = new Parse.Query(Designer);
+    query.equalTo("name", "Faviana");
+    query.find({
+               success: function(results) {
+                   if(results.length > 0){
+                        var faviana = results[0];
+                        var storeQuery = new Parse.Query(Store);
+                        var shopID = "psmyywd6JP";
+                        storeQuery.get(shopID, {
+                        success: function(theShoppe) {
+                          // The object was retrieved successfully.
+                          var relation = theShoppe.relation("designers");
+                          relation.add(faviana);
+                          theShoppe.save().then({
+                            success: function(){
+                              status.success("Added Designer to store.");
+                            },
+                            error: function(error){
+                              status.error("Could not save store.");
+                            }
+                          });
+                        },
+                        error: function(object, error) {
+                          // The object was not retrieved successfully.
+                          // error is a Parse.Error with an error code and message.
+                          console.log("Error retrieving store...");
+                          status.error("Could not complete store query.")
+                        }
+                        });
+                   }
+               },
+               error: function(error) {
+                   console.log("Error: " + error.code + " " + error.message);
+                   status.error("Could not complete designer query.");
+               }
+           });
+});
