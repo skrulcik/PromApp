@@ -10,10 +10,18 @@ var MAX_H = 120.0
 Parse.Cloud.beforeSave("Prom", function(request, response){
                        Parse.Cloud.useMasterKey();//Enable superuser superpowers
                        var prom = request.object;
-                       var schoolName = prom.get("schoolName")
-                       var lowName = schoolName.toLowerCase()
-                       prom.set("searchName", lowName)
-                       response.success()
+                       var schoolName = prom.get("schoolName");
+                       var lowName = schoolName.toLowerCase();
+                       prom.set("searchName", lowName);
+                       response.success();
+                       });
+Parse.Cloud.beforeSave("Designer", function(request, response){
+                       Parse.Cloud.useMasterKey();//Enable superuser superpowers
+                       var designer = request.object;
+                       var fullName = designer.get("name");
+                       var lowName = fullName.toLowerCase();
+                       designer.set("searchName", lowName);
+                       response.success();
                        });
 
 /* Ensures website is a valid address for href */
@@ -155,6 +163,7 @@ Parse.Cloud.beforeDelete('Prom', function(request, response) {
                                             });
 })
 
+/* Backend Jobs */
 Parse.Cloud.job("emailSetup", function(request, status) {
                 // Set up to modify user data
                 Parse.Cloud.useMasterKey();
@@ -200,19 +209,23 @@ Parse.Cloud.job("addDesignerRelation", function(request, status){
     var Designer = Parse.Object.extend("Designer");
     var Store = Parse.Object.extend("Store");
     
-    var query = new Parse.Query(Designer);
-    query.equalTo("name", "Faviana");
+    var favQuery = new Parse.Query(Designer);
+    favQuery.equalTo("name", "Faviana");
+    var mmQuery = new Parse.Query(Designer);
+    mmQuery.equalTo("name", "Morrell Maxie");
+    var query = new Parse.Query.or(favQuery, mmQuery);
     query.find({
                success: function(results) {
                    if(results.length > 0){
-                        var faviana = results[0];
                         var storeQuery = new Parse.Query(Store);
                         var shopID = "psmyywd6JP";
                         storeQuery.get(shopID, {
                         success: function(theShoppe) {
                           // The object was retrieved successfully.
                           var relation = theShoppe.relation("designers");
-                          relation.add(faviana);
+                          _.each(results, function(designer){
+                            relation.add(designer); 
+                          });
                           theShoppe.save().then({
                             success: function(){
                               status.success("Added Designer to store.");
