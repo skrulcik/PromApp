@@ -85,7 +85,7 @@
 		D2C890E119D68E7C00458094 /* ProfileCellLayout.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2C890E019D68E7C00458094 /* ProfileCellLayout.xib */; };
 		D2CD3E631A4FB9F100BF0359 /* Prom.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CD3E621A4FB9F100BF0359 /* Prom.swift */; };
 		D2CD3E651A4FBB6700BF0359 /* ArrayUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CD3E641A4FBB6700BF0359 /* ArrayUtil.swift */; };
-		D2CD3E671A4FCDE200BF0359 /* ColorProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CD3E661A4FCDE200BF0359 /* ColorProfile.swift */; };
+		D2CD3E671A4FCDE200BF0359 /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CD3E661A4FCDE200BF0359 /* Appearance.swift */; };
 		D2CD3E691A5062BA00BF0359 /* PromInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CD3E681A5062BA00BF0359 /* PromInfoController.swift */; };
 		D2CD3E6D1A50A93600BF0359 /* ObjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CD3E6C1A50A93600BF0359 /* ObjectCell.swift */; };
 		D2CD3E6F1A50A9D500BF0359 /* ObjectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2CD3E6E1A50A9D500BF0359 /* ObjectCell.xib */; };
@@ -206,7 +206,7 @@
 		D2C890E019D68E7C00458094 /* ProfileCellLayout.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileCellLayout.xib; sourceTree = "<group>"; };
 		D2CD3E621A4FB9F100BF0359 /* Prom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Prom.swift; sourceTree = "<group>"; };
 		D2CD3E641A4FBB6700BF0359 /* ArrayUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayUtil.swift; sourceTree = "<group>"; };
-		D2CD3E661A4FCDE200BF0359 /* ColorProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorProfile.swift; sourceTree = "<group>"; };
+		D2CD3E661A4FCDE200BF0359 /* Appearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
 		D2CD3E681A5062BA00BF0359 /* PromInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PromInfoController.swift; sourceTree = "<group>"; };
 		D2CD3E6C1A50A93600BF0359 /* ObjectCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectCell.swift; sourceTree = "<group>"; };
 		D2CD3E6E1A50A9D500BF0359 /* ObjectCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ObjectCell.xib; sourceTree = "<group>"; };
@@ -289,7 +289,7 @@
 			isa = PBXGroup;
 			children = (
 				D2CD3E641A4FBB6700BF0359 /* ArrayUtil.swift */,
-				D2CD3E661A4FCDE200BF0359 /* ColorProfile.swift */,
+				D2CD3E661A4FCDE200BF0359 /* Appearance.swift */,
 				D22B2B801A42B0AE0085F54E /* GlobalConstants.swift */,
 				D22E03CB1A4DFF2600F81753 /* ImageManipulation.swift */,
 				D22E03CE1A4E862600F81753 /* StringManipulation.swift */,
@@ -642,7 +642,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2CD3E671A4FCDE200BF0359 /* ColorProfile.swift in Sources */,
+				D2CD3E671A4FCDE200BF0359 /* Appearance.swift in Sources */,
 				D2AC23241A4A257900E5EA19 /* MainTabController.swift in Sources */,
 				D2A4756E196262F4005C2502 /* SKLoginViewController.m in Sources */,
 				D25B4D751A490DAF00AB6B06 /* Buttons.swift in Sources */,

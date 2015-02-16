@@ -25,7 +25,7 @@ class TableHeader:UIView {
         if textLabel != nil {
             self.textLabel.textColor = SKColor.TableHeaderText()
             self.textLabel.textAlignment = .Left
-            self.textLabel.font = UIFont.systemFontOfSize(smallFontSize)
+            self.textLabel.font = UIFont.smallFont()
         }
     }
 }

@@ -16,7 +16,7 @@ class ObjectCell:UITableViewCell {
         super.awakeFromNib()
         bigLabel.textColor = SKColor.LargeCellText()
         littleLabel.textColor = SKColor.SmallCellText()
-        bigLabel.font = UIFont.systemFontOfSize(largeFontSize)
-        littleLabel.font = UIFont.systemFontOfSize(smallFontSize)
+        bigLabel.font = UIFont.largeFont()
+        littleLabel.font = UIFont.smallFont()
     }
 }

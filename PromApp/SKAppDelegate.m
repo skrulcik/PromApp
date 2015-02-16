@@ -44,6 +44,10 @@
                                                             }];
     [[UITabBar appearance] setTintColor:[SKColor TabBarHighlight]];
     [self.window setTintColor:navBarColor];
+    
+    // Set global fonts
+    [[UIButton appearance] setFont:[UIFont smallFont]];
+    
     return YES;
 }
 

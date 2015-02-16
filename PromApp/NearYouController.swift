@@ -277,7 +277,7 @@ class NearYouController : UIViewController, UISearchBarDelegate,
             let annote = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "PromAnnotation")
             annote.enabled = true
             annote.canShowCallout = true
-            annote.rightCalloutAccessoryView = UIButton.buttonWithType(.DetailDisclosure) as UIView
+            annote.leftCalloutAccessoryView = UIButton.buttonWithType(.DetailDisclosure) as UIView
             return annote
             
         } else if annotation.isKindOfClass(StoreAnnotation) {
@@ -285,6 +285,7 @@ class NearYouController : UIViewController, UISearchBarDelegate,
             annote.enabled = true
             annote.canShowCallout = true
             annote.pinColor = .Purple
+            annote.rightCalloutAccessoryView = UIButton.buttonWithType(.DetailDisclosure) as UIView
             return annote
         }
         return nil
@@ -299,8 +300,44 @@ class NearYouController : UIViewController, UISearchBarDelegate,
             } else if view.annotation.isKindOfClass(StoreAnnotation) {
                 if let storeNote = view.annotation as? StoreAnnotation {
                     currentStore = storeNote.store
-                    NSLog("Could not perform segue to show store details.")
+                    // Clear default text
+                    storeNote.title = ""
+                    storeNote.subtitle = ""
+                    
+                    // Add Designer logos to store detail:
+                    // Use designer list to create image to show with store
+                    let designerRelation = currentStore!.relationForKey("designers")
+                    let designerQuery = designerRelation.query()
+                    designerQuery.findObjectsInBackgroundWithBlock({
+                        (objectList:Array<AnyObject>!, error:NSError!) in
+                        // Use array to hold images for each designer while fetching
+                        if let designerList = objectList as? Array<PFObject> {
+                            var images = [UIImage]()
+                            for designer in designerList {
+                                if let designerImage = designer.objectForKey("logo") as? PFFile {
+                                    let rawImage = designerImage.getData()
+                                    let parsedImage:UIImage? = UIImage(data: rawImage)
+                                    if parsedImage != nil {
+                                        images.append(parsedImage!)
+                                    }
+                                } else {
+                                    NSLog("Error parsing image for %@", designer.objectForKey("name") as String)
+                                }
+                            }
+                            // Combine images together so they can all be added to store callout
+                            let finalImage = mergeHorizontal(images)
+                            let logoView = UIImageView(image: finalImage)
+                            // Add more detailed view
+                            let customView = UIView(frame: CGRect(x: 0, y: 0, width: logoView.frame.width+100, height: 50))
+                            let label = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
+                            label.text = "Designers:"
+                            customView.addSubview(label)
+                            customView.addSubview(logoView)
+                            view.leftCalloutAccessoryView = customView
+                        }
+                    })
                 }
+                NSLog("Could not perform segue to show store details.")
             }
         }
     }

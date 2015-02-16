@@ -99,7 +99,7 @@ class PromInfoController:UIViewController {
             }
         }
         infoLabel.text = infoString
-        infoLabel.font = UIFont.systemFontOfSize(smallFontSize)
+        infoLabel.font = UIFont.smallFont()
         updateButtonState()//check if user subscribed
     }
     

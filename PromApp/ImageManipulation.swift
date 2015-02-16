@@ -38,3 +38,34 @@ func scale(image:UIImage, toFitWidth width:Int, Height height:Int)->UIImage!
     
     return constrainedImage
 }
+
+/* Merges two images into one horizontally */
+func mergeHorizontal(img1:UIImage, img2:UIImage) -> UIImage{
+    // First calculate maximum dimensions
+    let full_width = img1.size.width + img2.size.width
+    let full_height = max(img1.size.height, img2.size.height)
+    let size = CGSize(width: full_width, height: full_height)
+    
+    // Create context to manipulate images in
+    UIGraphicsBeginImageContext(size)
+    // Draw images in context
+    img1.drawInRect(CGRect(x: 0, y: 0, width: img1.size.width, height: full_height))
+    img2.drawInRect(CGRect(x: img1.size.width, y:0, width: img2.size.width, height: full_height))
+    // Save context as image
+    let full_image = UIGraphicsGetImageFromCurrentImageContext()
+    UIGraphicsEndImageContext()
+    
+    return full_image
+}
+
+func mergeHorizontal(imgList:Array<UIImage>) -> UIImage{
+    if imgList.count < 1 {
+        return UIImage()
+    } else {
+        var baseImage = imgList[0]
+        for i in 1..<imgList.count {
+            baseImage = mergeHorizontal(baseImage, imgList[i])
+        }
+        return baseImage
+    }
+}
