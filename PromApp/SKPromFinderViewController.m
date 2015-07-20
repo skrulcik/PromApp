@@ -283,7 +283,7 @@ selectedScopeButtonIndexDidChange:(NSInteger)selectedScope
             for (PFObject *newStore in newStores) {
                 PFGeoPoint *geo = [newStore objectForKey:@"location"];
                 CLLocationCoordinate2D coord = CLLocationCoordinate2DMake(geo.latitude, geo.longitude);
-                StoreAnnotation *storePoint = [[StoreAnnotation alloc] initWithCoordinate:coord store:newStore];
+                StoreAnnotation *storePoint = [[StoreAnnotation alloc] initWithStoreCoordinate:coord store:newStore];
                 [self.map addAnnotation:storePoint];
             }
         }

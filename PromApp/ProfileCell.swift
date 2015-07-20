@@ -14,12 +14,6 @@ class ProfileCell: UITableViewCell
     @IBOutlet weak var profPic: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var infoLabel: UILabel!
-    
-    
-    required override init(frame: CGRect) {
-        super.init(frame: frame)
-        
-    }
 
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -39,8 +33,8 @@ class ProfileCell: UITableViewCell
     func setInfoLabel(promCount:Int, dressCount:Int){
         infoLabel.textColor = SKColor.SmallCellText()
         infoLabel.font = UIFont.smallFont()
-        infoLabel.text = NSString(format: "%d Prom%@ | %d Dress%@", promCount,
-                                    (promCount==1 ? "":"s"), dressCount,
-                                    (dressCount==1 ? "":"es"))
+        let promString = "\(promCount) Prom" + (promCount==1 ? "":"s")
+        let dressString = "\(dressCount) Dress" + (dressCount==1 ? "":"es")
+        infoLabel.text = promString + " | " + dressString
     }
 }

@@ -556,6 +556,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = SK;
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "___FULLUSERNAME___";
 				TargetAttributes = {

@@ -105,17 +105,12 @@ class SKColor:UIColor
 }
 
 extension UIFont {
-    
-    /* Override system font */
-    class func systemFontOfSize(fontSize:CGFloat) -> UIFont {
-        return UIFont(name: "Avenir", size: fontSize)! //Kohinoor Devanagari
-    }
-    
+
     /* Convenience methods for consistent size/style of font */
     class func smallFont() -> UIFont{
-        return systemFontOfSize(smallFontSize)
+        return UIFont(name: "Avenir", size: smallFontSize)!
     }
     class func largeFont() -> UIFont{
-        return systemFontOfSize(largeFontSize)
+        return UIFont(name: "Avenir", size: largeFontSize)!
     }
 }

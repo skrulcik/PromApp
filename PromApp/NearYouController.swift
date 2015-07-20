@@ -61,12 +61,13 @@ class NearYouController : UIViewController, UISearchBarDelegate,
         configureMap()
         super.viewWillAppear(animated)
     }
-    
-    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
-        // Dismiss keyboard when user clicks on screen
-        searchBar.resignFirstResponder()
-    }
-    
+
+    // TODO: Investigate
+//    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+//        // Dismiss keyboard when user clicks on screen
+//        searchBar.resignFirstResponder()
+//    }
+
     // MARK: Result view creation
     func configureMap() {
         locationManager.startUpdatingLocation()
@@ -277,7 +278,7 @@ class NearYouController : UIViewController, UISearchBarDelegate,
             let annote = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "PromAnnotation")
             annote.enabled = true
             annote.canShowCallout = true
-            annote.leftCalloutAccessoryView = UIButton.buttonWithType(.DetailDisclosure) as UIView
+            annote.leftCalloutAccessoryView = UIButton.buttonWithType(.DetailDisclosure) as! UIView
             return annote
             
         } else if annotation.isKindOfClass(StoreAnnotation) {
@@ -285,7 +286,7 @@ class NearYouController : UIViewController, UISearchBarDelegate,
             annote.enabled = true
             annote.canShowCallout = true
             annote.pinColor = .Purple
-            annote.rightCalloutAccessoryView = UIButton.buttonWithType(.DetailDisclosure) as UIView
+            annote.rightCalloutAccessoryView = UIButton.buttonWithType(.DetailDisclosure) as! UIView
             return annote
         }
         return nil
@@ -321,7 +322,7 @@ class NearYouController : UIViewController, UISearchBarDelegate,
                                         images.append(parsedImage!)
                                     }
                                 } else {
-                                    NSLog("Error parsing image for %@", designer.objectForKey("name") as String)
+                                    NSLog("Error parsing image for %@", designer.objectForKey("name") as! String)
                                 }
                             }
                             // Combine images together so they can all be added to store callout
@@ -354,7 +355,7 @@ class NearYouController : UIViewController, UISearchBarDelegate,
         for store in stores {
             if let loc = store.objectForKey(Store_locationKey) as? PFGeoPoint {
                 let coord = CLLocationCoordinate2D(latitude: loc.latitude, longitude: loc.longitude)
-                let storePoint = StoreAnnotation(coordinate: coord, store: store)
+                let storePoint = StoreAnnotation(storeCoordinate: coord, store: store)
                 storePoint.store = store
                 map.addAnnotation(storePoint)
             }

@@ -172,10 +172,11 @@ class PromEditor:UITableViewController, UITextFieldDelegate, UIImagePickerContro
         }
     }
     //Not part of delegate, but used to make edits stop:
-    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
-        self.view.endEditing(true)
-    }
-    
+    // TODO: Investigate
+//    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+//        self.view.endEditing(true)
+//    }
+
     //MARK: Button Presses
     @IBAction func savePressed(sender:AnyObject){
         NSLog("Save dress pressed.")
@@ -281,9 +282,9 @@ class PromEditor:UITableViewController, UITextFieldDelegate, UIImagePickerContro
                                 self.prom?.ACL = acl
                             }
                             self.prom!.saveInBackgroundWithBlock({
-                                (succeeded:Bool!, error:NSError!) in
-                                if((succeeded) != nil && succeeded!){
-                                    NSLog("Succeeded in saving prom \(self.prom!.objectId)")
+                                (succeeded: Bool, error: NSError!) in
+                                if(succeeded){
+                                   NSLog("Succeeded in saving prom \(self.prom!.objectId)")
                                     if let user = PFUser.currentUser(){
                                         if !user.isFollowingProm(self.prom!){
                                             user.addObject(self.prom!, forKey: "proms")

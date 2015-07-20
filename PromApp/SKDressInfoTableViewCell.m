@@ -27,9 +27,9 @@
 {
     // Initialization code
     self.imageView.image = nil;
-    self.designerLabel.font = [UIFont systemFontOfSize:26];
+    self.designerLabel.font = UIFont.largeFont;
     self.designerLabel.textColor = [SKColor LargeCellText];
-    self.styleNumberLabel.font = [UIFont systemFontOfSize:16];
+    self.styleNumberLabel.font = UIFont.smallFont;
     self.styleNumberLabel.textColor = [SKColor SmallCellText];
 }
 

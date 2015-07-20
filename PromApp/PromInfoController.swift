@@ -93,7 +93,7 @@ class PromInfoController:UIViewController {
         let readable:Dictionary<String, String> = Prom.readableNamesForKeys()
         for key in Prom.editableKeys() {
             if key != "schoolName" && key != "image" {
-                if let valString = prom.objectForKey(key) as String!{
+                if let valString = prom.objectForKey(key) as? String {
                     infoString += String(format: "%@: %@\n", readable[key]!, valString)
                 }
             }

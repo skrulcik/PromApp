@@ -20,14 +20,14 @@ class StoreAnnotation:NSObject, MKAnnotation
     var title: String
     var subtitle: String
     
-    init(coordinate: CLLocationCoordinate2D, store:PFObject){
-        self.coordinate = coordinate
-        self.store = store
+    init(storeCoordinate: CLLocationCoordinate2D, store storeObject:PFObject){
+        coordinate = storeCoordinate
+        store = storeObject
         // Set store information for callout
-        self.name = store.objectForKey("name") as String
-        self.address = store.objectForKey("address") as String
+        name = store.objectForKey("name") as? String ?? ""
+        address = store.objectForKey("address") as? String ?? ""
         // Set fields for detailed callout
-        self.title = name
-        self.subtitle = address
+        title = name
+        subtitle = address
     }
 }

@@ -44,7 +44,7 @@ class ProfileController:UIViewController, NSURLConnectionDataDelegate, UITableVi
         profImage = image
         var cells = self.listView.visibleCells()
         if cells.count > 0{
-            var profCell =  cells[0] as ProfileCell
+            var profCell =  cells[0] as! ProfileCell
             profCell.profPic.image = self.profImage
         }
     }
@@ -64,15 +64,15 @@ class ProfileController:UIViewController, NSURLConnectionDataDelegate, UITableVi
                     if let profile: NSDictionary = user!.objectForKey("profile") as? NSDictionary{
                         //Get FB ID so we can create url for picture
                         if let idstring:String = profile.objectForKey("id") as? String{
-                            profile.setValue("https://graph.facebook.com/\(idstring)/picture?type=large", forKey: picURLKey)
+                            profile.setValue("https://graph.facebook.com/\(idstring)/picture?type=large", forKey: picURLKey as String)
                         }
                         
                         // Load profile name if it is there, otherwise load
-                        var profileName:NSString? = profile[nameKey] as? NSString
+                        var profileName = profile[nameKey] as? String
                         self.profName = profileName != nil ? profileName!:defaultName
                         
                         // Update Profile Picture
-                        if let urlString:String = profile[picURLKey] as? NSString{
+                        if let urlString = profile[picURLKey] as? String {
                             self.updateProfPictureWithURL(urlString)
                         }
                         self.updateListView()
@@ -257,7 +257,7 @@ class ProfileController:UIViewController, NSURLConnectionDataDelegate, UITableVi
                         user.removeObject(dress, forKey: "dresses")
                         user.saveInBackgroundWithBlock(nil)
                         dress.deleteInBackgroundWithBlock({
-                            (success:Bool!, error:NSError!) in
+                            (success:Bool, error:NSError!) in
                             if(error != nil){
                                 NSLog("Failed to delete dress for user %@.", user.objectId)
                             } else {
@@ -291,7 +291,7 @@ class ProfileController:UIViewController, NSURLConnectionDataDelegate, UITableVi
                             // Note: Will be removed from user and dress references
                             //          in a cloud code operation upon delete
                             prom.deleteInBackgroundWithBlock({
-                                (success:Bool!, error:NSError!) in
+                                (success:Bool, error:NSError!) in
                                 if(error != nil){
                                     NSLog("Failed to delete prom for user %@.", user.objectId)
                                 } else {
@@ -379,8 +379,8 @@ class ProfileController:UIViewController, NSURLConnectionDataDelegate, UITableVi
         dressPointer.fetchIfNeededInBackgroundWithBlock({
             (dressObj:PFObject!, error:NSError!) in
             if let dress = dressObj as? SKDress {
-                cell.designerLabel.text = dress.designer
-                cell.styleNumberLabel.text = dress.styleNumber
+                cell.designerLabel?.text = dress.designer
+                cell.styleNumberLabel?.text = dress.styleNumber
                 // Fill in dress picture over time
                 let dressImageView = cell.dressPicView
                 if let dressPicFile = dress.objectForKey("imageThumbnail") as? PFFile{
