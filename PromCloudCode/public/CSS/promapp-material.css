@@ -1,50 +1,22 @@
 
 /* Scott stuff */
 
-/*for toolbar*/
-body { padding-top: 50px; }
 
-#toolbar {
-    background: #ff7094;
-    text-align: center;
+nav {
+    background: #FF7094;
     color: #FFFFFF;
-    border-bottom: 0px;
 }
-#toolbar a {
-    color: #FFFFFF;
-    font-style: normal; /* Remove link formatting */
-} 
-.brand-logo {
-    color: #FFFFFF;
-    font-weight: 300;
+.brand-logo, nav .brand-logo {
     font-family: 'Rochester', cursive;
-    font-size: 4em;
-}
-#toolbar .brand-logo {
-    font-size: 2.5em;
+    padding-left: 1em;
+    padding-right: 1em;
 }
 
-
-.FAQ {
-    
+a, .tabs .tab a {
+    color: #45AACC;
 }
-.question {
-    font-weight: bold;
-    padding-bottom: 10px;
-}
-
-.answer {
-    padding-bottom: 20px;
-}
-
-.copyright {
-    text-align: center;
-    padding-top: 10px;
-    font-size: 0.75em;
-}
-
-.address {
-    white-space: pre;
+.tabs .indicator {
+    background-color: #45AACC;
 }
 
 .slogan {
@@ -217,7 +189,56 @@ hr {
     margin-bottom: 1em;
 }
 
-#logout {
-    float: right;
-    margin: 0.75em;
+
+/* Tabbed Pages */
+.tabframe {
+    width: 100%;
+    height: 100%;
 }
+
+/* Aspect Ratios */
+div.stretchy-wrapper {
+    width: 100%;
+    padding-bottom: 75%; /* 16:9 */
+    position: relative;
+}
+ 
+div.stretchy-wrapper > div {
+    position: absolute;
+    top: 0; bottom: 0; left: 0; right: 0;
+    font-size: 24px;
+    text-align: center;
+}
+
+/* Vertical space */
+.vspace1 {
+    width: 100%;
+    height: 1em; 
+}
+.vspace2 {
+    width: 100%;
+    height: 2em;
+}
+.vspace3 {
+    width: 100%;
+    height: 3em;
+}
+.vspace4 {
+    width: 100%;
+    height: 4em;
+}
+.vspace5 {
+    width: 100%;
+    height: 5em;
+}
+
+/* Typography */
+h1 {
+    font-size: 4em;
+    font-weight: 100;
+}
+
+
+
+
+

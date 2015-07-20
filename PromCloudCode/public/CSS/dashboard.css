@@ -1,0 +1,93 @@
+
+
+.dial .title {
+	text-align: center;
+	color: grey;
+}
+.dial th {
+	color: grey;
+	font-weight: normal;
+}
+/*
+Each bar of a table has the following components:
+	- Label: title of the bar, on its left
+	- Bar: the visual representation of the bar, sized accordingly
+	- Data: textual representation of the bar's value
+*/
+
+.chart {
+	display: block;
+	float: left;
+	padding: 1em;
+	margin-top: 1em;
+}
+.chart .bar_container {
+	height:4em;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	float:clear;
+	/* Stolen from Materialize valign-wrapper. I 
+		didn't want to have to add a ton of classes
+		during the d3 chart generation */
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-align: center;
+	-ms-flex-align: center;
+	-webkit-align-items: center;
+	align-items: center;
+}
+.chart .bar_container .bar {
+	background-color: #45AACC;
+	float:left;
+}
+.chart .bar_container .bar_data {
+	font: 24px;
+	color: #45AACC;
+	text-align: left;
+	float:left;
+	padding-left: .5em;
+	/* Stolen from materialize valign. I didn't want
+		to have to add a ton of classes during the 
+		d3 chart generation */
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-align: center;
+	-ms-flex-align: center;
+	-webkit-align-items: center;
+	align-items: center;
+}
+.chart .bar_container .bar_label {
+	font:24px;
+	color: gray;
+	float:left;
+	/* Stolen from materialize valign. I didn't want
+		to have to add a ton of classes during the 
+		d3 chart generation */
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-align: center;
+	-ms-flex-align: center;
+	-webkit-align-items: center;
+	align-items: center;
+}
+.dashboard .card .card-content {
+	width: 100%;
+}
+
+.btn-verify {
+	background-color: #45AACC;
+	color: white;
+	width: 40%;
+}
+.confirmed {
+	background-color: #3ED9AB; 
+}

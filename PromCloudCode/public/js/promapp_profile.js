@@ -894,6 +894,11 @@ $(function() {
     $('#search-prom-btn').click(modalPromSearch);
     // Button that dismisses a modal view -> reload profile
     $('.dismiss').click(loadProfile);
+
+    $('#logout').click(function(){
+        Parse.User.logOut();
+        window.location = 'multi_login.html';
+    });
 });
 
 

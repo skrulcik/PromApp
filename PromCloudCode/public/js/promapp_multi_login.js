@@ -12,10 +12,13 @@ $(function(){
 	      status     : true,  // check Facebook Login status
 	      cookie     : true,  // enable cookies
 	      xfbml      : true,  // initialize Facebook social plugins on the page
-	      version    : 'v2.2' // point to the latest Facebook Graph API version
+	      version    : 'v2.3' // point to the latest Facebook Graph API version
 	    });
 	 
 	    // Run code after the Facebook SDK is loaded.
+	    if (Parse.User.current()) {
+	    	Parse.User.logOut();
+	    }
 	  };
 	 
 	  (function(d, s, id){
@@ -29,9 +32,13 @@ $(function(){
   	/* Given the id of an error alert div, it will display the appropriate \
 	* color and given text
 	*/
-	function showError(errorid, message){
-		$(errorid).removeClass("hidden");
-		$(errorid).html(message);
+	function showError(message){
+		$("#status").html(message)
+			.addClass("red")
+			.addClass("accent-2")
+			.addClass("white-text")
+			.addClass("text-darken-3")
+			.removeClass("hide");
 	}
 
 	function facebookLogin(){
@@ -44,23 +51,35 @@ $(function(){
 		    }
 		  },
 		  error: function(user, error) {
-		    alert("You must sign in to use PromApp. \
-		    		If you do not want to login with facebook, \
-		    		please sign up with using your email below.");
+		    alert("You must sign in to use PromApp. If you do not want to login with facebook, please sign up with using your email below.");
 		  }
 		});
 	}
 	function signIn(){
-	    var userEmail = $("#login-email").val();
-	    var userPass = $("#login-password").val();
-	    if(!userEmail){
-	    	showError("#login-status", "Please enter an email address.");
+		if (!$(".signin-only").hasClass("hide")) {
+			$(".signin-only").addClass("hide");
+			return;
+		}
+		var userEmailInput = $("#girl-email");
+		var userPwdInput = $("#girl-pwd");
+	    var userEmail = userEmailInput.val();
+	    var userPass = userPwdInput.val();
+		
+		// Guard against invalid inputs
+		if (userEmailInput.hasClass("invalid")) {
+			showError(userEmailInput[0].validationMessage);
+			return;
+		} else if (!userEmailInput.val()) {
+	    	showError("Please enter an email address.");
 	    	return;
-	    }
-	    if(!userPass){
-	    	showError("#login-status", "Please enter a password.");
+		}
+		if (userPwdInput.hasClass("invalid")) {
+			showError(userPwdInput[0].validationMessage);
+			return;
+		} else if (!userPwdInput.val()) {
+	    	showError("Please enter a password.");
 	    	return;
-	    }
+		}
 
 	    Parse.User.logIn(userEmail, userPass, {
 	       success: function(user) {
@@ -68,49 +87,60 @@ $(function(){
 	            window.location = 'profile.html';
 	        },
 	        error: function(user, error) {
-		        $("#login-status").removeClass("hidden");
 	        	if(error.code == 100){
-	        		$("#login-status").html("Failed login, could not connect \
-	        									to sign-on server.");
+	        		showError("Failed login, could not connect to sign-on server.");
 	        	} else if(error.code == 101){
-	        		$("#login-status").html("Failed login, email and password \
-	        									did not match existing user.");
+	        		userEmailInput.addClass("invalid");
+	        		userPwdInput.addClass("invalid");
+	        		showError("Failed login, email and password did not match an existing user.");
 	        	} else {
-	        		$("#login-status").html(error.error);
+	        		showError(error.error);
 	        	}
 	        }
 	    });
 	}
 
 	function signUp(){
-		var email = $("#signup-email").val();
-		var password = $("#signup-password").val();
-		var password2 = $("#signup-password2").val();
-		var name = $("#signup-name").val();
-		var isStore = $('input[name="accountType"]:checked').val();
-		if(!email){
-			showError("#signup-status", "Please enter an email address.");
+		if ($(".signin-only").hasClass("hide")) {
+			$(".signin-only").removeClass("hide");
 			return;
 		}
-		if(!password){
-			showError("#signup-status", "Please enter a password.");
+		var userEmailInput = $("#girl-email");
+		var userPwdInput = $("#girl-pwd");
+		var userPwdInput2 = $("#girl-pwd2");
+		var userNameInput = $("#girl-name");
+	    var userEmail = userEmailInput.val();
+	    var userPass = userPwdInput.val();
+	    var userPass2 = userPwdInput2.val();
+	    var userNameString = userNameInput.val();
+		
+		// Guard against invalid inputs
+		if (userEmailInput.hasClass("invalid")) {
+			showError(userEmailInput[0].validationMessage);
+			return;
+		} else if (!userEmailInput.val()) {
+	    	showError("Please enter an email address.");
+	    	return;
+		}
+		if (userPwdInput.hasClass("invalid")) {
+			showError(userPwdInput[0].validationMessage);
+			return;
+		} else if (!userPwdInput.val()) {
+	    	showError("Please enter a password.");
+	    	return;
+		}
+		if (!userPass2 || userPass2 != userPass) {
+			showError("Passwords must match");
 			return;
 		}
-		if(password != password2){
-	        showError("#signup-status", "Passwords must match.");
-			return;
+		if (!userNameString) {
+			showError("Please provide a name");
 		}
-		if(!name){
-			showError("#signup-status", "Please enter a name.");
-			return;
-		}
-		Parse.User.signUp(email, password, {}, {
+
+		Parse.User.signUp(userEmail, userPass, {}, {
 	       success: function(user) {
 	            //Set name data in "profile" dictionary to maintain consistency with FB
-		        user.set("profile", {name: name, email: email});
-		        if(isStore){
-		        	user.set("stores", []);
-		        }
+		        user.set("profile", {name: userNameString, email: userEmail});
 		        user.save().then(function(user) {
 					// The save was successful.
 		            window.location = 'profile.html';
@@ -134,7 +164,8 @@ $(function(){
 	    });
 	}
 
-	$("#sign-in-submit").click(function(){ signIn();});
-	$("#sign-up-submit").click(function(){ signUp();});
+	$("#girl-sign-in").click(function(){ signIn();});
+	$("#girl-sign-up").click(function(){ signUp();});
 	$("#facebook-button").click(function(){ facebookLogin();});
+	
 });

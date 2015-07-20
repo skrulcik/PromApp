@@ -1,0 +1,42 @@
+/* Color Scheme */
+.primary {
+    background: #FF7094;
+    color: #FFFFFF;
+}
+.secondary {
+	background: #FFFFFF;
+	color: #FF7094;
+}
+
+.gray-font {
+	color: #9a9a9a;
+}
+
+/* Modify Material */
+.tabs .tab a.active {
+	color: #FF7094;
+}
+.tabs .tab a {
+	color: #9a9a9a;
+}
+.tabs .indicator {
+  background-color: #FF7094;
+}
+.tabs {
+	color: #9a9a9a;
+	background-color: #F5F5F5;
+}
+
+input:focus+label {
+	color: #FF7094 !important;
+}
+
+input:focus {
+	border-color: #FF7094 !important;
+	box-shadow: 0 1px 0 0 #FF7094 !important;
+}
+
+a.btn.primary {
+	background-color: #FF7094;
+	color: #FFFFFF;
+}
