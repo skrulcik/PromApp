@@ -22,7 +22,7 @@ class ProfileController:UIViewController, NSURLConnectionDataDelegate, UITableVi
     
     @IBOutlet weak var listView: UITableView!
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
@@ -42,7 +42,7 @@ class ProfileController:UIViewController, NSURLConnectionDataDelegate, UITableVi
     func setProfImage(image:UIImage)
     {
         profImage = image
-        var cells = self.listView.visibleCells()
+        var cells = self.listView.visibleCells
         if cells.count > 0{
             var profCell =  cells[0] as! ProfileCell
             profCell.profPic.image = self.profImage
@@ -429,7 +429,7 @@ class ProfileController:UIViewController, NSURLConnectionDataDelegate, UITableVi
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if(segue.identifier == EditDressSegue){
             if let dressController = (segue.destinationViewController as? UINavigationController)?.childViewControllers[0] as? SKAddDressViewController {
-                if let indx = listView.indexPathForSelectedRow(){
+                if let indx = listView.indexPathForSelectedRow {
                     if PFUser.currentUser() != nil{
                         let dressList = PFUser.currentUser().dresses
                         if(indx.row < dressList.count){
@@ -443,7 +443,7 @@ class ProfileController:UIViewController, NSURLConnectionDataDelegate, UITableVi
             }
         } else if(segue.identifier == PromFromProfileID){
             if let promInfo = segue.destinationViewController as? PromInfoController {
-                if let indx = listView.indexPathForSelectedRow(){
+                if let indx = listView.indexPathForSelectedRow {
                     if(PFUser.currentUser() != nil &&
                         indx.row < PFUser.currentUser().proms.count){
                         let prom = PFUser.currentUser().proms[indx.row]

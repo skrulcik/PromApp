@@ -52,16 +52,17 @@ class PromSearchTable:UITableViewController, UISearchBarDelegate {
     }
     func createRefreshControl() {
         //FIXME: try UISearchCOntroller
-        if refreshControl == nil && false{
-            refreshControl = UIRefreshControl()
-            refreshControl?.backgroundColor = SKColor.triadBlueLight()
-            let reloadFont = UIFont(name: "Palatino-Italic", size: 20)
-            let reloadColor = SKColor.white()
-            let attribs:Dictionary<NSObject, AnyObject> = [NSForegroundColorAttributeName:reloadColor]//, NSFontAttributeName:reloadFont]
-            refreshControl!.attributedTitle = NSAttributedString(string: "Loading Proms...",
-                attributes: attribs)
-            refreshControl!.addTarget(self, action: "refreshView:", forControlEvents: .ValueChanged)
-        }
+//        if refreshControl == nil && false{
+//            refreshControl = UIRefreshControl()
+//            refreshControl?.backgroundColor = SKColor.triadBlueLight()
+//            let reloadFont = UIFont(name: "Palatino-Italic", size: 20)
+//            let reloadColor = SKColor.white()
+//            let attribs:Dictionary<NSObject, AnyObject> = [NSForegroundColorAttributeName:reloadColor]//, NSFontAttributeName:reloadFont]
+////            refreshControl!.attributedTitle = NSAttributedString(string: "Loading Proms...",
+////                attributes: attribs)
+//            refreshControl.title = "Loading Proms"
+//            refreshControl!.addTarget(self, action: "refreshView:", forControlEvents: .ValueChanged)
+//        }
     }
     
     //MARK: Queries
@@ -79,10 +80,10 @@ class PromSearchTable:UITableViewController, UISearchBarDelegate {
             query.findObjectsInBackgroundWithBlock({
                 (objects:Array!, error:NSError!) in
                 if objects != nil {
-                    if objects.count != 0{
-                        for object in objects{
-                            if let prom = object as? SKProm{
-                                if contains(self.proms, prom){
+                    if objects.count != 0 {
+                        for object in objects {
+                            if let prom = object as? SKProm {
+                                if self.proms.contains(prom) {
                                     NSLog("Queried for same prom twice")
                                 } else {
                                     self.proms.append(prom)
@@ -106,7 +107,7 @@ class PromSearchTable:UITableViewController, UISearchBarDelegate {
     //MARK:UITableViewDataSource
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if(indexPath.section == 0 && indexPath.row < proms.count){
-            var cell = tableView.dequeueReusableCellWithIdentifier("cell") as? UITableViewCell
+            var cell = tableView.dequeueReusableCellWithIdentifier("cell")
             if cell == nil {
                 cell = UITableViewCell(style: .Subtitle, reuseIdentifier: "cell")
             }
@@ -161,7 +162,7 @@ class PromSearchTable:UITableViewController, UISearchBarDelegate {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if(segue.identifier == PromFromListSegueID){
             if let promInfo = segue.destinationViewController as? PromInfoController {
-                if let indx = tableView.indexPathForSelectedRow(){
+                if let indx = tableView.indexPathForSelectedRow {
                     if(indx.row < proms.count){
                         tableView.deselectRowAtIndexPath(indx, animated: true)
                         promInfo.promObject = proms[indx.row]

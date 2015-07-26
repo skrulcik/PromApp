@@ -15,7 +15,7 @@ extension PFUser{
             return []
         }
     }
-    var proms:Array<SKProm>{
+    var proms: [SKProm] {
         get{
             if let objects = objectForKey(promKey) as? Array<SKProm>{
                 return objects
@@ -25,17 +25,21 @@ extension PFUser{
     }
     
     
-    func isFollowingProm(prom:SKProm)->Bool{
-        return contains(proms as Array<PFObject>, prom as PFObject)
+    func isFollowingProm(prom: SKProm) -> Bool {
+        let promObj = prom as PFObject
+        let promObjs = proms as [PFObject]
+        return promObjs.contains(promObj)
     }
-    func hasSpecificDress(dress:SKDress)->Bool{
+
+    func hasSpecificDress(dress: SKDress) -> Bool {
         let obj = dress as PFObject //PFObjects are definitely Equatable (necessary for contains)
-        if let objects = objectForKey(dressKey) as? Array<PFObject>{
-            return contains(objects, obj)
+        if let objects = objectForKey(dressKey) as? [PFObject]{
+            return objects.contains(obj)
         }
         return false
     }
-    func hasDressWithData(dress:SKDress)->Bool{
+
+    func hasDressWithData(dress: SKDress) -> Bool {
         for existing in self.dresses{
             if existing.isSimilar(dress){
                 return true

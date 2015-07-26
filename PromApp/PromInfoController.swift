@@ -15,7 +15,7 @@ class PromInfoController:UIViewController {
     @IBOutlet weak var dressButton: PillButton!
     var promObject:SKProm?
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     

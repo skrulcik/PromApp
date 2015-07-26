@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 Scott Krulcik. All rights reserved.
 //
 
+import UIKit
+
 class RoundedRectButton: UIButton{
     var foreground:UIColor = SKColor.RoundedRectFore()
     var fillColor:UIColor = SKColor.RoundedRect()
@@ -98,9 +100,9 @@ class RSSButton:SubscribedButton{
         //Set stroke
         let currentContext = UIGraphicsGetCurrentContext()
         CGContextSetLineWidth(currentContext, stroke)
-        CGContextSetLineCap(currentContext, kCGLineCapRound);
-        CGContextSetLineJoin(currentContext, kCGLineJoinRound);
-        
+//        CGContextSetLineCap(currentContext, kCGLineCapRound)
+//        CGContextSetLineJoin(currentContext, kCGLineJoinRound)
+
         //Small rounded corners
         radius = rect.height/8
         super.drawRect(rect)
@@ -114,7 +116,7 @@ class RSSButton:SubscribedButton{
                 radius: r, startAngle: 0, endAngle: 4.71, clockwise: false)
             CGContextBeginPath(currentContext);
             CGContextAddPath(currentContext, circ.CGPath);
-            CGContextDrawPath(currentContext, kCGPathStroke);
+//            CGContextDrawPath(currentContext, kCGPathStroke);
         }
     }
 }

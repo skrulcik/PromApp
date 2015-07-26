@@ -35,7 +35,7 @@ class PromEditor:UITableViewController, UITextFieldDelegate, UIImagePickerContro
     private var readableNames:Dictionary<String, String>
     
     //MARK: Initialization
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         keyForRowIndex = ["image",
                             "schoolName",
                             "address",
@@ -137,10 +137,10 @@ class PromEditor:UITableViewController, UITextFieldDelegate, UIImagePickerContro
     func navigationController(navigationController: UINavigationController, willShowViewController viewController: UIViewController, animated: Bool) {
         UIApplication.sharedApplication().setStatusBarStyle(.LightContent, animated: false)
     }
-    
+
     //MARK: UIImagePickerControllerDelegate implementation
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
-        if let image:UIImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        if let image: UIImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
             NSLog("Successfully picked image for prom.")
             if promImageView != nil{
                 NSLog("Updated image view to show image for prom.")
@@ -246,7 +246,7 @@ class PromEditor:UITableViewController, UITextFieldDelegate, UIImagePickerContro
                         NSLog("Compressing image for dress prior to save.")
                         if let originalImage = promImageView?.image {
                             let constrained:UIImage = scale(originalImage, toFitWidth: MAX_IMG_WIDTH, Height: MAX_IMG_HEIGHT)
-                            let imageData:NSData = UIImageJPEGRepresentation(constrained, 0.7)
+                            let imageData:NSData = UIImageJPEGRepresentation(constrained, 0.7)!
                             let nospaces = removeAllWhiteSpace(prom!.schoolName)
                             let filename = String(format: "%@Picture.jpg", nospaces)
                             let imageFile = PFFile(name: filename, data: imageData)
@@ -265,12 +265,12 @@ class PromEditor:UITableViewController, UITextFieldDelegate, UIImagePickerContro
                 if let addr = promData["address"] as? String {
                     let gcoder = CLGeocoder()
                     gcoder.geocodeAddressString(addr, completionHandler: {
-                        (placeMarks:Array!, error:NSError!) in
-                        if error != nil {
+                        (placeMarks: [CLPlacemark]?, error: NSError?) in
+                        if let error = error {
                             //Could not attemp to parse address
                             NSLog("Error parsing address for prom \(self.prom!.objectId). Address:\(addr) Error: \(error.description)")
                             throwAlert(fromPresenter: self, ofType: .FailedSave, withArg: "Could not parse address: \(error)")
-                        } else if let placemark:CLPlacemark = placeMarks.last as? CLPlacemark{
+                        } else if let placemark:CLPlacemark = placeMarks?.last {
                             NSLog("Resolved address [%@] to location: ", addr, placemark)
                             let promPoint = PFGeoPoint(location: placemark.location)
                             self.prom!.setObject(addr, forKey: "address")
@@ -326,7 +326,7 @@ class PromEditor:UITableViewController, UITextFieldDelegate, UIImagePickerContro
                 //Image editing requires special table cell
                 if let cell:SKImageEditorCell = tableView.dequeueReusableCellWithIdentifier("ImageEditor") as? SKImageEditorCell{
                     //The following attaches cell's edit image button to PromEditor's addImage event
-                    cell.editButton.addTarget(self, action:Selector("addImage:"), forControlEvents: .TouchUpInside)
+                    cell.editButton!.addTarget(self, action:Selector("addImage:"), forControlEvents: .TouchUpInside)
                     cell.key = key
                     if(!_isNewProm && self.prom?.image != nil){
                         if let pfview:PFImageView = cell.basicImage as? PFImageView{
@@ -340,7 +340,7 @@ class PromEditor:UITableViewController, UITextFieldDelegate, UIImagePickerContro
             } else {
                 //key for cell corresponds to a string editor
                 if let cell = tableView.dequeueReusableCellWithIdentifier("StringEntry") as? SKStringEntryCell{
-                    cell.field.delegate = self
+                    cell.field!.delegate = self
                     cell.key = key
                     
                     //Fill in generic information first
@@ -349,12 +349,12 @@ class PromEditor:UITableViewController, UITextFieldDelegate, UIImagePickerContro
                         if let currentVal = prom?.objectForKey(key) as? String {
                             if(currentVal != ""){
                                 //If empty string, leave more descriptive placeholder
-                                cell.field.text = currentVal
+                                cell.field!.text = currentVal
                             }
                         }
                     }
-                    if cell.field.text == "" {
-                        cell.field.placeholder = readableNames[key]
+                    if cell.field!.text == "" {
+                        cell.field!.placeholder = readableNames[key]
                     }
                     return cell
                 }

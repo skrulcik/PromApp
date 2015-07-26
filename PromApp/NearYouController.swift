@@ -36,7 +36,7 @@ class NearYouController : UIViewController, UISearchBarDelegate,
     var currentStore:PFObject?
     
     // MARK: UIView
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         locationManager = CLLocationManager()
         super.init(coder: aDecoder)
     }
@@ -84,13 +84,13 @@ class NearYouController : UIViewController, UISearchBarDelegate,
 
         //Get search area from location manager
         if locationManager.location != nil {
-            var center = locationManager.location.coordinate
+            var center = locationManager.location!.coordinate
             var region = MKCoordinateRegionMakeWithDistance(center,
                 Constants.mapRadius, Constants.mapRadius)
             map.setRegion(region, animated: false)
-            let proms = queryForPromsNearLocation(location: locationManager.location)
+            let proms = queryForPromsNearLocation(location: locationManager.location!)
             placePinsForPromsInMap(proms, map: map)
-            let stores = queryForStoresNearLocation(location: locationManager.location)
+            let stores = queryForStoresNearLocation(location: locationManager.location!)
             placePinsForStoresInMap(stores, map: map)
         }
         
@@ -130,51 +130,52 @@ class NearYouController : UIViewController, UISearchBarDelegate,
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         // First find address from string
-        let search = searchBar.text
-        searchBar.resignFirstResponder() // Hide keyboard
-        
-        var searchLocation:CLLocation?
-        
-        // Determine search type
-        if(self.searchMode == Constants.locationSelector){
-            // Search by location, should have a map view
-            let views = dynamicResults.subviews
-            if views.count != 1 {
-                NSLog("Error with results view, %d active subvies.", views.count)
-            } else if let mapview = views[0] as? MKMapView {
-                let geocoder = CLGeocoder()
-                geocoder.geocodeAddressString(search, completionHandler: {
-                    (placemarks:[AnyObject]!, error:NSError!) in
-                    if let place = placemarks.last as? CLPlacemark {
-                        searchLocation = place.location
-                        let searchCenter = CLLocationCoordinate2DMake(place.location.coordinate.latitude,
-                            place.location.coordinate.longitude)
-                        let searchRegion = MKCoordinateRegionMakeWithDistance(searchCenter,
-                            Constants.mapRadius, Constants.mapRadius)
-                        mapview.setRegion(mapview.regionThatFits(searchRegion), animated: true)
-                        
-                        // Search for local POIs and place pins
-                        var proms = self.queryForPromsNearLocation(location: searchLocation!)
-                        // Place pins for all proms
-                        self.placePinsForPromsInMap(proms, map: mapview)
-                        var stores = self.queryForStoresNearLocation(location: searchLocation!)
-                        self.placePinsForStoresInMap(stores, map: mapview)
-                        // Place different pins for stores
+        if let search = searchBar.text {
+            searchBar.resignFirstResponder() // Hide keyboard
+            
+            var searchLocation:CLLocation?
+            
+            // Determine search type
+            if(self.searchMode == Constants.locationSelector){
+                // Search by location, should have a map view
+                let views = dynamicResults.subviews
+                if views.count != 1 {
+                    NSLog("Error with results view, %d active subvies.", views.count)
+                } else if let mapview = views[0] as? MKMapView {
+                    let geocoder = CLGeocoder()
+                    geocoder.geocodeAddressString(search) {
+                        (placemarks: [CLPlacemark]?, error: NSError?) in
+                        if let location = placemarks?.last?.location {
+                            searchLocation = location
+                            let searchCenter = CLLocationCoordinate2DMake(location.coordinate.latitude,
+                                location.coordinate.longitude)
+                            let searchRegion = MKCoordinateRegionMakeWithDistance(searchCenter,
+                                Constants.mapRadius, Constants.mapRadius)
+                            mapview.setRegion(mapview.regionThatFits(searchRegion), animated: true)
+                            
+                            // Search for local POIs and place pins
+                            var proms = self.queryForPromsNearLocation(location: searchLocation!)
+                            // Place pins for all proms
+                            self.placePinsForPromsInMap(proms, map: mapview)
+                            var stores = self.queryForStoresNearLocation(location: searchLocation!)
+                            self.placePinsForStoresInMap(stores, map: mapview)
+                            // Place different pins for stores
+                        }
                     }
-                })
-            } else {
-                NSLog("Result and search scope out of sync. Cast MapView failed.")
+                } else {
+                    NSLog("Result and search scope out of sync. Cast MapView failed.")
+                }
+            } else if searchMode == Constants.nameSelector {
+                // Search based on peom name
+                promResults = queryForPromsWithString(searchString: searchBar.text!)
+                // Place pins for proms
+                if let tbl = dynamicResults.subviews[0] as? UITableView {
+                    tbl.reloadData()
+                } else {
+                    NSLog("Result and search scope out of sync. Cast UITableView failed.")
+                }
+                // For now, don't search for stores
             }
-        } else if searchMode == Constants.nameSelector {
-            // Search based on peom name
-            promResults = queryForPromsWithString(searchString: searchBar.text)
-            // Place pins for proms
-            if let tbl = dynamicResults.subviews[0] as? UITableView {
-                tbl.reloadData()
-            } else {
-                NSLog("Result and search scope out of sync. Cast UITableView failed.")
-            }
-            // For now, don't search for stores
         }
     }
     
@@ -278,7 +279,7 @@ class NearYouController : UIViewController, UISearchBarDelegate,
             let annote = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "PromAnnotation")
             annote.enabled = true
             annote.canShowCallout = true
-            annote.leftCalloutAccessoryView = UIButton.buttonWithType(.DetailDisclosure) as! UIView
+            annote.leftCalloutAccessoryView = UIButton(type: .DetailDisclosure) as UIView
             return annote
             
         } else if annotation.isKindOfClass(StoreAnnotation) {
@@ -286,19 +287,19 @@ class NearYouController : UIViewController, UISearchBarDelegate,
             annote.enabled = true
             annote.canShowCallout = true
             annote.pinColor = .Purple
-            annote.rightCalloutAccessoryView = UIButton.buttonWithType(.DetailDisclosure) as! UIView
+            annote.rightCalloutAccessoryView = UIButton(type: .DetailDisclosure) as UIView
             return annote
         }
         return nil
     }
     func mapView(mapView: MKMapView!, annotationView view: MKAnnotationView!, calloutAccessoryControlTapped control: UIControl!) {
         if control.isKindOfClass(UIButton){
-            if view.annotation.isKindOfClass(SKPromAnnotation) {
+            if view.annotation!.isKindOfClass(SKPromAnnotation) {
                 if let promNote = view.annotation as? SKPromAnnotation {
                     currentProm = promNote.prom
                     performSegueWithIdentifier("ViewPromFromMap", sender: self)
                 }
-            } else if view.annotation.isKindOfClass(StoreAnnotation) {
+            } else if view.annotation!.isKindOfClass(StoreAnnotation) {
                 if let storeNote = view.annotation as? StoreAnnotation {
                     currentStore = storeNote.store
                     // Clear default text

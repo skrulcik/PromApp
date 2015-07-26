@@ -10,7 +10,7 @@ import UIKit
 class TableHeader:UIView {
     @IBOutlet var textLabel:UILabel!
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         loadColors()
     }

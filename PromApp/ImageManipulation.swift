@@ -19,7 +19,7 @@ func validImageDimensions(width:Int!, height:Int!)->Bool{
 *   given. */
 func scale(image:UIImage, toFitWidth width:Int, Height height:Int)->UIImage!
 {
-    assert(validImageDimensions(width, height), "Error: Invalid image dimensions.")
+    assert(validImageDimensions(width, height: height), "Error: Invalid image dimensions.")
     var goal_w:Int = width
     var goal_h:Int = height
     if image.size.height > image.size.width {
@@ -64,7 +64,7 @@ func mergeHorizontal(imgList:Array<UIImage>) -> UIImage{
     } else {
         var baseImage = imgList[0]
         for i in 1..<imgList.count {
-            baseImage = mergeHorizontal(baseImage, imgList[i])
+            baseImage = mergeHorizontal(baseImage, img2: imgList[i])
         }
         return baseImage
     }

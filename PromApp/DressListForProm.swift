@@ -10,7 +10,7 @@ import ParseUI
 class DressListForProm:PFQueryTableViewController{
     var prom:SKProm?
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         //Define values for super's fields
         parseClassName = SKDress.parseClassName()
@@ -53,8 +53,8 @@ class DressListForProm:PFQueryTableViewController{
         dressPointer.fetchIfNeededInBackgroundWithBlock({
             (dressObj:PFObject!, error:NSError!) in
             if let dress = dressObj as? SKDress {
-                cell.designerLabel.text = dress.designer
-                cell.styleNumberLabel.text = dress.styleNumber
+                cell.designerLabel!.text = dress.designer
+                cell.styleNumberLabel!.text = dress.styleNumber
                 // Fill in dress picture over time
                 let dressImageView = cell.dressPicView
                 if let dressPicFile = dress.objectForKey("imageThumbnail") as? PFFile{

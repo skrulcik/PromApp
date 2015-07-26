@@ -16,9 +16,8 @@ class StoreAnnotation:NSObject, MKAnnotation
     var store:PFObject
     var name:String
     var address:String
-    // Required fields for annotations that allow callouts
-    var title: String
-    var subtitle: String
+    var title:String?
+    var subtitle:String?
     
     init(storeCoordinate: CLLocationCoordinate2D, store storeObject:PFObject){
         coordinate = storeCoordinate
