@@ -7,7 +7,7 @@
 //
 import ParseUI
 
-class DressListForProm:PFQueryTableViewController{
+class DressListForProm: PFQueryTableViewController {
     var prom:SKProm?
     
     required init?(coder aDecoder: NSCoder) {
@@ -26,7 +26,7 @@ class DressListForProm:PFQueryTableViewController{
         tableView.registerNib(UINib(nibName: dressCellNibName, bundle: nil), forCellReuseIdentifier: dressCellID)
     }
     
-    override func queryForTable() -> PFQuery! {
+    override func queryForTable() -> PFQuery {
         if prom != nil {
             let query = PFQuery(className: SKDress.parseClassName())
             query.limit = stdQueryLimit
@@ -38,7 +38,7 @@ class DressListForProm:PFQueryTableViewController{
         }
     }
     
-    override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!, object: PFObject!) -> PFTableViewCell! {
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath, object: PFObject?) -> PFTableViewCell? {
         if let cell = tableView.dequeueReusableCellWithIdentifier(dressCellID) as? SKDressInfoTableViewCell {
             if let dressPointer = object as? SKDress{
                 fillDressCell(cell, withDress: dressPointer)
@@ -51,7 +51,7 @@ class DressListForProm:PFQueryTableViewController{
     //External methods to fill cells with Parse data asynchronously to preserve flow with poor connection
     func fillDressCell(cell:SKDressInfoTableViewCell, withDress dressPointer:SKDress){
         dressPointer.fetchIfNeededInBackgroundWithBlock({
-            (dressObj:PFObject!, error:NSError!) in
+            (dressObj: PFObject?, error: NSError?) in
             if let dress = dressObj as? SKDress {
                 cell.designerLabel!.text = dress.designer
                 cell.styleNumberLabel!.text = dress.styleNumber
@@ -59,15 +59,17 @@ class DressListForProm:PFQueryTableViewController{
                 let dressImageView = cell.dressPicView
                 if let dressPicFile = dress.objectForKey("imageThumbnail") as? PFFile{
                     dressPicFile.getDataInBackgroundWithBlock({
-                        (imageData:NSData!, error:NSError!) in
-                        if(imageData != nil){
+                        (imageData: NSData?, error: NSError?) in
+                        if let error = error {
+                            NSLog("Error retrieving image data from dress. Error: \(error)", error)
+                        } else if(imageData != nil){
                             let dressImage:UIImage = UIImage(data: imageData!)!
                             dressImageView!.image = dressImage
-                        } else{
-                            NSLog("Error retrieving image data from dress. PFFile:%@ Error:%@", dressPicFile, error)
                         }
                     })
                 }
+            } else if let error = error {
+                NSLog("Error filling dress cell \(error)")
             }
         })
     }

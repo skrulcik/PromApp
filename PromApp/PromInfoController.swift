@@ -26,15 +26,15 @@ class PromInfoController:UIViewController {
     }
     
     @IBAction func subscribePressed(sender: AnyObject) {
-        if promObject != nil {
-            let user = PFUser.currentUser()
+        if promObject != nil,
+            let user = PFUser.currentUser() {
             if user.isFollowingProm(promObject!){
                 let askDialog = UIAlertController(title: "Are you sure?", message: "Are you sure you want to unfollow this prom?", preferredStyle: .Alert)
                 let cancel = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
                 let unfollow = UIAlertAction(title: "Un-follow", style: .Default, handler: {
                     (alertAction:UIAlertAction!) in
                     //User wants to unsubscribe
-                    NSLog("User unsubscribing from prom. %@", self.promObject!.objectId)
+                    NSLog("User unsubscribing from prom. \(self.promObject!.objectId)")
                     user.removeObject(self.promObject!, forKey: "proms")
                     self.updateButtonState()
                     user.saveInBackgroundWithBlock(nil)
@@ -44,7 +44,7 @@ class PromInfoController:UIViewController {
                 presentViewController(askDialog, animated: true, completion: nil)
             } else {
                 //User has not subscribed, so subscribe them
-                NSLog("User subscribing to prom. %@", self.promObject!.objectId)
+                NSLog("User subscribing to prom. \(self.promObject!.objectId)")
                 user.addObject(self.promObject!, forKey: "proms")
                 user.saveInBackgroundWithBlock(nil)
                 updateButtonState()
@@ -59,9 +59,10 @@ class PromInfoController:UIViewController {
     }
     
     func updateButtonState(){
-        if promObject != nil{
+        if promObject != nil,
+            let user = PFUser.currentUser() {
             //Check if user is subscribed to prom
-            subscribedButt.subscribed = PFUser.currentUser().isFollowingProm(promObject!)
+            subscribedButt.subscribed = user.isFollowingProm(promObject!)
             //Force redraw if state changed
             if subscribedButt.subscribed {
                 subscribedButt.setTitle("Following 👍", forState:.Normal)
@@ -75,8 +76,9 @@ class PromInfoController:UIViewController {
     
     func reloadData(prom:SKProm){
         //If the user has write access, allow them to edit
-        if let acl = prom.ACL {
-            if acl.getWriteAccessForUser(PFUser.currentUser()) {
+        if let acl = prom.ACL,
+            let user = PFUser.currentUser() {
+            if acl.getWriteAccessForUser(user) {
                 //Add edit button to navigation bar
                 let editButton = UIBarButtonItem(barButtonSystemItem: .Edit, target: self, action: "editProm")
                 self.navigationItem.rightBarButtonItem = editButton
@@ -106,8 +108,10 @@ class PromInfoController:UIViewController {
     func editProm(){
         //Edit button was pressed
         //Double check the user is allowed to edit the prom
-        if promObject != nil &&
-                promObject!.ACL.getWriteAccessForUser(PFUser.currentUser()) {
+        if promObject != nil,
+            let user = PFUser.currentUser(),
+            let objectACL = promObject!.ACL
+            where objectACL.getWriteAccessForUser(user) {
             self.performSegueWithIdentifier(EditPromSegueID, sender: self)
         }
     }

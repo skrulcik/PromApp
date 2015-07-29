@@ -73,13 +73,13 @@ class PromSearchTable:UITableViewController, UISearchBarDelegate {
         } else {
             NSLog("Searching for proms with string %@", searchString!)
             let query = PFQuery(className: SKProm.parseClassName())
-            query.cachePolicy = kPFCachePolicyCacheThenNetwork //Note: will not work with local datastore
+            query.cachePolicy = .CacheThenNetwork //Note: will not work with local datastore
             query.whereKey("schoolName", containsString: searchString!)
             query.limit = maxObjects
             //query.orderByAscending("preciseLocation") //TODO: figure out how to look for closest proms first
             query.findObjectsInBackgroundWithBlock({
-                (objects:Array!, error:NSError!) in
-                if objects != nil {
+                (objects: [AnyObject]?, error: NSError?) in
+                if let objects = objects {
                     if objects.count != 0 {
                         for object in objects {
                             if let prom = object as? SKProm {
@@ -97,7 +97,7 @@ class PromSearchTable:UITableViewController, UISearchBarDelegate {
                         NSLog("Did not find any results for prom search %@. %@", self.searchString!)
                     }
                 } else {
-                    NSLog("Error searching descriptions for string \"%@\". %@", self.searchString!, error.description)
+                    NSLog("Error searching descriptions for string \"\(self.searchString)\". \(error)")
                 }
             })
         }

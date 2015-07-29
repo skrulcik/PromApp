@@ -15,14 +15,15 @@
 		D2117954198F0888004D254F /* SKImageEditorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D2117953198F0888004D254F /* SKImageEditorCell.m */; };
 		D212423F1A641843006A9867 /* profile.html in Resources */ = {isa = PBXBuildFile; fileRef = D212423D1A641843006A9867 /* profile.html */; };
 		D21242401A641843006A9867 /* signin.html in Resources */ = {isa = PBXBuildFile; fileRef = D212423E1A641843006A9867 /* signin.html */; };
+		D21C38C21B68C237006D5756 /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D21C38C11B68C237006D5756 /* ParseFacebookUtilsV4.framework */; };
+		D21C38C51B68C372006D5756 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D21C38C31B68C372006D5756 /* FBSDKCoreKit.framework */; };
+		D21C38C61B68C372006D5756 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D21C38C41B68C372006D5756 /* FBSDKLoginKit.framework */; };
 		D22299371965054000B747BA /* SKDressInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D22299361965054000B747BA /* SKDressInfoTableViewCell.m */; };
 		D22B2B771A4295DC0085F54E /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D22B2B6D1A42950B0085F54E /* Bolts.framework */; };
 		D22B2B781A4295DC0085F54E /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D22B2B6E1A42950B0085F54E /* Parse.framework */; };
 		D22B2B791A4295DC0085F54E /* ParseCrashReporting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D22B2B6F1A42950B0085F54E /* ParseCrashReporting.framework */; };
-		D22B2B7A1A4295DC0085F54E /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D22B2B701A42950B0085F54E /* ParseFacebookUtils.framework */; };
 		D22B2B7B1A4295DC0085F54E /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D22B2B711A42950B0085F54E /* ParseUI.framework */; };
 		D22B2B7D1A4296180085F54E /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D22B2B7C1A4296180085F54E /* libsqlite3.dylib */; };
-		D22B2B7F1A4297950085F54E /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D22B2B7E1A4297950085F54E /* FacebookSDK.framework */; };
 		D22B2B811A42B0AE0085F54E /* GlobalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22B2B801A42B0AE0085F54E /* GlobalConstants.swift */; };
 		D22E03CC1A4DFF2600F81753 /* ImageManipulation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22E03CB1A4DFF2600F81753 /* ImageManipulation.swift */; };
 		D22E03CF1A4E862600F81753 /* StringManipulation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22E03CE1A4E862600F81753 /* StringManipulation.swift */; };
@@ -119,6 +120,9 @@
 		D2117953198F0888004D254F /* SKImageEditorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKImageEditorCell.m; sourceTree = "<group>"; };
 		D212423D1A641843006A9867 /* profile.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = profile.html; sourceTree = "<group>"; };
 		D212423E1A641843006A9867 /* signin.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = signin.html; sourceTree = "<group>"; };
+		D21C38C11B68C237006D5756 /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtilsV4.framework; sourceTree = "<group>"; };
+		D21C38C31B68C372006D5756 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		D21C38C41B68C372006D5756 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		D22299351965054000B747BA /* SKDressInfoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKDressInfoTableViewCell.h; sourceTree = "<group>"; };
 		D22299361965054000B747BA /* SKDressInfoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKDressInfoTableViewCell.m; sourceTree = "<group>"; };
 		D22B2B6D1A42950B0085F54E /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
@@ -227,17 +231,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D22B2B7F1A4297950085F54E /* FacebookSDK.framework in Frameworks */,
-				D22B2B7D1A4296180085F54E /* libsqlite3.dylib in Frameworks */,
-				D22B2B771A4295DC0085F54E /* Bolts.framework in Frameworks */,
-				D22B2B781A4295DC0085F54E /* Parse.framework in Frameworks */,
-				D22B2B791A4295DC0085F54E /* ParseCrashReporting.framework in Frameworks */,
-				D22B2B7A1A4295DC0085F54E /* ParseFacebookUtils.framework in Frameworks */,
 				D22B2B7B1A4295DC0085F54E /* ParseUI.framework in Frameworks */,
+				D22B2B791A4295DC0085F54E /* ParseCrashReporting.framework in Frameworks */,
+				D21C38C21B68C237006D5756 /* ParseFacebookUtilsV4.framework in Frameworks */,
+				D22B2B781A4295DC0085F54E /* Parse.framework in Frameworks */,
+				D21C38C61B68C372006D5756 /* FBSDKLoginKit.framework in Frameworks */,
+				D21C38C51B68C372006D5756 /* FBSDKCoreKit.framework in Frameworks */,
+				D22B2B771A4295DC0085F54E /* Bolts.framework in Frameworks */,
 				D2A4755F196249BA005C2502 /* Accounts.framework in Frameworks */,
 				D2A47560196249BA005C2502 /* AudioToolbox.framework in Frameworks */,
 				D2A47561196249BA005C2502 /* CFNetwork.framework in Frameworks */,
 				D2A47562196249BA005C2502 /* CoreLocation.framework in Frameworks */,
+				D22B2B7D1A4296180085F54E /* libsqlite3.dylib in Frameworks */,
 				D2A47563196249BA005C2502 /* libz.dylib in Frameworks */,
 				D2A47564196249BA005C2502 /* MobileCoreServices.framework in Frameworks */,
 				D2A47565196249BA005C2502 /* QuartzCore.framework in Frameworks */,
@@ -329,6 +334,9 @@
 		D2A4751C1962198D005C2502 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D21C38C31B68C372006D5756 /* FBSDKCoreKit.framework */,
+				D21C38C41B68C372006D5756 /* FBSDKLoginKit.framework */,
+				D21C38C11B68C237006D5756 /* ParseFacebookUtilsV4.framework */,
 				D22B2B7E1A4297950085F54E /* FacebookSDK.framework */,
 				D22B2B7C1A4296180085F54E /* libsqlite3.dylib */,
 				D22B2B6D1A42950B0085F54E /* Bolts.framework */,

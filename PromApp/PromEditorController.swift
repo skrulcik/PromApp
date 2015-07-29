@@ -275,14 +275,14 @@ class PromEditor:UITableViewController, UITextFieldDelegate, UIImagePickerContro
                             let promPoint = PFGeoPoint(location: placemark.location)
                             self.prom!.setObject(addr, forKey: "address")
                             self.prom!.setObject(promPoint, forKey: "preciseLocation")
-                            if self._isNewProm {
+                            if let user = PFUser.currentUser() where self._isNewProm {
                                 NSLog("About to register new prom with server.")
-                                let acl = PFACL(user: PFUser.currentUser())
+                                let acl = PFACL(user: user)
                                 acl.setPublicReadAccess(true)
                                 self.prom?.ACL = acl
                             }
                             self.prom!.saveInBackgroundWithBlock({
-                                (succeeded: Bool, error: NSError!) in
+                                (succeeded: Bool, error: NSError?) in
                                 if(succeeded){
                                    NSLog("Succeeded in saving prom \(self.prom!.objectId)")
                                     if let user = PFUser.currentUser(){

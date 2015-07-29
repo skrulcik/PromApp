@@ -309,35 +309,36 @@ class NearYouController : UIViewController, UISearchBarDelegate,
                     // Add Designer logos to store detail:
                     // Use designer list to create image to show with store
                     let designerRelation = currentStore!.relationForKey("designers")
-                    let designerQuery = designerRelation.query()
-                    designerQuery.findObjectsInBackgroundWithBlock({
-                        (objectList:Array<AnyObject>!, error:NSError!) in
-                        // Use array to hold images for each designer while fetching
-                        if let designerList = objectList as? Array<PFObject> {
-                            var images = [UIImage]()
-                            for designer in designerList {
-                                if let designerImage = designer.objectForKey("logo") as? PFFile {
-                                    let rawImage = designerImage.getData()
-                                    let parsedImage:UIImage? = UIImage(data: rawImage)
-                                    if parsedImage != nil {
-                                        images.append(parsedImage!)
+                    if let designerQuery = designerRelation.query() {
+                        designerQuery.findObjectsInBackgroundWithBlock({
+                            (objectList:[AnyObject]?, error:NSError?) in
+                            // Use array to hold images for each designer while fetching
+                            if let designerList = objectList as? [PFObject] {
+                                var images = [UIImage]()
+                                for designer in designerList {
+                                    if let designerImage = designer.objectForKey("logo") as? PFFile,
+                                        let rawImage = designerImage.getData() {
+                                        let parsedImage:UIImage? = UIImage(data: rawImage)
+                                        if parsedImage != nil {
+                                            images.append(parsedImage!)
+                                        }
+                                    } else {
+                                        NSLog("Error parsing image for %@", designer.objectForKey("name") as! String)
                                     }
-                                } else {
-                                    NSLog("Error parsing image for %@", designer.objectForKey("name") as! String)
                                 }
+                                // Combine images together so they can all be added to store callout
+                                let finalImage = mergeHorizontal(images)
+                                let logoView = UIImageView(image: finalImage)
+                                // Add more detailed view
+                                let customView = UIView(frame: CGRect(x: 0, y: 0, width: logoView.frame.width+100, height: 50))
+                                let label = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
+                                label.text = "Designers:"
+                                customView.addSubview(label)
+                                customView.addSubview(logoView)
+                                view.leftCalloutAccessoryView = customView
                             }
-                            // Combine images together so they can all be added to store callout
-                            let finalImage = mergeHorizontal(images)
-                            let logoView = UIImageView(image: finalImage)
-                            // Add more detailed view
-                            let customView = UIView(frame: CGRect(x: 0, y: 0, width: logoView.frame.width+100, height: 50))
-                            let label = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
-                            label.text = "Designers:"
-                            customView.addSubview(label)
-                            customView.addSubview(logoView)
-                            view.leftCalloutAccessoryView = customView
-                        }
-                    })
+                        })
+                    }
                 }
                 NSLog("Could not perform segue to show store details.")
             }
@@ -417,7 +418,7 @@ class NearYouController : UIViewController, UISearchBarDelegate,
     // MARK: Cell Management
     func fillPromCell(cell:ObjectCell, withProm promPointer:SKProm){
         promPointer.fetchIfNeededInBackgroundWithBlock({
-            (promObj:PFObject!, error:NSError!) in
+            (promObj: PFObject?, error: NSError?) in
             if let prom = promObj as? SKProm {
                 cell.bigLabel.text = prom.schoolName
                 cell.littleLabel.text = prom.locationDescription
@@ -425,12 +426,12 @@ class NearYouController : UIViewController, UISearchBarDelegate,
                 let promImageView = cell.picView
                 if let promPicFile = prom.objectForKey("image") as? PFFile{
                     promPicFile.getDataInBackgroundWithBlock({
-                        (imageData:NSData!, error:NSError!) in
-                        if(imageData != nil){
-                            let promImage = UIImage(data: imageData!)!
+                        (imageData: NSData?, error: NSError?) in
+                        if let imageData = imageData {
+                            let promImage = UIImage(data: imageData)!
                             promImageView!.image = promImage
                         } else{
-                            NSLog("Error retrieving image data from dress. PFFile:%@ Error:%@", promPicFile, error)
+                            NSLog("Error retrieving image data from dress. Error: [\(error)]")
                         }
                     })
                 } else {

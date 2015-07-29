@@ -7,8 +7,9 @@
 //
 
 #import "SKLoginViewController.h"
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <Parse/Parse.h>
-#import <ParseFacebookUtils/PFFacebookUtils.h>
+#import <ParseFacebookUtilsV4/PFFacebookUtils.h>
 #import "PromApp-Swift.h"
 
 @interface SKLoginViewController ()
@@ -59,21 +60,22 @@
  */
 - (void) updateFacebookProfile:(PFUser *)parseUser withBlock:(void (^)(void))callbackBlock{
     //TODO: if connection unavailable: 1) Show alert 2) Check if profile already available
-    if (FBSession.activeSession.isOpen) {
-        [[FBRequest requestForMe] startWithCompletionHandler:
-         ^(FBRequestConnection *connection, NSDictionary<FBGraphUser> *user, NSError *error) {
-             if (!error) {
-                 if(user != NULL && [parseUser objectForKey:@"email"] == nil){
-                     [parseUser setObject:user forKey:@"profile"];
-                     [parseUser setObject:user[@"email"] forKey:@"email"];
-                     [parseUser setObject:user[@"email"] forKey:@"username"];
-                     [parseUser save]; //Save synchronously
-                 }
-             } else {
-                 NSLog(@"Error retrieving facebook data: %@", error);
-             }
-             callbackBlock();
-         }];
+
+    if ([FBSDKAccessToken currentAccessToken] != nil) {
+        FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:@{@"fields": @"id, name, first_name, last_name, picture.type(large), email"}];
+        [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, NSDictionary *user, NSError *error){
+            if (!error) {
+                if(user != NULL && [parseUser objectForKey:@"email"] == nil){
+                    [parseUser setObject:user forKey:@"profile"];
+                    [parseUser setObject:user[@"email"] forKey:@"email"];
+                    [parseUser setObject:user[@"email"] forKey:@"username"];
+                    [parseUser save]; //Save synchronously
+                }
+            } else {
+                NSLog(@"Error retrieving facebook data: %@", error);
+            }
+            callbackBlock();
+        }];
     } else {
         NSLog(@"no active session");
     }
@@ -97,7 +99,7 @@
 // MARK: Button handlers
 - (IBAction)fBookLoginPressed:(id)sender {
     NSArray *permissions = @[ @"public_profile", @"email", @"user_friends"];
-    [PFFacebookUtils logInWithPermissions:permissions block:^(PFUser *user, NSError *error) {
+    [PFFacebookUtils logInInBackgroundWithReadPermissions:permissions block:^(PFUser *user, NSError *error) {
         if (!user) {
             NSLog(@"The user cancelled the Facebook login.");
             NSLog(@"%@", [error description]);
