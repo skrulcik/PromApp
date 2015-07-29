@@ -26,7 +26,6 @@
 		D22B2B811A42B0AE0085F54E /* GlobalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22B2B801A42B0AE0085F54E /* GlobalConstants.swift */; };
 		D22E03CC1A4DFF2600F81753 /* ImageManipulation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22E03CB1A4DFF2600F81753 /* ImageManipulation.swift */; };
 		D22E03CF1A4E862600F81753 /* StringManipulation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22E03CE1A4E862600F81753 /* StringManipulation.swift */; };
-		D23654F919916BF3007277A6 /* PromQueryTable.xib in Resources */ = {isa = PBXBuildFile; fileRef = D23654F819916BF3007277A6 /* PromQueryTable.xib */; };
 		D23654FC19916DFF007277A6 /* SKPromQueryController.m in Sources */ = {isa = PBXBuildFile; fileRef = D23654FB19916DFF007277A6 /* SKPromQueryController.m */; };
 		D246C39C1A50CA080046D95A /* UserExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = D246C39B1A50CA080046D95A /* UserExt.swift */; };
 		D246C39E1A51B5A30046D95A /* DressListForProm.swift in Sources */ = {isa = PBXBuildFile; fileRef = D246C39D1A51B5A30046D95A /* DressListForProm.swift */; };
@@ -132,7 +131,6 @@
 		D22B2B801A42B0AE0085F54E /* GlobalConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalConstants.swift; sourceTree = "<group>"; };
 		D22E03CB1A4DFF2600F81753 /* ImageManipulation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageManipulation.swift; sourceTree = "<group>"; };
 		D22E03CE1A4E862600F81753 /* StringManipulation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringManipulation.swift; sourceTree = "<group>"; };
-		D23654F819916BF3007277A6 /* PromQueryTable.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PromQueryTable.xib; sourceTree = "<group>"; };
 		D23654FA19916DFF007277A6 /* SKPromQueryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKPromQueryController.h; sourceTree = "<group>"; };
 		D23654FB19916DFF007277A6 /* SKPromQueryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKPromQueryController.m; sourceTree = "<group>"; };
 		D246C39B1A50CA080046D95A /* UserExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserExt.swift; sourceTree = "<group>"; };
@@ -462,7 +460,6 @@
 				D2117950198EE1F0004D254F /* ImageEditorCell.xib */,
 				D2CD3E6E1A50A9D500BF0359 /* ObjectCell.xib */,
 				D2C890E019D68E7C00458094 /* ProfileCellLayout.xib */,
-				D23654F819916BF3007277A6 /* PromQueryTable.xib */,
 				D2652158198E86E3000432BA /* StringEntryCell.xib */,
 				D25A4C451A5234C700AED4AD /* TableHeader.xib */,
 			);
@@ -557,7 +554,7 @@
 			attributes = {
 				CLASSPREFIX = SK;
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "___FULLUSERNAME___";
 				TargetAttributes = {
 					D2A475191962198D005C2502 = {
@@ -624,7 +621,6 @@
 				D20DA6AF198B311200C1B225 /* ColorText.plist in Resources */,
 				D246C3A51A51E0EB0046D95A /* index.html in Resources */,
 				D266D1631A47287B00A3C51C /* rochester in Resources */,
-				D23654F919916BF3007277A6 /* PromQueryTable.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -739,6 +735,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -811,6 +808,7 @@
 				INFOPLIST_FILE = "PromApp/PromApp-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "PromApp/PromApp-Bridging-Header.h";
@@ -836,6 +834,7 @@
 				INFOPLIST_FILE = "PromApp/PromApp-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "PromApp/PromApp-Bridging-Header.h";
@@ -849,11 +848,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/PromApp.app/PromApp";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PromApp/PromApp-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -861,6 +855,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "PromAppTests/PromAppTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -871,14 +866,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/PromApp.app/PromApp";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PromApp/PromApp-Prefix.pch";
 				INFOPLIST_FILE = "PromAppTests/PromAppTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;

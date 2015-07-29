@@ -147,11 +147,11 @@ static NSString *namePlaceholder = @"Prom Name";
 - (void)searchBar:(UISearchBar *)searchBar
 selectedScopeButtonIndexDidChange:(NSInteger)selectedScope
 {
-    if(selectedScope == locationSearch){
+    if (selectedScope == locationSearch) {
         // Show user map and prompt to search by location
         // Put proper placeholder in the searchbar
         self.searchBar.placeholder = [searchPlaceholderBase stringByAppendingString:locationPlaceholder];
-    } else {
+    } else if (selectedScope == nameSearch) {
         self.searchBar.placeholder = [searchPlaceholderBase stringByAppendingString:namePlaceholder];
     }
     
