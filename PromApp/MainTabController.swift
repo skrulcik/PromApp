@@ -14,11 +14,9 @@ class MainTabController:UITabBarController {
         // The following fixes a bug where the second tab icon would disappear when selected
         // TODO: Fix this in storyboard or something
         tabBar.tintColor = SKColor.pink()
-        if let items = tabBar.items
-        where items.count > 1 {
-            if let item = items[1] as? UITabBarItem {
-                item.selectedImage = UIImage(named: "LocationIconSelected")
-            }
+        if let items = tabBar.items,
+            let item = items.first {
+            item.selectedImage = UIImage(named: "LocationIconSelected")
         }
     }
     

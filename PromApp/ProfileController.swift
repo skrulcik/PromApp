@@ -36,15 +36,14 @@ class ProfileController:UIViewController, NSURLConnectionDataDelegate, UITableVi
         let pictureURL:NSURL = NSURL(string: urlString)!
         let urlRequest:NSMutableURLRequest = NSMutableURLRequest(URL: pictureURL, cachePolicy: NSURLRequestCachePolicy.UseProtocolCachePolicy, timeoutInterval: 2.0)
         // Run network request asynchronously
-        let urlConnection:NSURLConnection = NSURLConnection(request: urlRequest, delegate: self)!
+        NSURLConnection(request: urlRequest, delegate: self)!
     }
     
     func setProfImage(image:UIImage)
     {
         profImage = image
         var cells = self.listView.visibleCells
-        if cells.count > 0{
-            var profCell =  cells[0] as! ProfileCell
+        if let profCell = cells.first as? ProfileCell {
             profCell.profPic.image = self.profImage
         }
     }
@@ -68,8 +67,11 @@ class ProfileController:UIViewController, NSURLConnectionDataDelegate, UITableVi
                         }
                         
                         // Load profile name if it is there, otherwise load
-                        var profileName = profile[nameKey] as? String
-                        self.profName = profileName != nil ? profileName!:defaultName
+                        if let profileName = profile[nameKey] as? String {
+                            self.profName = profileName
+                        } else {
+                            self.profName = defaultName
+                        }
                         
                         // Update Profile Picture
                         if let urlString = profile[picURLKey] as? String {
@@ -346,8 +348,8 @@ class ProfileController:UIViewController, NSURLConnectionDataDelegate, UITableVi
             }
             case DRESS_SECTION:
                 if let cell = listView.dequeueReusableCellWithIdentifier(dressCellID) as? SKDressInfoTableViewCell{
-                    if let user:PFUser = PFUser.currentUser(){
-                        let dresses = PFUser.currentUser().dresses
+                    if let user = PFUser.currentUser() {
+                        let dresses = user.dresses
                         if indexPath.row < dresses.count{
                             //Ensure valid array access
                             let dressPointer:SKDress = dresses[indexPath.row]

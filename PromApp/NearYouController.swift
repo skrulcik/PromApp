@@ -72,10 +72,10 @@ class NearYouController : UIViewController, UISearchBarDelegate,
     func configureMap() {
         locationManager.startUpdatingLocation()
         var frm = dynamicResults.frame
-        var searchHeight:CGFloat = searchBar.frame.height
-        var newFrame = CGRect(x: frm.minX, y: frm.minY-searchHeight,
+        let searchHeight:CGFloat = searchBar.frame.height
+        let newFrame = CGRect(x: frm.minX, y: frm.minY-searchHeight,
                                 width: frm.width, height:frm.height)
-        var map = MKMapView(frame: newFrame)
+        let map = MKMapView(frame: newFrame)
         
         // Configure map to display current location
         map.delegate = self
@@ -84,8 +84,8 @@ class NearYouController : UIViewController, UISearchBarDelegate,
 
         //Get search area from location manager
         if locationManager.location != nil {
-            var center = locationManager.location!.coordinate
-            var region = MKCoordinateRegionMakeWithDistance(center,
+            let center = locationManager.location!.coordinate
+            let region = MKCoordinateRegionMakeWithDistance(center,
                 Constants.mapRadius, Constants.mapRadius)
             map.setRegion(region, animated: false)
             let proms = queryForPromsNearLocation(location: locationManager.location!)
@@ -98,10 +98,10 @@ class NearYouController : UIViewController, UISearchBarDelegate,
     }
     func configureTable() {
         var frm = dynamicResults.frame
-        var searchHeight:CGFloat = searchBar.frame.height
-        var newFrame = CGRect(x: frm.minX, y: frm.minY-searchHeight,
+        let searchHeight:CGFloat = searchBar.frame.height
+        let newFrame = CGRect(x: frm.minX, y: frm.minY-searchHeight,
             width: frm.width, height:frm.height)
-        var tbl = UITableView(frame: newFrame, style: .Plain)
+        let tbl = UITableView(frame: newFrame, style: .Plain)
         tbl.delegate = self
         tbl.dataSource = self
         tbl.registerNib(UINib(nibName: objectCellNibName, bundle:nil), forCellReuseIdentifier: objectCellID)
@@ -154,10 +154,10 @@ class NearYouController : UIViewController, UISearchBarDelegate,
                             mapview.setRegion(mapview.regionThatFits(searchRegion), animated: true)
                             
                             // Search for local POIs and place pins
-                            var proms = self.queryForPromsNearLocation(location: searchLocation!)
+                            let proms = self.queryForPromsNearLocation(location: searchLocation!)
                             // Place pins for all proms
                             self.placePinsForPromsInMap(proms, map: mapview)
-                            var stores = self.queryForStoresNearLocation(location: searchLocation!)
+                            let stores = self.queryForStoresNearLocation(location: searchLocation!)
                             self.placePinsForStoresInMap(stores, map: mapview)
                             // Place different pins for stores
                         }
@@ -268,7 +268,7 @@ class NearYouController : UIViewController, UISearchBarDelegate,
     }
     
     // MARK: MKMapViewDelegate
-    func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
         // Do not supply new annotation for use location
         if annotation.isKindOfClass(MKUserLocation) {
             return nil // This may cause error!!
@@ -292,7 +292,7 @@ class NearYouController : UIViewController, UISearchBarDelegate,
         }
         return nil
     }
-    func mapView(mapView: MKMapView!, annotationView view: MKAnnotationView!, calloutAccessoryControlTapped control: UIControl!) {
+    func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if control.isKindOfClass(UIButton){
             if view.annotation!.isKindOfClass(SKPromAnnotation) {
                 if let promNote = view.annotation as? SKPromAnnotation {

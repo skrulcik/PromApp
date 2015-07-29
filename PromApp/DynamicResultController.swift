@@ -15,10 +15,8 @@ class DynamicResult:UIView {
     }
     
     func setChild(childView child:UIView) {
-        for sub in subviews{
-            if let subview = sub as? UIView {
-                subview.removeFromSuperview()
-            }
+        for subview in subviews {
+            subview.removeFromSuperview()
         }
         if (subviews.count > 0){
             NSLog("Error removing subviews from dynamic result view")
