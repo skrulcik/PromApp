@@ -5,6 +5,7 @@
 //  Created by Scott Krulcik on 12/28/14.
 //  Copyright (c) 2014 Scott Krulcik. All rights reserved.
 //
+import ParseUI
 
 class PromInfoController:UIViewController {
     
@@ -80,7 +81,7 @@ class PromInfoController:UIViewController {
             let user = PFUser.currentUser() {
             if acl.getWriteAccessForUser(user) {
                 //Add edit button to navigation bar
-                let editButton = UIBarButtonItem(barButtonSystemItem: .Edit, target: self, action: "editProm")
+                let editButton = UIBarButtonItem(barButtonSystemItem: .Edit, target: self, action: #selector(PromInfoController.editProm))
                 self.navigationItem.rightBarButtonItem = editButton
             }
         }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C1731FF4209CD268C7D56B1 /* Pods_PromApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46425A4B496B6BC5C7F5475E /* Pods_PromApp.framework */; };
 		D2074E3E198F3B5E0048E28E /* EditDress.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2074E3D198F3B5E0048E28E /* EditDress.xib */; };
 		D20DA6AF198B311200C1B225 /* ColorText.plist in Resources */ = {isa = PBXBuildFile; fileRef = D20DA6AE198B311200C1B225 /* ColorText.plist */; };
 		D20DA6B1198B537300C1B225 /* EditUser.xib in Resources */ = {isa = PBXBuildFile; fileRef = D20DA6B0198B537300C1B225 /* EditUser.xib */; };
@@ -15,15 +16,7 @@
 		D2117954198F0888004D254F /* SKImageEditorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D2117953198F0888004D254F /* SKImageEditorCell.m */; };
 		D212423F1A641843006A9867 /* profile.html in Resources */ = {isa = PBXBuildFile; fileRef = D212423D1A641843006A9867 /* profile.html */; };
 		D21242401A641843006A9867 /* signin.html in Resources */ = {isa = PBXBuildFile; fileRef = D212423E1A641843006A9867 /* signin.html */; };
-		D21C38C21B68C237006D5756 /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D21C38C11B68C237006D5756 /* ParseFacebookUtilsV4.framework */; };
-		D21C38C51B68C372006D5756 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D21C38C31B68C372006D5756 /* FBSDKCoreKit.framework */; };
-		D21C38C61B68C372006D5756 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D21C38C41B68C372006D5756 /* FBSDKLoginKit.framework */; };
 		D22299371965054000B747BA /* SKDressInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D22299361965054000B747BA /* SKDressInfoTableViewCell.m */; };
-		D22B2B771A4295DC0085F54E /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D22B2B6D1A42950B0085F54E /* Bolts.framework */; };
-		D22B2B781A4295DC0085F54E /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D22B2B6E1A42950B0085F54E /* Parse.framework */; };
-		D22B2B791A4295DC0085F54E /* ParseCrashReporting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D22B2B6F1A42950B0085F54E /* ParseCrashReporting.framework */; };
-		D22B2B7B1A4295DC0085F54E /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D22B2B711A42950B0085F54E /* ParseUI.framework */; };
-		D22B2B7D1A4296180085F54E /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D22B2B7C1A4296180085F54E /* libsqlite3.dylib */; };
 		D22B2B811A42B0AE0085F54E /* GlobalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22B2B801A42B0AE0085F54E /* GlobalConstants.swift */; };
 		D22E03CC1A4DFF2600F81753 /* ImageManipulation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22E03CB1A4DFF2600F81753 /* ImageManipulation.swift */; };
 		D22E03CF1A4E862600F81753 /* StringManipulation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22E03CE1A4E862600F81753 /* StringManipulation.swift */; };
@@ -63,7 +56,6 @@
 		D2A47560196249BA005C2502 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2A47555196249BA005C2502 /* AudioToolbox.framework */; };
 		D2A47561196249BA005C2502 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2A47556196249BA005C2502 /* CFNetwork.framework */; };
 		D2A47562196249BA005C2502 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2A47557196249BA005C2502 /* CoreLocation.framework */; };
-		D2A47563196249BA005C2502 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D2A47558196249BA005C2502 /* libz.dylib */; };
 		D2A47564196249BA005C2502 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2A47559196249BA005C2502 /* MobileCoreServices.framework */; };
 		D2A47565196249BA005C2502 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2A4755A196249BA005C2502 /* QuartzCore.framework */; };
 		D2A47566196249BA005C2502 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2A4755B196249BA005C2502 /* Security.framework */; };
@@ -111,6 +103,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		46425A4B496B6BC5C7F5475E /* Pods_PromApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PromApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C39C6A06D7DE3161773222B /* Pods-PromApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PromApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-PromApp/Pods-PromApp.release.xcconfig"; sourceTree = "<group>"; };
+		CECF0B99720D06507559CFCF /* Pods-PromApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PromApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PromApp/Pods-PromApp.debug.xcconfig"; sourceTree = "<group>"; };
 		D2074E3D198F3B5E0048E28E /* EditDress.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditDress.xib; sourceTree = "<group>"; };
 		D20DA6AE198B311200C1B225 /* ColorText.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ColorText.plist; sourceTree = "<group>"; };
 		D20DA6B0198B537300C1B225 /* EditUser.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditUser.xib; sourceTree = "<group>"; };
@@ -120,18 +115,8 @@
 		D2117953198F0888004D254F /* SKImageEditorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKImageEditorCell.m; sourceTree = "<group>"; };
 		D212423D1A641843006A9867 /* profile.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = profile.html; sourceTree = "<group>"; };
 		D212423E1A641843006A9867 /* signin.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = signin.html; sourceTree = "<group>"; };
-		D21C38C11B68C237006D5756 /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtilsV4.framework; sourceTree = "<group>"; };
-		D21C38C31B68C372006D5756 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
-		D21C38C41B68C372006D5756 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		D22299351965054000B747BA /* SKDressInfoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKDressInfoTableViewCell.h; sourceTree = "<group>"; };
 		D22299361965054000B747BA /* SKDressInfoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKDressInfoTableViewCell.m; sourceTree = "<group>"; };
-		D22B2B6D1A42950B0085F54E /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
-		D22B2B6E1A42950B0085F54E /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
-		D22B2B6F1A42950B0085F54E /* ParseCrashReporting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseCrashReporting.framework; sourceTree = "<group>"; };
-		D22B2B701A42950B0085F54E /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
-		D22B2B711A42950B0085F54E /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
-		D22B2B7C1A4296180085F54E /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
-		D22B2B7E1A4297950085F54E /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		D22B2B801A42B0AE0085F54E /* GlobalConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalConstants.swift; sourceTree = "<group>"; };
 		D22E03CB1A4DFF2600F81753 /* ImageManipulation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageManipulation.swift; sourceTree = "<group>"; };
 		D22E03CE1A4E862600F81753 /* StringManipulation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringManipulation.swift; sourceTree = "<group>"; };
@@ -176,7 +161,6 @@
 		D2A47555196249BA005C2502 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		D2A47556196249BA005C2502 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		D2A47557196249BA005C2502 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		D2A47558196249BA005C2502 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		D2A47559196249BA005C2502 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		D2A4755A196249BA005C2502 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		D2A4755B196249BA005C2502 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -231,19 +215,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D22B2B7B1A4295DC0085F54E /* ParseUI.framework in Frameworks */,
-				D22B2B791A4295DC0085F54E /* ParseCrashReporting.framework in Frameworks */,
-				D21C38C21B68C237006D5756 /* ParseFacebookUtilsV4.framework in Frameworks */,
-				D22B2B781A4295DC0085F54E /* Parse.framework in Frameworks */,
-				D21C38C61B68C372006D5756 /* FBSDKLoginKit.framework in Frameworks */,
-				D21C38C51B68C372006D5756 /* FBSDKCoreKit.framework in Frameworks */,
-				D22B2B771A4295DC0085F54E /* Bolts.framework in Frameworks */,
 				D2A4755F196249BA005C2502 /* Accounts.framework in Frameworks */,
 				D2A47560196249BA005C2502 /* AudioToolbox.framework in Frameworks */,
 				D2A47561196249BA005C2502 /* CFNetwork.framework in Frameworks */,
 				D2A47562196249BA005C2502 /* CoreLocation.framework in Frameworks */,
-				D22B2B7D1A4296180085F54E /* libsqlite3.dylib in Frameworks */,
-				D2A47563196249BA005C2502 /* libz.dylib in Frameworks */,
 				D2A47564196249BA005C2502 /* MobileCoreServices.framework in Frameworks */,
 				D2A47565196249BA005C2502 /* QuartzCore.framework in Frameworks */,
 				D2A47566196249BA005C2502 /* Security.framework in Frameworks */,
@@ -254,6 +229,7 @@
 				D2A475221962198D005C2502 /* UIKit.framework in Frameworks */,
 				D2A4754D196219BF005C2502 /* MapKit.framework in Frameworks */,
 				D2A4751E1962198D005C2502 /* Foundation.framework in Frameworks */,
+				1C1731FF4209CD268C7D56B1 /* Pods_PromApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,6 +245,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AF270B58C1741ACAF8A1190A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CECF0B99720D06507559CFCF /* Pods-PromApp.debug.xcconfig */,
+				5C39C6A06D7DE3161773222B /* Pods-PromApp.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		D22299381965054400B747BA /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -319,6 +304,7 @@
 				D2A4753C1962198D005C2502 /* PromAppTests */,
 				D2A4751C1962198D005C2502 /* Frameworks */,
 				D2A4751B1962198D005C2502 /* Products */,
+				AF270B58C1741ACAF8A1190A /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -334,21 +320,10 @@
 		D2A4751C1962198D005C2502 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D21C38C31B68C372006D5756 /* FBSDKCoreKit.framework */,
-				D21C38C41B68C372006D5756 /* FBSDKLoginKit.framework */,
-				D21C38C11B68C237006D5756 /* ParseFacebookUtilsV4.framework */,
-				D22B2B7E1A4297950085F54E /* FacebookSDK.framework */,
-				D22B2B7C1A4296180085F54E /* libsqlite3.dylib */,
-				D22B2B6D1A42950B0085F54E /* Bolts.framework */,
-				D22B2B6E1A42950B0085F54E /* Parse.framework */,
-				D22B2B6F1A42950B0085F54E /* ParseCrashReporting.framework */,
-				D22B2B701A42950B0085F54E /* ParseFacebookUtils.framework */,
-				D22B2B711A42950B0085F54E /* ParseUI.framework */,
 				D2A47554196249BA005C2502 /* Accounts.framework */,
 				D2A47555196249BA005C2502 /* AudioToolbox.framework */,
 				D2A47556196249BA005C2502 /* CFNetwork.framework */,
 				D2A47557196249BA005C2502 /* CoreLocation.framework */,
-				D2A47558196249BA005C2502 /* libz.dylib */,
 				D2A47559196249BA005C2502 /* MobileCoreServices.framework */,
 				D2A4755A196249BA005C2502 /* QuartzCore.framework */,
 				D2A4755B196249BA005C2502 /* Security.framework */,
@@ -359,6 +334,7 @@
 				D2A4751D1962198D005C2502 /* Foundation.framework */,
 				D2A4751F1962198D005C2502 /* CoreGraphics.framework */,
 				D2A475211962198D005C2502 /* UIKit.framework */,
+				46425A4B496B6BC5C7F5475E /* Pods_PromApp.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -523,9 +499,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D2A475461962198D005C2502 /* Build configuration list for PBXNativeTarget "PromApp" */;
 			buildPhases = (
+				2FFCF3F628A85E6DBD4597F9 /* [CP] Check Pods Manifest.lock */,
 				D2A475161962198D005C2502 /* Sources */,
 				D2A475171962198D005C2502 /* Frameworks */,
 				D2A475181962198D005C2502 /* Resources */,
+				589CBEDD07F36AB1E3224F19 /* [CP] Embed Pods Frameworks */,
+				CCB17A34FB8D6A01B01F5108 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -641,6 +620,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2FFCF3F628A85E6DBD4597F9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		589CBEDD07F36AB1E3224F19 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PromApp/Pods-PromApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CCB17A34FB8D6A01B01F5108 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PromApp/Pods-PromApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D2A475161962198D005C2502 /* Sources */ = {
@@ -802,6 +829,7 @@
 		};
 		D2A475471962198D005C2502 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CECF0B99720D06507559CFCF /* Pods-PromApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -828,6 +856,7 @@
 		};
 		D2A475481962198D005C2502 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5C39C6A06D7DE3161773222B /* Pods-PromApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;

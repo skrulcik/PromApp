@@ -6,8 +6,7 @@
 //  Copyright (c) 2014 Scott Krulcik. All rights reserved.
 //  Some code adapted from http://stackoverflow.com/questions/18880364/uiimagepickercontroller-breaks-status-bar-appearance
 //
-
-import Foundation
+import ParseUI
 
 class PromEditor:UITableViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
@@ -253,7 +252,7 @@ class PromEditor:UITableViewController, UITextFieldDelegate, UIImagePickerContro
                             prom!.image = imageFile
                             NSLog("Saving image file for prom.")
                             //Save image file synchronously, cannot save prom with pointer to unsaved image
-                            prom!.image.save()
+                            try? prom!.image.save()
                         }
                     } else if key != "address"{
                         //Address will be used to generate precise location later, which is asynchronous
@@ -278,7 +277,7 @@ class PromEditor:UITableViewController, UITextFieldDelegate, UIImagePickerContro
                             if let user = PFUser.currentUser() where self._isNewProm {
                                 NSLog("About to register new prom with server.")
                                 let acl = PFACL(user: user)
-                                acl.setPublicReadAccess(true)
+                                acl.setReadAccess(true, forRoleWithName: "Public")
                                 self.prom?.ACL = acl
                             }
                             self.prom!.saveInBackgroundWithBlock({
@@ -326,7 +325,7 @@ class PromEditor:UITableViewController, UITextFieldDelegate, UIImagePickerContro
                 //Image editing requires special table cell
                 if let cell:SKImageEditorCell = tableView.dequeueReusableCellWithIdentifier("ImageEditor") as? SKImageEditorCell{
                     //The following attaches cell's edit image button to PromEditor's addImage event
-                    cell.editButton!.addTarget(self, action:Selector("addImage:"), forControlEvents: .TouchUpInside)
+                    cell.editButton!.addTarget(self, action:#selector(PromEditor.addImage(_:)), forControlEvents: .TouchUpInside)
                     cell.key = key
                     if(!_isNewProm && self.prom?.image != nil){
                         if let pfview:PFImageView = cell.basicImage as? PFImageView{

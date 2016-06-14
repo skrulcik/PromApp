@@ -7,3 +7,6 @@ PromCloudCode/public/indexmodel.html
 *.framework
 PromApp.xcodeproj/project.xcworkspace/xcuserdata/Scott.xcuserdatad/UserInterfaceState.xcuserstate
 Screenshots/Concepts/WebRendering/*
+
+Pods/
+Podfile.lock

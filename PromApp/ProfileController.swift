@@ -42,7 +42,7 @@ class ProfileController:UIViewController, NSURLConnectionDataDelegate, UITableVi
     func setProfImage(image:UIImage)
     {
         profImage = image
-        var cells = self.listView.visibleCells
+        let cells = self.listView.visibleCells
         if let profCell = cells.first as? ProfileCell {
             profCell.profPic.image = self.profImage
         }
@@ -236,7 +236,7 @@ class ProfileController:UIViewController, NSURLConnectionDataDelegate, UITableVi
                 if(indexPath.row < proms.count){
                     // Get prom associated with row
                     let prom = proms[indexPath.row]
-                    prom.fetchIfNeeded()
+                    try? prom.fetchIfNeeded()
                     if let acl = prom.ACL,
                         let user = PFUser.currentUser() {
                         if acl.getWriteAccessForUser(user) {
@@ -440,7 +440,7 @@ class ProfileController:UIViewController, NSURLConnectionDataDelegate, UITableVi
                         if(indx.row < dressList.count){
                             self.listView.deselectRowAtIndexPath(indx, animated: true)
                             let dress = dressList[indx.row]
-                            dress.fetchIfNeeded()
+                            try? dress.fetchIfNeeded()
                             dressController.setupWithDress(dress)
                         }
                     }
@@ -452,7 +452,7 @@ class ProfileController:UIViewController, NSURLConnectionDataDelegate, UITableVi
                     if let user = PFUser.currentUser()
                         where indx.row < user.proms.count {
                         let prom = user.proms[indx.row]
-                        prom.fetchIfNeeded()
+                        try? prom.fetchIfNeeded()
                         promInfo.promObject = prom
                     }
                 }

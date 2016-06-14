@@ -71,7 +71,7 @@ class NearYouController : UIViewController, UISearchBarDelegate,
     // MARK: Result view creation
     func configureMap() {
         locationManager.startUpdatingLocation()
-        var frm = dynamicResults.frame
+        let frm = dynamicResults.frame
         let searchHeight:CGFloat = searchBar.frame.height
         let newFrame = CGRect(x: frm.minX, y: frm.minY-searchHeight,
                                 width: frm.width, height:frm.height)
@@ -97,7 +97,7 @@ class NearYouController : UIViewController, UISearchBarDelegate,
         dynamicResults.setChild(childView: map)
     }
     func configureTable() {
-        var frm = dynamicResults.frame
+        let frm = dynamicResults.frame
         let searchHeight:CGFloat = searchBar.frame.height
         let newFrame = CGRect(x: frm.minX, y: frm.minY-searchHeight,
             width: frm.width, height:frm.height)
@@ -189,7 +189,8 @@ class NearYouController : UIViewController, UISearchBarDelegate,
         NSLog("Searching for Proms near Lat: %f Long: %f", loc.coordinate.latitude, loc.coordinate.longitude)
         query.whereKey(Prom_locationKey, nearGeoPoint: point, withinMiles: searchRadius)
         query.limit = stdQueryLimit
-        if let proms = query.findObjects() as? [SKProm]{
+        if let objs = try? query.findObjects(),
+            let proms = objs as? [SKProm] {
             for prom in proms {
                 promsToDisplay.append(prom) // Collect all new proms
             }
@@ -208,7 +209,8 @@ class NearYouController : UIViewController, UISearchBarDelegate,
         query.whereKey(Prom_locationKey, nearGeoPoint: place, withinMiles: maxSearchRadius)
         
         query.limit = stdQueryLimit
-        if let proms = query.findObjects() as? [SKProm]{
+        if let objs = try? query.findObjects(),
+            let proms = objs as? [SKProm]{
             NSLog("Found %d proms matching string %@.", proms.count, search.lowercaseString)
             for prom in proms {
                 promsToDisplay.append(prom) // Collect all new proms
@@ -239,7 +241,7 @@ class NearYouController : UIViewController, UISearchBarDelegate,
         NSLog("Searching for %@s near Lat: %f Long: %f", className, loc.coordinate.latitude, loc.coordinate.longitude)
         query.whereKey(locationKey, nearGeoPoint: point, withinMiles: searchRadius)
         query.limit = stdQueryLimit
-        if let objs = query.findObjects() as? [PFObject]{
+        if let objs = try? query.findObjects() as [PFObject]{
             for obj in objs {
                 objsToDisplay.append(obj) // Collect all new proms
             }
@@ -259,11 +261,9 @@ class NearYouController : UIViewController, UISearchBarDelegate,
             query.whereKey(locationKey, nearGeoPoint: place, withinMiles: maxSearchRadius)
             
             query.limit = stdQueryLimit
-            if let objs = query.findObjects() as? [PFObject]{
-                for obj in objs {
-                    objsToDisplay.append(obj) // Collect all new proms
-                }
-            }
+        if let objs = try? query.findObjects() {
+            objsToDisplay.appendContentsOf(objs)
+        }
             return objsToDisplay
     }
     
@@ -309,36 +309,35 @@ class NearYouController : UIViewController, UISearchBarDelegate,
                     // Add Designer logos to store detail:
                     // Use designer list to create image to show with store
                     let designerRelation = currentStore!.relationForKey("designers")
-                    if let designerQuery = designerRelation.query() {
-                        designerQuery.findObjectsInBackgroundWithBlock({
-                            (objectList:[AnyObject]?, error:NSError?) in
-                            // Use array to hold images for each designer while fetching
-                            if let designerList = objectList as? [PFObject] {
-                                var images = [UIImage]()
-                                for designer in designerList {
-                                    if let designerImage = designer.objectForKey("logo") as? PFFile,
-                                        let rawImage = designerImage.getData() {
-                                        let parsedImage:UIImage? = UIImage(data: rawImage)
-                                        if parsedImage != nil {
-                                            images.append(parsedImage!)
-                                        }
-                                    } else {
-                                        NSLog("Error parsing image for %@", designer.objectForKey("name") as! String)
+                    let designerQuery = designerRelation.query()
+                    designerQuery.findObjectsInBackgroundWithBlock({
+                        (objectList: [PFObject]?, error: NSError?) in
+                        // Use array to hold images for each designer while fetching
+                        if let designerList = objectList {
+                            var images = [UIImage]()
+                            for designer in designerList {
+                                if let designerImage = designer.objectForKey("logo") as? PFFile,
+                                    let rawImage = try? designerImage.getData() {
+                                    let parsedImage:UIImage? = UIImage(data: rawImage)
+                                    if parsedImage != nil {
+                                        images.append(parsedImage!)
                                     }
+                                } else {
+                                    NSLog("Error parsing image for %@", designer.objectForKey("name") as! String)
                                 }
-                                // Combine images together so they can all be added to store callout
-                                let finalImage = mergeHorizontal(images)
-                                let logoView = UIImageView(image: finalImage)
-                                // Add more detailed view
-                                let customView = UIView(frame: CGRect(x: 0, y: 0, width: logoView.frame.width+100, height: 50))
-                                let label = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
-                                label.text = "Designers:"
-                                customView.addSubview(label)
-                                customView.addSubview(logoView)
-                                view.leftCalloutAccessoryView = customView
                             }
-                        })
-                    }
+                            // Combine images together so they can all be added to store callout
+                            let finalImage = mergeHorizontal(images)
+                            let logoView = UIImageView(image: finalImage)
+                            // Add more detailed view
+                            let customView = UIView(frame: CGRect(x: 0, y: 0, width: logoView.frame.width+100, height: 50))
+                            let label = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
+                            label.text = "Designers:"
+                            customView.addSubview(label)
+                            customView.addSubview(logoView)
+                            view.leftCalloutAccessoryView = customView
+                        }
+                    })
                 }
                 NSLog("Could not perform segue to show store details.")
             }

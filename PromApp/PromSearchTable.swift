@@ -78,7 +78,7 @@ class PromSearchTable:UITableViewController, UISearchBarDelegate {
             query.limit = maxObjects
             //query.orderByAscending("preciseLocation") //TODO: figure out how to look for closest proms first
             query.findObjectsInBackgroundWithBlock({
-                (objects: [AnyObject]?, error: NSError?) in
+                (objects: [PFObject]?, error: NSError?) in
                 if let objects = objects {
                     if objects.count != 0 {
                         for object in objects {

@@ -21,7 +21,7 @@ class Prom:PFObject, PFSubclassing{
     
     //MARK: Class functions
     //MARK: PFSubclassing
-    class func parseClassName() -> String! {
+    class func parseClassName() -> String {
         return "Prom"
     }
     class func requiredKeys() -> Array<String>{
@@ -46,12 +46,16 @@ class Prom:PFObject, PFSubclassing{
     
     //MARK: Dress Verification
     /* Checks with server to ensure this dress has not been registered for this prom yet */
-    func verifyDesigner(designer:String, withStyle styleNumber:String)->Bool{
+    func verifyDesigner(designer:String, withStyle styleNumber:String) -> Bool{
         let query = PFQuery(className: SKDress.parseClassName())
         query.whereKey("prom", equalTo: self)
         query.whereKey("designer", containsString: designer)
         query.whereKey("styleNumber", equalTo: styleNumber)
-        let num_matches = query.countObjects()
+        var countError: NSError?
+        let num_matches = query.countObjects(&countError)
+        if let error = countError {
+            NSLog("Error verifying dress: \(error.localizedDescription)")
+        }
         NSLog("Found %d matches for %@ %@. \n", num_matches, designer, styleNumber)
         return num_matches == 0
     }
